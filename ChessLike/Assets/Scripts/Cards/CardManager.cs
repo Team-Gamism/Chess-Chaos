@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CardManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class CardManager : MonoBehaviour
 {
 	public List<Card> cards = new List<Card>();
 	public Canvas canvas;
@@ -26,7 +26,7 @@ public class CardManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 		}
 	}
 
-	public void OnPointerEnter(PointerEventData eventData)
+/*	public void OnPointerEnter(PointerEventData eventData)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -34,5 +34,5 @@ public class CardManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 	public void OnPointerExit(PointerEventData eventData)
 	{
 		throw new System.NotImplementedException();
-	}
+	}*/
 }

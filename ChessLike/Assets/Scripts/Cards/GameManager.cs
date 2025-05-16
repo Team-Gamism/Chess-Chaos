@@ -5,4 +5,5 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	public CardManager cardManager;
+	public bool PlayerTurn;
 }

@@ -133,9 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2519380}
   - component: {fileID: 2519381}
+  - component: {fileID: 2519382}
   m_Layer: 0
   m_Name: ChessTableBlack (15)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 2519379}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.75, y: -0.75, z: 0}
+  m_LocalPosition: {x: 1.75, y: -0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -208,6 +209,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2519382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2519379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 7, y: 6}
 --- !u!1 &27935200
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,9 +569,10 @@ GameObject:
   m_Component:
   - component: {fileID: 78487305}
   - component: {fileID: 78487306}
+  - component: {fileID: 78487307}
   m_Layer: 0
   m_Name: ChessTableWhite (20)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -570,7 +586,7 @@ Transform:
   m_GameObject: {fileID: 78487304}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.75, y: 0.75, z: 0}
+  m_LocalPosition: {x: -1.75, y: 1.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -629,6 +645,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &78487307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78487304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 0, y: 3}
 --- !u!1 &79399075
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,9 +753,10 @@ GameObject:
   m_Component:
   - component: {fileID: 80339423}
   - component: {fileID: 80339424}
+  - component: {fileID: 80339425}
   m_Layer: 0
   m_Name: ChessTableBlack (27)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -739,7 +770,7 @@ Transform:
   m_GameObject: {fileID: 80339422}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.75, y: -0.25, z: 0}
+  m_LocalPosition: {x: 1.75, y: 0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -798,6 +829,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &80339425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80339422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 7, y: 5}
 --- !u!1 &94244813
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,9 +853,10 @@ GameObject:
   m_Component:
   - component: {fileID: 94244814}
   - component: {fileID: 94244815}
+  - component: {fileID: 94244816}
   m_Layer: 0
   m_Name: ChessTableWhite (22)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -824,7 +870,7 @@ Transform:
   m_GameObject: {fileID: 94244813}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 0.75, z: 0}
+  m_LocalPosition: {x: 0.25, y: 1.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -883,6 +929,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &94244816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94244813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 4, y: 3}
 --- !u!1 &130873222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,9 +1121,10 @@ GameObject:
   m_Component:
   - component: {fileID: 185058750}
   - component: {fileID: 185058751}
+  - component: {fileID: 185058752}
   m_Layer: 0
   m_Name: ChessTableWhite (29)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1077,7 +1138,7 @@ Transform:
   m_GameObject: {fileID: 185058749}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.75, y: -1.25, z: 0}
+  m_LocalPosition: {x: -0.75, y: -0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1136,6 +1197,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &185058752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185058749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 2, y: 7}
 --- !u!1 &189192433
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,9 +1221,10 @@ GameObject:
   m_Component:
   - component: {fileID: 189192434}
   - component: {fileID: 189192435}
+  - component: {fileID: 189192436}
   m_Layer: 0
   m_Name: ChessTableWhite (1)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1162,7 +1238,7 @@ Transform:
   m_GameObject: {fileID: 189192433}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.75, y: 2.25, z: 0}
+  m_LocalPosition: {x: -0.75, y: 2.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1221,6 +1297,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &189192436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189192433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 2, y: 0}
 --- !u!1 &213472152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,9 +1321,10 @@ GameObject:
   m_Component:
   - component: {fileID: 213472153}
   - component: {fileID: 213472154}
+  - component: {fileID: 213472155}
   m_Layer: 0
   m_Name: ChessTableWhite (21)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1247,7 +1338,7 @@ Transform:
   m_GameObject: {fileID: 213472152}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.75, y: 0.75, z: 0}
+  m_LocalPosition: {x: -0.75, y: 1.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1306,6 +1397,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &213472155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213472152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 2, y: 3}
 --- !u!1 &225655168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,9 +1421,10 @@ GameObject:
   m_Component:
   - component: {fileID: 225655169}
   - component: {fileID: 225655170}
+  - component: {fileID: 225655171}
   m_Layer: 0
   m_Name: ChessTableBlack (18)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1332,7 +1438,7 @@ Transform:
   m_GameObject: {fileID: 225655168}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75, y: 1.75, z: 0}
+  m_LocalPosition: {x: 0.75, y: 2.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1391,6 +1497,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &225655171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225655168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 5, y: 1}
 --- !u!1 &225989766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,9 +1570,10 @@ GameObject:
   m_Component:
   - component: {fileID: 244173495}
   - component: {fileID: 244173496}
+  - component: {fileID: 244173497}
   m_Layer: 0
   m_Name: ChessTableBlack (23)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1466,7 +1587,7 @@ Transform:
   m_GameObject: {fileID: 244173494}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.75, y: 0.75, z: 0}
+  m_LocalPosition: {x: 1.75, y: 1.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1525,6 +1646,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &244173497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244173494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 7, y: 3}
 --- !u!1 &247464206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,9 +1997,10 @@ GameObject:
   m_Component:
   - component: {fileID: 282687739}
   - component: {fileID: 282687740}
+  - component: {fileID: 282687741}
   m_Layer: 0
   m_Name: ChessTableBlack (3)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1878,7 +2014,7 @@ Transform:
   m_GameObject: {fileID: 282687738}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.75, y: 2.25, z: 0}
+  m_LocalPosition: {x: 1.75, y: 2.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1937,6 +2073,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &282687741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282687738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 7, y: 0}
 --- !u!1 &284357293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,9 +2097,10 @@ GameObject:
   m_Component:
   - component: {fileID: 284357294}
   - component: {fileID: 284357295}
+  - component: {fileID: 284357296}
   m_Layer: 0
   m_Name: ChessTableWhite (12)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1963,7 +2114,7 @@ Transform:
   m_GameObject: {fileID: 284357293}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.75, y: -0.75, z: 0}
+  m_LocalPosition: {x: -1.75, y: -0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2022,6 +2173,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &284357296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284357293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 0, y: 6}
 --- !u!1 &285204137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,7 +2198,6 @@ GameObject:
   - component: {fileID: 285204138}
   - component: {fileID: 285204140}
   - component: {fileID: 285204143}
-  - component: {fileID: 285204139}
   - component: {fileID: 285204142}
   - component: {fileID: 285204144}
   - component: {fileID: 285204145}
@@ -2064,36 +2228,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &285204139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285204137}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.69411767}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &285204140
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2274,9 +2408,10 @@ GameObject:
   m_Component:
   - component: {fileID: 299456167}
   - component: {fileID: 299456168}
+  - component: {fileID: 299456169}
   m_Layer: 0
   m_Name: ChessTableWhite (19)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2290,7 +2425,7 @@ Transform:
   m_GameObject: {fileID: 299456166}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 1.75, z: 0}
+  m_LocalPosition: {x: 1.25, y: 2.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2349,6 +2484,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &299456169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299456166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 6, y: 1}
 --- !u!1 &301157793
 GameObject:
   m_ObjectHideFlags: 0
@@ -2359,9 +2508,10 @@ GameObject:
   m_Component:
   - component: {fileID: 301157794}
   - component: {fileID: 301157795}
+  - component: {fileID: 301157796}
   m_Layer: 0
   m_Name: ChessTableBlack (11)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2375,7 +2525,7 @@ Transform:
   m_GameObject: {fileID: 301157793}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.75, y: 0.25, z: 0}
+  m_LocalPosition: {x: 1.75, y: 0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2434,6 +2584,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &301157796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301157793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 7, y: 4}
 --- !u!1 &329877595
 GameObject:
   m_ObjectHideFlags: 0
@@ -2528,9 +2692,10 @@ GameObject:
   m_Component:
   - component: {fileID: 350730314}
   - component: {fileID: 350730315}
+  - component: {fileID: 350730316}
   m_Layer: 0
   m_Name: ChessTableBlack (19)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2544,7 +2709,7 @@ Transform:
   m_GameObject: {fileID: 350730313}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.75, y: 1.75, z: 0}
+  m_LocalPosition: {x: 1.75, y: 2.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2603,6 +2768,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &350730316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350730313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 7, y: 1}
 --- !u!1 &355419572
 GameObject:
   m_ObjectHideFlags: 0
@@ -2697,9 +2876,10 @@ GameObject:
   m_Component:
   - component: {fileID: 367751453}
   - component: {fileID: 367751454}
+  - component: {fileID: 367751455}
   m_Layer: 0
   m_Name: ChessTableBlack (1)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2713,7 +2893,7 @@ Transform:
   m_GameObject: {fileID: 367751452}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 2.25, z: 0}
+  m_LocalPosition: {x: -0.25, y: 2.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2772,6 +2952,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &367751455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367751452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 3, y: 0}
 --- !u!1 &369199800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,9 +3051,10 @@ GameObject:
   m_Component:
   - component: {fileID: 386614688}
   - component: {fileID: 386614689}
+  - component: {fileID: 386614690}
   m_Layer: 0
   m_Name: ChessTableBlack (6)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2873,7 +3068,7 @@ Transform:
   m_GameObject: {fileID: 386614687}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75, y: 1.25, z: 0}
+  m_LocalPosition: {x: 0.75, y: 1.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2932,6 +3127,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &386614690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386614687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 5, y: 2}
 --- !u!1 &386795236
 GameObject:
   m_ObjectHideFlags: 0
@@ -3110,9 +3319,10 @@ GameObject:
   m_Component:
   - component: {fileID: 433695541}
   - component: {fileID: 433695542}
+  - component: {fileID: 433695543}
   m_Layer: 0
   m_Name: ChessTableBlack (24)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3126,7 +3336,7 @@ Transform:
   m_GameObject: {fileID: 433695540}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.25, y: -0.25, z: 0}
+  m_LocalPosition: {x: -1.25, y: 0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3185,6 +3395,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &433695543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433695540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 1, y: 5}
 --- !u!1 &442474126
 GameObject:
   m_ObjectHideFlags: 0
@@ -3195,9 +3419,10 @@ GameObject:
   m_Component:
   - component: {fileID: 442474127}
   - component: {fileID: 442474128}
+  - component: {fileID: 442474129}
   m_Layer: 0
   m_Name: ChessTableWhite (30)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3211,7 +3436,7 @@ Transform:
   m_GameObject: {fileID: 442474126}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: -1.25, z: 0}
+  m_LocalPosition: {x: 0.25, y: -0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3270,6 +3495,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &442474129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442474126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 4, y: 7}
 --- !u!1 &484057856
 GameObject:
   m_ObjectHideFlags: 0
@@ -3479,9 +3718,10 @@ GameObject:
   m_Component:
   - component: {fileID: 515406263}
   - component: {fileID: 515406264}
+  - component: {fileID: 515406265}
   m_Layer: 0
   m_Name: ChessTableWhite (28)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3495,7 +3735,7 @@ Transform:
   m_GameObject: {fileID: 515406262}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.75, y: -1.25, z: 0}
+  m_LocalPosition: {x: -1.75, y: -0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3554,6 +3794,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &515406265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515406262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 0, y: 7}
 --- !u!1 &538729351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3648,9 +3902,10 @@ GameObject:
   m_Component:
   - component: {fileID: 554977304}
   - component: {fileID: 554977305}
+  - component: {fileID: 554977306}
   m_Layer: 0
   m_Name: ChessTableBlack (16)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3664,7 +3919,7 @@ Transform:
   m_GameObject: {fileID: 554977303}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 1.75, z: 0}
+  m_LocalPosition: {x: -1.25, y: 2.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3723,6 +3978,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &554977306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554977303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 1, y: 1}
 --- !u!1 &556887845
 GameObject:
   m_ObjectHideFlags: 0
@@ -3901,6 +4170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 595194749}
   - component: {fileID: 595194750}
+  - component: {fileID: 595194751}
   m_Layer: 0
   m_Name: ChessTable
   m_TagString: Untagged
@@ -3917,9 +4187,9 @@ Transform:
   m_GameObject: {fileID: 595194748}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: -0.25, z: 0}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1791911748}
   - {fileID: 1197429694}
@@ -3999,6 +4269,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd75613b92fcda49bf5c343ebd94274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &595194751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595194748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced65121772465e4eaddc4be7ca36f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableList: []
 --- !u!1 &610568982
 GameObject:
   m_ObjectHideFlags: 0
@@ -4084,9 +4367,10 @@ GameObject:
   m_Component:
   - component: {fileID: 633933881}
   - component: {fileID: 633933882}
+  - component: {fileID: 633933883}
   m_Layer: 0
   m_Name: ChessTableBlack (2)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4100,7 +4384,7 @@ Transform:
   m_GameObject: {fileID: 633933880}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75, y: 2.25, z: 0}
+  m_LocalPosition: {x: 0.75, y: 2.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4159,6 +4443,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &633933883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633933880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 5, y: 0}
 --- !u!1 &637172189
 GameObject:
   m_ObjectHideFlags: 0
@@ -4170,7 +4468,6 @@ GameObject:
   - component: {fileID: 637172190}
   - component: {fileID: 637172192}
   - component: {fileID: 637172195}
-  - component: {fileID: 637172191}
   - component: {fileID: 637172194}
   - component: {fileID: 637172196}
   - component: {fileID: 637172197}
@@ -4201,36 +4498,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &637172191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 637172189}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.69411767}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &637172192
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4632,7 +4899,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.33333334, y: 1}
+  m_Size: {x: 0.18, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4647,9 +4914,9 @@ Transform:
   m_GameObject: {fileID: 694857149}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.25, y: -0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.31, y: -1.15, z: 0}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5136,9 +5403,10 @@ GameObject:
   m_Component:
   - component: {fileID: 831579833}
   - component: {fileID: 831579834}
+  - component: {fileID: 831579835}
   m_Layer: 0
   m_Name: ChessTableBlack (29)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5152,7 +5420,7 @@ Transform:
   m_GameObject: {fileID: 831579832}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25, y: -1.25, z: 0}
+  m_LocalPosition: {x: -0.25, y: -0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -5211,6 +5479,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &831579835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831579832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 3, y: 7}
 --- !u!1 &837231109
 GameObject:
   m_ObjectHideFlags: 0
@@ -5514,9 +5796,10 @@ GameObject:
   m_Component:
   - component: {fileID: 869994143}
   - component: {fileID: 869994144}
+  - component: {fileID: 869994145}
   m_Layer: 0
   m_Name: ChessTableWhite (7)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5530,7 +5813,7 @@ Transform:
   m_GameObject: {fileID: 869994142}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 1.25, z: 0}
+  m_LocalPosition: {x: 1.25, y: 1.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -5589,6 +5872,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &869994145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869994142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 6, y: 2}
 --- !u!1 &870768042
 GameObject:
   m_ObjectHideFlags: 0
@@ -5599,9 +5896,10 @@ GameObject:
   m_Component:
   - component: {fileID: 870768043}
   - component: {fileID: 870768044}
+  - component: {fileID: 870768045}
   m_Layer: 0
   m_Name: ChessTableWhite (11)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5615,7 +5913,7 @@ Transform:
   m_GameObject: {fileID: 870768042}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 0.25, z: 0}
+  m_LocalPosition: {x: 1.25, y: 0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -5674,6 +5972,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &870768045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870768042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 6, y: 4}
 --- !u!1 &876161186
 GameObject:
   m_ObjectHideFlags: 0
@@ -5684,9 +5996,10 @@ GameObject:
   m_Component:
   - component: {fileID: 876161187}
   - component: {fileID: 876161188}
+  - component: {fileID: 876161189}
   m_Layer: 0
   m_Name: ChessTableBlack (22)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5700,7 +6013,7 @@ Transform:
   m_GameObject: {fileID: 876161186}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75, y: 0.75, z: 0}
+  m_LocalPosition: {x: 0.75, y: 1.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -5759,6 +6072,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &876161189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876161186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 5, y: 3}
 --- !u!1 &882293981
 GameObject:
   m_ObjectHideFlags: 0
@@ -5937,9 +6264,10 @@ GameObject:
   m_Component:
   - component: {fileID: 893376522}
   - component: {fileID: 893376523}
+  - component: {fileID: 893376524}
   m_Layer: 0
   m_Name: ChessTableWhite (17)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5953,7 +6281,7 @@ Transform:
   m_GameObject: {fileID: 893376521}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.75, y: 1.75, z: 0}
+  m_LocalPosition: {x: -0.75, y: 2.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -6012,6 +6340,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &893376524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893376521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 2, y: 1}
 --- !u!1 &906389428
 GameObject:
   m_ObjectHideFlags: 0
@@ -6022,9 +6364,10 @@ GameObject:
   m_Component:
   - component: {fileID: 906389429}
   - component: {fileID: 906389430}
+  - component: {fileID: 906389431}
   m_Layer: 0
   m_Name: ChessTableWhite (5)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6038,7 +6381,7 @@ Transform:
   m_GameObject: {fileID: 906389428}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.75, y: 1.25, z: 0}
+  m_LocalPosition: {x: -0.75, y: 1.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -6097,6 +6440,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &906389431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906389428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 2, y: 2}
 --- !u!1 &914153413
 GameObject:
   m_ObjectHideFlags: 0
@@ -6192,7 +6549,6 @@ GameObject:
   - component: {fileID: 923324856}
   - component: {fileID: 923324858}
   - component: {fileID: 923324861}
-  - component: {fileID: 923324857}
   - component: {fileID: 923324860}
   - component: {fileID: 923324862}
   - component: {fileID: 923324863}
@@ -6223,36 +6579,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &923324857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923324855}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.69411767}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &923324858
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6685,9 +7011,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1013735329}
   - component: {fileID: 1013735330}
+  - component: {fileID: 1013735331}
   m_Layer: 0
   m_Name: ChessTableBlack (25)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6701,7 +7028,7 @@ Transform:
   m_GameObject: {fileID: 1013735328}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25, y: -0.25, z: 0}
+  m_LocalPosition: {x: -0.25, y: 0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -6760,6 +7087,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1013735331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013735328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 3, y: 5}
 --- !u!1 &1019251117
 GameObject:
   m_ObjectHideFlags: 0
@@ -6854,9 +7195,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1051606191}
   - component: {fileID: 1051606192}
+  - component: {fileID: 1051606193}
   m_Layer: 0
   m_Name: ChessTableWhite (27)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6870,7 +7212,7 @@ Transform:
   m_GameObject: {fileID: 1051606190}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: -0.25, z: 0}
+  m_LocalPosition: {x: 1.25, y: 0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -6929,6 +7271,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1051606193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051606190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 6, y: 5}
 --- !u!1 &1052857373
 GameObject:
   m_ObjectHideFlags: 0
@@ -7191,9 +7547,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1108355751}
   - component: {fileID: 1108355752}
+  - component: {fileID: 1108355753}
   m_Layer: 0
   m_Name: ChessTableWhite (9)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7207,7 +7564,7 @@ Transform:
   m_GameObject: {fileID: 1108355750}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.75, y: 0.25, z: 0}
+  m_LocalPosition: {x: -0.75, y: 0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -7266,6 +7623,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1108355753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108355750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 2, y: 4}
 --- !u!1 &1112690357
 GameObject:
   m_ObjectHideFlags: 0
@@ -7276,9 +7647,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1112690358}
   - component: {fileID: 1112690359}
+  - component: {fileID: 1112690360}
   m_Layer: 0
   m_Name: ChessTableWhite (8)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7292,7 +7664,7 @@ Transform:
   m_GameObject: {fileID: 1112690357}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.75, y: 0.25, z: 0}
+  m_LocalPosition: {x: -1.75, y: 0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -7351,6 +7723,121 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1112690360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112690357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 0, y: 4}
+--- !u!1 &1116227428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1116227432}
+  - component: {fileID: 1116227431}
+  - component: {fileID: 1116227430}
+  - component: {fileID: 1116227429}
+  m_Layer: 5
+  m_Name: PieceCanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1116227429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116227428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1116227430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116227428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!223 &1116227431
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116227428}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 826901539}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1116227432
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116227428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.004912315, y: 0.004912315, z: 0.004912315}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 1}
+  m_SizeDelta: {x: 1018, y: 1018}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1127532763
 GameObject:
   m_ObjectHideFlags: 0
@@ -7520,9 +8007,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1149039111}
   - component: {fileID: 1149039112}
+  - component: {fileID: 1149039113}
   m_Layer: 0
   m_Name: ChessTableBlack (14)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7536,7 +8024,7 @@ Transform:
   m_GameObject: {fileID: 1149039110}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75, y: -0.75, z: 0}
+  m_LocalPosition: {x: 0.75, y: -0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -7595,6 +8083,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1149039113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149039110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 5, y: 6}
 --- !u!1 &1169669770
 GameObject:
   m_ObjectHideFlags: 0
@@ -7689,9 +8191,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1181040751}
   - component: {fileID: 1181040752}
+  - component: {fileID: 1181040753}
   m_Layer: 0
   m_Name: ChessTableWhite (16)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7705,7 +8208,7 @@ Transform:
   m_GameObject: {fileID: 1181040750}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.75, y: 1.75, z: 0}
+  m_LocalPosition: {x: -1.75, y: 2.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -7764,6 +8267,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1181040753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181040750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 0, y: 1}
 --- !u!1 &1193194594
 GameObject:
   m_ObjectHideFlags: 0
@@ -7774,9 +8291,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1193194595}
   - component: {fileID: 1193194596}
+  - component: {fileID: 1193194597}
   m_Layer: 0
   m_Name: ChessTableBlack (9)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7790,7 +8308,7 @@ Transform:
   m_GameObject: {fileID: 1193194594}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 0.25, z: 0}
+  m_LocalPosition: {x: -0.25, y: 0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -7849,6 +8367,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1193194597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193194594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 3, y: 4}
 --- !u!1 &1197429692
 GameObject:
   m_ObjectHideFlags: 0
@@ -7859,9 +8391,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1197429694}
   - component: {fileID: 1197429693}
+  - component: {fileID: 1197429695}
   m_Layer: 0
   m_Name: ChessTableBlack
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7927,13 +8460,27 @@ Transform:
   m_GameObject: {fileID: 1197429692}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 2.25, z: 0}
+  m_LocalPosition: {x: -1.25, y: 2.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 40258800}
   m_Father: {fileID: 595194749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1197429695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197429692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 1, y: 0}
 --- !u!1 &1199837761
 GameObject:
   m_ObjectHideFlags: 0
@@ -7944,9 +8491,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1199837762}
   - component: {fileID: 1199837763}
+  - component: {fileID: 1199837764}
   m_Layer: 0
   m_Name: ChessTableWhite (18)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7960,7 +8508,7 @@ Transform:
   m_GameObject: {fileID: 1199837761}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 1.75, z: 0}
+  m_LocalPosition: {x: 0.25, y: 2.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -8019,6 +8567,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1199837764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199837761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 4, y: 1}
 --- !u!1 &1207735853
 GameObject:
   m_ObjectHideFlags: 0
@@ -8029,9 +8591,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1207735854}
   - component: {fileID: 1207735855}
+  - component: {fileID: 1207735856}
   m_Layer: 0
   m_Name: ChessTableWhite (6)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8045,7 +8608,7 @@ Transform:
   m_GameObject: {fileID: 1207735853}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 1.25, z: 0}
+  m_LocalPosition: {x: 0.25, y: 1.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -8104,6 +8667,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1207735856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207735853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 4, y: 2}
 --- !u!1 &1224897808
 GameObject:
   m_ObjectHideFlags: 0
@@ -8198,9 +8775,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1273725518}
   - component: {fileID: 1273725519}
+  - component: {fileID: 1273725520}
   m_Layer: 0
   m_Name: ChessTableBlack (10)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8214,7 +8792,7 @@ Transform:
   m_GameObject: {fileID: 1273725517}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75, y: 0.25, z: 0}
+  m_LocalPosition: {x: 0.75, y: 0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -8273,6 +8851,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1273725520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273725517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 5, y: 4}
 --- !u!1 &1275815431
 GameObject:
   m_ObjectHideFlags: 0
@@ -8283,9 +8875,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1275815432}
   - component: {fileID: 1275815433}
+  - component: {fileID: 1275815434}
   m_Layer: 0
   m_Name: ChessTableWhite (10)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8299,7 +8892,7 @@ Transform:
   m_GameObject: {fileID: 1275815431}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 0.25, z: 0}
+  m_LocalPosition: {x: 0.25, y: 0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -8358,6 +8951,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1275815434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275815431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 4, y: 4}
 --- !u!1 &1304015070
 GameObject:
   m_ObjectHideFlags: 0
@@ -8620,9 +9227,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1372226626}
   - component: {fileID: 1372226627}
+  - component: {fileID: 1372226628}
   m_Layer: 0
   m_Name: ChessTableBlack (21)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8636,7 +9244,7 @@ Transform:
   m_GameObject: {fileID: 1372226625}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 0.75, z: 0}
+  m_LocalPosition: {x: -0.25, y: 1.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -8695,6 +9303,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1372226628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372226625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 3, y: 3}
 --- !u!1 &1408548289
 GameObject:
   m_ObjectHideFlags: 0
@@ -8789,9 +9411,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1434329412}
   - component: {fileID: 1434329413}
+  - component: {fileID: 1434329414}
   m_Layer: 0
   m_Name: ChessTableBlack (8)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8805,7 +9428,7 @@ Transform:
   m_GameObject: {fileID: 1434329411}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 0.25, z: 0}
+  m_LocalPosition: {x: -1.25, y: 0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -8864,6 +9487,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1434329414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434329411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 1, y: 4}
 --- !u!1 &1460024384
 GameObject:
   m_ObjectHideFlags: 0
@@ -9042,9 +9679,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1476548601}
   - component: {fileID: 1476548602}
+  - component: {fileID: 1476548603}
   m_Layer: 0
   m_Name: ChessTableWhite (4)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9058,7 +9696,7 @@ Transform:
   m_GameObject: {fileID: 1476548600}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.75, y: 1.25, z: 0}
+  m_LocalPosition: {x: -1.75, y: 1.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -9117,6 +9755,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1476548603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476548600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 0, y: 2}
 --- !u!1 &1479008992
 GameObject:
   m_ObjectHideFlags: 0
@@ -9211,9 +9863,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1481905208}
   - component: {fileID: 1481905209}
+  - component: {fileID: 1481905210}
   m_Layer: 0
   m_Name: ChessTableBlack (12)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9227,7 +9880,7 @@ Transform:
   m_GameObject: {fileID: 1481905207}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.25, y: -0.75, z: 0}
+  m_LocalPosition: {x: -1.25, y: -0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -9286,6 +9939,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1481905210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481905207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 1, y: 6}
 --- !u!1 &1496080431
 GameObject:
   m_ObjectHideFlags: 0
@@ -9296,9 +9963,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1496080432}
   - component: {fileID: 1496080433}
+  - component: {fileID: 1496080434}
   m_Layer: 0
   m_Name: ChessTableWhite (31)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9312,7 +9980,7 @@ Transform:
   m_GameObject: {fileID: 1496080431}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: -1.25, z: 0}
+  m_LocalPosition: {x: 1.25, y: -0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -9371,6 +10039,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1496080434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496080431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 6, y: 7}
 --- !u!1 &1497774121
 GameObject:
   m_ObjectHideFlags: 0
@@ -9466,7 +10148,6 @@ GameObject:
   - component: {fileID: 1514978292}
   - component: {fileID: 1514978294}
   - component: {fileID: 1514978297}
-  - component: {fileID: 1514978293}
   - component: {fileID: 1514978296}
   - component: {fileID: 1514978298}
   - component: {fileID: 1514978299}
@@ -9497,36 +10178,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1514978293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514978291}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.69411767}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1514978294
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9623,9 +10274,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1546820500}
   - component: {fileID: 1546820501}
+  - component: {fileID: 1546820502}
   m_Layer: 0
   m_Name: ChessTableWhite (14)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9639,7 +10291,7 @@ Transform:
   m_GameObject: {fileID: 1546820499}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: -0.75, z: 0}
+  m_LocalPosition: {x: 0.25, y: -0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -9698,6 +10350,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1546820502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546820499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 4, y: 6}
 --- !u!1 &1564618108
 GameObject:
   m_ObjectHideFlags: 0
@@ -9708,9 +10374,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1564618109}
   - component: {fileID: 1564618110}
+  - component: {fileID: 1564618111}
   m_Layer: 0
   m_Name: ChessTableBlack (5)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9724,7 +10391,7 @@ Transform:
   m_GameObject: {fileID: 1564618108}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 1.25, z: 0}
+  m_LocalPosition: {x: -0.25, y: 1.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -9783,6 +10450,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1564618111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564618108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 3, y: 2}
 --- !u!1 &1576990006
 GameObject:
   m_ObjectHideFlags: 0
@@ -9945,9 +10626,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1586923960}
   - component: {fileID: 1586923961}
+  - component: {fileID: 1586923962}
   m_Layer: 0
   m_Name: ChessTableBlack (26)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9961,7 +10643,7 @@ Transform:
   m_GameObject: {fileID: 1586923959}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75, y: -0.25, z: 0}
+  m_LocalPosition: {x: 0.75, y: 0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -10020,6 +10702,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1586923962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586923959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 5, y: 5}
 --- !u!1 &1595676953
 GameObject:
   m_ObjectHideFlags: 0
@@ -10114,9 +10810,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1618116196}
   - component: {fileID: 1618116197}
+  - component: {fileID: 1618116198}
   m_Layer: 0
   m_Name: ChessTableBlack (30)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10130,7 +10827,7 @@ Transform:
   m_GameObject: {fileID: 1618116195}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75, y: -1.25, z: 0}
+  m_LocalPosition: {x: 0.75, y: -0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -10189,6 +10886,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1618116198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618116195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 5, y: 7}
 --- !u!1 &1625256013
 GameObject:
   m_ObjectHideFlags: 0
@@ -10199,9 +10910,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1625256014}
   - component: {fileID: 1625256015}
+  - component: {fileID: 1625256016}
   m_Layer: 0
   m_Name: ChessTableWhite (3)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10215,7 +10927,7 @@ Transform:
   m_GameObject: {fileID: 1625256013}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 2.25, z: 0}
+  m_LocalPosition: {x: 1.25, y: 2.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -10274,6 +10986,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1625256016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625256013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 6, y: 0}
 --- !u!1 &1656154116
 GameObject:
   m_ObjectHideFlags: 0
@@ -10284,6 +11010,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1656154118}
   - component: {fileID: 1656154117}
+  - component: {fileID: 1656154119}
+  - component: {fileID: 1656154120}
   m_Layer: 0
   m_Name: pawnBack
   m_TagString: Untagged
@@ -10311,7 +11039,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 5b94710b53c1eed419b21cb857857dbb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10337,7 +11065,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.33333334, y: 1}
+  m_Size: {x: 0.18, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -10352,12 +11080,42 @@ Transform:
   m_GameObject: {fileID: 1656154116}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.75, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.95, y: -0.55, z: 0}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 2.6041665}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1656154119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656154116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0774e0b089dc3b0419fdea88a9e4a46a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PieceType: 0
+  isWhite: 0
+  IsFirstMove: 0
+  IsStatic: 0
+  StaticTurn: 0
+--- !u!114 &1656154120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656154116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a34226265a0b8e346904492516cb75f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1656154117}
 --- !u!1 &1668375878
 GameObject:
   m_ObjectHideFlags: 0
@@ -10452,9 +11210,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1671358358}
   - component: {fileID: 1671358359}
+  - component: {fileID: 1671358360}
   m_Layer: 0
   m_Name: ChessTableWhite (15)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10468,7 +11227,7 @@ Transform:
   m_GameObject: {fileID: 1671358357}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: -0.75, z: 0}
+  m_LocalPosition: {x: 1.25, y: -0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -10527,6 +11286,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1671358360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671358357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 6, y: 6}
 --- !u!1 &1674907472
 GameObject:
   m_ObjectHideFlags: 0
@@ -10873,9 +11646,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1791911748}
   - component: {fileID: 1791911747}
+  - component: {fileID: 1791911749}
   m_Layer: 0
   m_Name: ChessTableWhite
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10941,13 +11715,27 @@ Transform:
   m_GameObject: {fileID: 1791911746}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.75, y: 2.25, z: 0}
+  m_LocalPosition: {x: -1.75, y: 2.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 162025974}
   m_Father: {fileID: 595194749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1791911749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791911746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 0, y: 0}
 --- !u!1 &1791958046
 GameObject:
   m_ObjectHideFlags: 0
@@ -11042,9 +11830,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1794571012}
   - component: {fileID: 1794571013}
+  - component: {fileID: 1794571014}
   m_Layer: 0
   m_Name: ChessTableWhite (24)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11058,7 +11847,7 @@ Transform:
   m_GameObject: {fileID: 1794571011}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.75, y: -0.25, z: 0}
+  m_LocalPosition: {x: -1.75, y: 0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -11117,6 +11906,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1794571014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794571011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 0, y: 5}
 --- !u!1 &1799235056
 GameObject:
   m_ObjectHideFlags: 0
@@ -11295,9 +12098,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1846071049}
   - component: {fileID: 1846071050}
+  - component: {fileID: 1846071051}
   m_Layer: 0
   m_Name: ChessTableBlack (17)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11311,7 +12115,7 @@ Transform:
   m_GameObject: {fileID: 1846071048}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 1.75, z: 0}
+  m_LocalPosition: {x: -0.25, y: 2.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -11370,6 +12174,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1846071051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846071048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 3, y: 1}
 --- !u!1 &1865270703
 GameObject:
   m_ObjectHideFlags: 0
@@ -11380,9 +12198,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1865270704}
   - component: {fileID: 1865270705}
+  - component: {fileID: 1865270706}
   m_Layer: 0
   m_Name: ChessTableBlack (13)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11396,7 +12215,7 @@ Transform:
   m_GameObject: {fileID: 1865270703}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25, y: -0.75, z: 0}
+  m_LocalPosition: {x: -0.25, y: -0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -11455,6 +12274,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1865270706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865270703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 3, y: 6}
 --- !u!1 &1888308719
 GameObject:
   m_ObjectHideFlags: 0
@@ -11465,9 +12298,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1888308720}
   - component: {fileID: 1888308721}
+  - component: {fileID: 1888308722}
   m_Layer: 0
   m_Name: ChessTableWhite (2)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11481,7 +12315,7 @@ Transform:
   m_GameObject: {fileID: 1888308719}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 2.25, z: 0}
+  m_LocalPosition: {x: 0.25, y: 2.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -11540,6 +12374,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1888308722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888308719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 4, y: 0}
 --- !u!1 &1893556025
 GameObject:
   m_ObjectHideFlags: 0
@@ -11550,9 +12398,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1893556026}
   - component: {fileID: 1893556027}
+  - component: {fileID: 1893556028}
   m_Layer: 0
   m_Name: ChessTableBlack (7)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11566,7 +12415,7 @@ Transform:
   m_GameObject: {fileID: 1893556025}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.75, y: 1.25, z: 0}
+  m_LocalPosition: {x: 1.75, y: 1.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -11625,6 +12474,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1893556028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893556025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 7, y: 2}
 --- !u!1 &1907885717
 GameObject:
   m_ObjectHideFlags: 0
@@ -11635,9 +12498,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1907885718}
   - component: {fileID: 1907885719}
+  - component: {fileID: 1907885720}
   m_Layer: 0
   m_Name: ChessTableBlack (20)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11651,7 +12515,7 @@ Transform:
   m_GameObject: {fileID: 1907885717}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 0.75, z: 0}
+  m_LocalPosition: {x: -1.25, y: 1.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -11710,6 +12574,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1907885720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907885717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 1, y: 3}
 --- !u!1 &1927818722
 GameObject:
   m_ObjectHideFlags: 0
@@ -11723,7 +12601,7 @@ GameObject:
   - component: {fileID: 1927818724}
   - component: {fileID: 1927818723}
   m_Layer: 5
-  m_Name: UI
+  m_Name: GameUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11822,9 +12700,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1931157491}
   - component: {fileID: 1931157492}
+  - component: {fileID: 1931157493}
   m_Layer: 0
   m_Name: ChessTableBlack (31)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11838,7 +12717,7 @@ Transform:
   m_GameObject: {fileID: 1931157490}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.75, y: -1.25, z: 0}
+  m_LocalPosition: {x: 1.75, y: -0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -11897,6 +12776,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1931157493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931157490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 7, y: 7}
 --- !u!1 &1940263427
 GameObject:
   m_ObjectHideFlags: 0
@@ -11991,9 +12884,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1944608720}
   - component: {fileID: 1944608721}
+  - component: {fileID: 1944608722}
   m_Layer: 0
   m_Name: ChessTableWhite (25)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12007,7 +12901,7 @@ Transform:
   m_GameObject: {fileID: 1944608719}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.75, y: -0.25, z: 0}
+  m_LocalPosition: {x: -0.75, y: 0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -12066,6 +12960,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1944608722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944608719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 2, y: 5}
 --- !u!1 &1945746970
 GameObject:
   m_ObjectHideFlags: 0
@@ -12245,7 +13153,6 @@ GameObject:
   - component: {fileID: 1997391911}
   - component: {fileID: 1997391913}
   - component: {fileID: 1997391916}
-  - component: {fileID: 1997391912}
   - component: {fileID: 1997391915}
   - component: {fileID: 1997391917}
   - component: {fileID: 1997391918}
@@ -12276,36 +13183,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1997391912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997391910}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.69411767}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1997391913
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12402,9 +13279,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2002818948}
   - component: {fileID: 2002818949}
+  - component: {fileID: 2002818950}
   m_Layer: 0
   m_Name: ChessTableWhite (26)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12418,7 +13296,7 @@ Transform:
   m_GameObject: {fileID: 2002818947}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: -0.25, z: 0}
+  m_LocalPosition: {x: 0.25, y: 0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -12477,6 +13355,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2002818950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002818947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 4, y: 5}
 --- !u!1 &2005183236
 GameObject:
   m_ObjectHideFlags: 0
@@ -12540,7 +13432,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.33333334, y: 1}
+  m_Size: {x: 0.18, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -12555,9 +13447,9 @@ Transform:
   m_GameObject: {fileID: 2005183236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 2.05, y: -0.32, z: 0}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12571,9 +13463,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2013932205}
   - component: {fileID: 2013932206}
+  - component: {fileID: 2013932207}
   m_Layer: 0
   m_Name: ChessTableWhite (23)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12587,7 +13480,7 @@ Transform:
   m_GameObject: {fileID: 2013932204}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 0.75, z: 0}
+  m_LocalPosition: {x: 1.25, y: 1.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -12646,6 +13539,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2013932207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013932204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 6, y: 3}
 --- !u!1 &2020942808
 GameObject:
   m_ObjectHideFlags: 0
@@ -12656,9 +13563,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2020942809}
   - component: {fileID: 2020942810}
+  - component: {fileID: 2020942811}
   m_Layer: 0
   m_Name: ChessTableBlack (28)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12672,7 +13580,7 @@ Transform:
   m_GameObject: {fileID: 2020942808}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.25, y: -1.25, z: 0}
+  m_LocalPosition: {x: -1.25, y: -0.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -12731,6 +13639,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2020942811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020942808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 1, y: 7}
 --- !u!1 &2026459429
 GameObject:
   m_ObjectHideFlags: 0
@@ -12825,9 +13747,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2065376657}
   - component: {fileID: 2065376658}
+  - component: {fileID: 2065376659}
   m_Layer: 0
   m_Name: ChessTableWhite (13)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12841,7 +13764,7 @@ Transform:
   m_GameObject: {fileID: 2065376656}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.75, y: -0.75, z: 0}
+  m_LocalPosition: {x: -0.75, y: -0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -12900,6 +13823,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2065376659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065376656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 2, y: 6}
 --- !u!1 &2068463652
 GameObject:
   m_ObjectHideFlags: 0
@@ -12994,9 +13931,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2079128407}
   - component: {fileID: 2079128408}
+  - component: {fileID: 2079128409}
   m_Layer: 0
   m_Name: ChessTableBlack (4)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13010,7 +13948,7 @@ Transform:
   m_GameObject: {fileID: 2079128406}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 1.25, z: 0}
+  m_LocalPosition: {x: -1.25, y: 1.75, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -13069,6 +14007,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2079128409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079128406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b71fa96b7dcf4ea5e6babed6203eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TableManager: {fileID: 595194751}
+  Coordinate: {x: 1, y: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -13083,3 +14035,4 @@ SceneRoots:
   - {fileID: 694857151}
   - {fileID: 1656154118}
   - {fileID: 2005183238}
+  - {fileID: 1116227432}
