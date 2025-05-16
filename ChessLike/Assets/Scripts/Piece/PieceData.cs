@@ -38,7 +38,7 @@ public class PieceData : MonoBehaviour
 	private Vector2 GetTablePosition(int idx)
 	{
 		Transform tableTrans = tableManager.TableList[idx].transform;
-		return tableTrans.parent.TransformPoint(tableTrans.localPosition);
+		return tableTrans.parent.TransformPoint(tableTrans.position);
 	}
 }
 

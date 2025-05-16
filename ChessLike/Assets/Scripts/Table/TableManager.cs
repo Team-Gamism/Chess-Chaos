@@ -21,6 +21,5 @@ public class TableManager : MonoBehaviour
 				return a.Coordinate.x.CompareTo(b.Coordinate.x);
 		});
 	}
-	
 
 }
