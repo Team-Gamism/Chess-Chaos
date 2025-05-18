@@ -7,7 +7,6 @@ public class PieceSpawner : MonoBehaviour
 {
 	public GameObject Pawn, Knight, Rook, Bishop, Queen, King;
 
-	public bool PlayerColor = true; //임시 코드, 1이면 검정, 0이면 흰색
 	public void SpawnPieces()
 	{
 		StartCoroutine(SpawnCoroutine());
@@ -56,7 +55,7 @@ public class PieceSpawner : MonoBehaviour
 		{
 			var name = pieces[i].name;
 			var id = pieces[i].id;
-			var isWhite = id < 32 ? PlayerColor : !PlayerColor;
+			var isWhite = id > 32 ? true : false;
 
 			switch (name)
 			{
@@ -75,7 +74,7 @@ public class PieceSpawner : MonoBehaviour
 	{
 		var n = Instantiate(piece);
 		n.transform.SetParent(this.transform, false);
-		n.GetComponent<PieceData>().isWhite = isWhite;
+		n.GetComponent<PieceData>().IsPlayerPiece = isWhite;
 		n.GetComponent<PieceData>().SpawnAnimation(id);
 	}
 }

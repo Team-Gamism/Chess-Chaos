@@ -6,7 +6,7 @@ public class PieceData : MonoBehaviour
 {
 	public Sprite[] sprites;
 	public PieceType PieceType;    //기물 종류
-	public bool isWhite;		   //흑백 여부 확인
+	public bool IsPlayerPiece;	   //플레이어 기물 여부 확인
 	[HideInInspector]
 	public bool IsFirstMove = true;//첫 움직임 확인(폰)
 
@@ -21,7 +21,21 @@ public class PieceData : MonoBehaviour
 
 	public void SpawnAnimation(int idx)	//스폰 시 나타나는 애니메이션
 	{
-		GetComponent<Image>().sprite = sprites[isWhite ? 0 : 2];
+		int n = 0;
+		if (IsPlayerPiece)
+		{
+			if (GameManager.instance.PlayerColor)
+			{
+				n += 2;
+			}
+		}
+		else
+		{
+			if (!GameManager.instance.PlayerColor) n += 3;
+			else n += 1;
+		}
+		Debug.Log($"{idx}, {n}");
+			GetComponent<Image>().sprite = sprites[n];
 		tableManager = FindObjectOfType<TableManager>();
 		rectTransform = GetComponent<RectTransform>();
 
@@ -55,7 +69,6 @@ public class PieceData : MonoBehaviour
 	private Vector2 GetTablePosition(int idx)
 	{
 		Vector3 tableTrans = tableManager.TableList[idx].position;
-		Debug.Log(tableTrans);
 		tableTrans = Camera.main.WorldToScreenPoint(tableTrans);
 
 		Vector2 canvasPos;
