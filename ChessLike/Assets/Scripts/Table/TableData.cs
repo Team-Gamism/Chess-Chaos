@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TableData : MonoBehaviour
@@ -15,4 +13,14 @@ public class TableData : MonoBehaviour
 	{
 		position = transform.position;
 	}
+	public Vector2 positionToRect(Canvas canvas)
+	{
+		Vector3 tableTrans = Camera.main.WorldToScreenPoint(position);
+
+		Vector2 canvasPos;
+		RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), tableTrans, Camera.main, out canvasPos);
+
+		return canvasPos;
+	}
+
 }

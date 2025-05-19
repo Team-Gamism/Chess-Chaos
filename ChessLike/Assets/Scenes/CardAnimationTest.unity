@@ -4303,6 +4303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TableList: []
+  PieceCanvas: {fileID: 1525640665}
 --- !u!1 &610568982
 GameObject:
   m_ObjectHideFlags: 0

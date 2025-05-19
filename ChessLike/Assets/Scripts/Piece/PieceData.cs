@@ -34,8 +34,7 @@ public class PieceData : MonoBehaviour
 			if (!GameManager.instance.PlayerColor) n += 3;
 			else n += 1;
 		}
-		Debug.Log($"{idx}, {n}");
-			GetComponent<Image>().sprite = sprites[n];
+		GetComponent<Image>().sprite = sprites[n];
 		tableManager = FindObjectOfType<TableManager>();
 		rectTransform = GetComponent<RectTransform>();
 
@@ -66,7 +65,7 @@ public class PieceData : MonoBehaviour
 
 		}
 	}
-	private Vector2 GetTablePosition(int idx)
+	public Vector2 GetTablePosition(int idx)
 	{
 		Vector3 tableTrans = tableManager.TableList[idx].position;
 		tableTrans = Camera.main.WorldToScreenPoint(tableTrans);

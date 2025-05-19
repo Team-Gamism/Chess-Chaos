@@ -95,7 +95,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0930b940080b15a46a65f9b0853b1df8, type: 3}
   - {fileID: 21300000, guid: bf814cc5e0f288b4190dfbe3929a2c79, type: 3}
   PieceType: 4
-  isWhite: 0
+  IsPlayerPiece: 0
   IsFirstMove: 1
   IsStatic: 0
   StaticTurn: 0
@@ -106,8 +106,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9015967143296187391}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a34226265a0b8e346904492516cb75f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  rotationAmount: 0.4
+  rotationSpeed: 15
+  maxRotation: 75
+  followSpeed: 10
+  pieceData: {fileID: 4594012134223490064}

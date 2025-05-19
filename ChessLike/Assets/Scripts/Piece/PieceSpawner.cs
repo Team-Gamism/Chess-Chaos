@@ -75,6 +75,7 @@ public class PieceSpawner : MonoBehaviour
 		var n = Instantiate(piece);
 		n.transform.SetParent(this.transform, false);
 		n.GetComponent<PieceData>().IsPlayerPiece = isWhite;
+		n.GetComponent<PieceHandler>().canvas = n.GetComponentInParent<Canvas>();
 		n.GetComponent<PieceData>().SpawnAnimation(id);
 	}
 }
