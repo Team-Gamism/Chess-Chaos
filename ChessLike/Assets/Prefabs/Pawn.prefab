@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4819596799572130620}
   - component: {fileID: 7001611748882575697}
   - component: {fileID: 5531435601446275872}
+  - component: {fileID: -6744740880261516627}
   m_Layer: 5
   m_Name: Pawn
   m_TagString: Untagged
@@ -99,6 +100,7 @@ MonoBehaviour:
   IsFirstMove: 1
   IsStatic: 0
   StaticTurn: 0
+  pieceHandler: {fileID: 0}
 --- !u!114 &5531435601446275872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,3 +119,15 @@ MonoBehaviour:
   maxRotation: 75
   followSpeed: 10
   pieceData: {fileID: 7001611748882575697}
+--- !u!114 &-6744740880261516627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675699474651082795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e6f87765588a1246927b240c2fd039e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

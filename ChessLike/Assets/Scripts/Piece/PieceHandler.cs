@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using System.Collections.Generic;
+using System.Drawing;
 
 public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -22,10 +24,21 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	[SerializeField]
 	private PieceData pieceData;
 
+	[SerializeField]
+	private Pawn pawn;
+
 	private bool isDragging = false;
+
+	private List<TableData> tableList = new List<TableData>();
+	private Vector2 pervPos;
 
 	private void Awake()
 	{
+		//추후 다른 기물들도 추가 예정
+		if(pieceData.PieceType == PieceType.Pawn)
+		{
+			pawn = gameObject.GetComponent<Pawn>();
+		}
 		tableManager = FindObjectOfType<TableManager>();
 		rectTransform = GetComponent<RectTransform>();
 	}
@@ -42,7 +55,19 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	public void OnBeginDrag(PointerEventData eventData)
 	{
 		prevMousePos = Input.mousePosition;
+		pervPos = rectTransform.anchoredPosition;
 		isDragging = true;
+
+		if (!tableManager.isSelect) tableManager.isSelect = true;
+		//기존 보이던 위치 이동 스프라이트를 모두 제거하는 코드 추가하기
+		
+		tableList.Clear();
+		tableList = pawn.FindMoveableSpots(pieceData.coordinate, tableManager);
+
+		for (int i = 0; i < tableList.Count; i++)
+		{
+			tableList[i].pieceMoveAppear.PieceMoveable = true;
+		}
 	}
 
 	public void OnDrag(PointerEventData eventData)
@@ -53,8 +78,29 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	public void OnEndDrag(PointerEventData eventData)
 	{
 		isDragging = false;
-		rectTransform.DOAnchorPos(tableManager.ReturnNearTable(rectTransform.anchoredPosition), 0.2f);
-		rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f);
+
+		//놓을 수 없는 부분에 두면 기존 위치로 돌아가기
+
+		if (!tableManager.ReturnTableNear(rectTransform.anchoredPosition).pieceMoveAppear.PieceMoveable)
+		{
+			rectTransform.DOAnchorPos(pervPos, 0.2f);
+			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f);
+		}
+		else
+		{
+			Vector2 p = tableManager.ReturnNearTable(rectTransform.anchoredPosition);
+			rectTransform.DOAnchorPos(p, 0.2f);
+			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f);
+			pervPos = p;
+
+			pawn.IsFirstMove = false;
+			pieceData.coordinate = tableManager.ReturnTableNear(rectTransform.anchoredPosition).Coordinate;
+		}
+
+		for (int i = 0; i < tableList.Count; i++)
+		{
+			tableList[i].pieceMoveAppear.PieceMoveable = false;
+		}
 	}
 
 	private void FollowMouseRotation()
@@ -90,4 +136,5 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		// 부드럽게 위치 이동
 		rectTransform.localPosition = Vector3.Lerp(rectTransform.localPosition, targetPos, followSpeed * Time.deltaTime);
 	}
+
 }

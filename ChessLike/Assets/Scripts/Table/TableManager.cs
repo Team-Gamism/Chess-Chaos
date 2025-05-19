@@ -7,6 +7,9 @@ public class TableManager : MonoBehaviour
 	public List<TableData> TableList = new List<TableData>();
 	public Canvas PieceCanvas;
 
+	public bool isSelect = false;
+
+
 	public void Awake()
 	{
 		TableData[] tables = FindObjectsOfType<TableData>();
@@ -30,7 +33,6 @@ public class TableManager : MonoBehaviour
 		foreach(TableData table in TableList)
 		{
 			Vector2 tablePos = table.positionToRect(PieceCanvas);
-			Debug.Log(tablePos);
 			float _distance = Vector2.Distance(tablePos, pos);
 			if (_distance < distance)
 			{
@@ -39,5 +41,32 @@ public class TableManager : MonoBehaviour
 			}
 		}
 		return result;
+	}
+
+	public TableData ReturnTableNear(Vector2 pos)
+	{
+		float distance = float.MaxValue;
+		TableData tableData = null;
+		foreach (TableData table in TableList)
+		{
+			Vector2 tablePos = table.positionToRect(PieceCanvas);
+			float _distance = Vector2.Distance(tablePos, pos);
+			if (_distance < distance)
+			{
+				distance = _distance;
+				tableData = table;
+			}
+		}
+		return tableData;
+	}
+
+	public TableData GetTableByCoordinate(Vector2Int coord)
+	{
+		Debug.Log(coord);
+		for(int i  = 0; i < TableList.Count; i++)
+		{
+			if (TableList[i].Coordinate == coord) return TableList[i];
+		}
+		return null;
 	}
 }

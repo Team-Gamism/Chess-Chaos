@@ -6,11 +6,15 @@ public class TableData : MonoBehaviour
 	public Vector2Int Coordinate;
 	[HideInInspector]
 	public Vector2 position;
-	public bool IsMoveable { get; private set; }
 
-	public void Moveable() => IsMoveable = true;
+	public bool IsMoveable;
+	public bool IsPiece;
+
+	public PieceMoveAppear pieceMoveAppear;
+
 	private void Awake()
 	{
+		pieceMoveAppear = GetComponentInChildren<PieceMoveAppear>();
 		position = transform.position;
 	}
 	public Vector2 positionToRect(Canvas canvas)
