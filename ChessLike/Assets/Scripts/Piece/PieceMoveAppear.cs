@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PieceMoveAppear : MonoBehaviour
@@ -7,6 +5,7 @@ public class PieceMoveAppear : MonoBehaviour
 	private SpriteRenderer sr;
 
 	public bool PieceMoveable;
+	public bool DeathPiece;
 	private void Start()
 	{
 		sr = GetComponent<SpriteRenderer>();
@@ -20,6 +19,15 @@ public class PieceMoveAppear : MonoBehaviour
 		else
 		{
 			sr.enabled = false;
+		}
+
+		if (DeathPiece)
+		{
+			sr.color = Color.red;
+		}
+		else
+		{
+			sr.color = Color.white;
 		}
 	}
 }

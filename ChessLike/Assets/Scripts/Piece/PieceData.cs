@@ -74,7 +74,11 @@ public class PieceData : MonoBehaviour
 	public void UpdateTableCoordinate()
 	{
 		curTable = tableManager.GetTableByCoordinate(coordinate);
-		curTable.piece = this;
+		if (curTable.piece != null && !curTable.piece.IsPlayerPiece) Destroy(curTable.piece.gameObject);
+		else
+		{
+			curTable.piece = this;
+		}
 	}
 }
 

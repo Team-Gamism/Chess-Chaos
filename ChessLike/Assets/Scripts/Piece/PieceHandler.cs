@@ -109,13 +109,14 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		isDragging = false;
 		SelectSprite.SetActive(false);
 
-
+		//드래그한 곳이 갈 수 없다면 원래 좌표로 이동
 		if (!tableManager.ReturnTableNear(rectTransform.anchoredPosition).pieceMoveAppear.PieceMoveable)
 		{
 			rectTransform.DOAnchorPos(pervPos, 0.2f).SetEase(Ease.OutCirc);
 			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
 			pieceData.curTable.IsPiece = true;
 		}
+		//드래그한 곳이 갈 수 있다면 그 근처 테이블 좌표로 이동
 		else
 		{
 			Vector2 p = tableManager.ReturnNearTable(rectTransform.anchoredPosition);

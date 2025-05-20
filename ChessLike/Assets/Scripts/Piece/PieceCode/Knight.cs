@@ -41,7 +41,20 @@ public class Knight : PieceAbstract
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
 
-			if (table.IsPiece) continue;
+			if (table.IsPiece)
+			{
+				if (table.piece.IsPlayerPiece)
+				{
+					continue;
+				}
+				table.pieceMoveAppear.DeathPiece = true;
+				result.Add(table);
+				continue;
+			}
+			else
+			{
+				table.pieceMoveAppear.DeathPiece = false;
+			}
 			if (table.IsMoveable) result.Add(table);
 		}
 		return result;

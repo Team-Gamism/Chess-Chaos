@@ -31,9 +31,22 @@ public class King : PieceAbstract
 
 				TableData table = tableManager.GetTableByCoordinate(moveTable);
 
-				if (table.IsPiece) break;
+				if (table.IsPiece)
+				{
+					if (table.piece.IsPlayerPiece)
+					{
+						break;
+					}
+					table.pieceMoveAppear.DeathPiece = true;
+					result.Add(table);
+					break;
+				}
+				else
+				{
+					table.pieceMoveAppear.DeathPiece = false;
+				}
 
-				if(table.IsMoveable) result.Add(table);
+				if (table.IsMoveable) result.Add(table);
 			}
 		}
 		return result;

@@ -28,12 +28,4 @@ public class TableData : MonoBehaviour
 
 		return canvasPos;
 	}
-	private void Update()
-	{
-		if (IsPiece)
-		{
-
-		}
-	}
-
 }

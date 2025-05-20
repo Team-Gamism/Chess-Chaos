@@ -30,7 +30,20 @@ public class Bishop : PieceAbstract
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
 
-			if (table.IsPiece) break;
+			if (table.IsPiece)
+			{
+				if (table.piece.IsPlayerPiece)
+				{
+					break;
+				}
+				table.pieceMoveAppear.DeathPiece = true;
+				result.Add(table);
+				break;
+			}
+			else
+			{
+				table.pieceMoveAppear.DeathPiece = false;
+			}
 
 			if (table.IsMoveable) result.Add(table);
 		}
@@ -42,8 +55,21 @@ public class Bishop : PieceAbstract
 			if (!OverCoordinate(moveTable)) break;
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
-			
-			if (table.IsPiece) break;
+
+			if (table.IsPiece)
+			{
+				if (table.piece.IsPlayerPiece)
+				{
+					break;
+				}
+				table.pieceMoveAppear.DeathPiece = true;
+				result.Add(table);
+				break;
+			}
+			else
+			{
+				table.pieceMoveAppear.DeathPiece = false;
+			}
 
 			if (table.IsMoveable) result.Add(table);
 		}
@@ -56,7 +82,20 @@ public class Bishop : PieceAbstract
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
 
-			if (table.IsPiece) break;
+			if (table.IsPiece)
+			{
+				if (table.piece.IsPlayerPiece)
+				{
+					break;
+				}
+				table.pieceMoveAppear.DeathPiece = true;
+				result.Add(table);
+				break;
+			}
+			else
+			{
+				table.pieceMoveAppear.DeathPiece = false;
+			}
 
 			if (table.IsMoveable) result.Add(table);
 		}
@@ -69,7 +108,20 @@ public class Bishop : PieceAbstract
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
 
-			if (table.IsPiece) break;
+			if (table.IsPiece)
+			{
+				if (table.piece.IsPlayerPiece)
+				{
+					break;
+				}
+				table.pieceMoveAppear.DeathPiece = true;
+				result.Add(table);
+				break;
+			}
+			else
+			{
+				table.pieceMoveAppear.DeathPiece = false;
+			}
 
 			if (table.IsMoveable) result.Add(table);
 		}

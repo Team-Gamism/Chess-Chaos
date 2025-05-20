@@ -23,7 +23,7 @@ public class Pawn : PieceAbstract
 
 		//이동 가능 경로 찾기(직선)
 		for (int i = 1; i <= (IsFirstMove ? 2 : 1); i++)
-		{
+		{	
 			Vector2Int moveTable = new Vector2Int(curTable.Coordinate.x, curTable.Coordinate.y - i);
 			if(!OverCoordinate(moveTable)) continue;
 
@@ -43,7 +43,12 @@ public class Pawn : PieceAbstract
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
 			if (table.IsPiece && !table.piece.IsPlayerPiece)
 			{
+				table.pieceMoveAppear.DeathPiece = true;
 				result.Add(table);
+			}
+			else
+			{
+				table.pieceMoveAppear.DeathPiece = false;
 			}
 		}
 		return result;
