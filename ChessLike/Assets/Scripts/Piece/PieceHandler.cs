@@ -4,6 +4,7 @@ using DG.Tweening;
 using System.Collections.Generic;
 using System.Drawing;
 using UnityEditor;
+using Unity.VisualScripting;
 
 public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -25,10 +26,15 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	[SerializeField]
 	private PieceData pieceData;
 
+	[SerializeField]
+	private GameObject SelectSprite;
+
 	private Pawn pawn;
 	private Knight knight;
 	private Rook rook;
 	private Bishop bishop;
+	private Queen queen;
+	private King king;
 
 	private bool isDragging = false;
 
@@ -37,6 +43,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 	private void Awake()
 	{
+		SelectSprite = transform.GetChild(0).gameObject;
 		//추후 다른 기물들도 추가 예정
 		switch (pieceData.PieceType)
 		{
@@ -48,6 +55,11 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 				rook = gameObject.GetComponent<Rook>(); break;
 			case PieceType.Bishop:
 				bishop = gameObject.GetComponent<Bishop>(); break;
+			case PieceType.Queen:
+				queen = gameObject.GetComponent<Queen>(); break;
+			case PieceType.King:
+				king = gameObject.GetComponent<King>(); break;
+
 		}
 		tableManager = FindObjectOfType<TableManager>();
 		rectTransform = GetComponent<RectTransform>();
@@ -64,9 +76,12 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 	public void OnBeginDrag(PointerEventData eventData)
 	{
+		SelectSprite.SetActive(true);
 		prevMousePos = Input.mousePosition;
 		pervPos = rectTransform.anchoredPosition;
 		isDragging = true;
+		//pieceData.UpdateTableCoordinate();
+		pieceData.curTable.IsPiece = false;
 
 		if (!tableManager.isSelect) tableManager.isSelect = true;
 		//기존 보이던 위치 이동 스프라이트를 모두 제거하는 코드 추가하기
@@ -88,6 +103,9 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	public void OnEndDrag(PointerEventData eventData)
 	{
 		isDragging = false;
+		SelectSprite.SetActive(false);
+
+
 
 		//놓을 수 없는 부분에 두면 기존 위치로 돌아가기
 
@@ -95,16 +113,21 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		{
 			rectTransform.DOAnchorPos(pervPos, 0.2f).SetEase(Ease.OutCirc);
 			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
+			pieceData.curTable.IsPiece = true;
 		}
 		else
 		{
 			Vector2 p = tableManager.ReturnNearTable(rectTransform.anchoredPosition);
-			rectTransform.DOAnchorPos(p, 0.4f).SetEase(Ease.OutCirc);
-			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.4f).SetEase(Ease.OutCirc);
+			rectTransform.DOAnchorPos(p, 0.2f).SetEase(Ease.OutCirc);
+			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
 			pervPos = p;
 
 			if(pieceData.PieceType == PieceType.Pawn) pawn.IsFirstMove = false;
 			pieceData.coordinate = tableManager.ReturnTableNear(rectTransform.anchoredPosition).Coordinate;
+			pieceData.curTable.IsPiece = false;
+
+			pieceData.UpdateTableCoordinate();
+			pieceData.curTable.IsPiece = true;
 		}
 
 		for (int i = 0; i < tableList.Count; i++)
@@ -159,6 +182,10 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 				return rook.FindMoveableSpots(pieceData.coordinate, tableManager);
 			case PieceType.Bishop:
 				return bishop.FindMoveableSpots(pieceData.coordinate, tableManager);
+			case PieceType.Queen:
+				return queen.FindMoveableSpots(pieceData.coordinate, tableManager);
+			case PieceType.King:
+				return king.FindMoveableSpots(pieceData.coordinate, tableManager);
 		}
 		return null;
 	}

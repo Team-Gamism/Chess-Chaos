@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bishop : PieceAbstract
+public class Queen : PieceAbstract
 {
 	public override List<TableData> FindMoveableSpots(Vector2Int curPos, TableManager tableManager)
 	{
@@ -20,8 +20,6 @@ public class Bishop : PieceAbstract
 			}
 		}
 		if (curTable == null) return null;
-
-
 		//이동 가능 경로 탐색(1사분면)
 		for (int i = 1; i < 8; i++)
 		{
@@ -42,7 +40,7 @@ public class Bishop : PieceAbstract
 			if (!OverCoordinate(moveTable)) break;
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
-			
+
 			if (table.IsPiece) break;
 
 			if (table.IsMoveable) result.Add(table);
@@ -65,6 +63,58 @@ public class Bishop : PieceAbstract
 		for (int i = 1; i < 8; i++)
 		{
 			Vector2Int moveTable = new Vector2Int(curTable.Coordinate.x + i, curTable.Coordinate.y - i);
+			if (!OverCoordinate(moveTable)) break;
+
+			TableData table = tableManager.GetTableByCoordinate(moveTable);
+
+			if (table.IsPiece) break;
+
+			if (table.IsMoveable) result.Add(table);
+		}
+
+		//오른쪽 경로 탐색
+		for (int i = 1; i < 8; i++)
+		{
+			Vector2Int moveTable = new Vector2Int(curTable.Coordinate.x + i, curTable.Coordinate.y);
+			if (!OverCoordinate(moveTable)) break;
+
+			TableData table = tableManager.GetTableByCoordinate(moveTable);
+
+			if (table.IsPiece) break;
+
+			if (table.IsMoveable) result.Add(table);
+		}
+
+		//왼쪽 경로 탐색
+		for (int i = 1; i < 8; i++)
+		{
+			Vector2Int moveTable = new Vector2Int(curTable.Coordinate.x - i, curTable.Coordinate.y);
+			if (!OverCoordinate(moveTable)) break;
+
+			TableData table = tableManager.GetTableByCoordinate(moveTable);
+
+			if (table.IsPiece) break;
+
+			if (table.IsMoveable) result.Add(table);
+		}
+
+		//위쪽 경로 탐색
+		for (int i = 1; i < 8; i++)
+		{
+			Vector2Int moveTable = new Vector2Int(curTable.Coordinate.x, curTable.Coordinate.y + i);
+			if (!OverCoordinate(moveTable)) break;
+
+			TableData table = tableManager.GetTableByCoordinate(moveTable);
+
+			if (table.IsPiece) break;
+
+			if (table.IsMoveable) result.Add(table);
+		}
+
+		//아래쪽 경로 탐색
+		for (int i = 1; i < 8; i++)
+		{
+			Vector2Int moveTable = new Vector2Int(curTable.Coordinate.x, curTable.Coordinate.y - i);
 			if (!OverCoordinate(moveTable)) break;
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);

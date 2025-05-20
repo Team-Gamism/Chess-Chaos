@@ -28,6 +28,9 @@ public class Pawn : PieceAbstract
 			if(!OverCoordinate(moveTable)) continue;
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
+
+			if (table.IsPiece) break;
+
 			if (table.IsMoveable) result.Add(table);
 		}
 
@@ -38,7 +41,10 @@ public class Pawn : PieceAbstract
 			if (!OverCoordinate(moveTable)) continue;
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
-			if (table.IsPiece) result.Add(table);
+			if (table.IsPiece && !table.piece.IsPlayerPiece)
+			{
+				result.Add(table);
+			}
 		}
 		return result;
 	}

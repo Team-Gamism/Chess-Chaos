@@ -16,6 +16,8 @@ public class PieceData : MonoBehaviour
 
 	private TableManager tableManager;
 	private RectTransform rectTransform;
+	[HideInInspector]
+	public TableData curTable;
 
 	public void SpawnAnimation(int idx)	//스폰 시 나타나는 애니메이션
 	{
@@ -50,6 +52,10 @@ public class PieceData : MonoBehaviour
 		animation.Play();
 
 		coordinate = tableManager.TableList[idx].Coordinate;
+
+		curTable = tableManager.GetTableByCoordinate(coordinate);
+		curTable.piece = this;
+		curTable.IsPiece = true;
 	}
 	
 	public Vector2 GetTablePosition(int idx)
@@ -61,6 +67,12 @@ public class PieceData : MonoBehaviour
 		RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponent<RectTransform>(), tableTrans, Camera.main, out canvasPos);
 
 		return canvasPos;
+	}
+
+	public void UpdateTableCoordinate()
+	{
+		curTable = tableManager.GetTableByCoordinate(coordinate);
+		curTable.piece = this;
 	}
 }
 

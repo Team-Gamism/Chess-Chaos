@@ -10,6 +10,8 @@ public class TableData : MonoBehaviour
 	public bool IsMoveable;
 	public bool IsPiece;
 
+	public PieceData piece;
+
 	public PieceMoveAppear pieceMoveAppear;
 
 	private void Awake()
@@ -25,6 +27,13 @@ public class TableData : MonoBehaviour
 		RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), tableTrans, Camera.main, out canvasPos);
 
 		return canvasPos;
+	}
+	private void Update()
+	{
+		if (IsPiece)
+		{
+
+		}
 	}
 
 }

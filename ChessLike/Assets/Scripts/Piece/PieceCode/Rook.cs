@@ -24,42 +24,54 @@ public class Rook : PieceAbstract
 		//이동 경로 찾기
 
 		//오른쪽 경로 탐색
-		for(int i = 0; i < 8; i++)
+		for(int i = 1; i < 8; i++)
 		{
 			Vector2Int moveTable = new Vector2Int(curTable.Coordinate.x + i, curTable.Coordinate.y);
 			if (!OverCoordinate(moveTable)) break;
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
+
+			if (table.IsPiece) break;
+
 			if (table.IsMoveable) result.Add(table);
 		}
 		
 		//왼쪽 경로 탐색
-		for(int i = 0; i < 8; i++)
+		for(int i = 1; i < 8; i++)
 		{
 			Vector2Int moveTable = new Vector2Int(curTable.Coordinate.x - i, curTable.Coordinate.y);
 			if (!OverCoordinate(moveTable)) break;
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
+
+			if (table.IsPiece) break;
+
 			if (table.IsMoveable) result.Add(table);
 		}
 
 		//위쪽 경로 탐색
-		for (int i = 0; i < 8; i++)
+		for (int i = 1; i < 8; i++)
 		{
 			Vector2Int moveTable = new Vector2Int(curTable.Coordinate.x, curTable.Coordinate.y + i);
 			if (!OverCoordinate(moveTable)) break;
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
+
+			if (table.IsPiece) break;
+
 			if (table.IsMoveable) result.Add(table);
 		}
 
 		//아래쪽 경로 탐색
-		for (int i = 0; i < 8; i++)
+		for (int i = 1; i < 8; i++)
 		{
 			Vector2Int moveTable = new Vector2Int(curTable.Coordinate.x, curTable.Coordinate.y - i);
 			if (!OverCoordinate(moveTable)) break;
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
+
+			if (table.IsPiece) break;
+
 			if (table.IsMoveable) result.Add(table);
 		}
 
