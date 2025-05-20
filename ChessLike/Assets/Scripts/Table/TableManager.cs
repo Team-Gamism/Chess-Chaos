@@ -62,7 +62,6 @@ public class TableManager : MonoBehaviour
 
 	public TableData GetTableByCoordinate(Vector2Int coord)
 	{
-		Debug.Log(coord);
 		for(int i  = 0; i < TableList.Count; i++)
 		{
 			if (TableList[i].Coordinate == coord) return TableList[i];

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7005000126670181573}
   - component: {fileID: 351394740297437724}
   - component: {fileID: 6389310129170959449}
+  - component: {fileID: -1447383667976810834}
   m_Layer: 5
   m_Name: Knight
   m_TagString: Untagged
@@ -96,9 +97,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cd71a1860628adb4c9df8594896bfa73, type: 3}
   PieceType: 3
   IsPlayerPiece: 0
-  IsFirstMove: 1
   IsStatic: 0
   StaticTurn: 0
+  coordinate: {x: 0, y: 0}
 --- !u!114 &6389310129170959449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,3 +118,24 @@ MonoBehaviour:
   maxRotation: 75
   followSpeed: 10
   pieceData: {fileID: 351394740297437724}
+--- !u!114 &-1447383667976810834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5924565380949391167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a0ec80c094f184a8d7b714b4185321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveList:
+  - {x: 2, y: -1}
+  - {x: 2, y: 1}
+  - {x: 1, y: -2}
+  - {x: 1, y: 2}
+  - {x: -1, y: -2}
+  - {x: -1, y: 2}
+  - {x: -2, y: -1}
+  - {x: -2, y: 1}

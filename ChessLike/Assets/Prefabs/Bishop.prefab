@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1663365195834464065}
   - component: {fileID: 8522296824375644994}
   - component: {fileID: 4278126768525619604}
+  - component: {fileID: 1110160758628241770}
   m_Layer: 5
   m_Name: Bishop
   m_TagString: Untagged
@@ -96,9 +97,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f4c1918e2c8b95945b24e892c6e26040, type: 3}
   PieceType: 1
   IsPlayerPiece: 0
-  IsFirstMove: 1
   IsStatic: 0
   StaticTurn: 0
+  coordinate: {x: 0, y: 0}
 --- !u!114 &4278126768525619604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,3 +118,15 @@ MonoBehaviour:
   maxRotation: 75
   followSpeed: 10
   pieceData: {fileID: 8522296824375644994}
+--- !u!114 &1110160758628241770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061440584131796481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cbc3f81aa0cbfa46968e21e5b989137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

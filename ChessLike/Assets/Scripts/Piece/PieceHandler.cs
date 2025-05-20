@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using System.Collections.Generic;
 using System.Drawing;
+using UnityEditor;
 
 public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -24,8 +25,10 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	[SerializeField]
 	private PieceData pieceData;
 
-	[SerializeField]
 	private Pawn pawn;
+	private Knight knight;
+	private Rook rook;
+	private Bishop bishop;
 
 	private bool isDragging = false;
 
@@ -35,9 +38,16 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	private void Awake()
 	{
 		//추후 다른 기물들도 추가 예정
-		if(pieceData.PieceType == PieceType.Pawn)
+		switch (pieceData.PieceType)
 		{
-			pawn = gameObject.GetComponent<Pawn>();
+			case PieceType.Pawn:
+				pawn = gameObject.GetComponent<Pawn>(); break;
+			case PieceType.Knight:
+				knight = gameObject.GetComponent<Knight>(); break;
+			case PieceType.Rook:
+				rook = gameObject.GetComponent<Rook>(); break;
+			case PieceType.Bishop:
+				bishop = gameObject.GetComponent<Bishop>(); break;
 		}
 		tableManager = FindObjectOfType<TableManager>();
 		rectTransform = GetComponent<RectTransform>();
@@ -62,7 +72,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		//기존 보이던 위치 이동 스프라이트를 모두 제거하는 코드 추가하기
 		
 		tableList.Clear();
-		tableList = pawn.FindMoveableSpots(pieceData.coordinate, tableManager);
+		tableList = FindSpots();
 
 		for (int i = 0; i < tableList.Count; i++)
 		{
@@ -83,22 +93,22 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 		if (!tableManager.ReturnTableNear(rectTransform.anchoredPosition).pieceMoveAppear.PieceMoveable)
 		{
-			rectTransform.DOAnchorPos(pervPos, 0.2f);
-			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f);
+			rectTransform.DOAnchorPos(pervPos, 0.2f).SetEase(Ease.OutCirc);
+			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
 		}
 		else
 		{
 			Vector2 p = tableManager.ReturnNearTable(rectTransform.anchoredPosition);
-			rectTransform.DOAnchorPos(p, 0.2f);
-			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f);
+			rectTransform.DOAnchorPos(p, 0.4f).SetEase(Ease.OutCirc);
+			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.4f).SetEase(Ease.OutCirc);
 			pervPos = p;
 
-			pawn.IsFirstMove = false;
+			if(pieceData.PieceType == PieceType.Pawn) pawn.IsFirstMove = false;
 			pieceData.coordinate = tableManager.ReturnTableNear(rectTransform.anchoredPosition).Coordinate;
 		}
 
 		for (int i = 0; i < tableList.Count; i++)
-		{
+		{	
 			tableList[i].pieceMoveAppear.PieceMoveable = false;
 		}
 	}
@@ -137,4 +147,19 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		rectTransform.localPosition = Vector3.Lerp(rectTransform.localPosition, targetPos, followSpeed * Time.deltaTime);
 	}
 
+	private List<TableData> FindSpots()
+	{
+		switch (pieceData.PieceType)
+		{
+			case PieceType.Pawn:
+				return pawn.FindMoveableSpots(pieceData.coordinate, tableManager);
+			case PieceType.Knight:
+				return knight.FindMoveableSpots(pieceData.coordinate, tableManager);
+			case PieceType.Rook:
+				return rook.FindMoveableSpots(pieceData.coordinate, tableManager);
+			case PieceType.Bishop:
+				return bishop.FindMoveableSpots(pieceData.coordinate, tableManager);
+		}
+		return null;
+	}
 }
