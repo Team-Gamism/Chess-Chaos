@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEditor;
 using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 
 public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -44,7 +45,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	private void Awake()
 	{
 		SelectSprite = transform.GetChild(0).gameObject;
-		//추후 다른 기물들도 추가 예정
+
 		switch (pieceData.PieceType)
 		{
 			case PieceType.Pawn:
@@ -79,12 +80,15 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		SelectSprite.SetActive(true);
 		prevMousePos = Input.mousePosition;
 		pervPos = rectTransform.anchoredPosition;
+
+		int count = transform.parent.childCount;
+		transform.SetSiblingIndex(count-1);
+
 		isDragging = true;
-		//pieceData.UpdateTableCoordinate();
+
 		pieceData.curTable.IsPiece = false;
 
 		if (!tableManager.isSelect) tableManager.isSelect = true;
-		//기존 보이던 위치 이동 스프라이트를 모두 제거하는 코드 추가하기
 		
 		tableList.Clear();
 		tableList = FindSpots();
@@ -105,9 +109,6 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		isDragging = false;
 		SelectSprite.SetActive(false);
 
-
-
-		//놓을 수 없는 부분에 두면 기존 위치로 돌아가기
 
 		if (!tableManager.ReturnTableNear(rectTransform.anchoredPosition).pieceMoveAppear.PieceMoveable)
 		{
@@ -130,9 +131,28 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			pieceData.curTable.IsPiece = true;
 		}
 
+		SortPieceSibling();
+
 		for (int i = 0; i < tableList.Count; i++)
 		{	
 			tableList[i].pieceMoveAppear.PieceMoveable = false;
+		}
+	}
+
+	private void SortPieceSibling()
+	{
+		List<PieceData> list = new List<PieceData>();
+		list = FindObjectsOfType<PieceData>().ToListPooled();
+		list.Sort((a,b) =>
+		{
+			if(a.coordinate.y != b.coordinate.y) 
+				return a.coordinate.y.CompareTo(b.coordinate.y);
+			else
+				return a.coordinate.x.CompareTo(b.coordinate.x);
+		});
+		for(int i = 0; i < list.Count; i++)
+		{
+			list[i].transform.SetSiblingIndex(i);
 		}
 	}
 

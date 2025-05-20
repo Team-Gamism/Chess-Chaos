@@ -40,7 +40,9 @@ public class Knight : PieceAbstract
 			if (!OverCoordinate(moveTable)) continue;
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
-			if(table.IsMoveable) result.Add(table);
+
+			if (table.IsPiece) continue;
+			if (table.IsMoveable) result.Add(table);
 		}
 		return result;
 	}	

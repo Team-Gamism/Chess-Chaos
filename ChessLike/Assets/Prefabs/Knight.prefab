@@ -198,6 +198,8 @@ MonoBehaviour:
   IsStatic: 0
   StaticTurn: 0
   coordinate: {x: 0, y: 0}
+  curTable: {fileID: 0}
+  spriteCanvas: {fileID: 0}
 --- !u!114 &6389310129170959449
 MonoBehaviour:
   m_ObjectHideFlags: 0
