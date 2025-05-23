@@ -227,6 +227,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &27935200
 GameObject:
@@ -610,6 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &72889077
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -766,6 +768,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &79399075
 GameObject:
@@ -897,6 +900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &79929722
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1053,6 +1057,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &94244813
 GameObject:
@@ -1158,6 +1163,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &130873222
 GameObject:
@@ -1289,6 +1295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &145609925
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1529,6 +1536,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &185145295
 GameObject:
@@ -1576,6 +1584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &185145298
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1732,6 +1741,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &203463645
 GameObject:
@@ -1779,6 +1789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &203463648
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1877,6 +1888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &203963652
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1975,6 +1987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &210848936
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2131,6 +2144,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &225655168
 GameObject:
@@ -2236,6 +2250,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &225989766
 GameObject:
@@ -2390,6 +2405,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &247464206
 GameObject:
@@ -2822,6 +2838,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &284357293
 GameObject:
@@ -2927,6 +2944,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &285204137
 GameObject:
@@ -3243,6 +3261,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &301157793
 GameObject:
@@ -3348,6 +3367,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &329877595
 GameObject:
@@ -3479,6 +3499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &345991551
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3635,6 +3656,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &355419572
 GameObject:
@@ -3766,6 +3788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &360916793
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3922,6 +3945,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &369199800
 GameObject:
@@ -4044,6 +4068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &373982696
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4200,6 +4225,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &386795236
 GameObject:
@@ -4331,6 +4357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &394458329
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4571,6 +4598,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &442474126
 GameObject:
@@ -4676,6 +4704,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &449787271
 GameObject:
@@ -4723,6 +4752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &449787274
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4821,6 +4851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &459194979
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4919,6 +4950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &467596672
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5132,6 +5164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &506781902
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5372,6 +5405,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &523329145
 GameObject:
@@ -5419,6 +5453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &523329148
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5659,6 +5694,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &556887845
 GameObject:
@@ -5999,6 +6035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &606811145
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6230,6 +6267,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &637172189
 GameObject:
@@ -6404,6 +6442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &670393525
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6754,6 +6793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &686473321
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6936,6 +6976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &712015110
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7034,6 +7075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &712449601
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7300,6 +7342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &750853944
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7398,6 +7441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &752572385
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7580,6 +7624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &772710948
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7873,6 +7918,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &837231109
 GameObject:
@@ -8129,6 +8175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &866568487
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8369,6 +8416,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &870768042
 GameObject:
@@ -8474,6 +8522,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &876161186
 GameObject:
@@ -8579,6 +8628,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &882293981
 GameObject:
@@ -8852,6 +8902,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &906389428
 GameObject:
@@ -8957,6 +9008,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &914153413
 GameObject:
@@ -9215,6 +9267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &932267452
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9481,6 +9534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1002583213
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9805,6 +9859,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1019251117
 GameObject:
@@ -9994,6 +10049,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1052857373
 GameObject:
@@ -10351,6 +10407,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1112690357
 GameObject:
@@ -10456,6 +10513,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1127532763
 GameObject:
@@ -10720,6 +10778,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1169669770
 GameObject:
@@ -10909,6 +10968,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1193194594
 GameObject:
@@ -11014,6 +11074,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1197429692
 GameObject:
@@ -11119,6 +11180,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1199837761
 GameObject:
@@ -11224,6 +11286,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1207735853
 GameObject:
@@ -11329,6 +11392,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1216443541
 GameObject:
@@ -11376,6 +11440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1216443544
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11616,6 +11681,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1275815431
 GameObject:
@@ -11721,6 +11787,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1304015070
 GameObject:
@@ -11852,6 +11919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1305600430
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12034,6 +12102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1345032953
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12096,6 +12165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1349039490}
   - component: {fileID: 1349039491}
+  - component: {fileID: 1349039492}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -12132,6 +12202,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerTurn: 0
   PlayerColor: 1
+--- !u!114 &1349039492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349039489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382c92953161cc745b5c6e40d7adc688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1361237704
 GameObject:
   m_ObjectHideFlags: 0
@@ -12320,6 +12402,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1400375448
 GameObject:
@@ -12367,6 +12450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1400375451
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12549,6 +12633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1424506748
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12647,6 +12732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1427916234
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12803,6 +12889,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1437365785
 GameObject:
@@ -12850,6 +12937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1437365788
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13174,6 +13262,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1479008992
 GameObject:
@@ -13363,6 +13452,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1496080431
 GameObject:
@@ -13468,6 +13558,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1502781147
 GameObject:
@@ -13515,6 +13606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1502781150
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13918,6 +14010,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1553839300
 GameObject:
@@ -13965,6 +14058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1553839303
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14121,6 +14215,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1569163531
 GameObject:
@@ -14168,6 +14263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1569163534
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14476,6 +14572,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1595676953
 GameObject:
@@ -14607,6 +14704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1606765457
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14763,6 +14861,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1619536084
 GameObject:
@@ -14810,6 +14909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1619536087
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14966,6 +15066,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1663093945
 GameObject:
@@ -15013,6 +15114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1663093948
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15253,6 +15355,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1674907472
 GameObject:
@@ -15468,6 +15571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1690464595
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15566,6 +15670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1699913811
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15664,6 +15769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1700960951
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15846,6 +15952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1714676158
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16028,6 +16135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1730316357
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16126,6 +16234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1749369851
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16224,6 +16333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1768489827
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16322,6 +16432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1775376591
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16478,6 +16589,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1791958046
 GameObject:
@@ -16609,6 +16721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1792933677
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16765,6 +16878,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1799235056
 GameObject:
@@ -16896,6 +17010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1821430517
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17078,6 +17193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1843709304
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17234,6 +17350,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1865270703
 GameObject:
@@ -17339,6 +17456,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1865388699
 GameObject:
@@ -17386,6 +17504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1865388702
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17484,6 +17603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1881372818
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17640,6 +17760,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1893556025
 GameObject:
@@ -17745,6 +17866,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1893921412
 GameObject:
@@ -17792,6 +17914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1893921416
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17890,6 +18013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1907601150
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18046,6 +18170,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1927818722
 GameObject:
@@ -18253,6 +18378,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1940263427
 GameObject:
@@ -18442,6 +18568,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1945746970
 GameObject:
@@ -18573,6 +18700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1955422854
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18755,6 +18883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &1995607050
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18980,6 +19109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &2001455782
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19136,6 +19266,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &2003077622
 GameObject:
@@ -19183,6 +19314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &2003077625
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19281,6 +19413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &2012194011
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19437,6 +19570,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &2020942808
 GameObject:
@@ -19542,6 +19676,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &2026459429
 GameObject:
@@ -19673,6 +19808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &2052372398
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19771,6 +19907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &2058909814
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19927,6 +20064,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &2068463652
 GameObject:
@@ -20116,6 +20254,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &2091986789
 GameObject:
@@ -20163,6 +20302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &2091986792
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20261,6 +20401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieceMoveable: 0
+  DeathPiece: 0
 --- !u!212 &2098333880
 SpriteRenderer:
   m_ObjectHideFlags: 0

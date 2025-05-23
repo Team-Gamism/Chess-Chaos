@@ -2,10 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 using System.Collections.Generic;
-using System.Drawing;
-using UnityEditor;
 using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 
 public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
