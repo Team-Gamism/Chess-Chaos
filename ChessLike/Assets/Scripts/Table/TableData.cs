@@ -1,12 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TableData : MonoBehaviour
 {
 	public TableManager TableManager;
 	public Vector2Int Coordinate;
-	public bool IsMoveable { get; private set; }
+	[HideInInspector]
+	public Vector2 position;
 
-	public void Moveable() => IsMoveable = true;
+	public bool IsMoveable;
+	public bool IsPiece;
+
+	public PieceData piece;
+
+	public PieceMoveAppear pieceMoveAppear;
+
+	private void Awake()
+	{
+		pieceMoveAppear = GetComponentInChildren<PieceMoveAppear>();
+		position = transform.position;
+	}
+	public Vector2 positionToRect(Canvas canvas)
+	{
+		Vector3 tableTrans = Camera.main.WorldToScreenPoint(position);
+
+		Vector2 canvasPos;
+		RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), tableTrans, Camera.main, out canvasPos);
+
+		return canvasPos;
+	}
 }

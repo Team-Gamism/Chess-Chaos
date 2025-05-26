@@ -3,6 +3,7 @@ using DG.Tweening;
 
 public class TileAppear : MonoBehaviour
 {
+	public PieceSpawner pieceSpawner;
 	private void Start()
 	{
 		Transform tile;
@@ -23,6 +24,13 @@ public class TileAppear : MonoBehaviour
 			appear.Join(tile.DORotate(new Vector3(0,0,0), Random.Range(0.5f, 1f)).SetEase(Ease.OutCirc));
 			appear.Join(tileSR.DOColor(new Color(1, 1, 1, 1), 1.2f));
 			appear.PrependInterval(i * 0.02f);
+			if(i == transform.childCount - 1)
+			{
+				appear.OnComplete(() =>
+				{
+					pieceSpawner.SpawnPieces();
+				});
+			}
 		}
 	}
 }
