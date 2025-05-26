@@ -128,9 +128,11 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			if(pieceData.PieceType == PieceType.Pawn) pawn.IsFirstMove = false;
 			pieceData.coordinate = tableManager.ReturnTableNear(rectTransform.anchoredPosition).Coordinate;
 			pieceData.curTable.IsPiece = false;
+			pieceData.curTable.piece = null;
 
 			pieceData.UpdateTableCoordinate();
 			pieceData.curTable.IsPiece = true;
+			pieceData.curTable.piece = pieceData;
 		}
 
 		SortPieceSibling();
