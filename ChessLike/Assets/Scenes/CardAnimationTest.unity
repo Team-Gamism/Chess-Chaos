@@ -12164,8 +12164,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1349039490}
-  - component: {fileID: 1349039491}
   - component: {fileID: 1349039492}
+  - component: {fileID: 1349039491}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -12201,7 +12201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerTurn: 0
-  PlayerColor: 1
+  PlayerColor: 0
 --- !u!114 &1349039492
 MonoBehaviour:
   m_ObjectHideFlags: 0

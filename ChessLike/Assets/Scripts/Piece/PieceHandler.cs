@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using JetBrains.Annotations;
 
 public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -35,6 +36,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	private King king;
 
 	private bool isDragging = false;
+	public bool isDragable = false;
 
 	private List<TableData> tableList = new List<TableData>();
 	private Vector2 pervPos;
@@ -74,6 +76,8 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 	public void OnBeginDrag(PointerEventData eventData)
 	{
+		if (!isDragable) return;
+
 		SelectSprite.SetActive(true);
 		prevMousePos = Input.mousePosition;
 		pervPos = rectTransform.anchoredPosition;
@@ -98,7 +102,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 	public void OnDrag(PointerEventData eventData)
 	{
-		
+
 	}
 
 	public void OnEndDrag(PointerEventData eventData)

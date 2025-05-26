@@ -35,6 +35,8 @@ public class PieceData : MonoBehaviour
 		{
 			if (!GameManager.instance.PlayerColor) n += 3;
 			else n += 1;
+
+			GetComponent<PieceHandler>().enabled = false;
 		}
 		GetComponent<Image>().sprite = sprites[n];
 		tableManager = FindObjectOfType<TableManager>();
@@ -51,7 +53,8 @@ public class PieceData : MonoBehaviour
 		rectTransform.anchoredPosition = startPos;
 		rectTransform.GetComponent<Image>().color = new Color(1f,1f,1f,0f);
 
-		animation.Play();
+		animation.Play().OnComplete(() => {
+			GetComponent<PieceHandler>().isDragable = true; });
 
 		coordinate = tableManager.TableList[idx].Coordinate;
 
