@@ -9,7 +9,7 @@ public class BotManager : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.D))
 		{
-			MoveByFEN("e7e5");
+			MoveByFEN("g8f6");
 		}
 	}
 	public void MoveByFEN(string FEN)
@@ -32,8 +32,7 @@ public class BotManager : MonoBehaviour
 
 		Vector2 dest = destination.positionToRect(tableManager.PieceCanvas);
 
-		piece.GetComponent<RectTransform>().DOAnchorPos(dest, 0.5f).SetEase(Ease.OutCirc);
-
+		piece.GetComponent<RectTransform>().DOAnchorPos(dest, 0.2f).SetEase(Ease.OutCirc);
 		piece.coordinate = destination.Coordinate;
 		piece.curTable.IsPiece = false;
 		piece.curTable.piece = null;
@@ -41,6 +40,8 @@ public class BotManager : MonoBehaviour
 		piece.UpdateTableCoordinate();
 		piece.curTable.IsPiece = true;
 		piece.curTable.piece = piece;
+
+		GameManager.instance.SortPieceSibling();
 	}
 
 	private Vector2Int FENToCoordinate(string FEN)

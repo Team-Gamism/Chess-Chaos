@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -23,6 +24,23 @@ public class GameManager : MonoBehaviour
 		else
 		{
 			Destroy(instance);
+		}
+	}
+
+	public void SortPieceSibling()
+	{
+		List<PieceData> list = new List<PieceData>();
+		list = FindObjectsOfType<PieceData>().ToListPooled();
+		list.Sort((a, b) =>
+		{
+			if (a.coordinate.y != b.coordinate.y)
+				return a.coordinate.y.CompareTo(b.coordinate.y);
+			else
+				return a.coordinate.x.CompareTo(b.coordinate.x);
+		});
+		for (int i = 0; i < list.Count; i++)
+		{
+			list[i].transform.SetSiblingIndex(i);
 		}
 	}
 }

@@ -136,7 +136,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			pieceData.curTable.piece = pieceData;
 		}
 
-		SortPieceSibling();
+		GameManager.instance.SortPieceSibling();
 
 		for (int i = 0; i < tableList.Count; i++)
 		{	
@@ -144,22 +144,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		}
 	}
 
-	private void SortPieceSibling()
-	{
-		List<PieceData> list = new List<PieceData>();
-		list = FindObjectsOfType<PieceData>().ToListPooled();
-		list.Sort((a,b) =>
-		{
-			if(a.coordinate.y != b.coordinate.y) 
-				return a.coordinate.y.CompareTo(b.coordinate.y);
-			else
-				return a.coordinate.x.CompareTo(b.coordinate.x);
-		});
-		for(int i = 0; i < list.Count; i++)
-		{
-			list[i].transform.SetSiblingIndex(i);
-		}
-	}
+
 
 	private void FollowMouseRotation()
 	{
