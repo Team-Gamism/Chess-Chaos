@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using JetBrains.Annotations;
 
 public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -28,12 +26,12 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	[SerializeField]
 	private GameObject SelectSprite;
 
-	private Pawn pawn;
-	private Knight knight;
-	private Rook rook;
-	private Bishop bishop;
-	private Queen queen;
-	private King king;
+	public Pawn pawn;
+	public Knight knight;
+	public Rook rook;
+	public Bishop bishop;
+	public Queen queen;
+	public King king;
 
 	private bool isDragging = false;
 	public bool isDragable = false;

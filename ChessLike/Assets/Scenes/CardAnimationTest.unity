@@ -6283,6 +6283,7 @@ GameObject:
   - component: {fileID: 637172194}
   - component: {fileID: 637172196}
   - component: {fileID: 637172197}
+  - component: {fileID: 637172198}
   m_Layer: 5
   m_Name: CardHolder1
   m_TagString: Untagged
@@ -6396,6 +6397,19 @@ MonoBehaviour:
   rotationAmount: 5
   rotationSpeed: 10
   isSelect: 0
+--- !u!114 &637172198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637172189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e58dbad2eb534c4f9a1c37460488a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 11400000, guid: cfccfd322f5be174c995b444f555994b, type: 2}
 --- !u!1 &670393522
 GameObject:
   m_ObjectHideFlags: 0
