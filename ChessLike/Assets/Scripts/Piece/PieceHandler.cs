@@ -126,6 +126,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			pervPos = p;
 
 			if(pieceData.PieceType == PieceType.Pawn) pawn.IsFirstMove = false;
+
 			pieceData.coordinate = tableManager.ReturnTableNear(rectTransform.anchoredPosition).Coordinate;
 			pieceData.curTable.IsPiece = false;
 			pieceData.curTable.piece = null;
