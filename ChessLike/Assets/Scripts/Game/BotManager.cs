@@ -9,7 +9,7 @@ public class BotManager : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.D))
 		{
-			MoveByFEN("g8f6");
+			MoveByFEN("e7e5");
 		}
 	}
 	public void MoveByFEN(string FEN)
