@@ -4,6 +4,8 @@ using UnityEngine;
 public class Pawn : PieceAbstract
 {
 	public bool IsFirstMove = true;//첫 움직임 확인
+	public bool CanMoveSide = false;
+	public bool IsShield = false;
 	public override List<TableData> FindMoveableSpots(Vector2Int curPos, TableManager tableManager)
 	{
 		List<TableData> result = new List<TableData>();
@@ -41,14 +43,28 @@ public class Pawn : PieceAbstract
 			if (!OverCoordinate(moveTable)) continue;
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
-			if (table.IsPiece && !table.piece.IsPlayerPiece)
+
+			//스킬 카드 적용 시 대각선 이동 가능
+			if (CanMoveSide)
 			{
-				table.pieceMoveAppear.DeathPiece = true;
+				if(table.IsPiece && !table.piece.IsPlayerPiece)
+					table.pieceMoveAppear.DeathPiece = true;
+
 				result.Add(table);
+				continue;
 			}
+
 			else
 			{
-				table.pieceMoveAppear.DeathPiece = false;
+				if (table.IsPiece && !table.piece.IsPlayerPiece)
+				{
+					table.pieceMoveAppear.DeathPiece = true;
+					result.Add(table);
+				}
+				else
+				{
+					table.pieceMoveAppear.DeathPiece = false;
+				}
 			}
 		}
 		return result;

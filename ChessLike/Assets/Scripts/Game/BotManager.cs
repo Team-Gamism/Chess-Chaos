@@ -5,6 +5,8 @@ public class BotManager : MonoBehaviour
 {
 	[SerializeField]
 	private TableManager tableManager;
+
+	public bool CompleteDone = false;
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.D))
@@ -23,7 +25,16 @@ public class BotManager : MonoBehaviour
 		TableData startTable = tableManager.GetTableByCoordinate(startCoor);
 		TableData endTable = tableManager.GetTableByCoordinate(endCoor);
 
-		MovePiece(startTable, endTable);
+		if(GameManager.instance.isPawnShield(endTable.piece))
+		{
+			CompleteDone = false;
+			return;
+		}
+		else
+		{
+			MovePiece(startTable, endTable);
+		}
+
 	}
 
 	private void MovePiece(TableData table, TableData destination)
@@ -53,5 +64,12 @@ public class BotManager : MonoBehaviour
 		result.y = Mathf.Clamp(Mathf.Abs(n - 8), 0, 7);
 
 		return result;
+	}
+
+	private string[] BestMove()
+	{
+		//최고의 수를 반환하는 함수
+		string[] moves = { "", "" };
+		return moves;
 	}
 }

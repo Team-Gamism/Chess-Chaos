@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour
 	/// <summary>
 	/// False이면 검정, True이면 흰색
 	/// </summary>
-	public bool PlayerColor; 
+	public bool PlayerColor;
+
+	
 	private void Awake()
 	{
 		if(instance == null)
@@ -42,6 +44,12 @@ public class GameManager : MonoBehaviour
 		{
 			list[i].transform.SetSiblingIndex(i);
 		}
+	}
+
+	//폰 방어막이 켜져있으면 true 반환
+	public bool isPawnShield(PieceData piece)
+	{
+		return piece.PieceType == PieceType.Pawn && piece.GetComponent<PieceHandler>().pawn.IsShield;
 	}
 }
 

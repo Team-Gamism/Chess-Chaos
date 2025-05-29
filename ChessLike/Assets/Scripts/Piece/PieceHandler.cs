@@ -123,7 +123,12 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
 			pervPos = p;
 
-			if(pieceData.PieceType == PieceType.Pawn) pawn.IsFirstMove = false;
+			//폰일 시 이후 스킬 적용 / 행동 금지
+			if (pieceData.PieceType == PieceType.Pawn)
+			{
+				pawn.CanMoveSide = false;
+				pawn.IsFirstMove = false;
+			}
 
 			pieceData.coordinate = tableManager.ReturnTableNear(rectTransform.anchoredPosition).Coordinate;
 			pieceData.curTable.IsPiece = false;
