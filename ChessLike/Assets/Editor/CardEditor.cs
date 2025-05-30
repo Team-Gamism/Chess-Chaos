@@ -11,6 +11,8 @@ public class CardEditor : Editor
 		SerializedProperty description = serializedObject.FindProperty("Description");
 		SerializedProperty isOwn = serializedObject.FindProperty("isOwn");
 		SerializedProperty piece = serializedObject.FindProperty("pieces");
+		SerializedProperty tier = serializedObject.FindProperty("cardTier");
+		SerializedProperty image = serializedObject.FindProperty("cardImage");
 
 		EditorGUILayout.PropertyField(title);
 		EditorGUILayout.PropertyField(description);
@@ -20,7 +22,8 @@ public class CardEditor : Editor
 		{
 			EditorGUILayout.PropertyField(piece);
 		}
-
+		EditorGUILayout.PropertyField(tier);
+		EditorGUILayout.PropertyField(image);
 		serializedObject.ApplyModifiedProperties();
 	}
 }

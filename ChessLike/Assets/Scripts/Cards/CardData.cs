@@ -8,6 +8,9 @@ public class CardData : ScriptableObject
 	public bool isOwn;
 	
 	public PieceType pieces;
+	public CardTier cardTier;
+
+	public Sprite cardImage;
 }
 
 public enum PieceType
@@ -18,4 +21,13 @@ public enum PieceType
 	Knight,
 	Queen,
 	King
+}
+
+public enum CardTier
+{
+	Common = 0,
+	Uncommon,
+	Rare,
+	Mythic,
+	Legendary
 }

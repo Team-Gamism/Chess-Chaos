@@ -10,13 +10,10 @@ public class NCard : MonoBehaviour, IPointerClickHandler
 	[SerializeField]
 	private CardData cardData;
 
-	[SerializeField]
-	private Sprite cardImage;
-
 	private void Start()
 	{
+		GetComponent<Image>().sprite = cardData.cardImage;
 		skillLoader = FindObjectOfType<SkillLoader>();
-		GetComponent<Image>().sprite = cardImage;
 	}
 
 	public void LoadEvent()

@@ -2392,6 +2392,7 @@ GameObject:
   - component: {fileID: 232057104}
   - component: {fileID: 232057103}
   - component: {fileID: 232057105}
+  - component: {fileID: 232057106}
   m_Layer: 5
   m_Name: Card (2)
   m_TagString: Untagged
@@ -2499,7 +2500,44 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 232057103}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 725908533}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 232057106}
+        m_TargetAssemblyTypeName: NCard, Assembly-CSharp
+        m_MethodName: LoadEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &232057106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232057101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6363175cf984a5e47bcd027017cd6140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 11400000, guid: 7d19de26454949847a210b6f5a932357, type: 2}
 --- !u!1 &244173494
 GameObject:
   m_ObjectHideFlags: 0
@@ -3990,6 +4028,7 @@ GameObject:
   - component: {fileID: 355045424}
   - component: {fileID: 355045423}
   - component: {fileID: 355045425}
+  - component: {fileID: 355045426}
   m_Layer: 5
   m_Name: Card (1)
   m_TagString: Untagged
@@ -4097,7 +4136,44 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 355045423}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 725908533}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 232057106}
+        m_TargetAssemblyTypeName: NCard, Assembly-CSharp
+        m_MethodName: LoadEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &355045426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355045421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6363175cf984a5e47bcd027017cd6140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 11400000, guid: 0f448df2b7ff4a540a4918dbdd02329e, type: 2}
 --- !u!1 &355419572
 GameObject:
   m_ObjectHideFlags: 0
@@ -12172,7 +12248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardData: {fileID: 11400000, guid: cfccfd322f5be174c995b444f555994b, type: 2}
-  cardImage: {fileID: 21300000, guid: 44a054df1702e39458b7072b08d0f212, type: 3}
 --- !u!1 &1169669770
 GameObject:
   m_ObjectHideFlags: 0
@@ -17945,6 +18020,7 @@ GameObject:
   - component: {fileID: 1736334447}
   - component: {fileID: 1736334446}
   - component: {fileID: 1736334448}
+  - component: {fileID: 1736334449}
   m_Layer: 5
   m_Name: Card (3)
   m_TagString: Untagged
@@ -18052,7 +18128,44 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1736334446}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 725908533}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 232057106}
+        m_TargetAssemblyTypeName: NCard, Assembly-CSharp
+        m_MethodName: LoadEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &1736334449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736334444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6363175cf984a5e47bcd027017cd6140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 11400000, guid: c8a8528820615aa47be934d36da656df, type: 2}
 --- !u!1 &1749369848
 GameObject:
   m_ObjectHideFlags: 0
