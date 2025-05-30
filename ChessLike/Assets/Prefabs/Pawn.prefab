@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4819596799572130620}
   - component: {fileID: 7001611748882575697}
   - component: {fileID: 5531435601446275872}
+  - component: {fileID: 2200531911263722814}
   - component: {fileID: -6744740880261516627}
   - component: {fileID: 1409239932499714884}
   m_Layer: 5
@@ -62,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 5b94710b53c1eed419b21cb857857dbb, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -103,7 +104,6 @@ MonoBehaviour:
   StaticTurn: 0
   coordinate: {x: 0, y: 0}
   curTable: {fileID: 0}
-  spriteCanvas: {fileID: 0}
 --- !u!114 &5531435601446275872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +123,31 @@ MonoBehaviour:
   followSpeed: 10
   pieceData: {fileID: 7001611748882575697}
   SelectSprite: {fileID: 0}
+  pawn: {fileID: 0}
+  knight: {fileID: 0}
+  rook: {fileID: 0}
+  bishop: {fileID: 0}
+  queen: {fileID: 0}
+  king: {fileID: 0}
+  isDragable: 0
+--- !u!114 &2200531911263722814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675699474651082795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c068c81495ff341813f7541d1398b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promotionObjects:
+  - {fileID: 5924565380949391167, guid: 433235d2d45365443a4943b4676d9400, type: 3}
+  - {fileID: 1061440584131796481, guid: 67022963bec7d68498fefdde72c3e7d1, type: 3}
+  - {fileID: 2184277596354376689, guid: d2dbb6bff0dc9274eb1fb34367c4bf64, type: 3}
+  - {fileID: 9015967143296187391, guid: 559284ffe2043cc4882597ceb8083ff3, type: 3}
+  pieceData: {fileID: 7001611748882575697}
 --- !u!114 &-6744740880261516627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsFirstMove: 1
+  CanMoveSide: 0
+  IsShield: 0
 --- !u!114 &1409239932499714884
 MonoBehaviour:
   m_ObjectHideFlags: 0

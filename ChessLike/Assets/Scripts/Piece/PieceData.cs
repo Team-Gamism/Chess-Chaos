@@ -20,7 +20,6 @@ public class PieceData : MonoBehaviour
 	public TableData curTable;
 
 
-
 	public void SpawnAnimation(int idx)	//스폰 시 나타나는 애니메이션
 	{
 		int n = 0;
@@ -39,9 +38,10 @@ public class PieceData : MonoBehaviour
 			GetComponent<PieceHandler>().enabled = false;
 		}
 		GetComponent<Image>().sprite = sprites[n];
-		tableManager = FindObjectOfType<TableManager>();
-		rectTransform = GetComponent<RectTransform>();
+		
+		UpdateField();
 
+		//애니메이션 코드
 		Vector3 endPos = GetTablePosition(idx);
 		Vector3 startPos = new Vector3(endPos.x, endPos.y+2000, 0f);
 
@@ -56,11 +56,19 @@ public class PieceData : MonoBehaviour
 		animation.Play().OnComplete(() => {
 			GetComponent<PieceHandler>().isDragable = true; });
 
+		//현재 인덱스 값으로 좌표 저장
 		coordinate = tableManager.TableList[idx].Coordinate;
 
+		//테이블 가져오기
 		curTable = tableManager.GetTableByCoordinate(coordinate);
 		curTable.piece = this;
 		curTable.IsPiece = true;
+	}
+
+	public void UpdateField()
+	{
+		tableManager = FindObjectOfType<TableManager>();
+		rectTransform = GetComponent<RectTransform>();
 	}
 	
 	public Vector2 GetTablePosition(int idx)
@@ -90,5 +98,6 @@ public class PieceData : MonoBehaviour
 			else curTable.piece = this;
 		}
 	}
+
 }
 

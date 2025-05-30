@@ -123,13 +123,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
 			pervPos = p;
 
-			//폰일 시 이후 스킬 적용 / 행동 금지
-			if (pieceData.PieceType == PieceType.Pawn)
-			{
-				pawn.CanMoveSide = false;
-				pawn.IsFirstMove = false;
-			}
-
+			//테이블 위치 업데이트
 			pieceData.coordinate = tableManager.ReturnTableNear(rectTransform.anchoredPosition).Coordinate;
 			pieceData.curTable.IsPiece = false;
 			pieceData.curTable.piece = null;
@@ -137,6 +131,18 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			pieceData.UpdateTableCoordinate();
 			pieceData.curTable.IsPiece = true;
 			pieceData.curTable.piece = pieceData;
+
+			//폰일 시 이후 스킬 적용 / 행동 금지
+			if (pieceData.PieceType == PieceType.Pawn && pieceData.IsPlayerPiece)
+			{
+				pawn.CanMoveSide = false;
+				pawn.IsFirstMove = false;
+
+				int promotionY = pieceData.IsPlayerPiece ? 0 : 8;
+
+				//폰 프로모션 확인
+				if (pieceData.coordinate.y == promotionY) GetComponent<PawnPromotion>().StartPromotion();
+			}
 		}
 
 		GameManager.instance.SortPieceSibling();
@@ -146,8 +152,6 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			tableList[i].pieceMoveAppear.PieceMoveable = false;
 		}
 	}
-
-
 
 	private void FollowMouseRotation()
 	{

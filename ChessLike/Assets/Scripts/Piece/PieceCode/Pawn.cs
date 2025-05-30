@@ -70,4 +70,17 @@ public class Pawn : PieceAbstract
 		return result;
 	}
 
+	public void Promotion(PieceType pieceType)
+	{
+		PieceData curPieceData = GetComponent<PieceData>();
+
+		if (curPieceData == null)
+		{
+			Debug.LogWarning("curPieceData가 존재하지 않습니다!");
+			return;
+		}
+
+		
+	}
+
 }
