@@ -1,8 +1,4 @@
-using JetBrains.Annotations;
-using System.Collections;
 using System.Collections.Generic;
-using System.Xml.XPath;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class TableManager : MonoBehaviour

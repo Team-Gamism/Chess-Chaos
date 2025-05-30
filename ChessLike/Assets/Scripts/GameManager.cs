@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	private void Start()
+	{
+		Application.targetFrameRate = 65;
+	}
+
 	public void SortPieceSibling()
 	{
 		List<PieceData> list = new List<PieceData>();
