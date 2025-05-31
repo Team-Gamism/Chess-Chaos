@@ -74,7 +74,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 	public void OnBeginDrag(PointerEventData eventData)
 	{
-		if (!isDragable) return;
+		if (!isDragable || GameManager.instance.IsPromotion) return;
 
 		SelectSprite.SetActive(true);
 		prevMousePos = Input.mousePosition;
@@ -105,6 +105,8 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
+		if (!isDragable || GameManager.instance.IsPromotion) return;
+
 		isDragging = false;
 		SelectSprite.SetActive(false);
 

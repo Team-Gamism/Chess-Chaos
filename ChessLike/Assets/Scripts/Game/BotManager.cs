@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Diagnostics;
 
 public class BotManager : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class BotManager : MonoBehaviour
 	private TableManager tableManager;
 
 	public bool CompleteDone = false;
+
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.D))
@@ -71,5 +73,10 @@ public class BotManager : MonoBehaviour
 		//최고의 수를 반환하는 함수
 		string[] moves = { "", "" };
 		return moves;
+	}
+
+	private void BotPromotion()
+	{
+
 	}
 }

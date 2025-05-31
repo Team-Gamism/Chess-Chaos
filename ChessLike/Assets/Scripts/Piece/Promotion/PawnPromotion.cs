@@ -51,11 +51,14 @@ public class PawnPromotion : MonoBehaviour
 		newPieceData.IsStatic = pieceData.IsStatic;
 		newPieceData.UpdateField();
 
-
+		//기존 폰 삭제
 		Destroy(gameObject);
 
 		newPieceData.UpdateTableCoordinate();
 		Debug.Log("상태 구성 완료");
+
+		//프로모션 상태 비활성화
+		GameManager.instance.IsPromotion = false;
 
 		GameManager.instance.SortPieceSibling();
 

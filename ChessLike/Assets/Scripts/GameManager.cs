@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -13,7 +11,10 @@ public class GameManager : MonoBehaviour
 	/// <summary>
 	/// False이면 검정, True이면 흰색
 	/// </summary>
+	/// 
 	public bool PlayerColor;
+
+	public bool IsPromotion = false;
 
 	
 	private void Awake()

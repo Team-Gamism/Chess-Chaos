@@ -18,6 +18,7 @@ public class NCard : MonoBehaviour, IPointerClickHandler
 
 	public void LoadEvent()
 	{
+
 		skillLoader.LoadSkill(cardData);
 	}
 

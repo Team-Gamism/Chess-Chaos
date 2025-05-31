@@ -23,6 +23,9 @@ public class PromotionUIManager : MonoBehaviour
 	{
 		//애니메이션 실행
 
+		//프로모션 진행 상태 활성화
+		GameManager.instance.IsPromotion = true;
+
 		canvasGroup.alpha = 1.0f;
 		rectTransform.anchoredPosition = new Vector3(0f, 8f, 0f);
 		GetComponent<RectTransform>().DOAnchorPos(new Vector2(0f, 4.7f), 0.5f).SetEase(Ease.OutCirc);

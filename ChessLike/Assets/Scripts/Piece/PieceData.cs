@@ -53,16 +53,19 @@ public class PieceData : MonoBehaviour
 		rectTransform.anchoredPosition = startPos;
 		rectTransform.GetComponent<Image>().color = new Color(1f,1f,1f,0f);
 
-		animation.Play().OnComplete(() => {
-			GetComponent<PieceHandler>().isDragable = true; });
+		animation.Play().OnComplete(() =>
+		{
+			GetComponent<PieceHandler>().isDragable = true;
 
-		//현재 인덱스 값으로 좌표 저장
-		coordinate = tableManager.TableList[idx].Coordinate;
+			//현재 인덱스 값으로 좌표 저장
+			coordinate = tableManager.TableList[idx].Coordinate;
 
-		//테이블 가져오기
-		curTable = tableManager.GetTableByCoordinate(coordinate);
-		curTable.piece = this;
-		curTable.IsPiece = true;
+			//테이블 가져오기
+			curTable = tableManager.GetTableByCoordinate(coordinate);
+			curTable.piece = this;
+			curTable.IsPiece = true;
+
+		});
 	}
 
 	public void UpdateField()
