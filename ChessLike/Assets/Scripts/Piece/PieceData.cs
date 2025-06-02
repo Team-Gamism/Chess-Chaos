@@ -35,7 +35,7 @@ public class PieceData : MonoBehaviour
 			if (!GameManager.instance.PlayerColor) n += 3;
 			else n += 1;
 
-			GetComponent<PieceHandler>().enabled = false;
+			GetComponent<PieceHandler>().isEnable = false;
 		}
 		GetComponent<Image>().sprite = sprites[n];
 		
@@ -64,6 +64,8 @@ public class PieceData : MonoBehaviour
 			curTable = tableManager.GetTableByCoordinate(coordinate);
 			curTable.piece = this;
 			curTable.IsPiece = true;
+
+			GetComponent<PieceHandler>().SetTablelist();
 
 		});
 	}

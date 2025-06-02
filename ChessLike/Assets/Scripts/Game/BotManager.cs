@@ -9,6 +9,8 @@ public class BotManager : MonoBehaviour
 
 	public bool CompleteDone = false;
 
+	public bool IsCheckmate = false;
+
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.D))

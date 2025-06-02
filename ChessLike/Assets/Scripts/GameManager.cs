@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 	/// 
 	public bool PlayerColor;
 
+	public bool IsCheckmate = false;
+
 	public bool IsPromotion = false;
 
 	

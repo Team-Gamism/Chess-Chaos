@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Rook : PieceAbstract
 {
+	public bool isFirstMove = true;
 	public override List<TableData> FindMoveableSpots(Vector2Int curPos, TableManager tableManager)
 	{
 		List<TableData> result = new List<TableData>();

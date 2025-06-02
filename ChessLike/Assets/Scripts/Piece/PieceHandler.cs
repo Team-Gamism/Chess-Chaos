@@ -36,7 +36,10 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	private bool isDragging = false;
 	public bool isDragable = false;
 
-	private List<TableData> tableList = new List<TableData>();
+	public bool isEnable = true;
+
+	[HideInInspector]
+	public List<TableData> tableList = new List<TableData>();
 	private Vector2 pervPos;
 
 	private void Awake()
@@ -65,6 +68,8 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 	private void Update()
 	{
+		if (!isEnable) return;
+
 		if (isDragging)
 		{
 			FollowMouseRotation();
@@ -74,6 +79,8 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 	public void OnBeginDrag(PointerEventData eventData)
 	{
+		if (!isEnable) return;
+
 		if (!isDragable || GameManager.instance.IsPromotion) return;
 
 		SelectSprite.SetActive(true);
@@ -89,8 +96,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 		if (!tableManager.isSelect) tableManager.isSelect = true;
 		
-		tableList.Clear();
-		tableList = FindSpots();
+		SetTablelist();
 
 		for (int i = 0; i < tableList.Count; i++)
 		{
@@ -98,13 +104,21 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		}
 	}
 
+	public void SetTablelist()
+	{
+		tableList.Clear();
+		tableList = FindSpots();
+	}
+
 	public void OnDrag(PointerEventData eventData)
 	{
-
+		if (!isEnable) return;
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
+		if (!isEnable) return;
+
 		if (!isDragable || GameManager.instance.IsPromotion) return;
 
 		isDragging = false;
@@ -117,6 +131,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
 			pieceData.curTable.IsPiece = true;
 		}
+		
 		//드래그한 곳이 갈 수 있다면 그 근처 테이블 좌표로 이동
 		else
 		{
@@ -144,6 +159,18 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 				//폰 프로모션 확인
 				if (pieceData.coordinate.y == promotionY) GetComponent<PawnPromotion>().StartPromotion();
+			}
+
+			//룩일 시 첫 움직임 해제
+			if(pieceData.PieceType == PieceType.Rook && pieceData.IsPlayerPiece)
+			{
+				rook.isFirstMove = false;
+			}
+			
+			//킹일 경우 첫 움직임 해제
+			if(pieceData.PieceType == PieceType.King && pieceData.IsPlayerPiece)
+			{
+				king.isFirstMove = false;
 			}
 		}
 
