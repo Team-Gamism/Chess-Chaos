@@ -60,32 +60,46 @@ public class King : PieceAbstract
 			switch (castlingAble)
 			{
 				case 0:
+					ResetCastling();
 					break;
 				case 1:
 					Vector2Int newCoord = new Vector2Int(curCoord.x - 2, curCoord.y);
-					AddTable(result, tableManager, newCoord);
+					AddCastleTable(result, tableManager, newCoord);
 					break;
 				case 2:
 					Vector2Int newCoord2 = new Vector2Int(curCoord.x + 2, curCoord.y);
-					AddTable(result, tableManager, newCoord2);
+					AddCastleTable(result, tableManager, newCoord2);
 					break;
 				case 3:
 					for (int i = -2; i <= 2; i += 2)
 					{
 						Vector2Int newCoord3 = new Vector2Int(curCoord.x + i, curCoord.y);
-						AddTable(result, tableManager, newCoord3);
+						AddCastleTable(result, tableManager, newCoord3);
 					}
 					break;
 			}
 		}
+		else
+			ResetCastling();
 
 		//최종 결과 반환
 		return result;
 	}
 
-	private void AddTable(List<TableData> result, TableManager tableManager, Vector2Int coord)
+	private void ResetCastling()
+	{
+		TableData[] tables = FindObjectsOfType<TableData>().Where(t => t.IsCastlingAble).ToArray();
+		for (int i = 0; i < tables.Length; i++)
+		{
+			tables[i].IsCastlingAble = false;
+		}
+	}
+
+	private void AddCastleTable(List<TableData> result, TableManager tableManager, Vector2Int coord)
 	{
 		TableData table = tableManager.GetTableByCoordinate(coord);
+
+		table.IsCastlingAble = true;
 
 		if (table.IsPiece)
 		{

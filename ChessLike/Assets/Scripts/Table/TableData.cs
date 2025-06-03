@@ -10,6 +10,8 @@ public class TableData : MonoBehaviour
 	public bool IsMoveable;
 	public bool IsPiece;
 
+	public bool IsCastlingAble = false;
+
 	public PieceData piece;
 
 	public PieceMoveAppear pieceMoveAppear;

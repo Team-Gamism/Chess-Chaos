@@ -2,6 +2,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine.UIElements;
+using Unity.VisualScripting;
+using System.Diagnostics.CodeAnalysis;
 
 public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -171,8 +175,14 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			if(pieceData.PieceType == PieceType.King && pieceData.IsPlayerPiece)
 			{
 				king.isFirstMove = false;
+				if (pieceData.curTable.IsCastlingAble)
+				{
+					//근처 룩 이동 함수
+					MoveRook();
+					//-------//
+					pieceData.curTable.IsCastlingAble = false;
+				}
 			}
-
 		}
 
 		GameManager.instance.SortPieceSibling();
@@ -181,6 +191,52 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		{	
 			tableList[i].pieceMoveAppear.PieceMoveable = false;
 		}
+	}
+
+	private void MoveRook()
+	{
+		Rook nRook;
+
+		if(GetComponent<PieceData>().coordinate.x >= 4)
+		{
+			nRook = FindObjectsOfType<Rook>()
+				.Select(r => new { rook = r, data = r.GetComponent<PieceData>() })
+				.Where(x => x.data.coordinate.x >= 4 && x.data.IsPlayerPiece)
+				.Select(x => x.rook)
+				.FirstOrDefault();
+		}
+		else
+		{
+			nRook = FindObjectsOfType<Rook>()
+				.Select(r => new { rook = r, data = r.GetComponent<PieceData>() })
+				.Where(x => x.data.coordinate.x < 4 && x.data.IsPlayerPiece)
+				.Select(x => x.rook)
+				.FirstOrDefault();
+		}
+
+		Vector2Int pos = gameObject.GetComponent<PieceData>().coordinate;
+		Vector2Int newPos = new Vector2Int(pos.x >= 4 ? 5 : 3, pos.y);
+
+		nRook.gameObject.GetComponent<PieceHandler>().MovePieceByCoordinate(newPos);
+
+		GameManager.instance.SortPieceSibling();
+	}
+
+	public void MovePieceByCoordinate(Vector2Int coord)
+	{
+		TableData t = tableManager.GetTableByCoordinate(coord);
+		Vector2 p = t.positionToRect(canvas);
+		rectTransform.DOAnchorPos(p, 0.2f).SetEase(Ease.OutCirc);
+		rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
+
+		//테이블 위치 업데이트
+		pieceData.coordinate = coord;
+		pieceData.curTable.IsPiece = false;
+		pieceData.curTable.piece = null;
+
+		pieceData.UpdateTableCoordinate();
+		pieceData.curTable.IsPiece = true;
+		pieceData.curTable.piece = pieceData;
 	}
 
 	private void FollowMouseRotation()
