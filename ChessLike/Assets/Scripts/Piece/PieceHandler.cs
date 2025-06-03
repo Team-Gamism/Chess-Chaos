@@ -172,6 +172,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			{
 				king.isFirstMove = false;
 			}
+
 		}
 
 		GameManager.instance.SortPieceSibling();

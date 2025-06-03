@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class King : PieceAbstract
@@ -29,27 +27,24 @@ public class King : PieceAbstract
 			for(int j = -1;  j <= 1; j++)
 			{
 				Vector2Int moveTable = new Vector2Int(curTable.Coordinate.x + i, curTable.Coordinate.y + j);
-				if (!OverCoordinate(moveTable)) break;
+				if (!OverCoordinate(moveTable)) continue;
 				if (i == 0 && j == 0) continue;
 
 				TableData table = tableManager.GetTableByCoordinate(moveTable);
 
 				if (table.IsPiece)
 				{
-					if (table.piece.IsPlayerPiece)
+					if (!table.piece.IsPlayerPiece)
 					{
-						break;
+						table.pieceMoveAppear.DeathPiece = true;
+						result.Add(table);
 					}
-					table.pieceMoveAppear.DeathPiece = true;
-					result.Add(table);
-					break;
 				}
 				else
 				{
-					table.pieceMoveAppear.DeathPiece = false;
+					if (table.IsMoveable) result.Add(table);
 				}
 
-				if (table.IsMoveable) result.Add(table);
 			}
 		}
 
@@ -68,17 +63,17 @@ public class King : PieceAbstract
 					break;
 				case 1:
 					Vector2Int newCoord = new Vector2Int(curCoord.x - 2, curCoord.y);
-					result.Add(tableManager.GetTableByCoordinate(newCoord));
+					AddTable(result, tableManager, newCoord);
 					break;
 				case 2:
 					Vector2Int newCoord2 = new Vector2Int(curCoord.x + 2, curCoord.y);
-					result.Add(tableManager.GetTableByCoordinate(newCoord2));
+					AddTable(result, tableManager, newCoord2);
 					break;
 				case 3:
-					for (int i = -2; i < 2; i += 2)
+					for (int i = -2; i <= 2; i += 2)
 					{
 						Vector2Int newCoord3 = new Vector2Int(curCoord.x + i, curCoord.y);
-						result.Add(tableManager.GetTableByCoordinate(newCoord3));
+						AddTable(result, tableManager, newCoord3);
 					}
 					break;
 			}
@@ -86,6 +81,29 @@ public class King : PieceAbstract
 
 		//최종 결과 반환
 		return result;
+	}
+
+	private void AddTable(List<TableData> result, TableManager tableManager, Vector2Int coord)
+	{
+		TableData table = tableManager.GetTableByCoordinate(coord);
+
+		if (table.IsPiece)
+		{
+			if (table.piece.IsPlayerPiece)
+			{
+				return;
+			}
+			table.pieceMoveAppear.DeathPiece = true;
+			result.Add(table);
+			return;
+		}
+		else
+		{
+			table.pieceMoveAppear.DeathPiece = false;
+		}
+
+		if (table.IsMoveable) result.Add(table);
+		return;
 	}
 
 	/// <summary>
