@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2200531911263722814}
   - component: {fileID: -6744740880261516627}
   - component: {fileID: 1409239932499714884}
+  - component: {fileID: 8854606887234869122}
   m_Layer: 5
   m_Name: Pawn
   m_TagString: Untagged
@@ -104,6 +105,7 @@ MonoBehaviour:
   StaticTurn: 0
   coordinate: {x: 0, y: 0}
   curTable: {fileID: 0}
+  moveCount: 0
 --- !u!114 &5531435601446275872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +132,8 @@ MonoBehaviour:
   queen: {fileID: 0}
   king: {fileID: 0}
   isDragable: 0
+  isEnable: 1
+  tableList: []
 --- !u!114 &2200531911263722814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +151,6 @@ MonoBehaviour:
   - {fileID: 1061440584131796481, guid: 67022963bec7d68498fefdde72c3e7d1, type: 3}
   - {fileID: 2184277596354376689, guid: d2dbb6bff0dc9274eb1fb34367c4bf64, type: 3}
   - {fileID: 9015967143296187391, guid: 559284ffe2043cc4882597ceb8083ff3, type: 3}
-  pieceData: {fileID: 7001611748882575697}
 --- !u!114 &-6744740880261516627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +187,19 @@ MonoBehaviour:
   - {x: -1, y: 2}
   - {x: -2, y: -1}
   - {x: -2, y: 1}
+--- !u!114 &8854606887234869122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675699474651082795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1953930352533c43b48367bbcc1289f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnPassant: 0
 --- !u!1 &5279310629594116252
 GameObject:
   m_ObjectHideFlags: 0

@@ -144,14 +144,31 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
 			pervPos = p;
 
+			Vector2Int newCoord = tableManager.ReturnTableNear(rectTransform.anchoredPosition).Coordinate;
+
+			//폰이 2칸 이동한 경우 앙파상 가능하도록 하기
+			if (pieceData.PieceType == PieceType.Pawn)
+			{
+				if(Mathf.Abs(pieceData.coordinate.y - newCoord.y) == 2)
+				{
+					GetComponent<EnPassantHandler>().TwoMove = true;
+				}
+				else
+				{
+					GetComponent<EnPassantHandler>().TwoMove = false;
+				}
+			}
+
 			//테이블 위치 업데이트
-			pieceData.coordinate = tableManager.ReturnTableNear(rectTransform.anchoredPosition).Coordinate;
+			pieceData.coordinate = newCoord;
 			pieceData.curTable.IsPiece = false;
 			pieceData.curTable.piece = null;
 
 			pieceData.UpdateTableCoordinate();
 			pieceData.curTable.IsPiece = true;
 			pieceData.curTable.piece = pieceData;
+
+			pieceData.moveCount++;
 
 			//폰일 시 이후 스킬 적용 / 행동 금지
 			if (pieceData.PieceType == PieceType.Pawn && pieceData.IsPlayerPiece)

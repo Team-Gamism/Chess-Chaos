@@ -19,9 +19,12 @@ public class PieceData : MonoBehaviour
 	[HideInInspector]
 	public TableData curTable;
 
+	public int moveCount;
+
 
 	public void SpawnAnimation(int idx)	//스폰 시 나타나는 애니메이션
 	{
+		moveCount = 0;
 		int n = 0;
 		if (IsPlayerPiece)
 		{

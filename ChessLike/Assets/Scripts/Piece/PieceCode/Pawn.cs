@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class Pawn : PieceAbstract
 {
-	public bool IsFirstMove = true;//첫 움직임 확인
+	public bool IsFirstMove = true; //첫 움직임 확인
 	public bool CanMoveSide = false;
 	public bool IsShield = false;
+
 	public override List<TableData> FindMoveableSpots(Vector2Int curPos, TableManager tableManager)
 	{
 		List<TableData> result = new List<TableData>();
@@ -79,8 +80,5 @@ public class Pawn : PieceAbstract
 			Debug.LogWarning("curPieceData가 존재하지 않습니다!");
 			return;
 		}
-
-		
 	}
-
 }
