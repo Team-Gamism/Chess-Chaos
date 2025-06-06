@@ -29,15 +29,11 @@ public class BotManager : MonoBehaviour
 		TableData startTable = tableManager.GetTableByCoordinate(startCoor);
 		TableData endTable = tableManager.GetTableByCoordinate(endCoor);
 
-		if(GameManager.instance.isPawnShield(endTable.piece))
-		{
-			CompleteDone = false;
-			return;
-		}
-		else
-		{
-			MovePiece(startTable, endTable);
-		}
+		//특수 조건(방어막 여부, 잡기 불가능) 발동 여부 확인
+		//만약 조건 만족 시, BestMove 재계산
+
+		CompleteDone = true;
+		MovePiece(startTable, endTable);
 
 	}
 
@@ -47,6 +43,28 @@ public class BotManager : MonoBehaviour
 
 		Vector2 dest = destination.positionToRect(tableManager.PieceCanvas);
 
+		Vector2Int startCoord = table.Coordinate;
+		Vector2Int endCoord = destination.Coordinate;
+
+		if(piece.PieceType == PieceType.Pawn)
+		{
+			EnPassantHandler enPassantHandler = piece.GetComponent<EnPassantHandler>();
+			Pawn pawn = piece.GetComponent<Pawn>();
+
+			if (pawn.IsFirstMove) pawn.IsFirstMove = false;
+
+			if (Mathf.Abs(startCoord.y - endCoord.y) == 2)
+			{
+				UnityEngine.Debug.Log("앙파상 가능");
+				enPassantHandler.TwoMove = true;
+				enPassantHandler.isEnPassant = true;
+			}
+			else
+			{
+				enPassantHandler.isEnPassant = false;
+			}
+		}
+
 		piece.GetComponent<RectTransform>().DOAnchorPos(dest, 0.2f).SetEase(Ease.OutCirc);
 		piece.coordinate = destination.Coordinate;
 		piece.curTable.IsPiece = false;
@@ -55,6 +73,8 @@ public class BotManager : MonoBehaviour
 		piece.UpdateTableCoordinate();
 		piece.curTable.IsPiece = true;
 		piece.curTable.piece = piece;
+
+		piece.moveCount++;
 
 		GameManager.instance.SortPieceSibling();
 	}

@@ -32,6 +32,8 @@ public class Pawn : PieceAbstract
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
 
+			Debug.Log($"{gameObject.name}, {moveTable}, {table == null}");
+
 			if (table.IsPiece) break;
 
 			if (table.IsMoveable) result.Add(table);
@@ -45,6 +47,8 @@ public class Pawn : PieceAbstract
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
 
+			Debug.Log($"{gameObject.name} : {table == null}");
+
 			//스킬 카드 적용 시 대각선 이동 가능
 			if (CanMoveSide)
 			{
@@ -57,10 +61,13 @@ public class Pawn : PieceAbstract
 
 			else
 			{
-				if (table.IsPiece && !table.piece.IsPlayerPiece)
+				if (table.IsPiece)
 				{
-					table.pieceMoveAppear.DeathPiece = true;
-					result.Add(table);
+					if (!table.piece.IsPlayerPiece)
+					{
+						table.pieceMoveAppear.DeathPiece = true;
+						result.Add(table);
+					}
 				}
 				else
 				{
@@ -68,6 +75,32 @@ public class Pawn : PieceAbstract
 				}
 			}
 		}
+		
+		//앙파상 경로 확인
+		for(int i = -1; i <= 1; i += 2)
+		{
+			Vector2Int moveTable = new Vector2Int(curTable.Coordinate.x + i, curTable.Coordinate.y);
+			if (!OverCoordinate(moveTable)) continue;
+
+			TableData table = tableManager.GetTableByCoordinate(moveTable);
+
+			Debug.Log($"{gameObject.name} : {table == null}");
+
+			if (table.IsPiece)
+			{
+				if (!table.piece.IsPlayerPiece)
+				{
+					if (table.piece.PieceType == PieceType.Pawn && table.piece.gameObject.GetComponent<EnPassantHandler>().isEnPassant)
+					{
+						Vector2Int pos = new Vector2Int(moveTable.x, moveTable.y - 1);
+						TableData t = tableManager.GetTableByCoordinate(pos);
+						t.pieceMoveAppear.DeathPiece = true;
+						result.Add(t);
+					}
+				}
+			}
+		}
+
 		return result;
 	}
 

@@ -227,6 +227,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &3501167
@@ -847,6 +848,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &79399075
@@ -1136,6 +1138,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &94244813
@@ -1242,6 +1245,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &129678105
@@ -1690,6 +1694,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &185145295
@@ -1895,6 +1900,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &203463645
@@ -2298,6 +2304,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &225655168
@@ -2404,6 +2411,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &225989766
@@ -2717,6 +2725,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &247464206
@@ -3150,6 +3159,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &284357293
@@ -3256,6 +3266,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &285204137
@@ -3694,6 +3705,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &301157793
@@ -3800,6 +3812,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &329877595
@@ -4089,6 +4102,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &355045421
@@ -4536,6 +4550,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &369199800
@@ -4816,6 +4831,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &386795236
@@ -5189,6 +5205,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &442474126
@@ -5295,6 +5312,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &449787271
@@ -6248,6 +6266,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &523329145
@@ -6671,6 +6690,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &556887845
@@ -7348,6 +7368,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &637172189
@@ -9082,6 +9103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tableManager: {fileID: 595194751}
   CompleteDone: 0
+  IsCheckmate: 0
 --- !u!1 &804873126
 GameObject:
   m_ObjectHideFlags: 0
@@ -9543,6 +9565,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &837231109
@@ -10041,6 +10064,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &870768042
@@ -10147,6 +10171,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &876161186
@@ -10253,6 +10278,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &882293981
@@ -10527,6 +10553,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &906389428
@@ -10633,6 +10660,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &914153413
@@ -11604,6 +11632,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1019251117
@@ -11794,6 +11823,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1052857373
@@ -12152,6 +12182,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1112690357
@@ -12258,6 +12289,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1127532763
@@ -12523,6 +12555,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1163568786
@@ -12871,6 +12904,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1193194594
@@ -12977,6 +13011,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1197429692
@@ -13083,6 +13118,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1199837761
@@ -13189,6 +13225,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1207735853
@@ -13295,6 +13332,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1216443541
@@ -13660,6 +13698,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1275815431
@@ -13766,6 +13805,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1289405672
@@ -14315,6 +14355,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerTurn: 0
   PlayerColor: 0
+  IsCheckmate: 0
+  IsPromotion: 0
 --- !u!1 &1361237704
 GameObject:
   m_ObjectHideFlags: 0
@@ -14637,6 +14679,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1400375448
@@ -15124,6 +15167,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1437365785
@@ -15497,6 +15541,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1479008992
@@ -15687,6 +15732,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1496080431
@@ -15793,6 +15839,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1502781147
@@ -16245,6 +16292,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1553839300
@@ -16450,6 +16498,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1569163531
@@ -16807,6 +16856,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1595676953
@@ -17096,6 +17146,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1619536084
@@ -17301,6 +17352,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1631936231
@@ -17744,6 +17796,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1674907472
@@ -19389,6 +19442,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1791958046
@@ -19678,6 +19732,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1799235056
@@ -20227,6 +20282,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1865270703
@@ -20333,6 +20389,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1865388699
@@ -20637,6 +20694,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1893556025
@@ -20743,6 +20801,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1893921412
@@ -21047,6 +21106,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1927818722
@@ -21256,6 +21316,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1940263427
@@ -21446,6 +21507,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &1945746970
@@ -22144,6 +22206,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &2003077622
@@ -22448,6 +22511,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &2020942808
@@ -22554,6 +22618,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &2026459429
@@ -22942,6 +23007,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &2068463652
@@ -23132,6 +23198,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   IsMoveable: 1
   IsPiece: 0
+  IsCastlingAble: 0
   piece: {fileID: 0}
   pieceMoveAppear: {fileID: 0}
 --- !u!1 &2091986789
