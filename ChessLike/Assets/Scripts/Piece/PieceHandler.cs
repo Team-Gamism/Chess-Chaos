@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEngine.UIElements;
 using Unity.VisualScripting;
 using System.Diagnostics.CodeAnalysis;
+using JetBrains.Annotations;
 
 public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -175,6 +176,13 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			{
 				pawn.CanMoveSide = false;
 				pawn.IsFirstMove = false;
+
+				//스킬 사용 흔적 지우기
+				Pawn[] pawns = FindObjectsOfType<Pawn>().Where(p=>p.GetComponent<PieceData>().IsPlayerPiece).ToArray();
+				for(int i = 0; i < pawns.Length; i++)
+				{
+					if (pawns[i].GetComponent<PieceData>().moveCount > 0 && pawns[i].IsFirstMove) pawns[i].IsFirstMove = false;
+				}
 
 				int promotionY = pieceData.IsPlayerPiece ? 0 : 8;
 

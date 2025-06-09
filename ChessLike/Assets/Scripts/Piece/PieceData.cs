@@ -101,13 +101,11 @@ public class PieceData : MonoBehaviour
 
 		TableData t = tableManager.GetTableByCoordinate(coord);
 
-		Debug.Log($"{coord}, {t == null}");
+		//Debug.Log($"{coord}, {t == null}");
 
 		if (t != null && t.IsPiece)
 		{
-			Debug.Log("ㅇㄴㅁㄹ1");
 			if (t.piece.PieceType == PieceType.Pawn && !t.piece.IsPlayerPiece){
-				Debug.Log("ㅇㄴㅁㄹ");
 				EnPassantHandler enPassantHandler = t.piece.GetComponent<EnPassantHandler>();
 				if(enPassantHandler.isEnPassant) 
 					Destroy(enPassantHandler.gameObject);

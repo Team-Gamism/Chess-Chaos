@@ -1,9 +1,8 @@
+using System.Linq;
 using UnityEngine;
 
 public class PawnMoveOnce : MonoBehaviour, ICardSkill
 {
-    public CardData cardData;
-
 	private TableManager tableManager;
 	private RectTransform rectTransform;
 
@@ -14,17 +13,15 @@ public class PawnMoveOnce : MonoBehaviour, ICardSkill
 		rectTransform = GetComponent<RectTransform>();
 	}
 
-/*	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.F))
-		{
-			Execute();
-		}
-	}
-*/
+
 	public void Execute()
 	{
-		
+		Debug.Log("Skill Start");
+		Pawn[] pawns = FindObjectsOfType<Pawn>().Where(p => p.GetComponent<PieceData>().IsPlayerPiece).ToArray();
+		for(int i = 0; i < pawns.Length; i++)
+		{
+			if (!pawns[i].IsFirstMove) pawns[i].IsFirstMove = true;
+		}
 	}
 
 }

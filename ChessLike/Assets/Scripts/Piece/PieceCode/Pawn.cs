@@ -32,7 +32,7 @@ public class Pawn : PieceAbstract
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
 
-			Debug.Log($"{gameObject.name}, {moveTable}, {table == null}");
+			//Debug.Log($"{gameObject.name}, {moveTable}, {table == null}");
 
 			if (table.IsPiece) break;
 
@@ -47,7 +47,7 @@ public class Pawn : PieceAbstract
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
 
-			Debug.Log($"{gameObject.name} : {table == null}");
+			//Debug.Log($"{gameObject.name} : {table == null}");
 
 			//스킬 카드 적용 시 대각선 이동 가능
 			if (CanMoveSide)
@@ -84,7 +84,7 @@ public class Pawn : PieceAbstract
 
 			TableData table = tableManager.GetTableByCoordinate(moveTable);
 
-			Debug.Log($"{gameObject.name} : {table == null}");
+			//Debug.Log($"{gameObject.name} : {table == null}");
 
 			if (table.IsPiece)
 			{

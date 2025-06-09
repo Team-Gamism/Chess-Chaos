@@ -14,7 +14,10 @@ public class SkillLoader : MonoBehaviour
 	[SerializeField]
 	private TMP_Text description;
 
-	public void LoadSkill(CardData cardData)
+	[SerializeField]
+	private ICardSkill skill;
+
+	public void LoadSkill(CardData cardData, ICardSkill skill)
 	{
 		CanvasGroup skillDescription = GetComponent<CanvasGroup>();
 		skillDescription.interactable = true;
@@ -22,6 +25,7 @@ public class SkillLoader : MonoBehaviour
 		isOwn.isOn = cardData.isOwn;	
 		title.text = cardData.Title;
 		description.text = cardData.Description;
+		this.skill = skill;
 	}
 
 	public void CloseSkill()
@@ -29,5 +33,10 @@ public class SkillLoader : MonoBehaviour
 		CanvasGroup skillDescription = GetComponent<CanvasGroup>();
 		skillDescription.interactable = false;
 		DOTween.To(() => skillDescription.alpha, x => skillDescription.alpha = x, 0f, 0.2f);
+	}
+
+	public void ExecuteSkill()
+	{
+		skill.Execute();
 	}
 }
