@@ -21,6 +21,7 @@ public class SkillLoader : MonoBehaviour
 	{
 		CanvasGroup skillDescription = GetComponent<CanvasGroup>();
 		skillDescription.interactable = true;
+		skillDescription.blocksRaycasts = true;
 		DOTween.To(() => skillDescription.alpha, x => skillDescription.alpha = x, 1f, 0.2f);
 		isOwn.isOn = cardData.isOwn;	
 		title.text = cardData.Title;
@@ -32,6 +33,7 @@ public class SkillLoader : MonoBehaviour
 	{
 		CanvasGroup skillDescription = GetComponent<CanvasGroup>();
 		skillDescription.interactable = false;
+		skillDescription.blocksRaycasts = false;
 		DOTween.To(() => skillDescription.alpha, x => skillDescription.alpha = x, 0f, 0.2f);
 	}
 

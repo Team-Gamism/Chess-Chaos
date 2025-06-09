@@ -4274,7 +4274,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 232057106}
+      - m_Target: {fileID: 355045426}
         m_TargetAssemblyTypeName: NCard, Assembly-CSharp
         m_MethodName: LoadEvent
         m_Mode: 1
@@ -4298,7 +4298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6363175cf984a5e47bcd027017cd6140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData: {fileID: 11400000, guid: 0f448df2b7ff4a540a4918dbdd02329e, type: 2}
+  cardData: {fileID: 11400000, guid: 8c3714a5d80c9fd4180a49043473c5b2, type: 2}
 --- !u!1 &355419572
 GameObject:
   m_ObjectHideFlags: 0
@@ -5883,7 +5883,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 0
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &477834053
 MonoBehaviour:
@@ -12707,7 +12707,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &1163568791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14374,6 +14374,8 @@ MonoBehaviour:
   PlayerColor: 0
   IsCheckmate: 0
   IsPromotion: 0
+  isPawnMoveOnce: 0
+  isSnakePawn: 0
 --- !u!1 &1361237704
 GameObject:
   m_ObjectHideFlags: 0

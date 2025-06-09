@@ -26,9 +26,19 @@ public class PawnPromotion : MonoBehaviour
 
 	public void Promotion(int n)
 	{
-		Debug.Log(n);
+		if (pieceData == null) return;
+
+		Vector3 SpawnPos = pieceData.transform.position;
+		Vector2Int coord = pieceData.coordinate;
+		bool isPlayerPiece = pieceData.IsPlayerPiece;
+		TableData cutTable = pieceData.curTable;
+
+		Canvas canvas = pieceHandler.canvas;
+		bool isDraggable = pieceHandler.isDragable;
+
 		var piece = Instantiate(promotionObjects[n]);
 		piece.transform.SetParent(FindObjectOfType<PieceSpawner>().transform, false);
+		piece.transform.position = SpawnPos;
 
 		piece.transform.position = pieceData.transform.position;
 
@@ -39,9 +49,9 @@ public class PawnPromotion : MonoBehaviour
 		if (newPieceData == null || newPIeceHandler == null) return;
 
 		//이전 기물의 상태와 동일하게 구성하기
-		newPieceData.coordinate = pieceData.coordinate;
-		newPieceData.IsPlayerPiece = pieceData.IsPlayerPiece;
-		newPieceData.curTable = pieceData.curTable;
+		newPieceData.coordinate = coord;
+		newPieceData.IsPlayerPiece = isPlayerPiece;
+		newPieceData.curTable = newPieceData.GetComponent<TableData>();
 
 		newPIeceHandler.enabled = pieceHandler.enabled;
 		newPIeceHandler.isDragable = pieceHandler.isDragable;

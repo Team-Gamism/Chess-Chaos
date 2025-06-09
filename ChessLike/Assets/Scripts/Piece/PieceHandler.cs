@@ -3,10 +3,8 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.UIElements;
-using Unity.VisualScripting;
-using System.Diagnostics.CodeAnalysis;
-using JetBrains.Annotations;
+using UnityEditor.Rendering;
+using TMPro;
 
 public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -178,12 +176,25 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 				pawn.IsFirstMove = false;
 
 				//스킬 사용 흔적 지우기
-				Pawn[] pawns = FindObjectsOfType<Pawn>().Where(p=>p.GetComponent<PieceData>().IsPlayerPiece).ToArray();
-				for(int i = 0; i < pawns.Length; i++)
+				if (GameManager.instance.isPawnMoveOnce)
 				{
-					if (pawns[i].GetComponent<PieceData>().moveCount > 0 && pawns[i].IsFirstMove) pawns[i].IsFirstMove = false;
+					Pawn[] pawns = FindObjectsOfType<Pawn>().Where(p => p.GetComponent<PieceData>().IsPlayerPiece).ToArray();
+					for (int i = 0; i < pawns.Length; i++)
+					{
+						if (pawns[i].GetComponent<PieceData>().moveCount > 0 && pawns[i].IsFirstMove) pawns[i].IsFirstMove = false;
+					}
+					GameManager.instance.isPawnMoveOnce = false;
 				}
 
+				else if(GameManager.instance.isSnakePawn)
+				{
+					Pawn pawn = FindObjectsOfType<Pawn>().Where(p=>p.GetComponent<Knight>().enabled == true && p.GetComponent<Pawn>().enabled == false).FirstOrDefault();
+
+					pawn.GetComponent<Knight>().enabled = false;
+					pawn.GetComponent <Pawn>().enabled = true;
+
+					GameManager.instance.isSnakePawn = false;
+				}
 				int promotionY = pieceData.IsPlayerPiece ? 0 : 8;
 
 				//폰 프로모션 확인
@@ -317,4 +328,5 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		}
 		return null;
 	}
+
 }

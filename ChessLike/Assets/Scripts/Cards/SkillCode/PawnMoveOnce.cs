@@ -22,11 +22,14 @@ public class PawnMoveOnce : MonoBehaviour, ICardSkill
 		{
 			if (!pawns[i].IsFirstMove) pawns[i].IsFirstMove = true;
 		}
+		GameManager.instance.isPawnMoveOnce = true;
 	}
 
 }
 
 public interface ICardSkill
 {
-    public void Execute();
+	public virtual void Execute() { }
+
+	public virtual void Execute(PieceData pieceData) { }
 }

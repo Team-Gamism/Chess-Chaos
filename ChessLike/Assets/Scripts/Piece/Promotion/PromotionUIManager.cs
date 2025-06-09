@@ -33,7 +33,7 @@ public class PromotionUIManager : MonoBehaviour
 		for (int i = 0; i < btns.Length; i++)
 		{
 			int idx = i;
-			btns[i].onClick.AddListener(() =>pawnPromotion.Promotion(idx));
+			btns[i].onClick.AddListener(() => pawnPromotion.Promotion(idx));
 		}
 	}
 

@@ -18,6 +18,12 @@ public class GameManager : MonoBehaviour
 
 	public bool IsPromotion = false;
 
+	[Header("스킬 조건 관련 변수")]
+
+	public bool isPawnMoveOnce = false;
+
+	public bool isSnakePawn = false;
+
 	
 	private void Awake()
 	{
