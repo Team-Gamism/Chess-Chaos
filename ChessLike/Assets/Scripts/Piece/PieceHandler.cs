@@ -195,6 +195,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 					GameManager.instance.isSnakePawn = false;
 				}
+				
 				int promotionY = pieceData.IsPlayerPiece ? 0 : 8;
 
 				//폰 프로모션 확인

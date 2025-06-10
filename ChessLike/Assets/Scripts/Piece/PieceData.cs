@@ -94,11 +94,13 @@ public class PieceData : MonoBehaviour
 
 	public void UpdateTableCoordinate()
 	{
+		//현재 테이블 위치를 가져오기
 		curTable = tableManager.GetTableByCoordinate(coordinate);
 
 		//앙파상 발동 코드
 		Vector2Int coord = new Vector2Int(coordinate.x, coordinate.y + (IsPlayerPiece ? 1 : -1));
 
+		//coord 좌표에 있는 테이블 가져오기
 		TableData t = tableManager.GetTableByCoordinate(coord);
 
 		//Debug.Log($"{coord}, {t == null}");
@@ -107,8 +109,12 @@ public class PieceData : MonoBehaviour
 		{
 			if (t.piece.PieceType == PieceType.Pawn && !t.piece.IsPlayerPiece){
 				EnPassantHandler enPassantHandler = t.piece.GetComponent<EnPassantHandler>();
-				if(enPassantHandler.isEnPassant) 
+				if(enPassantHandler.isEnPassant)
+				{
+					enPassantHandler.gameObject.GetComponent<PieceData>().curTable.IsPiece = false;
+					enPassantHandler.gameObject.GetComponent<PieceData>().curTable.piece = null;
 					Destroy(enPassantHandler.gameObject);
+				}
 			}
 		}
 

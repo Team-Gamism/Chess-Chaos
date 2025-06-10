@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
 	[Header("스킬 조건 관련 변수")]
 
+	public bool isSelectorEnable = false;
+
 	public bool isPawnMoveOnce = false;
 
 	public bool isSnakePawn = false;
