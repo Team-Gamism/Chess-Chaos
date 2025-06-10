@@ -4,7 +4,6 @@ using UnityEngine;
 public class Pawn : PieceAbstract
 {
 	public bool IsFirstMove = true; //첫 움직임 확인
-	public bool CanMoveSide = false;
 
 	public override List<TableData> FindMoveableSpots(Vector2Int curPos, TableManager tableManager)
 	{
@@ -49,9 +48,9 @@ public class Pawn : PieceAbstract
 			//Debug.Log($"{gameObject.name} : {table == null}");
 
 			//스킬 카드 적용 시 대각선 이동 가능
-			if (CanMoveSide)
+			if (GameManager.instance.isPawnAimming)
 			{
-				if(table.IsPiece && !table.piece.IsPlayerPiece)
+				if (table.IsPiece && !table.piece.IsPlayerPiece)
 					table.pieceMoveAppear.DeathPiece = true;
 
 				result.Add(table);

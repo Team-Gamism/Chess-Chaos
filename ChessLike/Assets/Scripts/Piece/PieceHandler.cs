@@ -193,10 +193,12 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			//폰일 시 이후 스킬 적용 / 행동 금지
 			if (pieceData.PieceType == PieceType.Pawn && pieceData.IsPlayerPiece)
 			{
-				pawn.CanMoveSide = false;
 				pawn.IsFirstMove = false;
 
-				//스킬 사용 흔적 지우기
+				//스킬 사용 흔적 지우기1
+				if (GameManager.instance.isPawnAimming) GameManager.instance.isPawnAimming = false;
+
+				//스킬 사용 흔적 지우기2
 				if (GameManager.instance.isPawnMoveOnce)
 				{
 					Pawn[] pawns = FindObjectsOfType<Pawn>().Where(p => p.GetComponent<PieceData>().IsPlayerPiece).ToArray();

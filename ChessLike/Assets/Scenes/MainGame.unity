@@ -2476,6 +2476,7 @@ GameObject:
   - component: {fileID: 232057103}
   - component: {fileID: 232057105}
   - component: {fileID: 232057106}
+  - component: {fileID: 232057107}
   m_Layer: 5
   m_Name: Card (2)
   m_TagString: Untagged
@@ -2621,6 +2622,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardData: {fileID: 11400000, guid: 7d19de26454949847a210b6f5a932357, type: 2}
+--- !u!114 &232057107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232057101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8027075350088844b8538e82e0151f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &244173494
 GameObject:
   m_ObjectHideFlags: 0
@@ -14479,6 +14492,7 @@ MonoBehaviour:
   isPawnMoveOnce: 0
   isSnakePawn: 0
   isPawnShield: 0
+  isPawnAimming: 0
 --- !u!1 &1361237704
 GameObject:
   m_ObjectHideFlags: 0

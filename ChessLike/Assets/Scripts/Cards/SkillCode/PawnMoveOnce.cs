@@ -18,7 +18,7 @@ public class PawnMoveOnce : MonoBehaviour, ICardSkill
 	{
 		Debug.Log("Skill Start");
 		Pawn[] pawns = FindObjectsOfType<Pawn>().Where(p => p.GetComponent<PieceData>().IsPlayerPiece).ToArray();
-		for(int i = 0; i < pawns.Length; i++)
+		for (int i = 0; i < pawns.Length; i++)
 		{
 			if (!pawns[i].IsFirstMove) pawns[i].IsFirstMove = true;
 		}

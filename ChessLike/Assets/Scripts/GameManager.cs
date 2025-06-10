@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 	public bool isPawnMoveOnce = false;
 	public bool isSnakePawn = false;
 	public bool isPawnShield = false;
+	public bool isPawnAimming = false;
 
 	
 	private void Awake()
