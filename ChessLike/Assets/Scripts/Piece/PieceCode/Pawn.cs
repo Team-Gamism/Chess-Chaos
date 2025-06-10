@@ -5,7 +5,6 @@ public class Pawn : PieceAbstract
 {
 	public bool IsFirstMove = true; //첫 움직임 확인
 	public bool CanMoveSide = false;
-	public bool IsShield = false;
 
 	public override List<TableData> FindMoveableSpots(Vector2Int curPos, TableManager tableManager)
 	{

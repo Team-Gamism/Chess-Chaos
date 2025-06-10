@@ -206,7 +206,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 					}
 					GameManager.instance.isPawnMoveOnce = false;
 				}
-				
+
 				int promotionY = pieceData.IsPlayerPiece ? 0 : 8;
 
 				//폰 프로모션 확인
@@ -352,12 +352,20 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	{
 		if (GameManager.instance.isSelectorEnable)
 		{
-			if (pieceData.PieceType == PieceType.Pawn)
+			if (pieceData.PieceType == PieceType.Pawn && GameManager.instance.isSnakePawn)
 			{
 				FindObjectOfType<SnakePawn>().SetpieceData(pieceData);
 
 				FindObjectOfType<SkillLoader>().ExecuteSkill();
 				GameManager.instance.isSnakePawn = false;
+			}
+
+			else if(pieceData.PieceType == PieceType.Pawn && GameManager.instance.isPawnShield)
+			{
+				FindObjectOfType<PawnShield>().SetpieceData(pieceData);
+
+				FindObjectOfType<SkillLoader>().ExecuteSkill();
+				GameManager.instance.isPawnShield = false;
 			}
 		}
 	}

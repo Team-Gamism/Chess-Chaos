@@ -21,10 +21,9 @@ public class GameManager : MonoBehaviour
 	[Header("스킬 조건 관련 변수")]
 
 	public bool isSelectorEnable = false;
-
 	public bool isPawnMoveOnce = false;
-
 	public bool isSnakePawn = false;
+	public bool isPawnShield = false;
 
 	
 	private void Awake()
@@ -60,12 +59,6 @@ public class GameManager : MonoBehaviour
 		{
 			list[i].transform.SetSiblingIndex(i);
 		}
-	}
-
-	//폰 방어막이 켜져있으면 true 반환
-	public bool isPawnShield(PieceData piece)
-	{
-		return piece.PieceType == PieceType.Pawn && piece.GetComponent<PieceHandler>().pawn.IsShield;
 	}
 }
 

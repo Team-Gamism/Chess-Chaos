@@ -12,7 +12,8 @@ public class PieceData : MonoBehaviour
 	public bool IsStatic;          //고정 상태 확인
 	[HideInInspector]
 	public int StaticTurn;         //얼마나 오래 고정되어 있을 것인지 확인
-	public bool IsSnakePawn; //암습의 폰이 적용된 기물인지 확인
+	public bool IsSnakePawn;       //암습의 폰이 적용된 기물인지 확인
+	public bool IsShield;
 
 
 	public Vector2Int coordinate;    //현재 테이블에서의 좌표
