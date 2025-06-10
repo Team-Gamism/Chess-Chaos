@@ -6,31 +6,36 @@ public class SnakePawn : MonoBehaviour, ICardSkill
 	private TableManager tableManager;
 	private RectTransform rectTransform;
 
+	private PieceSelector selector;
+
 	private PieceData pieceData;
 	private void Start()
 	{
 		tableManager = FindObjectOfType<TableManager>();
 		rectTransform = GetComponent<RectTransform>();
+
+		selector = FindObjectOfType<PieceSelector>();
 	}
 
 	public void Execute()
 	{
-		SelectObj();
+		GameManager.instance.isSnakePawn = true;
+		selector.EnableImage(PieceType.Pawn);
 	}
 
-	public void SelectObj()
+	public void SetpieceData(PieceData pieceData)
 	{
-
-
-		//최종적으로 선택한 기물로 스킬 실행
-		Execute(pieceData);
+		this.pieceData = pieceData;
 	}
+
 
 	public void Execute(PieceData piece)
 	{
-		piece.GetComponent<Pawn>().enabled = false;
-		piece.GetComponent<Knight>().enabled = true;
+		pieceData.RegisterPieceType(PieceType.Knight);
+		pieceData.IsSnakePawn = true;
 
-		GameManager.instance.isSnakePawn = true;
+		pieceData.ChangePieceType(PieceType.Knight);
+
+		FindObjectOfType<PieceSelector>().DisableImage();
 	}
 }

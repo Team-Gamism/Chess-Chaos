@@ -12,6 +12,8 @@ public class PieceData : MonoBehaviour
 	public bool IsStatic;          //고정 상태 확인
 	[HideInInspector]
 	public int StaticTurn;         //얼마나 오래 고정되어 있을 것인지 확인
+	public bool IsSnakePawn; //암습의 폰이 적용된 기물인지 확인
+
 
 	public Vector2Int coordinate;    //현재 테이블에서의 좌표
 
@@ -81,6 +83,16 @@ public class PieceData : MonoBehaviour
 		rectTransform = GetComponent<RectTransform>();
 	}
 	
+	public void RegisterPieceType(PieceType piece)
+	{
+		PieceHandler handler = GetComponent<PieceHandler>();
+		handler.SetPiece(piece);
+	}
+
+	public void ChangePieceType(PieceType piece)
+	{
+		PieceType = piece;
+	}
 	public Vector2 GetTablePosition(int idx)
 	{
 		Vector3 tableTrans = tableManager.TableList[idx].position;

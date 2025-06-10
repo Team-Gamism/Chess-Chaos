@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Rendering;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditorInternal;
 
-public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
 	private RectTransform rectTransform;
 	[HideInInspector]
@@ -69,6 +71,25 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		rectTransform = GetComponent<RectTransform>();
 	}
 
+	public void SetPiece(PieceType piece)
+	{
+		switch (piece)
+		{
+			case PieceType.Pawn:
+				pawn = gameObject.GetComponent<Pawn>(); break;
+			case PieceType.Knight:
+				knight = gameObject.GetComponent<Knight>(); break;
+			case PieceType.Rook:
+				rook = gameObject.GetComponent<Rook>(); break;
+			case PieceType.Bishop:
+				bishop = gameObject.GetComponent<Bishop>(); break;
+			case PieceType.Queen:
+				queen = gameObject.GetComponent<Queen>(); break;
+			case PieceType.King:
+				king = gameObject.GetComponent<King>(); break;
+
+		}
+	}
 	private void Update()
 	{
 		if (!isEnable) return;
@@ -185,16 +206,6 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 					}
 					GameManager.instance.isPawnMoveOnce = false;
 				}
-
-				else if(GameManager.instance.isSnakePawn)
-				{
-					Pawn pawn = FindObjectsOfType<Pawn>().Where(p=>p.GetComponent<Knight>().enabled == true && p.GetComponent<Pawn>().enabled == false).FirstOrDefault();
-
-					pawn.GetComponent<Knight>().enabled = false;
-					pawn.GetComponent <Pawn>().enabled = true;
-
-					GameManager.instance.isSnakePawn = false;
-				}
 				
 				int promotionY = pieceData.IsPlayerPiece ? 0 : 8;
 
@@ -202,8 +213,15 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 				if (pieceData.coordinate.y == promotionY) GetComponent<PawnPromotion>().StartPromotion();
 			}
 
+			//암습의 폰 켜져있을 시 끄기
+			if (pieceData.IsSnakePawn)
+			{
+				pieceData.ChangePieceType(PieceType.Pawn);
+				pieceData.IsSnakePawn = false;
+			}
+
 			//룩일 시 첫 움직임 해제
-			if(pieceData.PieceType == PieceType.Rook && pieceData.IsPlayerPiece)
+			if (pieceData.PieceType == PieceType.Rook && pieceData.IsPlayerPiece)
 			{
 				rook.isFirstMove = false;
 			}
@@ -330,4 +348,17 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		return null;
 	}
 
+	public void OnPointerClick(PointerEventData eventData)
+	{
+		if (GameManager.instance.isSelectorEnable)
+		{
+			if (pieceData.PieceType == PieceType.Pawn)
+			{
+				FindObjectOfType<SnakePawn>().SetpieceData(pieceData);
+
+				FindObjectOfType<SkillLoader>().ExecuteSkill();
+				GameManager.instance.isSnakePawn = false;
+			}
+		}
+	}
 }

@@ -1,6 +1,4 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,6 +37,13 @@ public class SkillLoader : MonoBehaviour
 
 	public void ExecuteSkill()
 	{
-		skill.Execute();
+		if (GameManager.instance.isSnakePawn)
+		{
+			skill.Execute(new PieceData());
+		}
+		else
+		{
+			skill.Execute();
+		}
 	}
 }
