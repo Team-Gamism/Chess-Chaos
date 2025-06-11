@@ -1,13 +1,18 @@
+using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PieceSelector : MonoBehaviour
 {
+
+	[SerializeField]
+	private GameObject tweenMover;
 	private Canvas cameraSize;
 
 	private Image image;
+
+	private PieceType pieceType;
 
 	private void Start()
 	{
@@ -23,6 +28,8 @@ public class PieceSelector : MonoBehaviour
 	{
 		GameManager.instance.isSelectorEnable = true;
 		image.enabled = true;
+		pieceType = piece;
+		tweenMover.SetActive(true);
 		transform.SetSiblingIndex(FindFirstPiece(piece).gameObject.transform.GetSiblingIndex() - 1);
 	}
 
@@ -30,31 +37,63 @@ public class PieceSelector : MonoBehaviour
 	{
 		GameManager.instance.isSelectorEnable = false;
 		image.enabled = false;
-		transform.SetSiblingIndex(FindObjectsOfType<PieceData>().Length - 1);
+		tweenMover.SetActive(false);
+		DisablePieceMaterial(pieceType);
+		GameManager.instance.SortPieceSibling();
 	}
 
 
 	private PieceData FindFirstPiece(PieceType piece)
 	{
-		PieceData[] pieces = FindObjectsOfType<PieceData>().Where(p => p.IsPlayerPiece).ToArray();
+		List<PieceData> pieces = FindObjectsOfType<PieceData>().Where(p => p.IsPlayerPiece && p.PieceType == piece).ToList();
+
+
+		pieces.Sort((a, b) =>
+		{
+			if (a.coordinate.x == b.coordinate.x)
+				return a.coordinate.y.CompareTo(b.coordinate.y);
+			else
+				return a.coordinate.x.CompareTo(b.coordinate.x);
+		});
 
 		PieceData result = null;
 
 		foreach(PieceData n in pieces)
 		{
-			if(n.PieceType == piece)
+			if(result == null)
 			{
-				if(result == null)
-				{
-					result = n;
-				}
-				else
-				{
-					if(n.coordinate.x < result.coordinate.x)
-						result = n;
-				}
+				result = n;
 			}
+			else
+			{
+				if(n.coordinate.x < result.coordinate.x)
+					result = n;
+			}
+			n.transform.SetAsLastSibling();
 		}
+
+		EnablePieceMaterial(pieceType);
+		
 		return result;
+	}
+
+	private void DisablePieceMaterial(PieceType piece)
+	{
+		List<PieceData> pieces = FindObjectsOfType<PieceData>().Where(p => p.IsPlayerPiece && p.PieceType == piece).ToList();
+		for(int i = 0; i < pieces.Count; i++)
+		{
+			pieces[i].SetOutline(0);
+		}
+	}
+
+	private void EnablePieceMaterial(PieceType piece)
+	{
+		List<PieceData> pieces = FindObjectsOfType<PieceData>().Where(p => p.IsPlayerPiece && p.PieceType == piece).ToList();
+
+		Debug.Log("호출됨" + pieces.Count);
+		for (int i = 0; i < pieces.Count; i++)
+		{
+			pieces[i].SetOutline(1);
+		}
 	}
 }

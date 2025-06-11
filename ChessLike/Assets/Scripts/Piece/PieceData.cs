@@ -15,6 +15,7 @@ public class PieceData : MonoBehaviour
 	public bool IsSnakePawn;       //암습의 폰이 적용된 기물인지 확인
 	public bool IsShield;
 
+	public Material Outline;	   //바깥 태두리 메테리얼
 
 	public Vector2Int coordinate;    //현재 테이블에서의 좌표
 
@@ -37,6 +38,12 @@ public class PieceData : MonoBehaviour
 			{
 				n += 2;
 			}
+			GetComponent<Image>().material = Outline;
+			if (GetComponent<Image>().material.GetFloat("_OutlineThick") != 0f)
+			{
+				GetComponent<Image>().material.SetFloat("_OutlineThick", 0f);
+			}
+
 		}
 		else
 		{
@@ -145,5 +152,9 @@ public class PieceData : MonoBehaviour
 		}
 	}
 
+	public void SetOutline(int depth)
+	{
+		GetComponent<Image>().material.SetFloat("_OutlineThick", depth);
+	}
 }
 

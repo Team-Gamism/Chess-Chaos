@@ -100,8 +100,12 @@ MonoBehaviour:
   IsPlayerPiece: 0
   IsStatic: 0
   StaticTurn: 0
+  IsSnakePawn: 0
+  IsShield: 0
+  Outline: {fileID: 2100000, guid: e587606536a42cf4180bad86e0236203, type: 2}
   coordinate: {x: 0, y: 0}
   curTable: {fileID: 0}
+  moveCount: 0
 --- !u!114 &453682975186261212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +132,8 @@ MonoBehaviour:
   queen: {fileID: 0}
   king: {fileID: 0}
   isDragable: 0
+  isEnable: 1
+  tableList: []
 --- !u!114 &2508799063013971428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5774e0c50dc53459f8a0673de0c0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFirstMove: 1
 --- !u!1 &8227779729490727427
 GameObject:
   m_ObjectHideFlags: 0

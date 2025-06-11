@@ -15,7 +15,6 @@ public class PawnAimming : MonoBehaviour, ICardSkill
 
 	public void Execute()
 	{
-		Debug.Log("Skill Start");
 		GameManager.instance.isPawnAimming = true;
 	}
 }

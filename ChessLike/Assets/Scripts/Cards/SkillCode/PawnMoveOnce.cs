@@ -16,7 +16,6 @@ public class PawnMoveOnce : MonoBehaviour, ICardSkill
 
 	public void Execute()
 	{
-		Debug.Log("Skill Start");
 		Pawn[] pawns = FindObjectsOfType<Pawn>().Where(p => p.GetComponent<PieceData>().IsPlayerPiece).ToArray();
 		for (int i = 0; i < pawns.Length; i++)
 		{

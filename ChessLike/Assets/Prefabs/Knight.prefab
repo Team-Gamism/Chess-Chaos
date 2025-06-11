@@ -197,8 +197,12 @@ MonoBehaviour:
   IsPlayerPiece: 0
   IsStatic: 0
   StaticTurn: 0
+  IsSnakePawn: 0
+  IsShield: 0
+  Outline: {fileID: 2100000, guid: 403da08081fa50641a4df5588ea818f2, type: 2}
   coordinate: {x: 0, y: 0}
   curTable: {fileID: 0}
+  moveCount: 0
 --- !u!114 &6389310129170959449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +229,8 @@ MonoBehaviour:
   queen: {fileID: 0}
   king: {fileID: 0}
   isDragable: 0
+  isEnable: 1
+  tableList: []
 --- !u!114 &-1447383667976810834
 MonoBehaviour:
   m_ObjectHideFlags: 0
