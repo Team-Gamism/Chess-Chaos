@@ -189,6 +189,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			pieceData.curTable.piece = pieceData;
 
 			pieceData.moveCount++;
+			GameManager.instance.TurnCount++;
 
 			//폰일 시 이후 스킬 적용 / 행동 금지
 			if (pieceData.PieceType == PieceType.Pawn && pieceData.IsPlayerPiece)

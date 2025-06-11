@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 	public bool isPawnShield = false;
 	public bool isPawnAimming = false;
 
+	public int TurnCount = 0;
 	
 	private void Awake()
 	{

@@ -35,6 +35,7 @@ public class Pawn : PieceAbstract
 			if (table.IsPiece) break;
 
 			if (table.IsMoveable) result.Add(table);
+			else break;
 		}
 
 		//이동 가능 경로 찾기(대각선)

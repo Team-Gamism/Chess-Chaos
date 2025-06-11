@@ -8,6 +8,8 @@ public class TableData : MonoBehaviour
 	public Vector2 position;
 
 	public bool IsMoveable;
+	public int NotMoveCount;
+	public int registeredTurnCount;
 	public bool IsPiece;
 
 	public bool IsCastlingAble = false;
@@ -29,5 +31,15 @@ public class TableData : MonoBehaviour
 		RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), tableTrans, Camera.main, out canvasPos);
 
 		return canvasPos;
+	}
+
+	private void Update()
+	{
+		if (GameManager.instance.TurnCount >= registeredTurnCount + NotMoveCount)
+		{
+			IsMoveable = true;
+			NotMoveCount = 0;
+			registeredTurnCount = 0;
+		}
 	}
 }
