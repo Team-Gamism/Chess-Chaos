@@ -241,6 +241,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 					pieceData.curTable.IsCastlingAble = false;
 				}
 			}
+			
 		}
 
 		GameManager.instance.SortPieceSibling();
@@ -380,6 +381,14 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 				FindObjectOfType<SkillLoader>().ExecuteSkill();
 				GameManager.instance.TopChange = false;
+			}
+
+			if(!pieceData.IsPlayerPiece && GameManager.instance.DarknessHand)
+			{
+				FindObjectOfType<DarknessHand>().SetpieceData(pieceData);
+
+				FindObjectOfType<SkillLoader>().ExecuteSkill();
+				GameManager.instance.DarknessHand = false;
 			}
 		}
 	}

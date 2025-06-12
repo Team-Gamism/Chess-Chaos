@@ -39,7 +39,8 @@ public class SkillLoader : MonoBehaviour
 	{
 		if (GameManager.instance.isSnakePawn ||
 			GameManager.instance.isPawnShield ||
-			GameManager.instance.TopChange)
+			GameManager.instance.TopChange || 
+			GameManager.instance.DarknessHand)
 		{
 			skill.Execute(new PieceData());
 		}

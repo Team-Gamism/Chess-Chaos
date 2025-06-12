@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 	public bool isPawnShield = false;
 	public bool isPawnAimming = false;
 	public bool TopChange = false;
+	public bool DarknessHand = false;
 
 	public int TurnCount = 0;
 	

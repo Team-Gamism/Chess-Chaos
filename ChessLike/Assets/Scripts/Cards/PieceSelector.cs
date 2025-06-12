@@ -32,6 +32,13 @@ public class PieceSelector : MonoBehaviour
 		tweenMover.SetActive(true);
 		transform.SetSiblingIndex(FindFirstPiece(piece).gameObject.transform.GetSiblingIndex() - 1);
 	}
+	public void EnableImage(bool isPlayerPiece)
+	{
+		GameManager.instance.isSelectorEnable = true;
+		image.enabled = true;
+		tweenMover.SetActive(true);
+		transform.SetSiblingIndex(FindPiece(isPlayerPiece).gameObject.transform.GetSiblingIndex() - 1);
+	}
 
 	public void DisableImage()
 	{
@@ -42,6 +49,21 @@ public class PieceSelector : MonoBehaviour
 		GameManager.instance.SortPieceSibling();
 	}
 
+	private PieceData FindPiece(bool isPlayerPiece)
+	{
+		List<PieceData> pieces = FindObjectsOfType<PieceData>().Where(p => p.IsPlayerPiece == isPlayerPiece).ToList();
+
+
+		pieces.Sort((a, b) =>
+		{
+			if (a.coordinate.x == b.coordinate.x)
+				return a.coordinate.y.CompareTo(b.coordinate.y);
+			else
+				return a.coordinate.x.CompareTo(b.coordinate.x);
+		});
+
+		return pieces[0];
+	}
 
 	private PieceData FindFirstPiece(PieceType piece)
 	{

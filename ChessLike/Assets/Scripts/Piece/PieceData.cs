@@ -12,6 +12,7 @@ public class PieceData : MonoBehaviour
 	public bool IsStatic;          //고정 상태 확인
 	[HideInInspector]
 	public int StaticTurn;         //얼마나 오래 고정되어 있을 것인지 확인
+	public int StaticedTurn;	   //고정이 된 턴 횟수 저장
 	public bool IsSnakePawn;       //암습의 폰이 적용된 기물인지 확인
 	public bool IsShield;
 
@@ -83,6 +84,21 @@ public class PieceData : MonoBehaviour
 			GetComponent<PieceHandler>().SetTablelist();
 
 		});
+	}
+
+	private void Update()
+	{
+		int n = GameManager.instance.TurnCount;
+		if(GameManager.instance.TurnCount < n)
+		{
+			StaticedTurn++;
+		}
+		if(StaticTurn + StaticedTurn <= GameManager.instance.TurnCount)
+		{
+			StaticedTurn = 0;
+			StaticTurn = 0;
+			IsStatic = false;
+		}
 	}
 
 	public void UpdateField()
