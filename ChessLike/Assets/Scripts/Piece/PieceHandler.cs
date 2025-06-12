@@ -282,9 +282,12 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 	public void MovePieceByCoordinate(Vector2Int coord)
 	{
+		isDragable = false;
 		TableData t = tableManager.GetTableByCoordinate(coord);
 		Vector2 p = t.positionToRect(canvas);
-		rectTransform.DOAnchorPos(p, 0.2f).SetEase(Ease.OutCirc);
+		rectTransform.DOAnchorPos(p, 0.2f).SetEase(Ease.OutCirc).OnComplete(() => {
+			isDragable = true;
+		});
 		rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
 
 		//테이블 위치 업데이트
@@ -369,6 +372,14 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 				FindObjectOfType<SkillLoader>().ExecuteSkill();
 				GameManager.instance.isPawnShield = false;
+			}
+
+			if(pieceData.PieceType == PieceType.Rook && GameManager.instance.TopChange)
+			{
+				FindObjectOfType<TopChange>().SetHandler(this);
+
+				FindObjectOfType<SkillLoader>().ExecuteSkill();
+				GameManager.instance.TopChange = false;
 			}
 		}
 	}
