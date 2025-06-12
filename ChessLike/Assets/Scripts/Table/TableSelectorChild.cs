@@ -6,9 +6,8 @@ using UnityEngine.UI;
 public class TableSelectorChild : MonoBehaviour, IPointerClickHandler
 {
 	private TableSetter tableSetter;
-	public bool isSelected { get { return isSelect; } set { isSelect = value; } }
+	public bool isSelected;
 
-	private bool isSelect = false;
 	private bool isPiece;
 
 	public Vector2Int coordinate;
@@ -26,14 +25,21 @@ public class TableSelectorChild : MonoBehaviour, IPointerClickHandler
 	{
 		if (isPiece) return;
 
-		isSelect = !isSelect;
-		Debug.Log(isSelect);
-		tableSetter.GetCoordinateList();
+		isSelected = !isSelected;
+		if (isSelected)
+			tableSetter.tableSelected.Enqueue(this);
+		else
+			tableSetter.RemoveFromQueue(this);
+
+		if (tableSetter.tableSelected.Count > tableSetter.tableSelector.cardData.MaxZoneCnt)
+		{
+			tableSetter.SetFirstFalse();
+		}
 	}
 
-	private void Update()
+	public void Update()
 	{
-		if (isSelect)
+		if (isSelected)
 		{
 			GetComponent<Image>().color = new Color(1f,1f,1f, 0);
 		}

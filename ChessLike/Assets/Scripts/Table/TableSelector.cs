@@ -62,11 +62,11 @@ public class TableSelector : MonoBehaviour
 
 	public void TableAttributeChange()
 	{
-		tableSetter.GetCoordinateList();
-		List<Vector2Int> list = tableSetter.selectedTable;
+		//tableSetter.GetCoordinateList();
+		List<TableSelectorChild> list = tableSetter.tableSelected.ToList();
 		for(int i = 0; i < list.Count; i++)
 		{
-			TableData t=  tableManager.GetTableByCoordinate(list[i]);
+			TableData t=  tableManager.GetTableByCoordinate(list[i].coordinate);
 			t.IsMoveable = false;
 			t.NotMoveCount = 1;
 			t.registeredTurnCount = GameManager.instance.TurnCount;
