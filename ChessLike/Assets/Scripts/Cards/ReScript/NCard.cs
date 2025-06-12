@@ -7,8 +7,7 @@ public class NCard : MonoBehaviour, IPointerClickHandler
 {
 	private SkillLoader skillLoader;
 
-	[SerializeField]
-	private CardData cardData;
+	public CardData cardData;
 
 	private ICardSkill skill;
 

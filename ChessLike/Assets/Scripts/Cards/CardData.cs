@@ -8,6 +8,10 @@ public class CardData : ScriptableObject
 	public bool isOwn;
 	
 	public PieceType pieces;
+
+	public bool isZone;
+	public int RequireZoneCnt;
+	public int MaxZoneCnt;
 	public CardTier cardTier;
 
 	public Sprite cardImage;

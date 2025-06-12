@@ -8,7 +8,8 @@ public class TableSetter : MonoBehaviour
 
 	public List<Vector2Int> selectedTable = new List<Vector2Int>();
 
-	private TableSelector tableSelector;
+	[HideInInspector]
+	public TableSelector tableSelector;
 
 	private void OnEnable()
 	{
@@ -19,7 +20,7 @@ public class TableSetter : MonoBehaviour
 
 	private void Update()
 	{
-		if (selectedTable.Count > 0)
+		if (selectedTable.Count >= tableSelector.cardData.RequireZoneCnt && selectedTable.Count <= tableSelector.cardData.MaxZoneCnt)
 		{
 			tableSelector.Donable = true;
 		}

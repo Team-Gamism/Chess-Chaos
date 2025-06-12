@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +21,9 @@ public class TableSelector : MonoBehaviour
 	public bool Donable = false;
 
 	private TableManager tableManager;
+
+	[HideInInspector]
+	public CardData cardData;
 
 	private void OnEnable()
 	{

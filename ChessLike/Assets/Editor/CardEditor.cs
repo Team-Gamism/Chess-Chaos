@@ -10,6 +10,9 @@ public class CardEditor : Editor
 		SerializedProperty title = serializedObject.FindProperty("Title");
 		SerializedProperty description = serializedObject.FindProperty("Description");
 		SerializedProperty isOwn = serializedObject.FindProperty("isOwn");
+		SerializedProperty isZone = serializedObject.FindProperty("isZone");
+		SerializedProperty requireZoneCnt = serializedObject.FindProperty("RequireZoneCnt");
+		SerializedProperty maxZoneCnt = serializedObject.FindProperty("MaxZoneCnt");
 		SerializedProperty piece = serializedObject.FindProperty("pieces");
 		SerializedProperty tier = serializedObject.FindProperty("cardTier");
 		SerializedProperty image = serializedObject.FindProperty("cardImage");
@@ -23,6 +26,15 @@ public class CardEditor : Editor
 		{
 			EditorGUILayout.PropertyField(piece);
 		}
+
+		EditorGUILayout.PropertyField(isZone);
+
+		if (isZone.boolValue)
+		{
+			EditorGUILayout.PropertyField(requireZoneCnt);
+			EditorGUILayout.PropertyField(maxZoneCnt);
+		}
+
 		EditorGUILayout.PropertyField(tier);
 		EditorGUILayout.PropertyField(image);
 		serializedObject.ApplyModifiedProperties();
