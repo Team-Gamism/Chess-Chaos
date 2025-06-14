@@ -30,7 +30,10 @@ public class TableSelector : MonoBehaviour
 		tableManager = FindObjectOfType<TableManager>();
 		image = GetComponent<Image>();
 		cameraSize = FindObjectsOfType<Canvas>().Where(p => p.CompareTag("ScreenUI")).FirstOrDefault();
-		GetComponent<RectTransform>().sizeDelta = cameraSize.GetComponent<RectTransform>().sizeDelta;
+
+		Vector2 scale = cameraSize.GetComponent<RectTransform>().sizeDelta;
+
+		GetComponent<RectTransform>().sizeDelta = new Vector2(scale.x + 500, scale.y + 500);
 
 		GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -230, 0);
 

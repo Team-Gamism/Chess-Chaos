@@ -5930,7 +5930,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 15
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -6547,18 +6547,18 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -820876785, guid: 19fd80f108a6ac24c8cae61079818bbc, type: 3}
-    - sprite: {fileID: -1073870528, guid: 19fd80f108a6ac24c8cae61079818bbc, type: 3}
-    - sprite: {fileID: 779612825, guid: 19fd80f108a6ac24c8cae61079818bbc, type: 3}
-    - sprite: {fileID: 290008953, guid: 19fd80f108a6ac24c8cae61079818bbc, type: 3}
-    - sprite: {fileID: -365589704, guid: 19fd80f108a6ac24c8cae61079818bbc, type: 3}
-    - sprite: {fileID: -1261209180, guid: 19fd80f108a6ac24c8cae61079818bbc, type: 3}
-    - sprite: {fileID: -265791425, guid: 19fd80f108a6ac24c8cae61079818bbc, type: 3}
-    - sprite: {fileID: 1448968141, guid: 19fd80f108a6ac24c8cae61079818bbc, type: 3}
-    - sprite: {fileID: -1118367696, guid: 19fd80f108a6ac24c8cae61079818bbc, type: 3}
-    - sprite: {fileID: 2031686955, guid: 19fd80f108a6ac24c8cae61079818bbc, type: 3}
-    - sprite: {fileID: 59524541, guid: 19fd80f108a6ac24c8cae61079818bbc, type: 3}
-    - sprite: {fileID: 1090348238, guid: 19fd80f108a6ac24c8cae61079818bbc, type: 3}
+    - sprite: {fileID: 260969494, guid: 11cd8aed8c64da5478ac83123e8d01a0, type: 3}
+    - sprite: {fileID: 479517793, guid: 11cd8aed8c64da5478ac83123e8d01a0, type: 3}
+    - sprite: {fileID: 1971106527, guid: 11cd8aed8c64da5478ac83123e8d01a0, type: 3}
+    - sprite: {fileID: -1244397673, guid: 11cd8aed8c64da5478ac83123e8d01a0, type: 3}
+    - sprite: {fileID: 983699365, guid: 11cd8aed8c64da5478ac83123e8d01a0, type: 3}
+    - sprite: {fileID: 483690930, guid: 11cd8aed8c64da5478ac83123e8d01a0, type: 3}
+    - sprite: {fileID: 1978187105, guid: 11cd8aed8c64da5478ac83123e8d01a0, type: 3}
+    - sprite: {fileID: -1507438128, guid: 11cd8aed8c64da5478ac83123e8d01a0, type: 3}
+    - sprite: {fileID: 356727712, guid: 11cd8aed8c64da5478ac83123e8d01a0, type: 3}
+    - sprite: {fileID: -1003068965, guid: 11cd8aed8c64da5478ac83123e8d01a0, type: 3}
+    - sprite: {fileID: 1201174918, guid: 11cd8aed8c64da5478ac83123e8d01a0, type: 3}
+    - sprite: {fileID: 1723390624, guid: 11cd8aed8c64da5478ac83123e8d01a0, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:

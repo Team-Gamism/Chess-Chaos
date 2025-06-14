@@ -3,10 +3,6 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Rendering;
-using TMPro;
-using Unity.VisualScripting;
-using UnityEditorInternal;
 
 public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
@@ -359,6 +355,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	{
 		if (GameManager.instance.isSelectorEnable)
 		{
+			Debug.Log("클릭함1");
 			if (pieceData.PieceType == PieceType.Pawn && GameManager.instance.isSnakePawn)
 			{
 				FindObjectOfType<SnakePawn>().SetpieceData(pieceData);
@@ -385,6 +382,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 			if(!pieceData.IsPlayerPiece && GameManager.instance.DarknessHand)
 			{
+				Debug.Log("클릭함");
 				FindObjectOfType<DarknessHand>().SetpieceData(pieceData);
 
 				FindObjectOfType<SkillLoader>().ExecuteSkill();

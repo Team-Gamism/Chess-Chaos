@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 	public bool isPawnAimming = false;
 	public bool TopChange = false;
 	public bool DarknessHand = false;
+	public bool WeirdCasting = false;
 
 	public int TurnCount = 0;
 	

@@ -28,7 +28,15 @@ public class PawnMoveOnce : MonoBehaviour, ICardSkill
 
 public interface ICardSkill
 {
+
+	/// <summary>
+	/// 스킬 사용 버튼을 눌렸을 때 실행되는 함수
+	/// </summary>
 	public virtual void Execute() { }
 
+	/// <summary>
+	/// 선택 완료 버튼이 눌렸을 때 실행되는 함수
+	/// </summary>
+	/// <param name="pieceData"></param>
 	public virtual void Execute(PieceData pieceData) { }
 }

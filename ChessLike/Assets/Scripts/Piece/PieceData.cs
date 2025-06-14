@@ -35,10 +35,12 @@ public class PieceData : MonoBehaviour
 		int n = 0;
 		if (IsPlayerPiece)
 		{
-			if (GameManager.instance.PlayerColor)
-			{
-				n += 2;
-			}
+			/*			if (GameManager.instance.PlayerColor)
+						{
+							n += 2;
+						}*/
+
+			n = 1;
 			GetComponent<Image>().material = Outline;
 			if (GetComponent<Image>().material.GetFloat("_OutlineThick") != 0f)
 			{
@@ -48,9 +50,9 @@ public class PieceData : MonoBehaviour
 		}
 		else
 		{
-			if (!GameManager.instance.PlayerColor) n += 3;
-			else n += 1;
-
+			/*			if (!GameManager.instance.PlayerColor) n += 3;
+						else n += 1;*/
+			n = 0;
 			GetComponent<PieceHandler>().isEnable = false;
 		}
 		GetComponent<Image>().sprite = sprites[n];

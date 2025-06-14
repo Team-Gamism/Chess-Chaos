@@ -21,7 +21,7 @@ public class SkillLoader : MonoBehaviour
 		skillDescription.interactable = true;
 		skillDescription.blocksRaycasts = true;
 		DOTween.To(() => skillDescription.alpha, x => skillDescription.alpha = x, 1f, 0.2f);
-		isOwn.isOn = cardData.isOwn;	
+		isOwn.isOn = cardData.isOwn;
 		title.text = cardData.Title;
 		description.text = cardData.Description;
 		this.skill = skill;
@@ -40,7 +40,8 @@ public class SkillLoader : MonoBehaviour
 		if (GameManager.instance.isSnakePawn ||
 			GameManager.instance.isPawnShield ||
 			GameManager.instance.TopChange || 
-			GameManager.instance.DarknessHand)
+			GameManager.instance.DarknessHand ||
+			GameManager.instance.WeirdCasting)
 		{
 			skill.Execute(new PieceData());
 		}
