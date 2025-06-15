@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 
 public class PieceData : MonoBehaviour
 {
-	public Sprite[] sprites;
+	private Sprite[] sprites = new Sprite[2];
 	public PieceType PieceType;    //기물 종류
 	public bool IsPlayerPiece;     //플레이어 기물 여부 확인
 
@@ -35,26 +35,22 @@ public class PieceData : MonoBehaviour
 		int n = 0;
 		if (IsPlayerPiece)
 		{
-			/*			if (GameManager.instance.PlayerColor)
-						{
-							n += 2;
-						}*/
-
 			n = 1;
 			GetComponent<Image>().material = Outline;
 			if (GetComponent<Image>().material.GetFloat("_OutlineThick") != 0f)
 			{
 				GetComponent<Image>().material.SetFloat("_OutlineThick", 0f);
 			}
-
 		}
 		else
 		{
-			/*			if (!GameManager.instance.PlayerColor) n += 3;
-						else n += 1;*/
 			n = 0;
 			GetComponent<PieceHandler>().isEnable = false;
 		}
+
+		sprites[0] = AtlasManager.instance.GetCurrentSkinSprite(true, PieceType);
+		sprites[1] = AtlasManager.instance.GetCurrentSkinSprite(false, PieceType);
+
 		GetComponent<Image>().sprite = sprites[n];
 		
 		UpdateField();

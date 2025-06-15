@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
@@ -108,14 +109,14 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		pervPos = rectTransform.anchoredPosition;
 
 		int count = transform.parent.childCount;
-		transform.SetSiblingIndex(count-1);
+		transform.SetSiblingIndex(count - 1);
 
 		isDragging = true;
 
 		pieceData.curTable.IsPiece = false;
 
 		if (!tableManager.isSelect) tableManager.isSelect = true;
-		
+
 		SetTablelist();
 
 		for (int i = 0; i < tableList.Count; i++)
@@ -147,112 +148,127 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		//드래그한 곳이 갈 수 없다면 원래 좌표로 이동
 		if (!tableManager.ReturnTableNear(rectTransform.anchoredPosition).pieceMoveAppear.PieceMoveable)
 		{
-			rectTransform.DOAnchorPos(pervPos, 0.2f).SetEase(Ease.OutCirc);
-			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
-			pieceData.curTable.IsPiece = true;
+			CancelPiece();
 		}
-		
+
 		//드래그한 곳이 갈 수 있다면 그 근처 테이블 좌표로 이동
 		else
 		{
 			Vector2 p = tableManager.ReturnNearTable(rectTransform.anchoredPosition);
-			rectTransform.DOAnchorPos(p, 0.2f).SetEase(Ease.OutCirc);
-			rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
-			pervPos = p;
 
-			Vector2Int newCoord = tableManager.ReturnTableNear(rectTransform.anchoredPosition).Coordinate;
-
-			//폰이 2칸 이동한 경우 앙파상 가능하도록 하기
-			if (pieceData.PieceType == PieceType.Pawn)
+			//테이블 사이의 거리 확인 후 특정 값 이상으로 넘어갈 시 취소
+			float distance = tableManager.ReturnTableDistance(rectTransform.anchoredPosition, tableManager.ReturnTableNear(rectTransform.anchoredPosition));
+			if (distance > 100)
 			{
-				if(Mathf.Abs(pieceData.coordinate.y - newCoord.y) == 2)
-				{
-					GetComponent<EnPassantHandler>().TwoMove = true;
-				}
-				else
-				{
-					GetComponent<EnPassantHandler>().TwoMove = false;
-				}
+				CancelPiece();
 			}
-
-			//테이블 위치 업데이트
-			pieceData.coordinate = newCoord;
-			pieceData.curTable.IsPiece = false;
-			pieceData.curTable.piece = null;
-
-			pieceData.UpdateTableCoordinate();
-			pieceData.curTable.IsPiece = true;
-			pieceData.curTable.piece = pieceData;
-
-			pieceData.moveCount++;
-			GameManager.instance.TurnCount++;
-
-			//폰일 시 이후 스킬 적용 / 행동 금지
-			if (pieceData.PieceType == PieceType.Pawn && pieceData.IsPlayerPiece)
+			else
 			{
-				pawn.IsFirstMove = false;
+				rectTransform.DOAnchorPos(p, 0.2f).SetEase(Ease.OutCirc);
+				rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
+				pervPos = p;
 
-				//스킬 사용 흔적 지우기1
-				if (GameManager.instance.isPawnAimming) GameManager.instance.isPawnAimming = false;
+				Vector2Int newCoord = tableManager.ReturnTableNear(rectTransform.anchoredPosition).Coordinate;
 
-				//스킬 사용 흔적 지우기2
-				if (GameManager.instance.isPawnMoveOnce)
+				//폰이 2칸 이동한 경우 앙파상 가능하도록 하기
+				if (pieceData.PieceType == PieceType.Pawn)
 				{
-					Pawn[] pawns = FindObjectsOfType<Pawn>().Where(p => p.GetComponent<PieceData>().IsPlayerPiece).ToArray();
-					for (int i = 0; i < pawns.Length; i++)
+					if (Mathf.Abs(pieceData.coordinate.y - newCoord.y) == 2)
 					{
-						if (pawns[i].GetComponent<PieceData>().moveCount > 0 && pawns[i].IsFirstMove) pawns[i].IsFirstMove = false;
+						GetComponent<EnPassantHandler>().TwoMove = true;
 					}
-					GameManager.instance.isPawnMoveOnce = false;
+					else
+					{
+						GetComponent<EnPassantHandler>().TwoMove = false;
+					}
 				}
 
-				int promotionY = pieceData.IsPlayerPiece ? 0 : 8;
+				//테이블 위치 업데이트
+				pieceData.coordinate = newCoord;
+				pieceData.curTable.IsPiece = false;
+				pieceData.curTable.piece = null;
 
-				//폰 프로모션 확인
-				if (pieceData.coordinate.y == promotionY) GetComponent<PawnPromotion>().StartPromotion();
-			}
+				pieceData.UpdateTableCoordinate();
+				pieceData.curTable.IsPiece = true;
+				pieceData.curTable.piece = pieceData;
 
-			//암습의 폰 켜져있을 시 끄기
-			if (pieceData.IsSnakePawn)
-			{
-				pieceData.ChangePieceType(PieceType.Pawn);
-				pieceData.IsSnakePawn = false;
-			}
+				pieceData.moveCount++;
+				GameManager.instance.TurnCount++;
 
-			//룩일 시 첫 움직임 해제
-			if (pieceData.PieceType == PieceType.Rook && pieceData.IsPlayerPiece)
-			{
-				rook.isFirstMove = false;
-			}
-			
-			//킹일 경우 첫 움직임 해제
-			if(pieceData.PieceType == PieceType.King && pieceData.IsPlayerPiece)
-			{
-				king.isFirstMove = false;
-				if (pieceData.curTable.IsCastlingAble)
+				//폰일 시 이후 스킬 적용 / 행동 금지
+				if (pieceData.PieceType == PieceType.Pawn && pieceData.IsPlayerPiece)
 				{
-					//근처 룩 이동 함수
-					MoveRook();
-					//-------//
-					pieceData.curTable.IsCastlingAble = false;
+					pawn.IsFirstMove = false;
+
+					//스킬 사용 흔적 지우기1
+					if (GameManager.instance.isPawnAimming) GameManager.instance.isPawnAimming = false;
+
+					//스킬 사용 흔적 지우기2
+					if (GameManager.instance.isPawnMoveOnce)
+					{
+						Pawn[] pawns = FindObjectsOfType<Pawn>().Where(p => p.GetComponent<PieceData>().IsPlayerPiece).ToArray();
+						for (int i = 0; i < pawns.Length; i++)
+						{
+							if (pawns[i].GetComponent<PieceData>().moveCount > 0 && pawns[i].IsFirstMove) pawns[i].IsFirstMove = false;
+						}
+						GameManager.instance.isPawnMoveOnce = false;
+					}
+
+					int promotionY = pieceData.IsPlayerPiece ? 0 : 8;
+
+					//폰 프로모션 확인
+					if (pieceData.coordinate.y == promotionY) GetComponent<PawnPromotion>().StartPromotion();
 				}
+
+				//암습의 폰 켜져있을 시 끄기
+				if (pieceData.IsSnakePawn)
+				{
+					pieceData.ChangePieceType(PieceType.Pawn);
+					pieceData.IsSnakePawn = false;
+				}
+
+				//룩일 시 첫 움직임 해제
+				if (pieceData.PieceType == PieceType.Rook && pieceData.IsPlayerPiece)
+				{
+					rook.isFirstMove = false;
+				}
+
+				//킹일 경우 첫 움직임 해제
+				if (pieceData.PieceType == PieceType.King && pieceData.IsPlayerPiece)
+				{
+					king.isFirstMove = false;
+					if (pieceData.curTable.IsCastlingAble)
+					{
+						//근처 룩 이동 함수
+						MoveRook();
+						//-------//
+						pieceData.curTable.IsCastlingAble = false;
+					}
+				}
+
 			}
-			
 		}
 
 		GameManager.instance.SortPieceSibling();
 
 		for (int i = 0; i < tableList.Count; i++)
-		{	
+		{
 			tableList[i].pieceMoveAppear.PieceMoveable = false;
 		}
+	}
+
+	private void CancelPiece()
+	{
+		rectTransform.DOAnchorPos(pervPos, 0.2f).SetEase(Ease.OutCirc);
+		rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
+		pieceData.curTable.IsPiece = true;
 	}
 
 	private void MoveRook()
 	{
 		Rook nRook;
 
-		if(GetComponent<PieceData>().coordinate.x >= 4)
+		if (GetComponent<PieceData>().coordinate.x >= 4)
 		{
 			nRook = FindObjectsOfType<Rook>()
 				.Select(r => new { rook = r, data = r.GetComponent<PieceData>() })
@@ -282,7 +298,8 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		isDragable = false;
 		TableData t = tableManager.GetTableByCoordinate(coord);
 		Vector2 p = t.positionToRect(canvas);
-		rectTransform.DOAnchorPos(p, 0.2f).SetEase(Ease.OutCirc).OnComplete(() => {
+		rectTransform.DOAnchorPos(p, 0.2f).SetEase(Ease.OutCirc).OnComplete(() =>
+		{
 			isDragable = true;
 		});
 		rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
@@ -364,7 +381,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 				GameManager.instance.isSnakePawn = false;
 			}
 
-			else if(pieceData.PieceType == PieceType.Pawn && GameManager.instance.isPawnShield)
+			else if (pieceData.PieceType == PieceType.Pawn && GameManager.instance.isPawnShield)
 			{
 				FindObjectOfType<PawnShield>().SetpieceData(pieceData);
 
@@ -372,7 +389,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 				GameManager.instance.isPawnShield = false;
 			}
 
-			if(pieceData.PieceType == PieceType.Rook && GameManager.instance.TopChange)
+			if (pieceData.PieceType == PieceType.Rook && GameManager.instance.TopChange)
 			{
 				FindObjectOfType<TopChange>().SetHandler(this);
 
@@ -380,7 +397,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 				GameManager.instance.TopChange = false;
 			}
 
-			if(!pieceData.IsPlayerPiece && GameManager.instance.DarknessHand)
+			if (!pieceData.IsPlayerPiece && GameManager.instance.DarknessHand)
 			{
 				Debug.Log("클릭함");
 				FindObjectOfType<DarknessHand>().SetpieceData(pieceData);

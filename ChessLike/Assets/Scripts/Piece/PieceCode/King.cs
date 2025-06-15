@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class King : PieceAbstract
 {
@@ -73,6 +74,7 @@ public class King : PieceAbstract
 				case 3:
 					for (int i = -2; i <= 2; i += 2)
 					{
+						if (i == 0) continue;
 						Vector2Int newCoord3 = new Vector2Int(curCoord.x + i, curCoord.y);
 						AddCastleTable(result, tableManager, newCoord3);
 					}

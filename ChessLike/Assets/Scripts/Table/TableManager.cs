@@ -68,10 +68,21 @@ public class TableManager : MonoBehaviour
 		}
 		return tableData;
 	}
+	/// <summary>
+	/// 현재 위치와 테이블 사이의 거리를 구하는 함수
+	/// </summary>
+	/// <param name="pos">현재 위치</param>
+	/// <param name="table">테이블</param>
+	/// <returns>현재 위치와 지정한 테이블의 거리</returns>
+	public float ReturnTableDistance(Vector2 pos, TableData table)
+	{
+		float distance = Vector2.Distance(pos, table.positionToRect(PieceCanvas));
+		return distance;
+	}
 
 	public TableData GetTableByCoordinate(Vector2Int coord)
 	{
-		for(int i  = 0; i < TableList.Count; i++)
+		for (int i = 0; i < TableList.Count; i++)
 		{
 			if (TableList[i].Coordinate == coord) return TableList[i];
 		}
