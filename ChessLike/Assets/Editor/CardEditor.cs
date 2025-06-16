@@ -13,6 +13,10 @@ public class CardEditor : Editor
 		SerializedProperty isZone = serializedObject.FindProperty("isZone");
 		SerializedProperty requireZoneCnt = serializedObject.FindProperty("RequireZoneCnt");
 		SerializedProperty maxZoneCnt = serializedObject.FindProperty("MaxZoneCnt");
+
+		SerializedProperty ispiece = serializedObject.FindProperty("isPiece");
+		SerializedProperty requirePieceCnt = serializedObject.FindProperty("RequirePieceCnt");
+		SerializedProperty maxPieceCnt = serializedObject.FindProperty("MaxPieceCount");
 		SerializedProperty piece = serializedObject.FindProperty("pieces");
 		SerializedProperty tier = serializedObject.FindProperty("cardTier");
 		SerializedProperty image = serializedObject.FindProperty("cardImage");
@@ -33,6 +37,14 @@ public class CardEditor : Editor
 		{
 			EditorGUILayout.PropertyField(requireZoneCnt);
 			EditorGUILayout.PropertyField(maxZoneCnt);
+		}
+
+		EditorGUILayout.PropertyField(ispiece);
+
+		if (ispiece.boolValue)
+		{
+			EditorGUILayout.PropertyField(requirePieceCnt);
+			EditorGUILayout.PropertyField(maxPieceCnt);
 		}
 
 		EditorGUILayout.PropertyField(tier);

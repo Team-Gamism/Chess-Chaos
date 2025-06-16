@@ -1,6 +1,4 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +15,9 @@ public class PromotionUIManager : MonoBehaviour
 		canvasGroup = GetComponent<CanvasGroup>();
 
 		rectTransform = GetComponent<RectTransform>();
+
+		for (int i = 0; i < btns.Length; i++)
+			btns[i].image.sprite = AtlasManager.instance.GetCurrentSkinSprite(!GameManager.instance.PlayerColor, btns[i].GetComponent<ButtonInfo>().piece);
 	}
 
 	public void AddButtonEvent(PawnPromotion pawnPromotion)

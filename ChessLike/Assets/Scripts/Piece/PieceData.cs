@@ -36,7 +36,7 @@ public class PieceData : MonoBehaviour
 		if (IsPlayerPiece)
 		{
 			n = 1;
-			GetComponent<Image>().material = Outline;
+			GetComponent<Image>().material = Instantiate(Outline);
 			if (GetComponent<Image>().material.GetFloat("_OutlineThick") != 0f)
 			{
 				GetComponent<Image>().material.SetFloat("_OutlineThick", 0f);
@@ -48,8 +48,7 @@ public class PieceData : MonoBehaviour
 			GetComponent<PieceHandler>().isEnable = false;
 		}
 
-		sprites[0] = AtlasManager.instance.GetCurrentSkinSprite(true, PieceType);
-		sprites[1] = AtlasManager.instance.GetCurrentSkinSprite(false, PieceType);
+		UpdateSprites();
 
 		GetComponent<Image>().sprite = sprites[n];
 		
@@ -84,14 +83,20 @@ public class PieceData : MonoBehaviour
 		});
 	}
 
+	public void UpdateSprites()
+	{
+		sprites[0] = AtlasManager.instance.GetCurrentSkinSprite(true, PieceType);
+		sprites[1] = AtlasManager.instance.GetCurrentSkinSprite(false, PieceType);
+	}
+
 	private void Update()
 	{
 		int n = GameManager.instance.TurnCount;
-		if(GameManager.instance.TurnCount < n)
+		if (GameManager.instance.TurnCount < n)
 		{
 			StaticedTurn++;
 		}
-		if(StaticTurn + StaticedTurn <= GameManager.instance.TurnCount)
+		if (StaticTurn + StaticedTurn <= GameManager.instance.TurnCount)
 		{
 			StaticedTurn = 0;
 			StaticTurn = 0;
@@ -136,8 +141,6 @@ public class PieceData : MonoBehaviour
 
 		//coord 좌표에 있는 테이블 가져오기
 		TableData t = tableManager.GetTableByCoordinate(coord);
-
-		//Debug.Log($"{coord}, {t == null}");
 
 		if (t != null && t.IsPiece)
 		{

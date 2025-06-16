@@ -12,6 +12,9 @@ public class CardData : ScriptableObject
 	public bool isZone;
 	public int RequireZoneCnt;
 	public int MaxZoneCnt;
+	public bool isPiece;
+	public int RequirePieceCnt;
+	public int MaxPieceCount;
 	public CardTier cardTier;
 
 	public Sprite cardImage;

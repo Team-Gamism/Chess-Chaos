@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 	public bool isSnakePawn = false;
 	public bool isPawnShield = false;
 	public bool isPawnAimming = false;
+	public bool AvoidLanding = false;
 	public bool TopChange = false;
 	public bool DarknessHand = false;
 	public bool WeirdCasting = false;

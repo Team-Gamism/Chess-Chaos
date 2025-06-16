@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using Microsoft.Unity.VisualStudio.Editor;
 
 public class PawnPromotion : MonoBehaviour
 {
@@ -60,6 +61,7 @@ public class PawnPromotion : MonoBehaviour
 
 		newPieceData.IsStatic = pieceData.IsStatic;
 		newPieceData.UpdateField();
+		newPieceData.UpdateSprites();
 
 		//기존 폰 삭제
 		Destroy(gameObject);

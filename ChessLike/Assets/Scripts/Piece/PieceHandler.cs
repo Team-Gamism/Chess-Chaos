@@ -4,6 +4,8 @@ using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEngine.Assertions.Must;
+using UnityEngine.UI;
 
 public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
@@ -104,6 +106,8 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 		if (!isDragable || GameManager.instance.IsPromotion) return;
 
+		if (GameManager.instance.isSelectorEnable) return;
+
 		SelectSprite.SetActive(true);
 		prevMousePos = Input.mousePosition;
 		pervPos = rectTransform.anchoredPosition;
@@ -134,6 +138,8 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	public void OnDrag(PointerEventData eventData)
 	{
 		if (!isEnable) return;
+
+		if (GameManager.instance.isSelectorEnable) return;
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
@@ -141,6 +147,8 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		if (!isEnable) return;
 
 		if (!isDragable || GameManager.instance.IsPromotion) return;
+
+		if (GameManager.instance.isSelectorEnable) return;
 
 		isDragging = false;
 		SelectSprite.SetActive(false);
@@ -404,6 +412,12 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 				FindObjectOfType<SkillLoader>().ExecuteSkill();
 				GameManager.instance.DarknessHand = false;
+			}
+
+			if (pieceData.IsPlayerPiece && GameManager.instance.WeirdCasting && pieceData.PieceType != PieceType.King)
+			{
+				WeirdCastling weirdCastling = FindObjectOfType<WeirdCastling>();
+				weirdCastling.SetpieceData(pieceData);
 			}
 		}
 	}

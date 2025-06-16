@@ -65,7 +65,6 @@ public class TableSelector : MonoBehaviour
 
 	public void TableAttributeChange()
 	{
-		//tableSetter.GetCoordinateList();
 		List<TableSelectorChild> list = tableSetter.tableSelected.ToList();
 		for(int i = 0; i < list.Count; i++)
 		{
@@ -73,6 +72,11 @@ public class TableSelector : MonoBehaviour
 			t.IsMoveable = false;
 			t.NotMoveCount = 1;
 			t.registeredTurnCount = GameManager.instance.TurnCount;
+		}
+		
+		if (GameManager.instance.AvoidLanding)
+		{
+			FindObjectOfType<SkillLoader>().ExecuteSkill();
 		}
 		DisableImage();
 	}

@@ -101,7 +101,7 @@ MonoBehaviour:
   StaticedTurn: 0
   IsSnakePawn: 0
   IsShield: 0
-  Outline: {fileID: 2100000, guid: 5bc9b0b140e04b346b0512c1baad7b1e, type: 2}
+  Outline: {fileID: 2100000, guid: 5b94710b53c1eed419b21cb857857dbb, type: 2}
   coordinate: {x: 0, y: 0}
   curTable: {fileID: 0}
   moveCount: 0

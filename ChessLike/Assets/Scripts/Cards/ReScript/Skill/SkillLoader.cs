@@ -41,7 +41,8 @@ public class SkillLoader : MonoBehaviour
 			GameManager.instance.isPawnShield ||
 			GameManager.instance.TopChange || 
 			GameManager.instance.DarknessHand ||
-			GameManager.instance.WeirdCasting)
+			GameManager.instance.WeirdCasting ||
+			GameManager.instance.AvoidLanding)
 		{
 			skill.Execute(new PieceData());
 		}

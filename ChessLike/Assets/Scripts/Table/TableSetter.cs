@@ -6,8 +6,6 @@ public class TableSetter : MonoBehaviour
 {
 	private List<TableSelectorChild> tableSelectorChildren = new List<TableSelectorChild>();
 
-	//public List<TableSelectorChild> selectedTable = new List<TableSelectorChild>();
-
 	public Queue<TableSelectorChild> tableSelected = new Queue<TableSelectorChild>();
 
 	[HideInInspector]
@@ -31,18 +29,6 @@ public class TableSetter : MonoBehaviour
 			tableSelector.Donable = false;
 		}
 	}
-
-	//선택된 테이블들을 배열로 반환
-/*	public void GetCoordinateList()
-	{
-		selectedTable.Clear();
-		List<TableSelectorChild> result = new List<TableSelectorChild>();
-		foreach (TableSelectorChild child in tableSelectorChildren)
-		{
-			if (child.isSelected) result.Add(child);
-		}
-		selectedTable = result;
-	}*/
 
 	public int GetCoordinateListCount()
 	{
