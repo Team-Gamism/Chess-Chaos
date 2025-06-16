@@ -42,7 +42,8 @@ public class SkillLoader : MonoBehaviour
 			GameManager.instance.TopChange || 
 			GameManager.instance.DarknessHand ||
 			GameManager.instance.WeirdCasting ||
-			GameManager.instance.AvoidLanding)
+			GameManager.instance.AvoidLanding ||
+			GameManager.instance.GodsOne)
 		{
 			skill.Execute(new PieceData());
 		}

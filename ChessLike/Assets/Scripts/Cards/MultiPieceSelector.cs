@@ -251,7 +251,8 @@ public class MultiPieceSelector : MonoBehaviour
 		}
 
 		//추후 조건 더 추가하기
-		if (GameManager.instance.WeirdCasting)
+		if (GameManager.instance.WeirdCasting || 
+			GameManager.instance.GodsOne)
 		{
 			FindObjectOfType<SkillLoader>().ExecuteSkill();
 		}

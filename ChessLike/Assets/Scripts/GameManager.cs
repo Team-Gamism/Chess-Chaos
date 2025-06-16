@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
 	public bool DarknessHand = false;
 	public bool WeirdCasting = false;
 	public bool TripleBarrier = false;
+	public bool GodsOne = false;
 
 	public int TurnCount = 0;
 

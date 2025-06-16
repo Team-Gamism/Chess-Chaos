@@ -451,6 +451,12 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 				WeirdCastling weirdCastling = FindObjectOfType<WeirdCastling>();
 				weirdCastling.SetpieceData(pieceData);
 			}
+
+			if (pieceData.IsPlayerPiece && GameManager.instance.GodsOne && pieceData.PieceType != PieceType.King)
+			{
+				GodsOne weirdCastling = FindObjectOfType<GodsOne>();
+				weirdCastling.SetpieceData(pieceData);
+			}
 		}
 	}
 }

@@ -12,11 +12,11 @@ public class PieceData : MonoBehaviour
 	public bool IsStatic;          //고정 상태 확인
 	[HideInInspector]
 	public int StaticTurn;         //얼마나 오래 고정되어 있을 것인지 확인
-	public int StaticedTurn;	   //고정이 된 턴 횟수 저장
+	public int StaticedTurn;       //고정이 된 턴 횟수 저장
 	public bool IsSnakePawn;       //암습의 폰이 적용된 기물인지 확인
 	public bool IsShield;
 
-	public Material Outline;	   //바깥 태두리 메테리얼
+	public Material Outline;       //바깥 태두리 메테리얼
 
 	public Vector2Int coordinate;    //현재 테이블에서의 좌표
 
@@ -29,7 +29,7 @@ public class PieceData : MonoBehaviour
 
 	public TableManager GetTableManager() { return tableManager; }
 
-	public void SpawnAnimation(int idx)	//스폰 시 나타나는 애니메이션
+	public void SpawnAnimation(int idx) //스폰 시 나타나는 애니메이션
 	{
 		GetComponent<PieceHandler>().isEnable = false;
 		moveCount = 0;
@@ -47,7 +47,7 @@ public class PieceData : MonoBehaviour
 
 		//애니메이션 코드
 		Vector3 endPos = GetTablePosition(idx);
-		Vector3 startPos = new Vector3(endPos.x, endPos.y+2000, 0f);
+		Vector3 startPos = new Vector3(endPos.x, endPos.y + 2000, 0f);
 
 		Sequence animation = DOTween.Sequence();
 
@@ -55,7 +55,7 @@ public class PieceData : MonoBehaviour
 		animation.Join(rectTransform.GetComponent<Image>().DOColor(new Color(1f, 1f, 1f, 1f), 1f));
 
 		rectTransform.anchoredPosition = startPos;
-		rectTransform.GetComponent<Image>().color = new Color(1f,1f,1f,0f);
+		rectTransform.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0f);
 
 		animation.Play().OnComplete(() =>
 		{
@@ -115,7 +115,7 @@ public class PieceData : MonoBehaviour
 		tableManager = FindObjectOfType<TableManager>();
 		rectTransform = GetComponent<RectTransform>();
 	}
-	
+
 	public void RegisterPieceType(PieceType piece)
 	{
 		PieceHandler handler = GetComponent<PieceHandler>();
@@ -150,9 +150,10 @@ public class PieceData : MonoBehaviour
 
 		if (t != null && t.IsPiece)
 		{
-			if (t.piece.PieceType == PieceType.Pawn && !t.piece.IsPlayerPiece){
+			if (t.piece.PieceType == PieceType.Pawn && !t.piece.IsPlayerPiece)
+			{
 				EnPassantHandler enPassantHandler = t.piece.GetComponent<EnPassantHandler>();
-				if(enPassantHandler.isEnPassant)
+				if (enPassantHandler.isEnPassant)
 				{
 					enPassantHandler.gameObject.GetComponent<PieceData>().curTable.IsPiece = false;
 					enPassantHandler.gameObject.GetComponent<PieceData>().curTable.piece = null;
@@ -164,7 +165,7 @@ public class PieceData : MonoBehaviour
 		if (IsPlayerPiece)
 		{
 			if (curTable.piece != null && !curTable.piece.IsPlayerPiece) Destroy(curTable.piece.gameObject);
-			
+
 			else curTable.piece = this;
 		}
 		else
@@ -179,5 +180,6 @@ public class PieceData : MonoBehaviour
 	{
 		GetComponent<Image>().material.SetFloat("_OutlineThick", depth);
 	}
+
 }
 

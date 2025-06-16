@@ -212,7 +212,6 @@ public class PieceSelector : MonoBehaviour
 			}
 		}
 
-		Debug.Log("호출됨" + pieces.Count);
 		for (int i = 0; i < pieces.Count; i++)
 		{
 			pieces[i].SetOutline(1);
