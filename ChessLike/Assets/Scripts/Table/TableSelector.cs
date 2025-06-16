@@ -74,6 +74,7 @@ public class TableSelector : MonoBehaviour
 			t.registeredTurnCount = GameManager.instance.TurnCount;
 		}
 		
+		//추후 조건 더 추가하기
 		if (GameManager.instance.AvoidLanding)
 		{
 			FindObjectOfType<SkillLoader>().ExecuteSkill();

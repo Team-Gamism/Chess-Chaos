@@ -20,7 +20,7 @@ MonoBehaviour:
   RequireZoneCnt: 0
   MaxZoneCnt: 0
   isPiece: 1
-  RequirePieceCnt: 2
-  MaxPieceCount: 2
+  RequirePieceCnt: 1
+  MaxPieceCount: 1
   cardTier: 3
   cardImage: {fileID: 21300000, guid: 44a054df1702e39458b7072b08d0f212, type: 3}

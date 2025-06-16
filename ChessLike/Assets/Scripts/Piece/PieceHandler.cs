@@ -300,7 +300,11 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 		GameManager.instance.SortPieceSibling();
 	}
-
+	
+	/// <summary>
+	/// 기물을 지정한 테이블 좌표로 이동시키는 함수
+	/// </summary>
+	/// <param name="coord">도착 좌표</param>
 	public void MovePieceByCoordinate(Vector2Int coord)
 	{
 		isDragable = false;
@@ -320,6 +324,30 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		pieceData.UpdateTableCoordinate();
 		pieceData.curTable.IsPiece = true;
 		pieceData.curTable.piece = pieceData;
+	}
+	/// <summary>
+	/// 움직임 애니메이션이 끝나면 테이블 업데이트를 시작하는 함수
+	/// </summary>
+	/// <param name="coord"></param>
+	public void MovePieceByCoordinate_AnimationDone(Vector2Int coord)
+	{
+		isDragable = false;
+		TableData t = tableManager.GetTableByCoordinate(coord);
+		Vector2 p = t.positionToRect(canvas);
+		rectTransform.DOAnchorPos(p, 0.2f).SetEase(Ease.OutCirc).OnComplete(() =>
+		{
+			isDragable = true;
+
+			//테이블 위치 업데이트
+			pieceData.coordinate = coord;
+			pieceData.curTable.IsPiece = false;
+			pieceData.curTable.piece = null;
+
+			pieceData.UpdateTableCoordinate();
+			pieceData.curTable.IsPiece = true;
+			pieceData.curTable.piece = pieceData;
+		});
+		rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
 	}
 
 	private void FollowMouseRotation()

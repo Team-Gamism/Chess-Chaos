@@ -31,10 +31,10 @@ public class GameManager : MonoBehaviour
 	public bool WeirdCasting = false;
 
 	public int TurnCount = 0;
-	
+
 	private void Awake()
 	{
-		if(instance == null)
+		if (instance == null)
 		{
 			instance = this;
 			DontDestroyOnLoad(gameObject);

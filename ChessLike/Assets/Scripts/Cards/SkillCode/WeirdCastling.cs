@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class WeirdCastling : MonoBehaviour, ICardSkill
 {
@@ -43,7 +40,16 @@ public class WeirdCastling : MonoBehaviour, ICardSkill
 
 	public void Execute(PieceData none)
 	{
+		pieceData = selector.ReturnPiece();
+
+		PieceData n = pieceData;
+
+		pieceData.GetComponent<PieceHandler>().MovePieceByCoordinate_AnimationDone(King.coordinate);
+		King.GetComponent<PieceHandler>().MovePieceByCoordinate_AnimationDone(n.coordinate);
+
 		GameManager.instance.WeirdCasting = false;
+
+		GameManager.instance.SortPieceSibling();
 	}
 
 }

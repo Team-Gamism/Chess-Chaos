@@ -1,12 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MultiPieceSelector : MonoBehaviour
 {
-
 	private Canvas cameraSize;
 	public PieceSetter pieceSetter;
 
@@ -66,7 +64,13 @@ public class MultiPieceSelector : MonoBehaviour
 		GameManager.instance.isSelectorEnable = true;
 		transform.SetSiblingIndex(FindAndGetFirstPiece(pieces).gameObject.transform.GetSiblingIndex() - 1);
 	}
-
+	private void DisableImage()
+	{
+		GameManager.instance.isSelectorEnable = false;
+		log.SetActive(false);
+		DoneBtn.gameObject.SetActive(false);
+		gameObject.SetActive(false);
+	}
 	// public void EnableImage(bool isPlayerPiece)
 	// {
 	// 	GameManager.instance.isSelectorEnable = true;
@@ -240,14 +244,36 @@ public class MultiPieceSelector : MonoBehaviour
 
 	private void ExecutePieceMove()
 	{
-		Debug.Log("킹과 다른 기물 위치 옮기기");
+		List<PieceData> pieces = pieceSetter.pieceSelected.ToList();
+		for (int i = 0; i < pieces.Count; i++)
+		{
+			DisableMaterial(pieces[i]);
+		}
 
+		//추후 조건 더 추가하기
 		if (GameManager.instance.WeirdCasting)
 		{
 			FindObjectOfType<SkillLoader>().ExecuteSkill();
 		}
+		DisableImage();
 	}
 
+	/// <summary>
+	/// 기묘한 캐슬링에 사용되는 함수.
+	/// </summary>
+	/// <returns>큐에 존재하는 하나의 요소를 반환한다.</returns>
+	public PieceData ReturnPiece()
+	{
+		return pieceSetter.pieceSelected.First();
+	}
+
+	/// <summary>
+	/// 큐에 존재하는 요소를 리스트로 반환한다.
+	/// </summary>
+	public void ReturnPieces()
+	{
+
+	}
 	public void QueueManage(PieceData piece)
 	{
 		Queue<PieceData> queue = pieceSetter.pieceSelected;
