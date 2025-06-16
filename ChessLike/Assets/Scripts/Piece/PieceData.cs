@@ -31,27 +31,18 @@ public class PieceData : MonoBehaviour
 
 	public void SpawnAnimation(int idx)	//스폰 시 나타나는 애니메이션
 	{
+		GetComponent<PieceHandler>().isEnable = false;
 		moveCount = 0;
-		int n = 0;
 		if (IsPlayerPiece)
 		{
-			n = 1;
 			GetComponent<Image>().material = Instantiate(Outline);
 			if (GetComponent<Image>().material.GetFloat("_OutlineThick") != 0f)
 			{
 				GetComponent<Image>().material.SetFloat("_OutlineThick", 0f);
 			}
 		}
-		else
-		{
-			n = 0;
-			GetComponent<PieceHandler>().isEnable = false;
-		}
 
-		UpdateSprites();
-
-		GetComponent<Image>().sprite = sprites[n];
-		
+		SetSpriteColor();
 		UpdateField();
 
 		//애니메이션 코드
@@ -78,15 +69,30 @@ public class PieceData : MonoBehaviour
 			curTable.piece = this;
 			curTable.IsPiece = true;
 
+			if (IsPlayerPiece) GetComponent<PieceHandler>().isEnable = true;
 			GetComponent<PieceHandler>().SetTablelist();
 
 		});
 	}
 
-	public void UpdateSprites()
+	public void SetSpriteColor()
+	{
+		if (IsPlayerPiece)
+		{
+			UpdateSprites(!GameManager.instance.PlayerColor ? 1 : 0);
+		}
+		else
+		{
+			UpdateSprites(!GameManager.instance.PlayerColor ? 0 : 1);
+		}
+	}
+
+	public void UpdateSprites(int n)
 	{
 		sprites[0] = AtlasManager.instance.GetCurrentSkinSprite(true, PieceType);
 		sprites[1] = AtlasManager.instance.GetCurrentSkinSprite(false, PieceType);
+
+		GetComponent<Image>().sprite = sprites[n];
 	}
 
 	private void Update()

@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 	public bool TopChange = false;
 	public bool DarknessHand = false;
 	public bool WeirdCasting = false;
+	public bool TripleBarrier = false;
 
 	public int TurnCount = 0;
 

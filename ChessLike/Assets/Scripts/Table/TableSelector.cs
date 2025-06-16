@@ -24,6 +24,8 @@ public class TableSelector : MonoBehaviour
 
 	[HideInInspector]
 	public CardData cardData;
+	[HideInInspector]
+	public int NotMoveCount;
 
 	private void OnEnable()
 	{
@@ -43,7 +45,7 @@ public class TableSelector : MonoBehaviour
 
 		log.SetActive(true);
 		DoneBtn.gameObject.SetActive(true);
-		DoneBtn.onClick.AddListener(()=>TableAttributeChange());
+		DoneBtn.onClick.AddListener(() => TableAttributeChange());
 	}
 
 	public void DisableImage()
@@ -68,14 +70,15 @@ public class TableSelector : MonoBehaviour
 		List<TableSelectorChild> list = tableSetter.tableSelected.ToList();
 		for(int i = 0; i < list.Count; i++)
 		{
-			TableData t=  tableManager.GetTableByCoordinate(list[i].coordinate);
+			TableData t = tableManager.GetTableByCoordinate(list[i].coordinate);
 			t.IsMoveable = false;
-			t.NotMoveCount = 1;
+			t.NotMoveCount = NotMoveCount;
 			t.registeredTurnCount = GameManager.instance.TurnCount;
 		}
 		
 		//추후 조건 더 추가하기
-		if (GameManager.instance.AvoidLanding)
+		if (GameManager.instance.AvoidLanding ||
+			GameManager.instance.TripleBarrier)
 		{
 			FindObjectOfType<SkillLoader>().ExecuteSkill();
 		}

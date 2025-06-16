@@ -3,9 +3,6 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
-using UnityEngine.Assertions.Must;
-using UnityEngine.UI;
 
 public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
@@ -300,7 +297,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 		GameManager.instance.SortPieceSibling();
 	}
-	
+
 	/// <summary>
 	/// 기물을 지정한 테이블 좌표로 이동시키는 함수
 	/// </summary>
@@ -324,6 +321,8 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		pieceData.UpdateTableCoordinate();
 		pieceData.curTable.IsPiece = true;
 		pieceData.curTable.piece = pieceData;
+		
+		pieceData.moveCount++;
 	}
 	/// <summary>
 	/// 움직임 애니메이션이 끝나면 테이블 업데이트를 시작하는 함수
@@ -346,6 +345,9 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			pieceData.UpdateTableCoordinate();
 			pieceData.curTable.IsPiece = true;
 			pieceData.curTable.piece = pieceData;
+
+			pieceData.moveCount++;
+			
 		});
 		rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
 	}
@@ -406,6 +408,8 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
+		if (!isEnable) return;
+
 		if (GameManager.instance.isSelectorEnable)
 		{
 			Debug.Log("클릭함1");

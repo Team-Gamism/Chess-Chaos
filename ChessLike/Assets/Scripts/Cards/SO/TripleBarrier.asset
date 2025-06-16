@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d45401f8ea3ac36418cc8af574017f3e, type: 3}
+  m_Name: TripleBarrier
+  m_EditorClassIdentifier: 
+  Title: "3\uC911 \uBC29\uD574 \uC7A5\uB9C9"
+  Description: "\uC9C0\uC815\uD55C \uAD6C\uC5ED 3\uAC1C\uB97C 2\uD134 \uB3D9\uC548
+    \uBD09\uC778\uD569\uB2C8\uB2E4."
+  isOwn: 0
+  pieces: 0
+  isZone: 1
+  RequireZoneCnt: 3
+  MaxZoneCnt: 3
+  isPiece: 0
+  RequirePieceCnt: 0
+  MaxPieceCount: 0
+  cardTier: 2
+  cardImage: {fileID: 21300000, guid: 44a054df1702e39458b7072b08d0f212, type: 3}

@@ -14,6 +14,7 @@ public class AvoidLanding : MonoBehaviour, ICardSkill
 		GameManager.instance.AvoidLanding = true;
 		cardData = GetComponent<NCard>().cardData;
 		TableSelectPanel.cardData = cardData;
+		TableSelectPanel.NotMoveCount = 1;
 		TableSelectPanel.gameObject.SetActive(true);
 	}
 

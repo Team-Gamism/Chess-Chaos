@@ -43,9 +43,10 @@ public class WeirdCastling : MonoBehaviour, ICardSkill
 		pieceData = selector.ReturnPiece();
 
 		PieceData n = pieceData;
+		Vector2Int coord = King.coordinate;
 
-		pieceData.GetComponent<PieceHandler>().MovePieceByCoordinate_AnimationDone(King.coordinate);
 		King.GetComponent<PieceHandler>().MovePieceByCoordinate_AnimationDone(n.coordinate);
+		pieceData.GetComponent<PieceHandler>().MovePieceByCoordinate_AnimationDone(coord);
 
 		GameManager.instance.WeirdCasting = false;
 

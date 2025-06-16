@@ -61,7 +61,8 @@ public class PawnPromotion : MonoBehaviour
 
 		newPieceData.IsStatic = pieceData.IsStatic;
 		newPieceData.UpdateField();
-		newPieceData.UpdateSprites();
+		
+		newPieceData.SetSpriteColor();
 
 		//기존 폰 삭제
 		Destroy(gameObject);
