@@ -12,6 +12,10 @@ public class TweenFader : MonoBehaviour
 
 	[SerializeField]
 	private float Duration;
+	[SerializeField]
+	private float FadeInDelay = 0f;
+	[SerializeField]
+	private float FadeOutDelay = 0f;
 
 	private void OnEnable()
 	{
@@ -22,7 +26,7 @@ public class TweenFader : MonoBehaviour
 	{
 		if (canvasGroup != null)
 		{
-			DOTween.To(() => canvasGroup.alpha, x => canvasGroup.alpha = x, 1f, duration).OnComplete(()=>OnFadeComplete(FadeInCompleteEvent));
+			DOTween.To(() => canvasGroup.alpha, x => canvasGroup.alpha = x, 1f, duration).SetDelay(FadeInDelay).OnComplete(() => OnFadeComplete(FadeInCompleteEvent));
 		}
 		else
 		{
@@ -35,7 +39,7 @@ public class TweenFader : MonoBehaviour
 	{
 		if (canvasGroup != null)
 		{
-			DOTween.To(() => canvasGroup.alpha, x => canvasGroup.alpha = x, 0f, duration).OnComplete(() => OnFadeComplete(FadeOutCompleteEvent));
+			DOTween.To(() => canvasGroup.alpha, x => canvasGroup.alpha = x, 0f, duration).SetDelay(FadeOutDelay).OnComplete(() => OnFadeComplete(FadeOutCompleteEvent));
 		}
 		else
 		{

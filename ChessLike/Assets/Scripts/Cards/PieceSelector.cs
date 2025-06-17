@@ -40,11 +40,21 @@ public class PieceSelector : MonoBehaviour
 
 	public void EnableImageAndCheckCoord(PieceType piece)
 	{
-		GameManager.instance.isSelectorEnable = true;
-		image.enabled = true;
-		pieceType = piece;
-		tweenMover.SetActive(true);
-		transform.SetSiblingIndex(FindFirstPieceAndCheckCoord(piece).gameObject.transform.GetSiblingIndex() - 1);
+		if (FindFirstPieceAndCheckCoord(piece) == null)
+		{
+			FindObjectOfType<SkillLoader>().warningLog.log = "이동 가능한 기물이 없습니다!";
+			FindObjectOfType<SkillLoader>().warningLog.gameObject.SetActive(true);
+			if (GameManager.instance.TopChange) GameManager.instance.TopChange = false;
+			else if (GameManager.instance.ChaosKnight) GameManager.instance.ChaosKnight = false;
+		}
+		else
+		{
+			transform.SetSiblingIndex(FindFirstPieceAndCheckCoord(piece).gameObject.transform.GetSiblingIndex() - 1);
+			GameManager.instance.isSelectorEnable = true;
+			image.enabled = true;
+			pieceType = piece;
+			tweenMover.SetActive(true);
+		}
 	}
 
 	public void EnableImage(bool isPlayerPiece)
@@ -233,7 +243,7 @@ public class PieceSelector : MonoBehaviour
 
 				for (int i = 0; i < count; i++)
 				{
-					if (list.Count-1 < i) break;
+					if (list.Count - 1 < i) break;
 					Vector2Int nc = n.coordinate + list[i];
 					Debug.Log($"{list[i]} + {n.coordinate} = {nc}");
 					if (nc.x < 0 || nc.x > 7 || nc.y < 0 || nc.y > 7)

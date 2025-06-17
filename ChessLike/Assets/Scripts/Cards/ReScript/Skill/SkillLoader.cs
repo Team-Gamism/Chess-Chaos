@@ -15,6 +15,8 @@ public class SkillLoader : MonoBehaviour
 	[SerializeField]
 	private ICardSkill skill;
 
+	public WarningLog warningLog;
+
 	public void LoadSkill(CardData cardData, ICardSkill skill)
 	{
 		CanvasGroup skillDescription = GetComponent<CanvasGroup>();

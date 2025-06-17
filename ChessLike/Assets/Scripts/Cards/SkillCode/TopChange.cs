@@ -21,7 +21,6 @@ public class TopChange : MonoBehaviour, ICardSkill
 	{
 		GameManager.instance.TopChange = true;
 
-
 		selector.EnableImageAndCheckCoord(PieceType.Rook);
 	}
 
