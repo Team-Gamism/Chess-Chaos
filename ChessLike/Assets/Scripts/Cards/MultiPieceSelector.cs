@@ -37,6 +37,11 @@ public class MultiPieceSelector : MonoBehaviour
 		log.SetActive(true);
 		DoneBtn.gameObject.SetActive(true);
 		DoneBtn.onClick.AddListener(() => ExecutePieceMove());
+
+		if (pieceSetter.pieceSelected.Any())
+		{
+			pieceSetter.pieceSelected.Clear();
+		}
 	}
 
 	private void Update()
@@ -71,12 +76,12 @@ public class MultiPieceSelector : MonoBehaviour
 		DoneBtn.gameObject.SetActive(false);
 		gameObject.SetActive(false);
 	}
-	// public void EnableImage(bool isPlayerPiece)
-	// {
-	// 	GameManager.instance.isSelectorEnable = true;
-	// 	image.enabled = true;
-	// 	transform.SetSiblingIndex(FindPiece(isPlayerPiece).gameObject.transform.GetSiblingIndex() - 1);
-	// }
+	public void EnableImage(bool isPlayerPiece)
+	{
+		GameManager.instance.isSelectorEnable = true;
+		image.enabled = true;
+		transform.SetSiblingIndex(FindPiece(isPlayerPiece).gameObject.transform.GetSiblingIndex() - 1);
+	}
 
 	// public void DisableImage()
 	// {
@@ -137,37 +142,36 @@ public class MultiPieceSelector : MonoBehaviour
 		}
 		return false;
 	}
-	// private PieceData FindPiece(bool isPlayerPiece)
-	// {
-	// 	List<PieceData> pieces = FindObjectsOfType<PieceData>().Where(p => p.IsPlayerPiece == isPlayerPiece).ToList();
+	private PieceData FindPiece(bool isPlayerPiece)
+	{
+		List<PieceData> pieces = FindObjectsOfType<PieceData>().Where(p => p.IsPlayerPiece == isPlayerPiece && p.PieceType != PieceType.King).ToList();
 
+		pieces.Sort((a, b) =>
+		{
+			if (a.coordinate.x == b.coordinate.x)
+				return a.coordinate.y.CompareTo(b.coordinate.y);
+			else
+				return a.coordinate.x.CompareTo(b.coordinate.x);
+		});
 
-	// 	pieces.Sort((a, b) =>
-	// 	{
-	// 		if (a.coordinate.x == b.coordinate.x)
-	// 			return a.coordinate.y.CompareTo(b.coordinate.y);
-	// 		else
-	// 			return a.coordinate.x.CompareTo(b.coordinate.x);
-	// 	});
+		PieceData result = null;
 
-	// 	PieceData result = null;
+		foreach (PieceData n in pieces)
+		{
+			if (result == null)
+			{
+				result = n;
+			}
+			else
+			{
+				if (n.coordinate.x < result.coordinate.x)
+					result = n;
+			}
+			n.transform.SetAsLastSibling();
+		}
 
-	// 	foreach (PieceData n in pieces)
-	// 	{
-	// 		if (result == null)
-	// 		{
-	// 			result = n;
-	// 		}
-	// 		else
-	// 		{
-	// 			if (n.coordinate.x < result.coordinate.x)
-	// 				result = n;
-	// 		}
-	// 		n.transform.SetAsLastSibling();
-	// 	}
-
-	// 	return result;
-	// }
+		return result;
+	}
 
 	// private PieceData FindFirstPiece(PieceType piece)
 	// {
@@ -252,7 +256,8 @@ public class MultiPieceSelector : MonoBehaviour
 
 		//추후 조건 더 추가하기
 		if (GameManager.instance.WeirdCasting || 
-			GameManager.instance.GodsOne)
+			GameManager.instance.GodsOne || 
+			GameManager.instance.DimensionBreak)
 		{
 			FindObjectOfType<SkillLoader>().ExecuteSkill();
 		}
@@ -267,13 +272,9 @@ public class MultiPieceSelector : MonoBehaviour
 	{
 		return pieceSetter.pieceSelected.First();
 	}
-
-	/// <summary>
-	/// 큐에 존재하는 요소를 리스트로 반환한다.
-	/// </summary>
-	public void ReturnPieces()
+	public PieceData[] ReturnPieces()
 	{
-
+		return pieceSetter.pieceSelected.ToArray();
 	}
 	public void QueueManage(PieceData piece)
 	{

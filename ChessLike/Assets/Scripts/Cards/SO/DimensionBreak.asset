@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d45401f8ea3ac36418cc8af574017f3e, type: 3}
+  m_Name: DimensionBreak
+  m_EditorClassIdentifier: 
+  Title: "\uCC28\uC6D0 \uAD50\uB780"
+  Description: "\uC0C1\uB300 \uAE30\uBB3C 2\uAC1C\uC758 \uC704\uCE58\uB97C \uBB34\uC791\uC704\uB85C
+    \uBCC0\uACBD\uD569\uB2C8\uB2E4."
+  isOwn: 0
+  pieces: 0
+  isZone: 0
+  RequireZoneCnt: 0
+  MaxZoneCnt: 0
+  isPiece: 1
+  RequirePieceCnt: 2
+  MaxPieceCount: 2
+  cardTier: 2
+  cardImage: {fileID: 21300000, guid: 44a054df1702e39458b7072b08d0f212, type: 3}

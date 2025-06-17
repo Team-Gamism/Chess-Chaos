@@ -15,6 +15,7 @@ public class PieceData : MonoBehaviour
 	public int StaticedTurn;       //고정이 된 턴 횟수 저장
 	public bool IsSnakePawn;       //암습의 폰이 적용된 기물인지 확인
 	public bool IsShield;
+	public bool DownAnimation = true;
 
 	public Material Outline;       //바깥 태두리 메테리얼
 
@@ -33,15 +34,12 @@ public class PieceData : MonoBehaviour
 	{
 		GetComponent<PieceHandler>().isEnable = false;
 		moveCount = 0;
-		if (IsPlayerPiece)
+		
+		GetComponent<Image>().material = Instantiate(Outline);
+		if (GetComponent<Image>().material.GetFloat("_OutlineThick") != 0f)
 		{
-			GetComponent<Image>().material = Instantiate(Outline);
-			if (GetComponent<Image>().material.GetFloat("_OutlineThick") != 0f)
-			{
-				GetComponent<Image>().material.SetFloat("_OutlineThick", 0f);
-			}
+			GetComponent<Image>().material.SetFloat("_OutlineThick", 0f);
 		}
-
 		SetSpriteColor();
 		UpdateField();
 
@@ -69,7 +67,10 @@ public class PieceData : MonoBehaviour
 			curTable.piece = this;
 			curTable.IsPiece = true;
 
+			DownAnimation = false;
+
 			if (IsPlayerPiece) GetComponent<PieceHandler>().isEnable = true;
+
 			GetComponent<PieceHandler>().SetTablelist();
 
 		});

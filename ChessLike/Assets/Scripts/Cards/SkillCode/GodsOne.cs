@@ -68,7 +68,6 @@ public class GodsOne : MonoBehaviour, ICardSkill
 
 		if (newPieceData == null || newPIeceHandler == null) return;
 
-		//이전 기물의 상태와 동일하게 구성하기
 		newPieceData.coordinate = coord;
 		newPieceData.IsPlayerPiece = isPlayerPiece;
 		newPieceData.curTable = newPieceData.GetComponent<TableData>();
@@ -82,8 +81,6 @@ public class GodsOne : MonoBehaviour, ICardSkill
 		newPieceData.UpdateField();
 		
 		newPieceData.SetSpriteColor();
-
-		//기존 폰 삭제
 		Destroy(p.gameObject);
 
 		newPieceData.UpdateTableCoordinate();

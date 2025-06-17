@@ -408,7 +408,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		if (!isEnable) return;
+		if (pieceData.DownAnimation) return;
 
 		if (GameManager.instance.isSelectorEnable)
 		{
@@ -456,6 +456,12 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			{
 				GodsOne weirdCastling = FindObjectOfType<GodsOne>();
 				weirdCastling.SetpieceData(pieceData);
+			}
+
+			if (!pieceData.IsPlayerPiece && GameManager.instance.DimensionBreak && pieceData.PieceType != PieceType.King)
+			{
+				DimensionBreak dimensionBreak = FindObjectOfType<DimensionBreak>();
+				dimensionBreak.SetpieceData(pieceData);
 			}
 		}
 	}

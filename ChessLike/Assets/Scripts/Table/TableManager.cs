@@ -12,7 +12,7 @@ public class TableManager : MonoBehaviour
 	public void Awake()
 	{
 		TableData[] tables = FindObjectsOfType<TableData>();
-		foreach(TableData table in tables)
+		foreach (TableData table in tables)
 		{
 			TableList.Add(table);
 		}
@@ -25,7 +25,7 @@ public class TableManager : MonoBehaviour
 		});
 	}
 
-	
+
 	//테스트 코드
 	private void Update()
 	{
@@ -39,7 +39,7 @@ public class TableManager : MonoBehaviour
 	{
 		float distance = float.MaxValue;
 		Vector2 result = Vector2.zero;
-		foreach(TableData table in TableList)
+		foreach (TableData table in TableList)
 		{
 			Vector2 tablePos = table.positionToRect(PieceCanvas);
 			float _distance = Vector2.Distance(tablePos, pos);
@@ -92,12 +92,26 @@ public class TableManager : MonoBehaviour
 	public string ReturnCurrentTableToFEN()
 	{
 		string result = "";
-		for(int i = 0; i < 8; i++)
+		for (int i = 0; i < 8; i++)
 		{
 			result += currentRowFEN(i);
 		}
 		return result;
 	}
+
+	public Vector2Int ReturnRandomCoordinate()
+	{
+		Vector2Int coord = Vector2Int.zero;
+		do
+		{
+			int x = Random.Range(0, 8);
+			int y = Random.Range(0, 8);
+
+			coord = new Vector2Int(x, y);
+		} while (GetTableByCoordinate(coord).IsPiece);
+		return coord;
+	}
+
 	private string currentRowFEN(int idx)
 	{
 		string result = "";
@@ -108,8 +122,8 @@ public class TableManager : MonoBehaviour
 		int pieceidx = 0;
 
 		bool isRowNull = true;
-		
-		for(int i = 0; i < 8; i++)
+
+		for (int i = 0; i < 8; i++)
 		{
 			string n = "";
 			if (!tables[i].piece)
@@ -120,7 +134,7 @@ public class TableManager : MonoBehaviour
 			else
 			{
 				isRowNull = false;
-				if(pieceidx > 0)
+				if (pieceidx > 0)
 				{
 					n += pieceidx;
 					pieceidx = 0;
@@ -164,16 +178,16 @@ public class TableManager : MonoBehaviour
 		if (pieceidx > 0) result += pieceidx;
 		pieceidx = 0;
 
-		if(idx != 7) result += "/";
+		if (idx != 7) result += "/";
 
 		if (GameManager.instance.PlayerTurn) result += GameManager.instance.PlayerColor ? "w" : "b";
 
-			return result;
+		return result;
 	}
 	private List<TableData> findRowTable(int rowIdx)
 	{
 		List<TableData> result = new List<TableData>();
-		for(int i = 0; i < TableList.Count; i++)
+		for (int i = 0; i < TableList.Count; i++)
 		{
 			if (TableList[i].Coordinate.y == rowIdx)
 			{
