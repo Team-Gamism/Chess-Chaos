@@ -44,7 +44,8 @@ public class SkillLoader : MonoBehaviour
 			GameManager.instance.WeirdCasting ||
 			GameManager.instance.AvoidLanding ||
 			GameManager.instance.GodsOne ||
-			GameManager.instance.DimensionBreak)
+			GameManager.instance.DimensionBreak ||
+			GameManager.instance.ChaosKnight) 
 		{
 			skill.Execute(new PieceData());
 		}

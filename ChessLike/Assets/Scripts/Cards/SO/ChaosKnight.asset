@@ -10,12 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d45401f8ea3ac36418cc8af574017f3e, type: 3}
-  m_Name: ChaosMove
+  m_Name: ChaosKnight
   m_EditorClassIdentifier: 
-  Title: "\uD63C\uB3C8\uC758 \uC774\uB3D9"
+  Title: "\uD63C\uB780\uC758 \uB098\uC774\uD2B8"
   Description: "\uB098\uC774\uD2B8\uAC00 \uBB34\uC791\uC704 \uC778\uC811\uCE78\uC73C\uB85C
-    \uC774\uB3D9\uD569\uB2C8\uB2E4.(1\uD68C)"
+    \uC774\uB3D9\uD569\uB2C8\uB2E4."
   isOwn: 1
   pieces: 3
+  isZone: 0
+  RequireZoneCnt: 0
+  MaxZoneCnt: 0
+  isPiece: 0
+  RequirePieceCnt: 0
+  MaxPieceCount: 0
   cardTier: 0
   cardImage: {fileID: 21300000, guid: 44a054df1702e39458b7072b08d0f212, type: 3}

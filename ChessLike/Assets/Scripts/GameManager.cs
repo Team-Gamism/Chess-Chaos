@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 	public bool TripleBarrier = false;
 	public bool GodsOne = false;
 	public bool DimensionBreak = false;
+	public bool ChaosKnight = false;
 
 	public int TurnCount = 0;
 

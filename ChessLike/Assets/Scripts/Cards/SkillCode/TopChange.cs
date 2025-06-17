@@ -20,7 +20,9 @@ public class TopChange : MonoBehaviour, ICardSkill
 	public void Execute()
 	{
 		GameManager.instance.TopChange = true;
-		selector.EnableImage(PieceType.Rook);
+
+
+		selector.EnableImageAndCheckCoord(PieceType.Rook);
 	}
 
 	public void SetHandler(PieceHandler handler)
@@ -34,10 +36,13 @@ public class TopChange : MonoBehaviour, ICardSkill
 		Vector2Int coord = handler.GetComponent<PieceData>().coordinate;
 		Vector2Int newCoord = new Vector2Int(7 - coord.x, 7 - coord.y);
 
-		Debug.Log(newCoord);
-
 		handler.MovePieceByCoordinate(newCoord);
 
 		FindObjectOfType<PieceSelector>().DisableImage();
+	}
+
+	private Vector2Int reverseCoordinate(Vector2Int coord)
+	{
+		return new Vector2Int(7 - coord.x, 7 - coord.y);
 	}
 }

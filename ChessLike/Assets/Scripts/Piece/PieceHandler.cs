@@ -321,7 +321,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 		pieceData.UpdateTableCoordinate();
 		pieceData.curTable.IsPiece = true;
 		pieceData.curTable.piece = pieceData;
-		
+
 		pieceData.moveCount++;
 	}
 	/// <summary>
@@ -347,7 +347,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			pieceData.curTable.piece = pieceData;
 
 			pieceData.moveCount++;
-			
+
 		});
 		rectTransform.DORotate(new Vector3(0f, 0f, 0f), 0.2f).SetEase(Ease.OutCirc);
 	}
@@ -429,7 +429,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 				GameManager.instance.isPawnShield = false;
 			}
 
-			if (pieceData.PieceType == PieceType.Rook && GameManager.instance.TopChange)
+			if (pieceData.PieceType == PieceType.Rook && GameManager.instance.TopChange && pieceData.IsPlayerPiece)
 			{
 				FindObjectOfType<TopChange>().SetHandler(this);
 
@@ -439,7 +439,6 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 			if (!pieceData.IsPlayerPiece && GameManager.instance.DarknessHand)
 			{
-				Debug.Log("클릭함");
 				FindObjectOfType<DarknessHand>().SetpieceData(pieceData);
 
 				FindObjectOfType<SkillLoader>().ExecuteSkill();
@@ -462,6 +461,15 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			{
 				DimensionBreak dimensionBreak = FindObjectOfType<DimensionBreak>();
 				dimensionBreak.SetpieceData(pieceData);
+			}
+
+			if (pieceData.IsPlayerPiece && GameManager.instance.ChaosKnight && pieceData.PieceType == PieceType.Knight)
+			{
+				Debug.Log("조건성립");
+				FindObjectOfType<ChaosKnight>().SetHandler(this);
+
+				FindObjectOfType<SkillLoader>().ExecuteSkill();
+				GameManager.instance.ChaosKnight = false;
 			}
 		}
 	}
