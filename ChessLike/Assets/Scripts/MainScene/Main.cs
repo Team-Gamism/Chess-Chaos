@@ -8,6 +8,7 @@ public class Main : MonoBehaviour
     private ParticleSystem particle;
     void Start()
     {
+        Application.targetFrameRate = 65;
         AtlasManager.instance.SetParticleTexture(particle);
     }
 }

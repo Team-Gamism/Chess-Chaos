@@ -18,7 +18,8 @@ public class AtlasManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
+            SkinDictionary.TryGetValue("Normal", out currentSkin);
         }
         else
         {
@@ -26,30 +27,51 @@ public class AtlasManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (currentSkin == null)
-        {
-            currentSkin = SkinDictionary["Normal"];
-        }
-    }
 
     public void ChangeCurrentSkin()
     {
         
     }
 
-    public void SetParticleTexture(ParticleSystem particleSystem)
+public void SetParticleTexture(ParticleSystem particleSystem)
+{
+    if (particleSystem == null)
     {
-        for (int i = 0; i < currentSkin.spriteCount; i++)
+        Debug.LogError("SetParticleTexture: particleSystem이 null입니다.");
+        return;
+    }
+
+    if (currentSkin == null)
+    {
+        Debug.LogError("SetParticleTexture: currentSkin이 null입니다.");
+        return;
+    }
+
+    var tsa = particleSystem.textureSheetAnimation;
+    int spriteSlotCount = tsa.spriteCount;
+
+    for (int i = 0; i < currentSkin.spriteCount; i++)
+    {
+        string spriteName = (i > 5) ? $"B_{i % 6}" : $"W_{i % 6}";
+        Sprite sprite = currentSkin.GetSprite(spriteName);
+
+        if (sprite == null)
         {
-            if (i > 5)
-                particleSystem.textureSheetAnimation.SetSprite(i, currentSkin.GetSprite("B_" + (i % 6)));
-            else
-                particleSystem.textureSheetAnimation.SetSprite(i, currentSkin.GetSprite("W_" + (i % 6)));
+            Debug.LogWarning($"SetParticleTexture: 스프라이트 '{spriteName}'가 currentSkin에 없습니다.");
+            continue;
+        }
+
+        if (i >= tsa.spriteCount)
+        {
+            tsa.AddSprite(sprite); // 자동으로 슬롯 확장
+        }
+        else
+        {
+            tsa.SetSprite(i, sprite);
         }
     }
+}
+
 
     /// <summary>
     /// 현재 스킨에서 스프라이트를 가져옴

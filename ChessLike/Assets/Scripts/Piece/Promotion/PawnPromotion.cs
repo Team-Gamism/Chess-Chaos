@@ -1,6 +1,4 @@
 using UnityEngine;
-using DG.Tweening;
-using Microsoft.Unity.VisualStudio.Editor;
 
 public class PawnPromotion : MonoBehaviour
 {
