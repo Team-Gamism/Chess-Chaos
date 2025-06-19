@@ -14,13 +14,14 @@ public class SkinManager : MonoBehaviour
     private GameObject Setter;
     public Outline outline;
     public Toggle colorToggle;
-    private int currentIdx = 0;
+    private int currentIdx;
     [SerializeField]
     private TMP_Text Title;
     public Button ChooseBtn;
 
     public void Init()
     {
+        currentIdx = AtlasManager.instance.skinIdx;
         skinLoader = GetComponentInParent<SkinLoader>();
 
         for (int i = 0; i < skinLoader.atlasList.Count; i++)
@@ -32,6 +33,7 @@ public class SkinManager : MonoBehaviour
             skinSetters[i].SetSprites(skinLoader.atlasList[i]);
         }
 
+        SetTitle();
         Title.gameObject.transform.SetAsLastSibling();
     }
 

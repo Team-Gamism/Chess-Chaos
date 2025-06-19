@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.U2D;
 
@@ -15,6 +16,8 @@ public class AtlasManager : MonoBehaviour
 
     public SpriteAtlas curSkin { get { return currentSkin; } }
     private SpriteAtlas currentSkin;
+    private String currentSkinName;
+    public int skinIdx = 0;
 
     private void Awake()
     {
@@ -22,7 +25,18 @@ public class AtlasManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            SkinDictionary.TryGetValue("Normal", out currentSkin);
+            if (PlayerPrefs.HasKey("currentSkin") && PlayerPrefs.HasKey("skinIdx"))
+            {
+                currentSkinName = LoadCurrentSkin();
+                Debug.Log(currentSkinName);
+                skinIdx = LoadSkinIdx();
+            }
+            else
+            {
+                currentSkinName = "Normal";
+                skinIdx = 0;
+            }
+            SkinDictionary.TryGetValue(currentSkinName, out currentSkin);
         }
         else
         {
@@ -35,8 +49,33 @@ public class AtlasManager : MonoBehaviour
     {
         var list = SkinDictionary.ToList();
         currentSkin = list[n].Value;
+        currentSkinName = list[n].Key;
+
+        SaveCurrentSkin();
+        SetSkinIdx(n);
 
         OnChangeSkin?.Invoke();
+    }
+
+    private void SaveCurrentSkin()
+    {
+        PlayerPrefs.SetString("currentSkin", currentSkinName);
+        PlayerPrefs.Save();
+    }
+    private String LoadCurrentSkin()
+    {
+        return PlayerPrefs.GetString("currentSkin");
+    }
+
+    public void SetSkinIdx(int n)
+    {
+        skinIdx = n;
+        PlayerPrefs.SetInt("skinIdx", skinIdx);
+        PlayerPrefs.Save();
+    }
+    private int LoadSkinIdx()
+    {
+        return PlayerPrefs.GetInt("skinIdx");
     }
 
     public void SetParticleTexture(ParticleSystem particleSystem)

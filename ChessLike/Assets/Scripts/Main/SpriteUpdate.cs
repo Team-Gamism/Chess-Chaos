@@ -13,6 +13,7 @@ public class SpriteUpdate : MonoBehaviour
     {
         image = GetComponent<Image>();
         AtlasManager.OnChangeSkin += UpdateSprite;
+        UpdateSprite();
     }
 
     public void UpdateSprite()

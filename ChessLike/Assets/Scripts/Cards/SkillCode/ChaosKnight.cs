@@ -65,7 +65,7 @@ public class ChaosKnight : MonoBehaviour, ICardSkill
         Vector2Int coord = Vector2Int.zero;
         do
         {
-            n = Random.Range(0, moveOffsetList.Count);
+            n = Random.Range(0, moveOffsetList.Count-1);
             coord += piece.coordinate + moveOffsetList[n];
 
         } while (coord.x > 7 && coord.x < 0 &&

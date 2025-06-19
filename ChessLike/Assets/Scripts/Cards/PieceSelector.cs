@@ -241,9 +241,9 @@ public class PieceSelector : MonoBehaviour
 
 				int count = list.Count;
 
-				for (int i = 0; i < count; i++)
+				for (int i = 0; i < list.Count; i++)
 				{
-					if (list.Count - 1 < i) break;
+					//if (list.Count - 1 < i) break;
 					Vector2Int nc = n.coordinate + list[i];
 					Debug.Log($"{list[i]} + {n.coordinate} = {nc}");
 					if (nc.x < 0 || nc.x > 7 || nc.y < 0 || nc.y > 7)
