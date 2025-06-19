@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D;
@@ -13,10 +14,12 @@ public class SkinSetter : MonoBehaviour
     private Image image;
     private Toggle colorToggle;
 
+    private SkinManager skinManager;
     private void Start()
     {
         image = GetComponent<Image>();
-        colorToggle = GetComponentInParent<SkinManager>().colorToggle;
+        skinManager = GetComponentInParent<SkinManager>();
+        colorToggle = skinManager.colorToggle;
     }
     public void SetSprites(SpriteAtlas newAtlas)
     {
@@ -52,10 +55,12 @@ public class SkinSetter : MonoBehaviour
         if (isUsing)
         {
             GetComponentInParent<SkinManager>().outline.effectColor = new Color(136f / 255f, 1f, 1f, 1f);
+            skinManager.ChooseBtn.interactable = false;
         }
         else
         {
             GetComponentInParent<SkinManager>().outline.effectColor = Color.white;
+            skinManager.ChooseBtn.interactable = true;
         }
     }
 
