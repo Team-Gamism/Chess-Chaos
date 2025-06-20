@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
 
 	public int TurnCount = 0;
 
+	public Level level;
+
 	private void Awake()
 	{
 		if (instance == null)
@@ -70,5 +72,12 @@ public class GameManager : MonoBehaviour
 			list[i].transform.SetSiblingIndex(i);
 		}
 	}
+}
+
+public enum Level
+{
+	Easy = 3,
+	Normal = 2,
+	Hard= 1
 }
 
