@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class CardSortManager : MonoBehaviour
@@ -9,11 +10,20 @@ public class CardSortManager : MonoBehaviour
 
     public List<NCard> curCard = new List<NCard>();
 
+    private float minValue = -375;
+    private float maxValue = 375;
+
     private void Start()
     {
         cardList = GetComponentsInChildren<NCard>().ToList();
         SetRandomCard();
 
+        CardLoad();
+
+        CardSort();
+    }
+    private void CardLoad()
+    {
         for (int i = 0; i < cardList.Count; i++)
         {
             for (int j = 0; j < curCard.Count; j++)
@@ -29,37 +39,67 @@ public class CardSortManager : MonoBehaviour
             }
         }
     }
+    [ContextMenu("Add New Card")]
+    public void GetNewCard()
+    {
+        NCard n = null;
+        do
+        {
+            //특정한 가중치를 가진 랜덤한 카드 티어를 가져오기
+            WeightedItem item = cardRandomize.GetRandomItem();
+            Debug.Log($"item : {item.cardTier}");
+
+            //카드 티어에 맞는 랜덤한 카드 기믹을 가져오기
+            n = GetNCardByWeightItem(item);
+            Debug.Log(n.cardData.name);
+        } while (curCard.Exists(c => c == n));
+        curCard.Add(n);
+
+        CardLoad();
+        CardSort();
+    }
     private void SetRandomCard()
     {
         for (int i = 0; i < (int)GameManager.instance.level; i++)
         {
-            WeightedItem item = cardRandomize.GetRandomItem();
-            Debug.Log($"item : {item.cardTier}");
-
-            // 1. 해당 티어의 카드들 중에서
-            List<NCard> randCards = cardList.FindAll(p => p.cardData.cardTier == item.cardTier);
-
-            // 2. curCard에 이미 들어간 것 제거 (역순으로 안전하게)
-            for (int j = randCards.Count - 1; j >= 0; j--)
+            NCard n = null;
+            do
             {
-                if (curCard.Exists(c => c.cardData == randCards[j].cardData))
-                {
-                    randCards.RemoveAt(j);
-                }
-            }
+                //특정한 가중치를 가진 랜덤한 카드 티어를 가져오기
+                WeightedItem item = cardRandomize.GetRandomItem();
+                Debug.Log($"item : {item.cardTier}");
 
-            // 3. 남은 카드가 있다면 무작위로 하나 추가
-            if (randCards.Count > 0)
-            {
-                int randIndex = Random.Range(0, randCards.Count);
-                curCard.Add(randCards[randIndex]);
-            }
-            else
-            {
-                Debug.LogWarning("중복 제외 후 선택 가능한 카드가 없습니다.");
-            }
+                //카드 티어에 맞는 랜덤한 카드 기믹을 가져오기
+                n = GetNCardByWeightItem(item);
+                Debug.Log(n.cardData.name);
+            } while (curCard.Exists(c => c == n));
+            curCard.Add(n);
         }
     }
 
+    public void CardSort()
+    {
+        int count = curCard.Count;
+        if (count == 0) return;
 
+        float spacing = 250f; // 카드 간 간격 (원하는 값으로 조절)
+        float totalWidth = spacing * (count - 1);
+        float startX = -totalWidth / 2f; // 중앙 기준으로 좌우로 퍼지게
+
+        for (int i = 0; i < count; i++)
+        {
+            float x = startX + spacing * i;
+            RectTransform rt = curCard[i].gameObject.GetComponent<RectTransform>();
+            rt.anchoredPosition = new Vector2(x, rt.anchoredPosition.y);
+        }
+    }
+
+    private NCard GetNCardByWeightItem(WeightedItem item)
+    {
+        List<NCard> list = cardList.FindAll(c => c.cardData.cardTier == item.cardTier);
+
+        int rand = Random.Range(0, list.Count);
+
+        return list[rand];
+    }
 }

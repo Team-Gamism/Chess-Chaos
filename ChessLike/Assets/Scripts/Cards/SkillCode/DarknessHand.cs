@@ -36,5 +36,6 @@ public class DarknessHand : MonoBehaviour, ICardSkill
 		pieceData.StaticedTurn = 1;
 
 		FindObjectOfType<PieceSelector>().DisableImage();
+		gameObject.SetActive(false);
 	}
 }

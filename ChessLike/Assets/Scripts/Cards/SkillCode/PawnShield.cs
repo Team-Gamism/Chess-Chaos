@@ -34,5 +34,6 @@ public class PawnShield : MonoBehaviour, ICardSkill
 		pieceData.IsShield = true;
 
 		FindObjectOfType<PieceSelector>().DisableImage();
+		gameObject.SetActive(false);
 	}
 }

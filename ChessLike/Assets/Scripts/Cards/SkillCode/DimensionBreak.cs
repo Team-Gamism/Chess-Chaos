@@ -38,6 +38,7 @@ public class DimensionBreak : MonoBehaviour, ICardSkill
         MovePieces();
 
         GameManager.instance.DimensionBreak = false;
+        gameObject.SetActive(false);
     }
     private void MovePieces()
     {

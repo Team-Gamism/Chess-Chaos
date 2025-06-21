@@ -21,5 +21,6 @@ public class AvoidLanding : MonoBehaviour, ICardSkill
 	public void Execute(PieceData none)
 	{
 		GameManager.instance.AvoidLanding = false;
+		gameObject.SetActive(false);
 	}
 }

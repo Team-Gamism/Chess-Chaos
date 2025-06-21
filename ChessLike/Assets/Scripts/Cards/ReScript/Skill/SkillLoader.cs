@@ -1,5 +1,6 @@
 using DG.Tweening;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ public class SkillLoader : MonoBehaviour
 
 	public WarningLog warningLog;
 
-	public void LoadSkill(CardData cardData, ICardSkill skill)
+	public void LoadSkill(CardData cardData, ICardSkill skill, GameObject obj)
 	{
 		CanvasGroup skillDescription = GetComponent<CanvasGroup>();
 		skillDescription.interactable = true;
@@ -41,13 +42,13 @@ public class SkillLoader : MonoBehaviour
 	{
 		if (GameManager.instance.isSnakePawn ||
 			GameManager.instance.isPawnShield ||
-			GameManager.instance.TopChange || 
+			GameManager.instance.TopChange ||
 			GameManager.instance.DarknessHand ||
 			GameManager.instance.WeirdCasting ||
 			GameManager.instance.AvoidLanding ||
 			GameManager.instance.GodsOne ||
 			GameManager.instance.DimensionBreak ||
-			GameManager.instance.ChaosKnight) 
+			GameManager.instance.ChaosKnight)
 		{
 			skill.Execute(new PieceData());
 		}

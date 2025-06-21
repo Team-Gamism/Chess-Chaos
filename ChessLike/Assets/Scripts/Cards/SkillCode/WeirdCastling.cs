@@ -51,6 +51,7 @@ public class WeirdCastling : MonoBehaviour, ICardSkill
 		GameManager.instance.WeirdCasting = false;
 
 		GameManager.instance.SortPieceSibling();
+		gameObject.SetActive(false);
 	}
 
 }

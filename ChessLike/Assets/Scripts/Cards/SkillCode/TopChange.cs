@@ -38,6 +38,7 @@ public class TopChange : MonoBehaviour, ICardSkill
 		handler.MovePieceByCoordinate(newCoord);
 
 		FindObjectOfType<PieceSelector>().DisableImage();
+		gameObject.SetActive(false);
 	}
 
 	private Vector2Int reverseCoordinate(Vector2Int coord)

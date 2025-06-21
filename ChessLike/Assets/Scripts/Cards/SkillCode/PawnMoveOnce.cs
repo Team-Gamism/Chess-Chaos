@@ -22,6 +22,7 @@ public class PawnMoveOnce : MonoBehaviour, ICardSkill
 			if (!pawns[i].IsFirstMove) pawns[i].IsFirstMove = true;
 		}
 		GameManager.instance.isPawnMoveOnce = true;
+		gameObject.SetActive(false);
 	}
 
 }

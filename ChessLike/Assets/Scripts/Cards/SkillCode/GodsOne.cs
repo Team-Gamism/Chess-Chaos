@@ -44,6 +44,7 @@ public class GodsOne : MonoBehaviour, ICardSkill
         Change(pieceData);
 
         GameManager.instance.GodsOne = false;
+        gameObject.SetActive(false);
     }
     
     public void Change(PieceData p)

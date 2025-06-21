@@ -21,5 +21,6 @@ public class TripleBarrier : MonoBehaviour, ICardSkill
 	public void Execute(PieceData none)
 	{
 		GameManager.instance.TripleBarrier = false;
+		gameObject.SetActive(false);
 	}
 }

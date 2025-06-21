@@ -57,6 +57,7 @@ public class ChaosKnight : MonoBehaviour, ICardSkill
         handler.MovePieceByCoordinate(coord);
 
         FindObjectOfType<PieceSelector>().DisableImage();
+        gameObject.SetActive(false);
     }
 
     private Vector2Int RandomOffset(PieceData piece)

@@ -37,5 +37,6 @@ public class SnakePawn : MonoBehaviour, ICardSkill
 		pieceData.ChangePieceType(PieceType.Knight);
 
 		FindObjectOfType<PieceSelector>().DisableImage();
+		gameObject.SetActive(false);
 	}
 }
