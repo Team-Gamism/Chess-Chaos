@@ -9,12 +9,14 @@ public class SnakePawn : MonoBehaviour, ICardSkill
 	private PieceSelector selector;
 
 	private PieceData pieceData;
+	private NCard ncard;
 	private void Start()
 	{
 		tableManager = FindObjectOfType<TableManager>();
 		rectTransform = GetComponent<RectTransform>();
 
 		selector = FindObjectOfType<PieceSelector>();
+		ncard = GetComponent<NCard>();
 	}
 
 	public void Execute()
@@ -37,6 +39,6 @@ public class SnakePawn : MonoBehaviour, ICardSkill
 		pieceData.ChangePieceType(PieceType.Knight);
 
 		FindObjectOfType<PieceSelector>().DisableImage();
-		gameObject.SetActive(false);
+		ncard.DOEndAnimation();
 	}
 }

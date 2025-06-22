@@ -1,4 +1,5 @@
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 public class GodsOne : MonoBehaviour, ICardSkill
@@ -15,10 +16,12 @@ public class GodsOne : MonoBehaviour, ICardSkill
     public PieceType[] EnablePieces;
 
     private CardData cardData;
+    private NCard ncard;
     private void Start()
     {
         tableManager = FindObjectOfType<TableManager>();
         rectTransform = GetComponent<RectTransform>();
+        ncard = GetComponent<NCard>();
     }
 
     public void SetpieceData(PieceData pieceData)
@@ -44,8 +47,9 @@ public class GodsOne : MonoBehaviour, ICardSkill
         Change(pieceData);
 
         GameManager.instance.GodsOne = false;
-        gameObject.SetActive(false);
+        ncard.DOEndAnimation();
     }
+            
     
     public void Change(PieceData p)
 	{

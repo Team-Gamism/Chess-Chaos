@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 public class ChaosKnight : MonoBehaviour, ICardSkill
@@ -10,6 +11,7 @@ public class ChaosKnight : MonoBehaviour, ICardSkill
     private PieceSelector selector;
 
     private PieceHandler handler;
+    private NCard ncard;
     [HideInInspector]
     public List<Vector2Int> moveOffsetList = new List<Vector2Int>
         {
@@ -36,6 +38,7 @@ public class ChaosKnight : MonoBehaviour, ICardSkill
         rectTransform = GetComponent<RectTransform>();
 
         selector = FindObjectOfType<PieceSelector>();
+        ncard = GetComponent<NCard>();
     }
 
     public void Execute()
@@ -57,7 +60,7 @@ public class ChaosKnight : MonoBehaviour, ICardSkill
         handler.MovePieceByCoordinate(coord);
 
         FindObjectOfType<PieceSelector>().DisableImage();
-        gameObject.SetActive(false);
+        ncard.DOEndAnimation();
     }
 
     private Vector2Int RandomOffset(PieceData piece)

@@ -1,4 +1,5 @@
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 public class DarknessHand : MonoBehaviour, ICardSkill
@@ -9,6 +10,7 @@ public class DarknessHand : MonoBehaviour, ICardSkill
 	private PieceSelector selector;
 
 	private PieceData pieceData;
+	private NCard ncard;
 
 	private void Start()
 	{
@@ -16,6 +18,7 @@ public class DarknessHand : MonoBehaviour, ICardSkill
 		rectTransform = GetComponent<RectTransform>();
 
 		selector = FindObjectOfType<PieceSelector>();
+		ncard = GetComponent<NCard>();
 	}
 
 	public void Execute()
@@ -36,6 +39,6 @@ public class DarknessHand : MonoBehaviour, ICardSkill
 		pieceData.StaticedTurn = 1;
 
 		FindObjectOfType<PieceSelector>().DisableImage();
-		gameObject.SetActive(false);
+		ncard.DOEndAnimation();
 	}
 }

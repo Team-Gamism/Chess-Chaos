@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ public class CardSortManager : MonoBehaviour
 
         CardLoad();
 
-        CardSort();
+        CardSortNoneAnim();
     }
     private void CardLoad()
     {
@@ -78,6 +79,22 @@ public class CardSortManager : MonoBehaviour
     }
 
     public void CardSort()
+    {
+        int count = curCard.Count;
+        if (count == 0) return;
+
+        float spacing = 250f; // 카드 간 간격 (원하는 값으로 조절)
+        float totalWidth = spacing * (count - 1);
+        float startX = -totalWidth / 2f; // 중앙 기준으로 좌우로 퍼지게
+
+        for (int i = 0; i < count; i++)
+        {
+            float x = startX + spacing * i;
+            RectTransform rt = curCard[i].gameObject.GetComponent<RectTransform>();
+            rt.DOAnchorPos(new Vector2(x, rt.anchoredPosition.y), 0.3f);
+        }
+    }
+    private void CardSortNoneAnim()
     {
         int count = curCard.Count;
         if (count == 0) return;

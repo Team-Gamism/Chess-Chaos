@@ -17,22 +17,22 @@ public class NCard : MonoBehaviour, IPointerClickHandler
 		GetComponent<Image>().sprite = cardData.cardImage;
 		skillLoader = FindObjectOfType<SkillLoader>();
 	}
-    private void OnEnable()
-    {
+	private void OnEnable()
+	{
 		RectTransform rect = GetComponent<RectTransform>();
 
 		Vector2 vec = new Vector2(rect.anchoredPosition.x, -500);
 		GetComponent<RectTransform>().anchoredPosition = vec;
-		
+
 		GetComponent<RectTransform>().DOAnchorPosY(0, 0.8f).SetEase(Ease.OutQuint);
-    }
-    private void OnDisable()
+	}
+	private void CloseCard()
 	{
 		GetComponentInParent<CardSortManager>().curCard.Remove(this);
 		GetComponentInParent<CardSortManager>().CardSort();
 	}
 
-    public void LoadEvent()
+	public void LoadEvent()
 	{
 		skillLoader.LoadSkill(cardData, skill, this.gameObject);
 	}
@@ -40,5 +40,13 @@ public class NCard : MonoBehaviour, IPointerClickHandler
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		LoadEvent();
+	}
+	public void DOEndAnimation()
+	{
+		gameObject.GetComponent<RectTransform>().DOAnchorPosY(-500, 0.5f).SetEase(Ease.OutQuad).OnComplete(() =>
+		{
+			gameObject.SetActive(false);
+			CloseCard();
+		});
 	}
 }

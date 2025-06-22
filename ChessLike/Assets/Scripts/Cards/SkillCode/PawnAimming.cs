@@ -1,4 +1,5 @@
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 public class PawnAimming : MonoBehaviour, ICardSkill
@@ -7,15 +8,17 @@ public class PawnAimming : MonoBehaviour, ICardSkill
 	private RectTransform rectTransform;
 
 	private PieceData pieceData;
+	private NCard ncard;
 	private void Start()
 	{
 		tableManager = FindObjectOfType<TableManager>();
 		rectTransform = GetComponent<RectTransform>();
+		ncard = GetComponent<NCard>();
 	}
 
 	public void Execute()
 	{
 		GameManager.instance.isPawnAimming = true;
-		gameObject.SetActive(false);
+		ncard.DOEndAnimation();
 	}
 }

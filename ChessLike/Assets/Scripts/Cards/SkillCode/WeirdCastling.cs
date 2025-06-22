@@ -14,10 +14,12 @@ public class WeirdCastling : MonoBehaviour, ICardSkill
 	public PieceType[] EnablePieces;
 
 	private CardData cardData;
+	private NCard ncard;
 	private void Start()
 	{
 		tableManager = FindObjectOfType<TableManager>();
 		rectTransform = GetComponent<RectTransform>();
+		ncard = GetComponent<NCard>();
 	}
 
 	public void SetpieceData(PieceData pieceData)
@@ -51,7 +53,7 @@ public class WeirdCastling : MonoBehaviour, ICardSkill
 		GameManager.instance.WeirdCasting = false;
 
 		GameManager.instance.SortPieceSibling();
-		gameObject.SetActive(false);
+		ncard.DOEndAnimation();
 	}
 
 }

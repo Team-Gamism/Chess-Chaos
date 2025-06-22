@@ -8,19 +8,24 @@ public class TripleBarrier : MonoBehaviour, ICardSkill
 
 	[SerializeField]
 	private CardData cardData;
+	private NCard ncard;
+    private void Start()
+    {
+		ncard = GetComponent<NCard>();
+    }
 
 	public void Execute()
 	{
 		GameManager.instance.TripleBarrier = true;
 		cardData = GetComponent<NCard>().cardData;
 		TableSelectPanel.cardData = cardData;
-        TableSelectPanel.NotMoveCount = 2;
+		TableSelectPanel.NotMoveCount = 2;
 		TableSelectPanel.gameObject.SetActive(true);
 	}
 
 	public void Execute(PieceData none)
 	{
 		GameManager.instance.TripleBarrier = false;
-		gameObject.SetActive(false);
+		ncard.DOEndAnimation();
 	}
 }

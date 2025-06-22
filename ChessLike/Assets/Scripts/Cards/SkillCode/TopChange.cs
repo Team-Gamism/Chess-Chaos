@@ -9,12 +9,14 @@ public class TopChange : MonoBehaviour, ICardSkill
 	private PieceSelector selector;
 
 	private PieceHandler handler;
+	private NCard ncard;
 	private void Start()
 	{
 		tableManager = FindObjectOfType<TableManager>();
 		rectTransform = GetComponent<RectTransform>();
 
 		selector = FindObjectOfType<PieceSelector>();
+		ncard = GetComponent<NCard>();
 	}
 
 	public void Execute()
@@ -38,7 +40,7 @@ public class TopChange : MonoBehaviour, ICardSkill
 		handler.MovePieceByCoordinate(newCoord);
 
 		FindObjectOfType<PieceSelector>().DisableImage();
-		gameObject.SetActive(false);
+		ncard.DOEndAnimation();
 	}
 
 	private Vector2Int reverseCoordinate(Vector2Int coord)

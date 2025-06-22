@@ -1,4 +1,5 @@
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 public class DimensionBreak : MonoBehaviour, ICardSkill
@@ -10,10 +11,12 @@ public class DimensionBreak : MonoBehaviour, ICardSkill
 
     public PieceData[] pieceData;
     private CardData cardData;
+    private NCard ncard;
     private void Start()
     {
         tableManager = FindObjectOfType<TableManager>();
         rectTransform = GetComponent<RectTransform>();
+        ncard = GetComponent<NCard>();
     }
 
     public void SetpieceData(PieceData pieceData)
@@ -38,7 +41,7 @@ public class DimensionBreak : MonoBehaviour, ICardSkill
         MovePieces();
 
         GameManager.instance.DimensionBreak = false;
-        gameObject.SetActive(false);
+        ncard.DOEndAnimation();
     }
     private void MovePieces()
     {

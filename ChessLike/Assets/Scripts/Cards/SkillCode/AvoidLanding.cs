@@ -1,4 +1,4 @@
-using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 public class AvoidLanding : MonoBehaviour, ICardSkill
@@ -9,7 +9,13 @@ public class AvoidLanding : MonoBehaviour, ICardSkill
 	[SerializeField]
 	private CardData cardData;
 
-	public void Execute()
+	private NCard ncard;
+    private void Start()
+    {
+		ncard = GetComponent<NCard>();
+    }
+
+    public void Execute()
 	{
 		GameManager.instance.AvoidLanding = true;
 		cardData = GetComponent<NCard>().cardData;
@@ -21,6 +27,6 @@ public class AvoidLanding : MonoBehaviour, ICardSkill
 	public void Execute(PieceData none)
 	{
 		GameManager.instance.AvoidLanding = false;
-		gameObject.SetActive(false);
+		ncard.DOEndAnimation();
 	}
 }
