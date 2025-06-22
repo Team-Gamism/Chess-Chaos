@@ -48,7 +48,8 @@ public class SkillLoader : MonoBehaviour
 			GameManager.instance.AvoidLanding ||
 			GameManager.instance.GodsOne ||
 			GameManager.instance.DimensionBreak ||
-			GameManager.instance.ChaosKnight)
+			GameManager.instance.ChaosKnight ||
+			GameManager.instance.TripleBarrier)
 		{
 			skill.Execute(new PieceData());
 		}

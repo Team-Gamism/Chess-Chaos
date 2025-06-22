@@ -36,12 +36,16 @@ public class TableSelectorChild : MonoBehaviour, IPointerClickHandler
 			tableSetter.SetFirstFalse();
 		}
 	}
+	public void InitField()
+	{
+		isSelected = false;
+	}
 
 	public void Update()
 	{
 		if (isSelected)
 		{
-			GetComponent<Image>().color = new Color(1f,1f,1f, 0);
+			GetComponent<Image>().color = new Color(1f, 1f, 1f, 0);
 		}
 		else
 		{

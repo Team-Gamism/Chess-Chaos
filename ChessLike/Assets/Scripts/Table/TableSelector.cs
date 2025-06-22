@@ -29,6 +29,7 @@ public class TableSelector : MonoBehaviour
 
 	private void OnEnable()
 	{
+
 		tableManager = FindObjectOfType<TableManager>();
 		image = GetComponent<Image>();
 		cameraSize = FindObjectsOfType<Canvas>().Where(p => p.CompareTag("ScreenUI")).FirstOrDefault();
@@ -45,6 +46,7 @@ public class TableSelector : MonoBehaviour
 
 		log.SetActive(true);
 		DoneBtn.gameObject.SetActive(true);
+		DoneBtn.onClick.RemoveAllListeners();
 		DoneBtn.onClick.AddListener(() => TableAttributeChange());
 	}
 
@@ -72,7 +74,8 @@ public class TableSelector : MonoBehaviour
 		{
 			TableData t = tableManager.GetTableByCoordinate(list[i].coordinate);
 			t.IsMoveable = false;
-			t.NotMoveCount = NotMoveCount;
+			Debug.Log(NotMoveCount);
+			t.NotMoveCount += NotMoveCount;
 			t.registeredTurnCount = GameManager.instance.TurnCount;
 		}
 		

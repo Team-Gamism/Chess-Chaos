@@ -49,7 +49,7 @@ public class PieceData : MonoBehaviour
 
 		Sequence animation = DOTween.Sequence();
 
-		animation.Append(rectTransform.DOAnchorPos(endPos, 1f).SetEase(Ease.OutCirc));
+		animation.Append(rectTransform.DOAnchorPos(endPos, 0.8f).SetEase(Ease.OutCirc));
 		animation.Join(rectTransform.GetComponent<Image>().DOColor(new Color(1f, 1f, 1f, 1f), 1f));
 
 		rectTransform.anchoredPosition = startPos;

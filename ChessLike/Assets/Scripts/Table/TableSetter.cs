@@ -13,6 +13,12 @@ public class TableSetter : MonoBehaviour
 
 	private void OnEnable()
 	{
+		int cnt = tableSelected.Count;
+		for (int i = 0; i < cnt; i++)
+		{
+			tableSelected.First().InitField();
+			tableSelected.Dequeue();
+		}
 		tableSelector = GetComponentInParent<TableSelector>();
 		tableSelectorChildren = FindObjectsOfType<TableSelectorChild>().ToList();
 		GetComponent<RectTransform>().anchoredPosition = new Vector3(0f, 230f, 0f);

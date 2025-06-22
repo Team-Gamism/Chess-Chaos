@@ -73,46 +73,15 @@ public class PieceSelector : MonoBehaviour
 		DisablePieceMaterial(pieceType);
 		GameManager.instance.SortPieceSibling();
 	}
-	// {
-	// 	List<PieceData> pieceList = FindObjectsOfType<PieceData>().Where(p => p.IsPlayerPiece).ToList();
 
-	// 	// pieces 배열에 존재하지 않는 형태를 가진 기물을 발견할 시 기물을 리스트에서 제외
-	// 	for (int i = 0; i < pieceList.Count; i++)
-	// 	{
-	// 		if (!IsInclude(pieceList[i], pieces))
-	// 		{
-	// 			pieceList.RemoveAt(i);
-	// 		}
-	// 	}
-
-	// 	pieceList.Sort((a, b) =>
-	// 	{
-	// 		if (a.coordinate.x == b.coordinate.x)
-	// 			return a.coordinate.y.CompareTo(b.coordinate.y);
-	// 		else
-	// 			return a.coordinate.x.CompareTo(b.coordinate.x);
-	// 	});
-
-	// 	PieceData result = null;
-
-	// 	foreach (PieceData n in pieceList)
-	// 	{
-	// 		if (result == null)
-	// 		{
-	// 			result = n;
-	// 		}
-	// 		else
-	// 		{
-	// 			if (n.coordinate.x < result.coordinate.x)
-	// 				result = n;
-	// 		}
-	// 		n.transform.SetAsLastSibling();
-	// 	}
-
-	// 	EnablePieceMaterial(pieces);
-
-	// 	return result;
-	// }
+	public void DisableImage(params PieceType[] pieces)
+	{
+		GameManager.instance.isSelectorEnable = false;
+		image.enabled = false;
+		tweenMover.SetActive(false);
+		DisablePieceMaterial(pieces);
+		GameManager.instance.SortPieceSibling();
+	}
 
 	private bool IsInclude(PieceData piece, PieceType[] pieces)
 	{
@@ -289,6 +258,18 @@ public class PieceSelector : MonoBehaviour
 		for (int i = 0; i < pieces.Count; i++)
 		{
 			pieces[i].SetOutline(0);
+		}
+	}
+
+	private void DisablePieceMaterial(params PieceType[] types)
+	{
+		List<PieceData> matchingPieces = FindObjectsOfType<PieceData>()
+			.Where(p => p.IsPlayerPiece && types.Contains(p.PieceType))
+			.ToList();
+
+		for (int i = 0; i < matchingPieces.Count; i++)
+		{
+			matchingPieces[i].SetOutline(0);
 		}
 	}
 

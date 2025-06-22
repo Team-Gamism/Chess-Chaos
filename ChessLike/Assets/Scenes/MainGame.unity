@@ -10227,15 +10227,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weightedItem:
   - cardTier: 0
-    weight: 40
+    weight: 1
   - cardTier: 1
-    weight: 30
+    weight: 1
   - cardTier: 2
-    weight: 15
+    weight: 1
   - cardTier: 3
-    weight: 10
+    weight: 96
   - cardTier: 4
-    weight: 5
+    weight: 1
 --- !u!1 &633933880
 GameObject:
   m_ObjectHideFlags: 0

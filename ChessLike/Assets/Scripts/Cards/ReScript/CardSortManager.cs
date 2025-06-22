@@ -48,15 +48,15 @@ public class CardSortManager : MonoBehaviour
         {
             //특정한 가중치를 가진 랜덤한 카드 티어를 가져오기
             WeightedItem item = cardRandomize.GetRandomItem();
-            Debug.Log($"item : {item.cardTier}");
+            //Debug.Log($"item : {item.cardTier}");
 
             //카드 티어에 맞는 랜덤한 카드 기믹을 가져오기
             n = GetNCardByWeightItem(item);
-            Debug.Log(n.cardData.name);
+            //Debug.Log(n.cardData.name);
         } while (curCard.Exists(c => c == n));
         curCard.Add(n);
-
-        CardLoad();
+        
+        n.gameObject.SetActive(true);
         CardSort();
     }
     private void SetRandomCard()

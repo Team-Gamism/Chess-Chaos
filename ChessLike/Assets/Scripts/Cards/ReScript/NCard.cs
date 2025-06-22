@@ -10,6 +10,7 @@ public class NCard : MonoBehaviour, IPointerClickHandler
 	public CardData cardData;
 
 	private ICardSkill skill;
+	private bool isFirst = false;
 
 	private void Start()
 	{
@@ -24,7 +25,8 @@ public class NCard : MonoBehaviour, IPointerClickHandler
 		Vector2 vec = new Vector2(rect.anchoredPosition.x, -500);
 		GetComponent<RectTransform>().anchoredPosition = vec;
 
-		GetComponent<RectTransform>().DOAnchorPosY(0, 0.8f).SetEase(Ease.OutQuint);
+		float Delay = !isFirst ? 2.5f : 0.3f;
+		GetComponent<RectTransform>().DOAnchorPosY(0, 0.7f).SetEase(Ease.OutQuint).SetDelay(Delay).OnComplete(() => { isFirst = true; });
 	}
 	private void CloseCard()
 	{
@@ -43,10 +45,17 @@ public class NCard : MonoBehaviour, IPointerClickHandler
 	}
 	public void DOEndAnimation()
 	{
-		gameObject.GetComponent<RectTransform>().DOAnchorPosY(-500, 0.5f).SetEase(Ease.OutQuad).OnComplete(() =>
-		{
-			gameObject.SetActive(false);
-			CloseCard();
-		});
+		var rect = gameObject.GetComponent<RectTransform>();
+
+		DOTween.Sequence()
+			.Append(rect.DOAnchorPosY(-500, 0.5f).SetEase(Ease.OutQuad))
+			.Join(DOTween.Sequence()
+				.AppendInterval(0.2f)
+				.AppendCallback(() =>
+				{
+					gameObject.SetActive(false);
+					CloseCard();
+				})
+			);
 	}
 }
