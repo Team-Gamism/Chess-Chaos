@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d3334217802c8684383269937338c992
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Resources/Chess/Materials/wooddar4.mat
+  uploadId: 759317

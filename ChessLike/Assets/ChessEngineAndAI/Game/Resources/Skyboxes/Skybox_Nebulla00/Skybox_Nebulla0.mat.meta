@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1c5d055f0f192bc4aab578df63e14166
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Resources/Skyboxes/Skybox_Nebulla00/Skybox_Nebulla0.mat
+  uploadId: 759317

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3b49d393b14e03b4aa8ed94235bc8972
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Resources/Materials/ColorWhite.mat
+  uploadId: 759317

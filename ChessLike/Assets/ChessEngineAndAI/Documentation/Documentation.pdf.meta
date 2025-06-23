@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 99e349ed9a2ef29418d00dabafbbdc7f
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Documentation/Documentation.pdf
+  uploadId: 759317

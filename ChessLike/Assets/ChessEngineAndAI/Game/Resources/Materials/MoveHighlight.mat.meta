@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7f8d3f16e7565e948b18632d8b02d981
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Resources/Materials/MoveHighlight.mat
+  uploadId: 759317

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 14033f407b1722b43bfdb8559ab2b148
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Resources/Prefabs/ChessPieces/Prefab_Bishop.prefab
+  uploadId: 759317

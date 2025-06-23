@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 02430b8ffa76f5b4a93f1c7d474e5b83
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Resources/Materials/Highlight.mat
+  uploadId: 759317

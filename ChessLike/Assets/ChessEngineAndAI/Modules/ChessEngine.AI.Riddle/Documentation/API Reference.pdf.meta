@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1aeac49c6e3eab5458083024fe5d3566
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Modules/ChessEngine.AI.Riddle/Documentation/API
+    Reference.pdf
+  uploadId: 759317

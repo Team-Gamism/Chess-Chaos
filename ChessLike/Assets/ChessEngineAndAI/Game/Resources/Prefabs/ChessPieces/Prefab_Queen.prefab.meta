@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 219c49113a3792f4394c0394487898d2
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Resources/Prefabs/ChessPieces/Prefab_Queen.prefab
+  uploadId: 759317

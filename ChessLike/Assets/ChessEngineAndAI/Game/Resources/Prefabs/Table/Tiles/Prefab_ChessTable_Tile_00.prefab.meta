@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e0bc9c42c24221b4480d921329cf0f05
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Resources/Prefabs/Table/Tiles/Prefab_ChessTable_Tile_00.prefab
+  uploadId: 759317

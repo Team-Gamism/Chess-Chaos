@@ -19565,6 +19565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1349039490}
   - component: {fileID: 1349039491}
+  - component: {fileID: 1349039492}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -19618,6 +19619,47 @@ MonoBehaviour:
   ChaosKnight: 0
   TurnCount: 0
   level: 3
+--- !u!114 &1349039492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349039489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be48c366d1b9a6944a35b8966fd22bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoStartGame: 1
+  visualTable: {fileID: 0}
+  m_SelectedHighlightMaterial: {fileID: 0}
+  m_MoveHighlightMaterial: {fileID: 0}
+  m_AttackHighlightMaterial: {fileID: 0}
+  GameInitialized:
+    m_PersistentCalls:
+      m_Calls: []
+  TurnEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  TurnStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  PreGameReset:
+    m_PersistentCalls:
+      m_Calls: []
+  PostGameReset:
+    m_PersistentCalls:
+      m_Calls: []
+  GameOver:
+    m_PersistentCalls:
+      m_Calls: []
+  SelectionChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  ChessPieceMoved:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1357356122
 GameObject:
   m_ObjectHideFlags: 0

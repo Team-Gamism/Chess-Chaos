@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bd28063d77cbf5745b548403442e2151
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Gamemodes/Gamemode_PieceTypeSteal/Resources/Scenes/Gamemode_PieceTypeSteal_AIScene.unity
+  uploadId: 759317

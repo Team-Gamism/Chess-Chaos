@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f7bbd6e78bbc143419c71dd8fe46b933
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Resources/Prefabs/UI/Prefab_GameOverUI.prefab
+  uploadId: 759317

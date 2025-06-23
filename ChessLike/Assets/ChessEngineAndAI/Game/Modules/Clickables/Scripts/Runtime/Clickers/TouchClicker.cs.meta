@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: eeb1eed5f25c03c45b1c9002de433318
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Modules/Clickables/Scripts/Runtime/Clickers/TouchClicker.cs
+  uploadId: 759317

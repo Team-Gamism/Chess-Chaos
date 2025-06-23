@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 809e14734ca97e942a949d67595cfb70
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Resources/Prefabs/ChessPieces/Prefab_Knight.prefab
+  uploadId: 759317

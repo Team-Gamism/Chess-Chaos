@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1c187081cac724643a349a9df593d19a
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Modules/ChessEngine.AI.Doofus/Documentation/API
+    Reference.pdf
+  uploadId: 759317

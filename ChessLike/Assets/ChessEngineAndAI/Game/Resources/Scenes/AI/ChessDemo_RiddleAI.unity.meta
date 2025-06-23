@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: fcc666f173f1e7f4bb85a831da11241a
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Resources/Scenes/AI/ChessDemo_RiddleAI.unity
+  uploadId: 759317

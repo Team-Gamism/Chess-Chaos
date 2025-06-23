@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f06a9def8712b794c999b17e1c0471f4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Resources/Chess/Materials/woodlig4.mat
+  uploadId: 759317

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ccf97460e38c8ce4781c3a2220959f5c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Resources/Materials/AttackHighlight.mat
+  uploadId: 759317

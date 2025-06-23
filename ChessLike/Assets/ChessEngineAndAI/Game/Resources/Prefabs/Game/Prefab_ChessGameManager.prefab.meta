@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 55386ab589cc04e4c92c4dfc45903464
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Resources/Prefabs/Game/Prefab_ChessGameManager.prefab
+  uploadId: 759317

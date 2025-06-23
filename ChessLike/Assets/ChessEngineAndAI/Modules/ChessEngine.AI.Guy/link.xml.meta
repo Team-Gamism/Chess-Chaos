@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e0ec01a0fd97ded4dbe5c3ac3514ef7a
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Modules/ChessEngine.AI.Guy/link.xml
+  uploadId: 759317

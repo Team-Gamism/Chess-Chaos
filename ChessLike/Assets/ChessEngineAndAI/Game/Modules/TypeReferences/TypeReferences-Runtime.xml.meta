@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c2fce3460605ab64aacb91a0ce3f711c
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246295
+  packageName: Chess Engine & AI (Mobile & Multiplayer)
+  packageVersion: 1.5.4
+  assetPath: Assets/ChessEngineAndAI/Game/Modules/TypeReferences/TypeReferences-Runtime.xml
+  uploadId: 759317
