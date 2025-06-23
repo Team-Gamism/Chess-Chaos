@@ -1,6 +1,8 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Diagnostics;
+using ChessEngine.AI;
+using ChessEngine.Game.AI;
 
 public class BotManager : MonoBehaviour
 {
@@ -90,11 +92,12 @@ public class BotManager : MonoBehaviour
 		return result;
 	}
 
-	private string[] BestMove()
+	private string BestMove()
 	{
+		string best = "";
 		//최고의 수를 반환하는 함수
-		string[] moves = { "", "" };
-		return moves;
+		string FEN = tableManager.ReturnCurrentTableToFEN();
+		return best;
 	}
 
 	private void BotPromotion()
