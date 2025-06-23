@@ -46,6 +46,7 @@ public class Bishop : PieceAbstract
 			}
 
 			if (table.IsMoveable) result.Add(table);
+			else break;
 		}
 
 		//이동 가능 경로 탐색(2사분면)
@@ -72,6 +73,7 @@ public class Bishop : PieceAbstract
 			}
 
 			if (table.IsMoveable) result.Add(table);
+			else break;
 		}
 
 		//이동 가능 경로 탐색(3사분면)
@@ -98,6 +100,7 @@ public class Bishop : PieceAbstract
 			}
 
 			if (table.IsMoveable) result.Add(table);
+			else break;
 		}
 
 		//이동 가능 경로 탐색(4사분면)
@@ -124,6 +127,7 @@ public class Bishop : PieceAbstract
 			}
 
 			if (table.IsMoveable) result.Add(table);
+			else break;
 		}
 
 		return result;

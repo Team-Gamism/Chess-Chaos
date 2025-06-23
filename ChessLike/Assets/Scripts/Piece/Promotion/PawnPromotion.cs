@@ -40,9 +40,12 @@ public class PawnPromotion : MonoBehaviour
 		piece.transform.position = SpawnPos;
 
 		piece.transform.position = pieceData.transform.position;
+		piece.GetComponent<PieceData>().SetOutlineMaterial();
+		piece.GetComponent<PieceData>().DownAnimation = false;
 
 		PieceData newPieceData = piece.GetComponent<PieceData>();
 		PieceHandler newPIeceHandler = piece.GetComponent<PieceHandler>();
+
 		Debug.Log("복사한 PieceData 가져오기");
 
 		if (newPieceData == null || newPIeceHandler == null) return;

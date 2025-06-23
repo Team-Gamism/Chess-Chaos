@@ -35,11 +35,7 @@ public class PieceData : MonoBehaviour
 		GetComponent<PieceHandler>().isEnable = false;
 		moveCount = 0;
 		
-		GetComponent<Image>().material = Instantiate(Outline);
-		if (GetComponent<Image>().material.GetFloat("_OutlineThick") != 0f)
-		{
-			GetComponent<Image>().material.SetFloat("_OutlineThick", 0f);
-		}
+		SetOutlineMaterial();
 		SetSpriteColor();
 		UpdateField();
 
@@ -74,6 +70,15 @@ public class PieceData : MonoBehaviour
 			GetComponent<PieceHandler>().SetTablelist();
 
 		});
+	}
+
+	public void SetOutlineMaterial()
+	{
+		GetComponent<Image>().material = Instantiate(Outline);
+		if (GetComponent<Image>().material.GetFloat("_OutlineThick") != 0f)
+		{
+			GetComponent<Image>().material.SetFloat("_OutlineThick", 0f);
+		}
 	}
 
 	public void SetSpriteColor()

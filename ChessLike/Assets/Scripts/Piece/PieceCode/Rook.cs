@@ -48,6 +48,7 @@ public class Rook : PieceAbstract
 			}
 
 			if (table.IsMoveable) result.Add(table);
+			else break;
 		}
 		
 		//왼쪽 경로 탐색
@@ -74,6 +75,7 @@ public class Rook : PieceAbstract
 			}
 
 			if (table.IsMoveable) result.Add(table);
+			else break;
 		}
 
 		//위쪽 경로 탐색
@@ -100,6 +102,7 @@ public class Rook : PieceAbstract
 			}
 
 			if (table.IsMoveable) result.Add(table);
+			else break;
 		}
 
 		//아래쪽 경로 탐색
@@ -126,6 +129,7 @@ public class Rook : PieceAbstract
 			}
 
 			if (table.IsMoveable) result.Add(table);
+			else break;
 		}
 
 		return result;
