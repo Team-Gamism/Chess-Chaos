@@ -13851,7 +13851,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   triggerInteraction: 2
-  clickerMode: 3
+  clickerMode: 1
   m_CameraOverride: {fileID: 0}
   clickDisabledClickables: 0
   ignorePointerRaycastLayers:
