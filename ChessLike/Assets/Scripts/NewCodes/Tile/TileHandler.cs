@@ -5,7 +5,7 @@ using DG.Tweening;
 public class TileHandler : MonoBehaviour
 {
     public VisualChessTableTile Tile;
-    public float yValue = 0.5f;
+    public float yValue = 0.3f;
     private VisualChessPiece piece;
 
     public void OnHighlight()

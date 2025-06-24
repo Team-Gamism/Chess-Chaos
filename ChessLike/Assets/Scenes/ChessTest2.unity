@@ -3775,7 +3775,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &477834049
 Canvas:
   m_ObjectHideFlags: 0
@@ -13561,13 +13561,13 @@ MonoBehaviour:
   enableWhiteAI: 0
   whiteChessAI:
     _classRef: ChessEngine.AI.Guy.GuyChessAI, ChessEngine.AI.Guy
-  whiteAIThinkTime: 2.2
-  whiteAIThinkDepth: 15
+  whiteAIThinkTime: 2.5
+  whiteAIThinkDepth: 40
   enableBlackAI: 1
   blackChessAI:
     _classRef: ChessEngine.AI.Guy.GuyChessAI, ChessEngine.AI.Guy
-  blackAIThinkTime: 2.2
-  blackAIThinkDepth: 15
+  blackAIThinkTime: 2.5
+  blackAIThinkDepth: 40
 --- !u!4 &5396990769402972351
 Transform:
   m_ObjectHideFlags: 0
@@ -13851,7 +13851,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   triggerInteraction: 2
-  clickerMode: 1
+  clickerMode: 3
   m_CameraOverride: {fileID: 0}
   clickDisabledClickables: 0
   ignorePointerRaycastLayers:

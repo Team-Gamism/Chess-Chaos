@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3283388928575047572}
   - component: {fileID: 6319317634955041872}
   - component: {fileID: 345078899417485716}
-  - component: {fileID: 2648467125865105872}
   m_Layer: 0
   m_Name: TableTile
   m_TagString: Untagged
@@ -168,19 +167,7 @@ MonoBehaviour:
       m_Calls: []
   SelectHighlighted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2648467125865105872}
-        m_TargetAssemblyTypeName: TileHandler, Assembly-CSharp
-        m_MethodName: OnHighlight
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   MoveHighlighted:
     m_PersistentCalls:
       m_Calls: []
@@ -204,7 +191,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrimaryClicked:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6319317634955041872}
+        m_TargetAssemblyTypeName: ChessEngine.Game.VisualChessTableTile, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   SecondaryClicked:
     m_PersistentCalls:
       m_Calls: []
@@ -214,17 +213,3 @@ MonoBehaviour:
   HoverExited:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2648467125865105872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4476559601030618575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46e23ebb6748d1b4eb1113eb4cf68c06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tile: {fileID: 6319317634955041872}
-  yValue: 0.5

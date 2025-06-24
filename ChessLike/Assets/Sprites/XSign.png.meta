@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 96f0135ce3ea2da449b1931607759746
+guid: 6abb58a585afb824c81917c19f68c7f9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1415181030373258601
-    second: XSign_0
+      213: 7911680208931860468
+    second: XSign 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: XSign_0
+      name: XSign 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 965f44036abb3a310800000000000000
-      internalID: 1415181030373258601
+      spriteID: 4ff2fdd6b3febcd60800000000000000
+      internalID: 7911680208931860468
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      XSign_0: 1415181030373258601
+      XSign 1_0: 7911680208931860468
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

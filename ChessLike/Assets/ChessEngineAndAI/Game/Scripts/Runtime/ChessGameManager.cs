@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using System;
 using System.Collections.Generic;
 using ChessEngine.Game.Events;
+using DG.Tweening;
 
 namespace ChessEngine.Game
 {
@@ -245,7 +246,10 @@ namespace ChessEngine.Game
         }
 
         /// <summary>Nullifies the selection of this game manager.</summary>
-        public void Deselect() { Selected = new Selection { visualTile = null, visualPiece = null }; }
+        public void Deselect()
+        {
+            Selected = new Selection { visualTile = null, visualPiece = null };
+        }
 
         /// <summary>Handles the selection of a tile (active selection leads to move/attack, no active selection selects the tile & piece on the tile)..</summary>
         public void SelectTile(VisualChessTableTile pVisualTile)

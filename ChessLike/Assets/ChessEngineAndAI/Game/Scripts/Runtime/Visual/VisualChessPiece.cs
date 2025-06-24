@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using ChessEngine.Game.Events;
+using DG.Tweening;
 
 namespace ChessEngine.Game
 {
@@ -140,7 +141,8 @@ namespace ChessEngine.Game
         public void UpdatePosition()
         {
             // Set the local position of the piece.
-            transform.localPosition = VisualTable.GetVisualTile(Piece.Tile).GetLocalPosition(VisualTable) + offset;
+            transform.DOLocalMove(VisualTable.GetVisualTile(Piece.Tile).GetLocalPosition(VisualTable) + offset, 0.5f)
+                .SetEase(Ease.OutQuint);
 
             // Invoke the 'PositionUpdated' Unity event.
             PositionUpdated?.Invoke(this);
