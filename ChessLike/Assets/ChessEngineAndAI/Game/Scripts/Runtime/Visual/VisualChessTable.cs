@@ -80,8 +80,9 @@ namespace ChessEngine.Game
                 VisualTiles[i] = new VisualChessTableTile[8];
             }
 
+            int idx = 0;
             // Create the tiles to form an 8x8 board.
-            for (int y = 0; y < 8; ++y)
+            for (int y = 7; y >= 0; --y)
             {
                 for (int x = 0; x < 8; ++x)
                 {
@@ -90,7 +91,7 @@ namespace ChessEngine.Game
                     if (tileObject != null)
                     {
                         VisualChessTableTile tile = tileObject.GetComponent<VisualChessTableTile>();
-                        tile.Initialize(this, Table.Tiles[x][y]);
+                        tile.Initialize(this, Table.Tiles[x][y], idx);
 
                         // Add the tile to the VisualTiles array.
                         VisualTiles[x][y] = tile;
@@ -99,6 +100,8 @@ namespace ChessEngine.Game
                         tile.ResetMaterial();
                     }
                     else { Debug.LogWarning("Failed to instantiate visual tile on VisualChessTable!"); }
+
+                    idx++;
                 }
             }
 

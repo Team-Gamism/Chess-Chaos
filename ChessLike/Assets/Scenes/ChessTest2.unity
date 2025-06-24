@@ -13560,14 +13560,14 @@ MonoBehaviour:
   aiUseAllThinkTime: 1
   enableWhiteAI: 0
   whiteChessAI:
-    _classRef: ChessEngine.AI.Doofus.DoofusChessAI, ChessEngine.AI.Doofus
+    _classRef: ChessEngine.AI.Guy.GuyChessAI, ChessEngine.AI.Guy
   whiteAIThinkTime: 2.2
-  whiteAIThinkDepth: 4
+  whiteAIThinkDepth: 15
   enableBlackAI: 1
   blackChessAI:
-    _classRef: ChessEngine.AI.Doofus.DoofusChessAI, ChessEngine.AI.Doofus
+    _classRef: ChessEngine.AI.Guy.GuyChessAI, ChessEngine.AI.Guy
   blackAIThinkTime: 2.2
-  blackAIThinkDepth: 4
+  blackAIThinkDepth: 15
 --- !u!4 &5396990769402972351
 Transform:
   m_ObjectHideFlags: 0

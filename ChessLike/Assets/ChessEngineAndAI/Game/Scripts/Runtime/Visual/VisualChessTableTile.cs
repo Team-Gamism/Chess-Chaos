@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using ChessEngine.Game.Events;
+using DG.Tweening;
+using Unity.VisualScripting;
 
 namespace ChessEngine.Game
 {
@@ -81,22 +83,55 @@ namespace ChessEngine.Game
         /// <summary>Initializes the visual tile, positions it at the given index on the relevant VisualChessTable, and stores the relevant ChessTableTile reference.</summary>
         /// <param name="pVisualChessTable">The visual chess table to place the tile on.</param>
         /// <param name="pTile">The chess table to spawn the tile on.</param>
-        public void Initialize(VisualChessTable pVisualChessTable, ChessTableTile pTile)
+        public void Initialize(VisualChessTable pVisualChessTable, ChessTableTile pTile, int idx)
         {
             Tile = pTile;
             VisualChessTable = pVisualChessTable;
 
             // Reset the position of the tile.
-            ResetPosition();
+            ResetPosition(idx);
         }
 
         /// <summary>Resets the position of the visual chess table tile.</summary>
-        public void ResetPosition()
+        public void ResetPosition(int idx)
         {
             transform.localPosition = GetLocalPosition(VisualChessTable);
+            AppearAnimation(idx);
 
             // Invoke the PositionReset Unity event.
             PositionReset?.Invoke(this);
+        }
+
+        public void AppearAnimation(int idx)
+        {
+            //Dotween Animation Setup
+            Vector3 pos = transform.position;
+            transform.position += Vector3.up * -15f;
+
+            // Renderer Setting
+            if (Renderer is SpriteRenderer spriteRenderer)
+            {
+                Color c = spriteRenderer.color;
+                c.a = 0;
+                spriteRenderer.color = c;
+            }
+
+            //Dotween Sequence Set
+            DG.Tweening.Sequence seq = DOTween.Sequence();
+
+            seq.AppendInterval(idx * 0.03f);
+            seq.Append(transform.DOMove(pos, 1.5f).From(transform.position).SetEase(Ease.OutBack));
+
+            if (Renderer is SpriteRenderer)
+            {
+                SpriteRenderer spriteRenderer1 = Renderer as SpriteRenderer;
+
+                Color c = spriteRenderer1.color;
+
+                seq.Join(spriteRenderer1
+                    .DOColor(new Color(c.r, c.g, c.b, 1f), 1.5f));
+            }
+            seq.Play();
         }
 
         /// <summary>
