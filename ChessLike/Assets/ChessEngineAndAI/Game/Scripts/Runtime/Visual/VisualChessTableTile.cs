@@ -34,6 +34,8 @@ namespace ChessEngine.Game
         [Header("Settings - Dimensions")]
         [Tooltip("Is the visual chess table tile 2D?")]
         public bool is2D = false;
+        [Tooltip("현재 타일이 이동할 수 있는 곳인가?")]
+        public bool isTileblock = false;
         [Tooltip("The length of a tile.")]
         public float tileLength = 1f;
         [Tooltip("The width of a tile.")]
@@ -57,6 +59,8 @@ namespace ChessEngine.Game
         public UnityEvent AttackHighlighted;
         [Tooltip("An event that is invoked whenever the visual chess table tile is unhighlighted for any reason.")]
         public UnityEvent Unhighlighted;
+        [Tooltip("타일이 블록되었을 때 실행되는 이벤트")]
+        public UnityEvent TileBlocked;
         #endregion
         #region Public Properties
         /// <summary>Returns a reference to the ChessTableTile that this component visualizes.</summary>
@@ -88,8 +92,12 @@ namespace ChessEngine.Game
             Tile = pTile;
             VisualChessTable = pVisualChessTable;
 
+            isTileblock = false;
+
             // Reset the position of the tile.
             ResetPosition(idx);
+
+            UpdateTileBlock();
         }
 
         /// <summary>Resets the position of the visual chess table tile.</summary>
@@ -102,35 +110,31 @@ namespace ChessEngine.Game
             PositionReset?.Invoke(this);
         }
 
+        //타일 상태 업데이트
+        public void UpdateTileBlock()
+        {
+            Tile.SetTileBlock(isTileblock);
+
+            // Invoke the PositionReset Unity event.
+            TileBlocked?.Invoke();
+        }
+
+        //타일 등장 애니메이션
         public void AppearAnimation(int idx)
         {
             //Dotween Animation Setup
             Vector3 pos = transform.position;
-            transform.position += Vector3.up * -15f;
-
-            // Renderer Setting
-            if (Renderer is SpriteRenderer spriteRenderer)
-            {
-                Color c = spriteRenderer.color;
-                c.a = 0;
-                spriteRenderer.color = c;
-            }
+            transform.position += Vector3.up * -13f;
 
             //Dotween Sequence Set
             DG.Tweening.Sequence seq = DOTween.Sequence();
 
+            SpriteRenderer rend = Renderer as SpriteRenderer;
+            rend.sortingOrder = idx;
+
             seq.AppendInterval(idx * 0.03f);
-            seq.Append(transform.DOMove(pos, 1.5f).From(transform.position).SetEase(Ease.OutBack));
+            seq.Append(transform.DOMove(pos, 1f).From(transform.position).SetEase(Ease.OutBack));
 
-            if (Renderer is SpriteRenderer)
-            {
-                SpriteRenderer spriteRenderer1 = Renderer as SpriteRenderer;
-
-                Color c = spriteRenderer1.color;
-
-                seq.Join(spriteRenderer1
-                    .DOColor(new Color(c.r, c.g, c.b, 1f), 1.5f));
-            }
             seq.Play();
         }
 
@@ -240,7 +244,9 @@ namespace ChessEngine.Game
         {
             // Reset the material on this tile.
             if (Renderer != null)
+            {
                 Renderer.material = Tile.Color == ChessColor.White ? m_WhiteTeamMaterial : m_BlackTeamMaterial;
+            }
 
             // Invoke the 'MaterialReset' Unity event.
             MaterialReset?.Invoke(this);

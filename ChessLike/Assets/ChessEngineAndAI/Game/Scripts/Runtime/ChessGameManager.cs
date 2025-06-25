@@ -90,7 +90,6 @@ namespace ChessEngine.Game
                     // Invoke the internal 'SelectHighlighted' callback.
                     value.visualTile.Internal_OnSelectHighlighted();
                 }
-
                 // Call the OnSelectionChanged() callback.
                 OnSelectionChanged();
             }
@@ -395,6 +394,7 @@ namespace ChessEngine.Game
             if (m_Selected.visualPiece != null)
             {
                 // Calculate valid moves and attacks for the current selection.
+                Debug.Log(m_Selected.visualPiece);
                 m_Selected.validMoves = m_Selected.visualPiece.Piece.GetValidMoves();
                 m_Selected.validAttacks = m_Selected.visualPiece.Piece.GetValidAttacks();
 
@@ -426,6 +426,7 @@ namespace ChessEngine.Game
             // Invoke the 'SelectionChanged' unity event.
             SelectionChanged?.Invoke();
         }
+
         #endregion
 
         // Protected method(s).

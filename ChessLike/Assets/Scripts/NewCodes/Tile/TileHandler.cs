@@ -5,13 +5,27 @@ using DG.Tweening;
 public class TileHandler : MonoBehaviour
 {
     public VisualChessTableTile Tile;
-    public float yValue = 0.3f;
     private VisualChessPiece piece;
+    private TileSpriter spriter;
+    private void Start()
+    {
+        spriter = GetComponentInChildren<TileSpriter>();
+    }
 
     public void OnHighlight()
     {
-        piece = Tile.GetVisualPiece();
-        Vector3 endPoint = piece.gameObject.transform.position;
-        piece.gameObject.transform.DOMoveY(endPoint.y + yValue, 0.3f).SetEase(Ease.OutQuint);
+        spriter.SpriteOn(HighlightType.Select);
+    }
+    public void OnMoveHighlight()
+    {
+        spriter.SpriteOn(HighlightType.Move);
+    }
+    public void OnAttackHighlight()
+    {
+        spriter.SpriteOn(HighlightType.Attack);
+    }
+    public void OnUnhilight()
+    {
+        spriter.SpriteOff();
     }
 }
