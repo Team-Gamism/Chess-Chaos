@@ -23,10 +23,10 @@ namespace ChessEngine.Game.AI
         [ClassExtends(typeof(ChessAI))] public ClassTypeReference whiteChessAI;
         [Min(0)]
         [Tooltip("The maximum number of seconds the white AI may think for. (A value of 0 means think duration is determined by the chess engine.)")]
-        public float whiteAIThinkTime = 3;
+        public float whiteAIThinkTime;
         [Min(0)]
         [Tooltip("The think depth for the white AI. (Default: 3 | Minimum: 0)")]
-        public int whiteAIThinkDepth = 3;
+        public int whiteAIThinkDepth;
 
         [Header("Settings - AI (Black)")]
         [Tooltip("Should AI be used to play for the black team?")]
@@ -35,10 +35,10 @@ namespace ChessEngine.Game.AI
         [ClassExtends(typeof(ChessAI))] public ClassTypeReference blackChessAI;
         [Min(0f)]
         [Tooltip("The maximum number of seconds the black AI may think for. (A value of 0 means think duration is determined by the chess engine.)")]
-        public float blackAIThinkTime = 3;
+        public float blackAIThinkTime;
         [Min(0)]
         [Tooltip("The think depth for the black AI. (Default: 3 | Minimum: 0)")]
-        public int blackAIThinkDepth = 3;
+        public int blackAIThinkDepth;
         #endregion
         #region Public Properties
         /// <summary>A reference to the ChessAI playing for the white team, otherwise null.</summary>

@@ -65,6 +65,9 @@ namespace ChessEngine.Game
         public Quaternion DefaultLocalRotation { get; set; }
         #endregion
 
+        [SerializeField]
+        private int moveCount;
+
         // Unity callback(s).
         #region Unity Callbacks
         void Awake()
@@ -81,6 +84,7 @@ namespace ChessEngine.Game
         {
             // Store default local rotation.
             DefaultLocalRotation = transform.localRotation;
+            moveCount = 0;
         }
 
         void OnDestroy()
@@ -156,6 +160,11 @@ namespace ChessEngine.Game
 
             // Invoke the 'RotationUpdated' Unity event.
             RotationUpdated?.Invoke(this);
+        }
+
+        public void AddTurnCount()
+        {
+            moveCount++;
         }
         #endregion
         #region Generic Methods

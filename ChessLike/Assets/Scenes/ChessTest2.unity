@@ -18394,13 +18394,13 @@ MonoBehaviour:
   enableWhiteAI: 0
   whiteChessAI:
     _classRef: ChessEngine.AI.Riddle.RiddleChessAI, ChessEngine.AI.Riddle
-  whiteAIThinkTime: 5
-  whiteAIThinkDepth: 10000
+  whiteAIThinkTime: 4
+  whiteAIThinkDepth: 8000
   enableBlackAI: 1
   blackChessAI:
     _classRef: ChessEngine.AI.Riddle.RiddleChessAI, ChessEngine.AI.Riddle
-  blackAIThinkTime: 5
-  blackAIThinkDepth: 10000
+  blackAIThinkTime: 4
+  blackAIThinkDepth: 8000
 --- !u!4 &5396990769402972351
 Transform:
   m_ObjectHideFlags: 0
