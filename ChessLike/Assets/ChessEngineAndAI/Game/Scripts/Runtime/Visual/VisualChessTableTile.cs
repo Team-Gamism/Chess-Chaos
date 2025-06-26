@@ -100,6 +100,11 @@ namespace ChessEngine.Game
             UpdateTileBlock();
         }
 
+        private void OnValidate()
+        {
+            UpdateTileBlock();
+        }
+
         /// <summary>Resets the position of the visual chess table tile.</summary>
         public void ResetPosition(int idx)
         {

@@ -18393,14 +18393,14 @@ MonoBehaviour:
   aiUseAllThinkTime: 1
   enableWhiteAI: 0
   whiteChessAI:
-    _classRef: ChessEngine.AI.Guy.GuyChessAI, ChessEngine.AI.Guy
-  whiteAIThinkTime: 2.5
-  whiteAIThinkDepth: 100
+    _classRef: ChessEngine.AI.Riddle.RiddleChessAI, ChessEngine.AI.Riddle
+  whiteAIThinkTime: 5
+  whiteAIThinkDepth: 10000
   enableBlackAI: 1
   blackChessAI:
-    _classRef: ChessEngine.AI.Guy.GuyChessAI, ChessEngine.AI.Guy
-  blackAIThinkTime: 2.5
-  blackAIThinkDepth: 100
+    _classRef: ChessEngine.AI.Riddle.RiddleChessAI, ChessEngine.AI.Riddle
+  blackAIThinkTime: 5
+  blackAIThinkDepth: 10000
 --- !u!4 &5396990769402972351
 Transform:
   m_ObjectHideFlags: 0
