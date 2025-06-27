@@ -5,6 +5,15 @@ TextureImporter:
   - first:
       213: 1748623301413810128
     second: SelectTile_0
+  - first:
+      213: 8362643211307227301
+    second: SelectTile_1
+  - first:
+      213: -1691466038381605473
+    second: SelectTile_2
+  - first:
+      213: 601323172555310392
+    second: SelectTile_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -130,9 +139,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 64
-        height: 64
+        y: 47
+        width: 17
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,6 +152,72 @@ TextureImporter:
       bones: []
       spriteID: 0dfadb6c0ab544810800000000000000
       internalID: 1748623301413810128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SelectTile_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 47
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a89c4981b31e0470800000000000000
+      internalID: 8362643211307227301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SelectTile_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9d80a09994b688e0800000000000000
+      internalID: -1691466038381605473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SelectTile_3
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 0
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 835ce5f4d34585800800000000000000
+      internalID: 601323172555310392
       vertices: []
       indices: 
       edges: []
@@ -162,6 +237,9 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       SelectTile_0: 1748623301413810128
+      SelectTile_1: 8362643211307227301
+      SelectTile_2: -1691466038381605473
+      SelectTile_3: 601323172555310392
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
