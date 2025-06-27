@@ -6,11 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ChessTest2.unity
-    guid: e73f76baf7d153d4597de4a8e6481144
-  - enabled: 0
+    path: Assets/Scenes/LogoScene.unity
+    guid: 8797fe9a187ec9542b11748e8eb61d3f
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 022745122207f25419af393aa7696562
+  - enabled: 0
+    path: Assets/Scenes/NormalGame.unity
+    guid: e73f76baf7d153d4597de4a8e6481144
   - enabled: 0
     path: Assets/Scenes/MainGame.unity
     guid: 388919d68cf02ca40871b9dcb90fd0e7

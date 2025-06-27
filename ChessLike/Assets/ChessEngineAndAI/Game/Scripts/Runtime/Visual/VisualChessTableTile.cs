@@ -118,7 +118,7 @@ namespace ChessEngine.Game
         //타일 상태 업데이트
         public void UpdateTileBlock()
         {
-            Tile.SetTileBlock(isTileblock);
+            //Tile.SetTileBlock(isTileblock);
 
             // Invoke the PositionReset Unity event.
             TileBlocked?.Invoke();
