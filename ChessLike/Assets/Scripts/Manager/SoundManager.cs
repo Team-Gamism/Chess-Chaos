@@ -29,25 +29,30 @@ public class SoundManager : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
-	private void Start()
-	{
-		if (PlayerPrefs.HasKey("MusicVolume"))
-		{
-			BGSoundVolume(PlayerPrefs.GetFloat("MusicVolume"));
-		}
-		else
-		{
-			BGSoundVolume(1);
-		}
+    private void Start()
+    {
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            BGSoundVolume(PlayerPrefs.GetFloat("MusicVolume"));
+        }
+        else
+        {
+            BGSoundVolume(1);
+        }
 
-		if (PlayerPrefs.HasKey("SFXVolume"))
-		{
-			SFXSoundVolume(PlayerPrefs.GetFloat("SFXVolume"));
-		}
-		else
-		{
-			SFXSoundVolume(1);
-		}
+        if (PlayerPrefs.HasKey("SFXVolume"))
+        {
+            SFXSoundVolume(PlayerPrefs.GetFloat("SFXVolume"));
+        }
+        else
+        {
+            SFXSoundVolume(1);
+        }
+
+        if (PlayerPrefs.HasKey("isMusic"))
+        {
+            
+        }
 	}
 	public void SFXPlay(string sfxName, AudioClip clip)
 	{
@@ -140,10 +145,26 @@ public class SoundManager : MonoBehaviour
 		PlayerPrefs.SetFloat("SFXVolume", val);
 		PlayerPrefs.Save();
 	}
+    
+    public void IsBGSound(int value)
+	{
+        bool on = value > 0 ? true : false;
+		audioMixer.SetFloat("MusicVolume", -80);
+		PlayerPrefs.SetFloat("MusicVolume", -80);
+		PlayerPrefs.Save();
+	}
+
+    public void IsSFXSound(int value)
+	{
+        bool on = value > 0 ? true : false;
+		audioMixer.SetFloat("SFXVolume", -80);
+		PlayerPrefs.SetFloat("SFXVolume", -80);
+		PlayerPrefs.Save();
+	}
 
 	private IEnumerator DestroyAfterRealtime(GameObject go, float delay)
-	{
-		yield return new WaitForSecondsRealtime(delay); // TimeScale 0이어도 기다림
-		Destroy(go);
-	}
+    {
+        yield return new WaitForSecondsRealtime(delay); // TimeScale 0이어도 기다림
+        Destroy(go);
+    }
 }
