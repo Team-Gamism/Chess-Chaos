@@ -100,7 +100,10 @@ namespace ChessEngine.Game
 
         private void OnValidate()
         {
-            UpdateTileBlock();
+            if (isTileblock)
+                UpdateTileBlock();
+            else
+                CloseTileBlock();
         }
 
         /// <summary>Resets the position of the visual chess table tile.</summary>
@@ -111,6 +114,11 @@ namespace ChessEngine.Game
 
             // Invoke the PositionReset Unity event.
             PositionReset?.Invoke(this);
+        }
+
+        private void CloseTileBlock()
+        {
+            Unhighlighted?.Invoke();
         }
 
         //타일 상태 업데이트
