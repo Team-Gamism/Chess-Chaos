@@ -96,8 +96,6 @@ namespace ChessEngine.Game
 
             // Reset the position of the tile.
             ResetPosition(idx);
-
-            UpdateTileBlock();
         }
 
         private void OnValidate()
@@ -118,7 +116,7 @@ namespace ChessEngine.Game
         //타일 상태 업데이트
         public void UpdateTileBlock()
         {
-            //Tile.SetTileBlock(isTileblock);
+            Tile.SetTileBlock(isTileblock);
 
             // Invoke the PositionReset Unity event.
             TileBlocked?.Invoke();

@@ -246,6 +246,7 @@ MonoBehaviour:
   alignY: 1
   alignZ: 2
   is2D: 1
+  isTileblock: 0
   tileLength: 1
   tileWidth: 1
   tileHeight: 0
@@ -306,6 +307,21 @@ MonoBehaviour:
       - m_Target: {fileID: 1533324831329513270}
         m_TargetAssemblyTypeName: TileHandler, Assembly-CSharp
         m_MethodName: OnUnhilight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  TileBlocked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1533324831329513270}
+        m_TargetAssemblyTypeName: TileHandler, Assembly-CSharp
+        m_MethodName: OnTileBlock
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -468,3 +484,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 33c662325f6893945bebc7297f9abe11, type: 3}
   - {fileID: 21300000, guid: edd8f261185b5824bb4397798bd9f365, type: 3}
   - {fileID: 21300000, guid: feac4bdba7f4c894cbb4b5615070d378, type: 3}
+  - {fileID: 21300000, guid: 6abb58a585afb824c81917c19f68c7f9, type: 3}

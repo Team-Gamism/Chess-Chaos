@@ -24,6 +24,10 @@ public class TileHandler : MonoBehaviour
     {
         spriter.SpriteOn(HighlightType.Attack);
     }
+    public void OnTileBlock()
+    {
+        spriter.SpriteOn(HighlightType.NotEnter);
+    }
     public void OnUnhilight()
     {
         spriter.SpriteOff();

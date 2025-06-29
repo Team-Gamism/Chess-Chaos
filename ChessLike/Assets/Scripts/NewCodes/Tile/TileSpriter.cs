@@ -39,5 +39,6 @@ public enum HighlightType
 {
     Select = 0,
     Move,
-    Attack
+    Attack,
+    NotEnter
 }
