@@ -14302,7 +14302,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC9C0\uC815\uB41C \uB09C\uC774\uB3C4\uC758 AI\uB97C \uC0C1\uB300\uD558\uC138\uC694."
+  m_text: "\uC870\uAE08\uC529 \uC5B4\uB824\uC6CC\uC9C0\uB294 AI\uC640 \uC2B9\uBD80\uB97C
+    \uBC8C\uC774\uC138\uC694."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3edb0b9391e070b449c41fb56f7890aa, type: 2}
   m_sharedMaterial: {fileID: 7343557045501863419, guid: 3edb0b9391e070b449c41fb56f7890aa, type: 2}
@@ -18294,7 +18295,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC77C\uBC18 \uBAA8\uB4DC"
+  m_text: "\uBB34\uD55C \uBAA8\uB4DC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3edb0b9391e070b449c41fb56f7890aa, type: 2}
   m_sharedMaterial: {fileID: 7343557045501863419, guid: 3edb0b9391e070b449c41fb56f7890aa, type: 2}
@@ -23715,6 +23716,10 @@ PrefabInstance:
     - target: {fileID: 6550719492730923126, guid: 7b629e7038cc2384f8967eaf5f33fa0d, type: 3}
       propertyPath: m_Name
       value: AltasManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6550719492730923126, guid: 7b629e7038cc2384f8967eaf5f33fa0d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8942265552713016471, guid: 7b629e7038cc2384f8967eaf5f33fa0d, type: 3}
       propertyPath: m_LocalPosition.x

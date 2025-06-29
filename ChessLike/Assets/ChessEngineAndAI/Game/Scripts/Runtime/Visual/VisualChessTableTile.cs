@@ -118,6 +118,7 @@ namespace ChessEngine.Game
 
         private void CloseTileBlock()
         {
+            Tile.SetTileBlock(isTileblock);
             Unhighlighted?.Invoke();
         }
 
