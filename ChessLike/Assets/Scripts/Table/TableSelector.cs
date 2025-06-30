@@ -3,6 +3,7 @@ using System.Linq;
 using ChessEngine.AI;
 using ChessEngine.Game;
 using ChessEngine.Game.AI;
+using UnityEditor.Rendering;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Events;
@@ -47,6 +48,7 @@ public class TableSelector : MonoBehaviour
     private void OnEnable()
 	{
 		aIGameManager.isCardSelect = true;
+		aIGameManager.Deselect();
 		image = GetComponent<Image>();
 		cameraSize = FindObjectsOfType<Canvas>().Where(p => p.CompareTag("ScreenUI")).FirstOrDefault();
 
