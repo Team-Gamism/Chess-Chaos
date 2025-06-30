@@ -283,11 +283,22 @@ namespace ChessEngine.Game
             if (GameManager != null && GameManager.isCardSelect)
             {
                 tableSelector = FindObjectOfType<TableSelector>();
-                if (tableSelector.selectedTiles.Count >= 1)
+                if (tableSelector.selectedTiles.Count < 1)
                 {
-                    tableSelector.selectedTiles.Clear();
+                    tableSelector.selectedTiles.Add(this);
                 }
-                tableSelector.selectedTiles.Add(this);
+                else
+                {
+                    if (!tableSelector.selectedTiles.Contains(this))
+                    {
+                        tableSelector.selectedTiles.Clear();
+                        tableSelector.selectedTiles.Add(this);
+                    }
+                    else
+                    {
+                        tableSelector.selectedTiles.Clear();
+                    }
+                }
             }
         }
 

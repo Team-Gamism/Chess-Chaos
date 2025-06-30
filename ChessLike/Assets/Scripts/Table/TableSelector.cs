@@ -16,6 +16,7 @@ public class TableSelector : MonoBehaviour
 
 	private Image image;
 
+	[HideInInspector]
 	public bool Donable = false;
 
 	private static List<VisualChessTableTile> tiles;
@@ -62,7 +63,7 @@ public class TableSelector : MonoBehaviour
 
 	private void Update()
 	{
-		if (tiles.Count > 0)
+		if (selectedTiles.Count > 0)
 		{
 			DoneBtn.interactable = true;
 		}
