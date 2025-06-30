@@ -10,6 +10,7 @@ public class Main : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 65;
+        QualitySettings.vSyncCount = 1;
         UpdateParticle();
         isOn = true;
     }

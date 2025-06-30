@@ -117,7 +117,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113148791281408626}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16acc132a052f3e439b3409d50120119, type: 3}
   m_Name: 
@@ -130,6 +130,7 @@ MonoBehaviour:
   alignY: 0
   alignZ: 2
   is2D: 0
+  isTileblock: 0
   tileLength: 1
   tileWidth: 1
   tileHeight: 0.25
@@ -149,6 +150,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Unhighlighted:
+    m_PersistentCalls:
+      m_Calls: []
+  TileBlocked:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1266255703947823620

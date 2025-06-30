@@ -52,6 +52,9 @@ TagManager:
   - name: Table
     uniqueID: 3922160249
     locked: 0
+  - name: TableUI
+    uniqueID: 464483181
+    locked: 0
   - name: Piece
     uniqueID: 563225291
     locked: 0

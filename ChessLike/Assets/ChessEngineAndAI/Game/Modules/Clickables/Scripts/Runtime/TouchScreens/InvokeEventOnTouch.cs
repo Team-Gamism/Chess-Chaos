@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using ChessEngine;
+using ChessEngine.Game;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering.Universal;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -141,7 +146,26 @@ namespace Clickables.TouchScreens
                 TouchHeld.Invoke(pTouch.position);
             }
         }
+
+        public void TableSelect(Vector2 pos)
+        {
+            VisualChessTableTile t = null;
+            VisualChessTable table = FindObjectOfType<VisualChessTable>();
+
+            List<VisualChessTableTile> list = FindObjectsOfType<VisualChessTableTile>().ToList();
+            foreach (VisualChessTableTile n in list)
+            {
+                float dis = Vector2.Distance(pos, Camera.main.WorldToScreenPoint(n.GetLocalPosition(table)));
+                if (dis < 50f)
+                {
+                    Debug.Log(dis);
+                    t = n;
+                    break;
+                }
+            }
+            if (t != null) t.BtnSelect();
+        }
 #endif
-#endregion
+        #endregion
     }
 }

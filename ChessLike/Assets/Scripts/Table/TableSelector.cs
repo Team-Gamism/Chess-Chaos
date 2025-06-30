@@ -1,14 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
+using ChessEngine.Game;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TableSelector : MonoBehaviour
 {
 	private Canvas cameraSize;
-
-	[SerializeField]
-	private TableSetter tableSetter;
 
 	[SerializeField]
 	private GameObject log;
@@ -20,17 +18,21 @@ public class TableSelector : MonoBehaviour
 
 	public bool Donable = false;
 
-	private TableManager tableManager;
+	private static List<VisualChessTableTile> tiles;
+	public List<VisualChessTableTile> selectedTiles = new List<VisualChessTableTile>();
 
 	[HideInInspector]
 	public CardData cardData;
 	[HideInInspector]
 	public int NotMoveCount;
 
-	private void OnEnable()
-	{
+    private void Awake()
+    {
+        tiles = FindObjectsOfType<VisualChessTableTile>().ToList();
+    }
 
-		tableManager = FindObjectOfType<TableManager>();
+    private void OnEnable()
+	{
 		image = GetComponent<Image>();
 		cameraSize = FindObjectsOfType<Canvas>().Where(p => p.CompareTag("ScreenUI")).FirstOrDefault();
 
@@ -60,7 +62,7 @@ public class TableSelector : MonoBehaviour
 
 	private void Update()
 	{
-		if (Donable)
+		if (tiles.Count > 0)
 		{
 			DoneBtn.interactable = true;
 		}
@@ -69,15 +71,15 @@ public class TableSelector : MonoBehaviour
 
 	public void TableAttributeChange()
 	{
-		List<TableSelectorChild> list = tableSetter.tableSelected.ToList();
-		for(int i = 0; i < list.Count; i++)
-		{
-			TableData t = tableManager.GetTableByCoordinate(list[i].coordinate);
-			t.IsMoveable = false;
-			Debug.Log(NotMoveCount);
-			t.NotMoveCount += NotMoveCount;
-			t.registeredTurnCount = GameManager.instance.TurnCount;
-		}
+		// List<TableSelectorChild> list = tableSetter.tableSelected.ToList();
+		// for(int i = 0; i < list.Count; i++)
+		// {
+		// 	TableData t = tableManager.GetTableByCoordinate(list[i].coordinate);
+		// 	t.IsMoveable = false;
+		// 	Debug.Log(NotMoveCount);
+		// 	t.NotMoveCount += NotMoveCount;
+		// 	t.registeredTurnCount = GameManager.instance.TurnCount;
+		// }
 		
 		//추후 조건 더 추가하기
 		if (GameManager.instance.AvoidLanding ||

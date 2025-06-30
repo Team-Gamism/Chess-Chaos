@@ -71,6 +71,8 @@ namespace ChessEngine.Game
         public ChessGameManager GameManager { get; internal set; }
         /// <summary>A reference to the Renderer associated with this tile.</summary>
         public Renderer Renderer { get; private set; }
+
+        private TableSelector tableSelector;
         #endregion
 
         // Unity callback(s).
@@ -102,8 +104,8 @@ namespace ChessEngine.Game
         {
             if (isTileblock)
                 UpdateTileBlock();
-            else
-                CloseTileBlock();
+            // else
+            //     CloseTileBlock();
         }
 
         /// <summary>Resets the position of the visual chess table tile.</summary>
@@ -275,6 +277,19 @@ namespace ChessEngine.Game
             }
         }
         #endregion
+
+        public void BtnSelect()
+        {
+            if (GameManager != null && GameManager.isCardSelect)
+            {
+                tableSelector = FindObjectOfType<TableSelector>();
+                if (tableSelector.selectedTiles.Count >= 1)
+                {
+                    tableSelector.selectedTiles.Clear();
+                }
+                tableSelector.selectedTiles.Add(this);
+            }
+        }
 
         #region Interal Highlight Callback(s)
         /// <summary>Invoked to notify this component it's been highlighted due to a selection.</summary>

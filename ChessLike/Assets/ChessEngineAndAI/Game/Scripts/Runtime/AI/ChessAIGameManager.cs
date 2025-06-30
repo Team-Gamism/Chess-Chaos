@@ -251,6 +251,19 @@ namespace ChessEngine.Game.AI
                         ChessTableTile toTile = ChessInstance.Table.GetTile(pTo);
                         if (toTile != null)
                         {
+                            if (toTile.IsTileBlock)
+                            {
+                                if (WhiteAIInstance != null)
+                                {
+                                    WhiteAIInstance.RequestBestMove(whiteAIThinkDepth, whiteAIThinkTime);
+                                    return;
+                                }
+                                if (BlackAIInstance != null)
+                                {
+                                    BlackAIInstance.RequestBestMove(blackAIThinkDepth, blackAIThinkTime);
+                                    return;
+                                }
+                            }
                             // Confirm the move is legal.
                             var validMoves = tilePiece.GetValidMoves();
                             var validAttacks = tilePiece.GetValidAttacks();
