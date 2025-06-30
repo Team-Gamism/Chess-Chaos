@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using ChessEngine;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="New Card Data", menuName = "Card", order = 1)]
@@ -6,12 +8,14 @@ public class CardData : ScriptableObject
 	public string Title;
 	public string Description;
 	public bool isOwn;
+	public SkillType skillType;
 	
-	public PieceType pieces;
+	public List<ChessPieceType> pieces;
 
 	public bool isZone;
 	public int RequireZoneCnt;
 	public int MaxZoneCnt;
+	public int cantMoveCnt;
 	public bool isPiece;
 	public int RequirePieceCnt;
 	public int MaxPieceCount;

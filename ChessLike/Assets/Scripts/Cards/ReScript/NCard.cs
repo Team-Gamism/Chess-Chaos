@@ -36,7 +36,7 @@ public class NCard : MonoBehaviour, IPointerClickHandler
 
 	public void LoadEvent()
 	{
-		skillLoader.LoadSkill(cardData, skill, this.gameObject);
+		skillLoader.LoadSkill(gameObject);
 	}
 
 	public void OnPointerClick(PointerEventData eventData)

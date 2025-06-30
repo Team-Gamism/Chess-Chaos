@@ -12,8 +12,12 @@ public class NumberUI : MonoBehaviour
         canvas.worldCamera = Camera.main;
         text.text = "";
     }
-    public void SetText(int n)
+    public void SetText(string n)
     {
-        text.text = n.ToString();
+        text.text = n;
+    }
+    public void DeleteText()
+    {
+        text.text = "";
     }
 }

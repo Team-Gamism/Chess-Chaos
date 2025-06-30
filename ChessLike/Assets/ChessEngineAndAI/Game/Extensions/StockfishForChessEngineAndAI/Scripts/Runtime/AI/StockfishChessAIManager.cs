@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using ChessEngine.Delegates;
 using ChessEngine.Game.AI;
+using System.IO;
 
 namespace ChessEngine.AI.Stockfish
 {
@@ -58,11 +59,14 @@ namespace ChessEngine.AI.Stockfish
         public event ValueActionRef<StockfishChessAIManager, string> OverrideDefaultEvalFilePathCallback;
         #endregion
 
+        private NNUEFileManager nNUEFileManager;
+
         #region Unity Callback(s)
         void Awake()
         {
             // Find AI manager reference.
             GameManager = GetComponent<ChessAIGameManager>();
+            nNUEFileManager = GetComponent<NNUEFileManager>();
 
             // Initialize stockfish UCI first.
             StockfishWrapper.InitializeUci();

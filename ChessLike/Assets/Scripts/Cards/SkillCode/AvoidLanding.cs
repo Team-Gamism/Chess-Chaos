@@ -1,32 +1,32 @@
-using DG.Tweening;
+using System.Collections.Generic;
+using ChessEngine.Game;
 using UnityEngine;
 
-public class AvoidLanding : MonoBehaviour, ICardSkill
+public class AvoidLanding : MonoBehaviour, ITableSkill
+
 {
 	[SerializeField]
 	private TableSelector TableSelectPanel;
 
-	[SerializeField]
 	private CardData cardData;
 
-	private NCard ncard;
-    private void Start()
-    {
-		ncard = GetComponent<NCard>();
-    }
-
-    public void Execute()
+	public void Execute(List<VisualChessTableTile> tiles)
 	{
-		GameManager.instance.AvoidLanding = true;
+		for (int i = 0; i < tiles.Count; i++)
+		{
+			tiles[i].isTileblock = true;
+			tiles[i].UpdateTileBlock();
+
+			tiles[i].GetComponent<TileState>().SetTileState(cardData.cantMoveCnt);
+		}
+
+		GetComponent<NCard>().DOEndAnimation();
+	}
+
+    public void LoadSelector()
+    {
 		cardData = GetComponent<NCard>().cardData;
 		TableSelectPanel.cardData = cardData;
-		TableSelectPanel.NotMoveCount = 1;
 		TableSelectPanel.gameObject.SetActive(true);
-	}
-
-	public void Execute(PieceData none)
-	{
-		GameManager.instance.AvoidLanding = false;
-		ncard.DOEndAnimation();
-	}
+    }
 }

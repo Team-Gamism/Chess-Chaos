@@ -16,10 +16,12 @@ MonoBehaviour:
   Description: "\uC6D0\uD558\uB294 \uAE30\uBB3C \uD558\uB098\uB97C \uD038\uC73C\uB85C
     \uBC14\uAFC9\uB2C8\uB2E4."
   isOwn: 0
-  pieces: 0
+  skillType: 1
+  pieces: 
   isZone: 0
   RequireZoneCnt: 0
   MaxZoneCnt: 0
+  cantMoveCnt: 0
   isPiece: 1
   RequirePieceCnt: 1
   MaxPieceCount: 1

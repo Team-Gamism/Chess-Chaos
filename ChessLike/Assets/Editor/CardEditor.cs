@@ -9,10 +9,12 @@ public class CardEditor : Editor
 
 		SerializedProperty title = serializedObject.FindProperty("Title");
 		SerializedProperty description = serializedObject.FindProperty("Description");
+		SerializedProperty skillType = serializedObject.FindProperty("skillType");
 		SerializedProperty isOwn = serializedObject.FindProperty("isOwn");
 		SerializedProperty isZone = serializedObject.FindProperty("isZone");
 		SerializedProperty requireZoneCnt = serializedObject.FindProperty("RequireZoneCnt");
 		SerializedProperty maxZoneCnt = serializedObject.FindProperty("MaxZoneCnt");
+		SerializedProperty cantMoveCnt = serializedObject.FindProperty("cantMoveCnt");
 
 		SerializedProperty ispiece = serializedObject.FindProperty("isPiece");
 		SerializedProperty requirePieceCnt = serializedObject.FindProperty("RequirePieceCnt");
@@ -24,6 +26,7 @@ public class CardEditor : Editor
 
 		EditorGUILayout.PropertyField(title);
 		EditorGUILayout.PropertyField(description);
+		EditorGUILayout.PropertyField(skillType);
 		EditorGUILayout.PropertyField(isOwn);
 
 		if (isOwn.boolValue)
@@ -37,6 +40,7 @@ public class CardEditor : Editor
 		{
 			EditorGUILayout.PropertyField(requireZoneCnt);
 			EditorGUILayout.PropertyField(maxZoneCnt);
+			EditorGUILayout.PropertyField(cantMoveCnt);
 		}
 
 		EditorGUILayout.PropertyField(ispiece);

@@ -118,7 +118,7 @@ namespace ChessEngine.Game
             PositionReset?.Invoke(this);
         }
 
-        private void CloseTileBlock()
+        public void CloseTileBlock()
         {
             Tile.SetTileBlock(isTileblock);
             Unhighlighted?.Invoke();
@@ -271,7 +271,7 @@ namespace ChessEngine.Game
         public void Select()
         {
             // if there is a valid GameManager referenced select this tile.
-            if (GameManager != null)
+            if (GameManager != null && !GameManager.isCardSelect)
             {
                 GameManager.SelectTile(this);
             }
@@ -283,20 +283,24 @@ namespace ChessEngine.Game
             if (GameManager != null && GameManager.isCardSelect)
             {
                 tableSelector = FindObjectOfType<TableSelector>();
-                if (tableSelector.selectedTiles.Count < 1)
+                if (GetVisualPiece() != null || isTileblock) return;
+                if (tableSelector.selectedTiles.Count < tableSelector.cardData.MaxZoneCnt)
                 {
-                    tableSelector.selectedTiles.Add(this);
+                    if (!tableSelector.selectedTiles.Contains(this))
+                        tableSelector.AddEntity(this);
+                    else
+                        tableSelector.DestroyEntity(this);
                 }
                 else
                 {
                     if (!tableSelector.selectedTiles.Contains(this))
                     {
-                        tableSelector.selectedTiles.Clear();
-                        tableSelector.selectedTiles.Add(this);
+                        tableSelector.DestroyFirstEntity();
+                        tableSelector.AddEntity(this);
                     }
                     else
                     {
-                        tableSelector.selectedTiles.Clear();
+                        tableSelector.DestroyEntity(this);
                     }
                 }
             }

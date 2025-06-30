@@ -16,6 +16,14 @@ MonoBehaviour:
   Description: "\uD55C \uD134 \uB3D9\uC548 \uD3F0\uC774 \uB098\uC774\uD2B8\uCC98\uB7FC
     \uC6C0\uC9C1\uC785\uB2C8\uB2E4."
   isOwn: 1
+  skillType: 1
   pieces: 0
+  isZone: 0
+  RequireZoneCnt: 0
+  MaxZoneCnt: 0
+  cantMoveCnt: 0
+  isPiece: 0
+  RequirePieceCnt: 0
+  MaxPieceCount: 0
   cardTier: 3
   cardImage: {fileID: 21300000, guid: 44a054df1702e39458b7072b08d0f212, type: 3}

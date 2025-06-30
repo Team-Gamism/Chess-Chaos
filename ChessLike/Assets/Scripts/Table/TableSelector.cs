@@ -1,7 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
+using ChessEngine.AI;
 using ChessEngine.Game;
+using ChessEngine.Game.AI;
+using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class TableSelector : MonoBehaviour
@@ -27,13 +31,22 @@ public class TableSelector : MonoBehaviour
 	[HideInInspector]
 	public int NotMoveCount;
 
-    private void Awake()
-    {
-        tiles = FindObjectsOfType<VisualChessTableTile>().ToList();
-    }
+	private UnityEvent<VisualChessTableTile> OnAddEntity = new UnityEvent<VisualChessTableTile>();
+	private UnityEvent<VisualChessTableTile> OnDestroyEntity = new UnityEvent<VisualChessTableTile>();
+
+	private static ChessAIGameManager aIGameManager;
+	private static SkillLoader skillLoader;
+
+	private void Awake()
+	{
+		tiles = FindObjectsOfType<VisualChessTableTile>().ToList();
+		aIGameManager = FindObjectOfType<ChessAIGameManager>();
+		skillLoader = FindObjectOfType<SkillLoader>();
+	}
 
     private void OnEnable()
 	{
+		aIGameManager.isCardSelect = true;
 		image = GetComponent<Image>();
 		cameraSize = FindObjectsOfType<Canvas>().Where(p => p.CompareTag("ScreenUI")).FirstOrDefault();
 
@@ -43,6 +56,7 @@ public class TableSelector : MonoBehaviour
 
 		GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -230, 0);
 
+		//필요없음 : VisualAIChessManager에서 Selector 상태인지 확인해줌
 		GameManager.instance.isSelectorEnable = true;
 
 		transform.SetAsLastSibling();
@@ -56,6 +70,8 @@ public class TableSelector : MonoBehaviour
 	public void DisableImage()
 	{
 		GameManager.instance.isSelectorEnable = false;
+		aIGameManager.isCardSelect = false;
+		DestroyAllEntity();
 		log.SetActive(false);
 		DoneBtn.gameObject.SetActive(false);
 		gameObject.SetActive(false);
@@ -63,31 +79,72 @@ public class TableSelector : MonoBehaviour
 
 	private void Update()
 	{
-		if (selectedTiles.Count > 0)
+		if (selectedTiles.Count >= cardData.RequireZoneCnt)
 		{
 			DoneBtn.interactable = true;
 		}
 		else DoneBtn.interactable = false;
 	}
 
+	public void AddEntity(VisualChessTableTile tile)
+	{
+		selectedTiles.Add(tile);
+		OnAddEntity.RemoveAllListeners();
+		OnAddEntity.AddListener((t) =>
+		{
+			TileSelect(t);
+		});
+
+		OnAddEntity?.Invoke(tile);
+	}
+
+	public void DestroyEntity(VisualChessTableTile tile)
+	{
+		selectedTiles.Remove(tile);
+		OnDestroyEntity.RemoveAllListeners();
+		OnDestroyEntity.AddListener((t) =>
+		{
+			TileDeselect(t);
+		});	
+
+		OnDestroyEntity?.Invoke(tile);
+	}
+
+	public void DestroyAllEntity()
+	{
+		List<VisualChessTableTile> list = selectedTiles.ToList();
+		foreach (VisualChessTableTile tile in list)
+		{
+			selectedTiles.Remove(tile);
+			TileDeselect(tile);
+		}
+	}
+
+	public void DestroyFirstEntity()
+	{
+		VisualChessTableTile tile1 = selectedTiles[0];
+		selectedTiles.Remove(tile1);
+		OnDestroyEntity.RemoveAllListeners();
+		OnDestroyEntity.AddListener((t) =>
+		{
+			TileDeselect(t);
+		});
+
+		OnDestroyEntity?.Invoke(tile1);
+	}
+
+	public void TileSelect(VisualChessTableTile tile)
+	{
+		tile.GetComponent<TileHandler>().OnFrontHighlight();
+	}
+	public void TileDeselect(VisualChessTableTile tile)
+	{
+		tile.GetComponent<TileHandler>().OnFrontUnhilight();
+	}
+
 	public void TableAttributeChange()
 	{
-		// List<TableSelectorChild> list = tableSetter.tableSelected.ToList();
-		// for(int i = 0; i < list.Count; i++)
-		// {
-		// 	TableData t = tableManager.GetTableByCoordinate(list[i].coordinate);
-		// 	t.IsMoveable = false;
-		// 	Debug.Log(NotMoveCount);
-		// 	t.NotMoveCount += NotMoveCount;
-		// 	t.registeredTurnCount = GameManager.instance.TurnCount;
-		// }
-		
-		//추후 조건 더 추가하기
-		if (GameManager.instance.AvoidLanding ||
-			GameManager.instance.TripleBarrier)
-		{
-			FindObjectOfType<SkillLoader>().ExecuteSkill();
-		}
+		skillLoader.ExecuteSkill(selectedTiles);
 		DisableImage();
 	}
 

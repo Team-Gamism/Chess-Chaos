@@ -2,6 +2,9 @@ using UnityEngine;
 using System;
 using ChessEngine.AI;
 using TypeReferences;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using System.Linq;
 
 namespace ChessEngine.Game.AI
 {
@@ -287,6 +290,18 @@ namespace ChessEngine.Game.AI
                 else { Debug.LogWarning("ChessAIGameManager received 'best move' with empty 'from' tile. (Tile index: " + pFrom + ")", gameObject); }
             }
             else { Debug.LogWarning("ChessAIGameManager received 'best move' with invalid 'from' tile. (Tile index: " + pFrom + ")", gameObject); }
+        }
+        public void UpdateTileState()
+        {
+            List<TileState> t = FindObjectsOfType<TileState>().ToList();
+
+            foreach (TileState tile in t)
+            {
+                if (tile.tile.isTileblock)
+                {
+                    tile.UpdateTileState();
+                }
+            }
         }
     }
 }

@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Linq;
+using ChessEngine.Game;
 using UnityEngine;
 
-public class TripleBarrier : MonoBehaviour, ICardSkill
+public class TripleBarrier : MonoBehaviour, ITableSkill
 {
 	[SerializeField]
 	private TableSelector TableSelectPanel;
@@ -14,18 +16,22 @@ public class TripleBarrier : MonoBehaviour, ICardSkill
 		ncard = GetComponent<NCard>();
     }
 
-	public void Execute()
-	{
-		GameManager.instance.TripleBarrier = true;
+    public void LoadSelector()
+    {
 		cardData = GetComponent<NCard>().cardData;
 		TableSelectPanel.cardData = cardData;
-		TableSelectPanel.NotMoveCount = 2;
 		TableSelectPanel.gameObject.SetActive(true);
-	}
+    }
 
-	public void Execute(PieceData none)
-	{
-		GameManager.instance.TripleBarrier = false;
+    public void Execute(List<VisualChessTableTile> tiles)
+    {
+		for (int i = 0; i < tiles.Count; i++)
+		{
+			tiles[i].isTileblock = true;
+			tiles[i].UpdateTileBlock();
+
+			tiles[i].GetComponent<TileState>().SetTileState(cardData.cantMoveCnt);
+		}
 		ncard.DOEndAnimation();
-	}
+    }
 }
