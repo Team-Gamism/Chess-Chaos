@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ChessEngine;
 using ChessEngine.Game;
+using ChessEngine.Game.AI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
@@ -156,7 +157,7 @@ namespace Clickables.TouchScreens
             foreach (VisualChessTableTile n in list)
             {
                 float dis = Vector2.Distance(pos, Camera.main.WorldToScreenPoint(n.GetLocalPosition(table)));
-                if (dis < 50f)
+                if (dis < 90f)
                 {
                     Debug.Log(dis);
                     t = n;

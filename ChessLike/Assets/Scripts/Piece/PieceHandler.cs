@@ -423,7 +423,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 			else if (pieceData.PieceType == PieceType.Pawn && GameManager.instance.isPawnShield)
 			{
-				FindObjectOfType<PawnShield>().SetpieceData(pieceData);
+				//FindObjectOfType<PawnShield>().SetpieceData(pieceData);
 
 				FindObjectOfType<SkillLoader>().ExecuteSkill();
 				GameManager.instance.isPawnShield = false;

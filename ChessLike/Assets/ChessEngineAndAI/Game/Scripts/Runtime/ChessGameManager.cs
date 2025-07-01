@@ -32,6 +32,7 @@ namespace ChessEngine.Game
         [Tooltip("Should ChessGameManager.NewGame() be invoked automatically on Start()?")]
         public bool autoStartGame = true;
         public bool isCardSelect = false;
+        public bool isPieceSelect = false;
         [Tooltip("A reference to a VisualChessTable component that will be used to visualize the 'ChessInstance' associated with this chess game manager.")]
         public VisualChessTable visualTable;
         [Tooltip("An editor-set reference to the selected tile material.")]

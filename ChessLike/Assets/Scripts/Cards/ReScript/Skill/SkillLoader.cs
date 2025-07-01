@@ -78,7 +78,7 @@ public class SkillLoader : MonoBehaviour
 	//버튼 이벤트 전용
 	public void Execute()
 	{
-		if ((int)currentSkillType == 1)
+		if ((int)currentSkillType == 0)
 			immeSkill.Execute();
 		else
 		{

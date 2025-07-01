@@ -22,7 +22,7 @@ public class SnakePawn : MonoBehaviour, ICardSkill
 	public void Execute()
 	{
 		GameManager.instance.isSnakePawn = true;
-		selector.EnableImage(PieceType.Pawn);
+		//selector.EnableImage(PieceType.Pawn);
 	}
 
 	public void SetpieceData(PieceData pieceData)
@@ -42,7 +42,7 @@ public class SnakePawn : MonoBehaviour, ICardSkill
 			PieceType.Pawn,
 			PieceType.Knight
 		};
-		FindObjectOfType<PieceSelector>().DisableImage(pieces);
+		//FindObjectOfType<PieceSelector>().DisableImage(pieces);
 		ncard.DOEndAnimation();
 	}
 }

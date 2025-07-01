@@ -73,6 +73,7 @@ namespace ChessEngine.Game
         public Renderer Renderer { get; private set; }
 
         private TableSelector tableSelector;
+        private PieceSelector pieceSelector;
         #endregion
 
         // Unity callback(s).
@@ -271,7 +272,7 @@ namespace ChessEngine.Game
         public void Select()
         {
             // if there is a valid GameManager referenced select this tile.
-            if (GameManager != null && !GameManager.isCardSelect)
+            if (GameManager != null && !GameManager.isCardSelect && !GameManager.isPieceSelect)
             {
                 GameManager.SelectTile(this);
             }
@@ -280,28 +281,73 @@ namespace ChessEngine.Game
 
         public void BtnSelect()
         {
-            if (GameManager != null && GameManager.isCardSelect)
+            if (GameManager != null)
             {
-                tableSelector = FindObjectOfType<TableSelector>();
-                if (GetVisualPiece() != null || isTileblock) return;
-                if (tableSelector.selectedTiles.Count < tableSelector.cardData.MaxZoneCnt)
+                if (GameManager.isCardSelect)
                 {
-                    if (!tableSelector.selectedTiles.Contains(this))
-                        tableSelector.AddEntity(this);
+                    tableSelector = FindObjectOfType<TableSelector>();
+                    if (GetVisualPiece() != null || isTileblock) return;
+                    if (tableSelector.selectedTiles.Count < tableSelector.cardData.MaxZoneCnt)
+                    {
+                        if (!tableSelector.selectedTiles.Contains(this))
+                            tableSelector.AddEntity(this);
+                        else
+                            tableSelector.DestroyEntity(this);
+                    }
                     else
-                        tableSelector.DestroyEntity(this);
+                    {
+                        if (!tableSelector.selectedTiles.Contains(this))
+                        {
+                            tableSelector.DestroyFirstEntity();
+                            tableSelector.AddEntity(this);
+                        }
+                        else
+                        {
+                            tableSelector.DestroyEntity(this);
+                        }
+                    }
+                }
+                else if (GameManager.isPieceSelect)
+                {
+                    pieceSelector = FindObjectOfType<PieceSelector>();
+
+                    if (GetVisualPiece() == null || GetVisualPiece().Piece.Color == ChessColor.Black) return;
+
+                    if (pieceSelector.type == PieceSkillType.Shield)
+                    {
+                        if (GetVisualPiece().isShield) return;
+                        AddPieceSelectorAttribute();
+                    }
+                    else if (pieceSelector.type == PieceSkillType.Revenge)
+                    {
+                        if (GetVisualPiece().isRevenge) return;
+                        AddPieceSelectorAttribute();
+                    }
+                }
+            }
+        }
+
+        private void AddPieceSelectorAttribute()
+        {
+            if (pieceSelector.selectedPieces.Count < pieceSelector.cardData.MaxPieceCount)
+            {
+                if (!pieceSelector.selectedPieces.Contains(this) &&
+                    pieceSelector.pieceTypes.Contains(GetVisualPiece().Piece.GetChessPieceType()))
+                    pieceSelector.AddEntity(this);
+                else
+                    pieceSelector.DestroyEntity(this);
+            }
+            else
+            {
+                if (!pieceSelector.selectedPieces.Contains(this) && 
+                    pieceSelector.pieceTypes.Contains(GetVisualPiece().Piece.GetChessPieceType()))
+                {
+                    pieceSelector.DestroyFirstEntity();
+                    pieceSelector.AddEntity(this);
                 }
                 else
                 {
-                    if (!tableSelector.selectedTiles.Contains(this))
-                    {
-                        tableSelector.DestroyFirstEntity();
-                        tableSelector.AddEntity(this);
-                    }
-                    else
-                    {
-                        tableSelector.DestroyEntity(this);
-                    }
+                    pieceSelector.DestroyEntity(this);
                 }
             }
         }

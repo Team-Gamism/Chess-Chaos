@@ -275,6 +275,8 @@ namespace ChessEngine.Game.AI
                                 // Move the 'tilePiece' to the 'pTo' tile attacking any piece on 'toTile'.
                                 MoveInfo moveInfo = tilePiece.Move(pTo, toTile.GetPiece());
 
+                                Debug.Log(pTo);
+                                
                                 // Reset selection.
                                 Deselect();
 

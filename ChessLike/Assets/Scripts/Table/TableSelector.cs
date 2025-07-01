@@ -1,10 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using ChessEngine.AI;
 using ChessEngine.Game;
 using ChessEngine.Game.AI;
-using UnityEditor.Rendering;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -57,9 +54,6 @@ public class TableSelector : MonoBehaviour
 		GetComponent<RectTransform>().sizeDelta = new Vector2(scale.x + 500, scale.y + 500);
 
 		GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -230, 0);
-
-		//필요없음 : VisualAIChessManager에서 Selector 상태인지 확인해줌
-		GameManager.instance.isSelectorEnable = true;
 
 		transform.SetAsLastSibling();
 

@@ -44,7 +44,7 @@ public class ChaosKnight : MonoBehaviour, ICardSkill
     public void Execute()
     {
         GameManager.instance.ChaosKnight = true;
-        selector.EnableImageAndCheckCoord(PieceType.Knight);
+        //selector.EnableImageAndCheckCoord(PieceType.Knight);
     }
 
     public void SetHandler(PieceHandler handler)

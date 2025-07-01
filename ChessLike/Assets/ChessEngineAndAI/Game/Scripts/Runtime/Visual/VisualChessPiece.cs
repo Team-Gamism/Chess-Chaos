@@ -63,6 +63,9 @@ namespace ChessEngine.Game
         public Renderer Renderer { get; private set; }
         /// <summary>The default 'localRotation' for this visual chess piece, set in Start(), can be overridden manually.</summary>
         public Quaternion DefaultLocalRotation { get; set; }
+
+        public bool isRevenge = false;
+        public bool isShield = false;
         #endregion
 
         [SerializeField]
@@ -85,6 +88,12 @@ namespace ChessEngine.Game
             // Store default local rotation.
             DefaultLocalRotation = transform.localRotation;
             moveCount = 0;
+
+            // 복수 능력 비활성화
+            ResetRevenge();
+
+            // 방어막 능력 비활성화
+            ResetShield();
         }
 
         void OnDestroy()
@@ -166,6 +175,12 @@ namespace ChessEngine.Game
         {
             moveCount++;
         }
+
+        private void Update()
+        {
+            isShield = Piece.IsShield;
+            isRevenge = Piece.IsRevenge;
+        }
         #endregion
         #region Generic Methods
         /// <summary>
@@ -241,5 +256,39 @@ namespace ChessEngine.Game
             UpdatePosition();
         }
         #endregion
+
+        private void ResetRevenge()
+        {
+            Piece.SetRevenge(false);
+        }
+
+        public void SetRevenge(bool value)
+        {
+            Piece.SetRevenge(value);
+        }
+        public void UpdateRevenge()
+        {
+            Piece.SetRevenge(isRevenge);
+        }
+
+        private void OnValidate()
+        {
+            //SetRevenge(isRevenge);
+            //SetShield(isShield);
+        }
+
+        private void ResetShield()
+        {
+            Piece.SetShield(false);
+        }
+
+        public void SetShield(bool value)
+        {
+            Piece.SetShield(value);
+        }
+        public void UpdateShield()
+        {
+            Piece.SetShield(isShield);
+        }
     }
 }

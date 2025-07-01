@@ -1,42 +1,40 @@
-using System.Linq;
+using System.Collections.Generic;
+using ChessEngine;
+using ChessEngine.Game;
 using DG.Tweening;
 using UnityEngine;
 
-public class PawnShield : MonoBehaviour, ICardSkill
+public class PawnShield : MonoBehaviour, IPieceSkill
 {
-	private TableManager tableManager;
-	private RectTransform rectTransform;
-
+	[SerializeField]
 	private PieceSelector selector;
 
-	private PieceData pieceData;
 	private NCard ncard;
+	public PieceSkillType skillType;
 	private void Start()
 	{
-		tableManager = FindObjectOfType<TableManager>();
-		rectTransform = GetComponent<RectTransform>();
-
-		selector = FindObjectOfType<PieceSelector>();
 		ncard = GetComponent<NCard>();
 	}
 
-	public void Execute()
+
+	public void LoadSelector(List<ChessPieceType> pieceTypes, bool isAll, ChessColor color)
 	{
-		GameManager.instance.isPawnShield = true;
-		selector.EnableImage(PieceType.Pawn);
-	}
+		selector.gameObject.SetActive(true);
+		selector.SetField(cardData: ncard.cardData,
+						skillType: skillType,
+						pieceTypes: pieceTypes,
+						isAll: false,
+						color: color);
+    }
 
-	public void SetpieceData(PieceData pieceData)
-	{
-		this.pieceData = pieceData;
-	}
-
-
-	public void Execute(PieceData piece)
-	{
-		pieceData.IsShield = true;
-
-		FindObjectOfType<PieceSelector>().DisableImage();
+    public void Execute(List<VisualChessPiece> pieces)
+    {
+		for (int i = 0; i < pieces.Count; i++)
+		{
+			pieces[i].isShield = true;
+			pieces[i].UpdateShield();
+		}
+		
 		ncard.DOEndAnimation();
-	}
+    }
 }

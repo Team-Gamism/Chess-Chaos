@@ -24,7 +24,7 @@ public class DarknessHand : MonoBehaviour, ICardSkill
 	public void Execute()
 	{
 		GameManager.instance.DarknessHand = true;
-		selector.EnableImage(false);
+		//selector.EnableImage(false);
 	}
 
 	public void SetpieceData(PieceData pieceData)

@@ -40,3 +40,15 @@ public enum SkillType
     Piece,
     Table
 }
+
+public enum PieceSkillType
+{
+    Revenge = 0,
+    Shield,
+    FaseMove,
+    ChangeKnight,
+    RookInverse,
+    ChaosKnight,
+    ReturnPiece,
+    IsPin
+}

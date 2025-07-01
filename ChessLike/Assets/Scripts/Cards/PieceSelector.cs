@@ -1,22 +1,71 @@
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
+using ChessEngine;
+using ChessEngine.Game;
+using ChessEngine.Game.AI;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PieceSelector : MonoBehaviour
 {
+	private Canvas cameraSize;
 
 	[SerializeField]
-	private GameObject tweenMover;
-	private Canvas cameraSize;
+	private GameObject log;
+
+	[SerializeField]
+	private Button DoneBtn;
 
 	private Image image;
 
-	private PieceType pieceType;
+	[HideInInspector]
+	public bool Donable = false;
 
-	private void Start()
+	private static List<VisualChessTableTile> tiles;
+	public List<VisualChessTableTile> selectedPieces = new List<VisualChessTableTile>();
+	public List<ChessPieceType> pieceTypes = new List<ChessPieceType>();
+	public ChessColor SelectColor;
+
+	[HideInInspector]
+	public CardData cardData;
+	[HideInInspector]
+	public int NotMoveCount;
+
+	private UnityEvent<VisualChessTableTile> OnAddEntity = new UnityEvent<VisualChessTableTile>();
+	private UnityEvent<VisualChessTableTile> OnDestroyEntity = new UnityEvent<VisualChessTableTile>();
+
+	private static ChessAIGameManager aIGameManager;
+	private static SkillLoader skillLoader;
+
+	public PieceSkillType type;
+
+	private void Awake()
 	{
+		tiles = FindObjectsOfType<VisualChessTableTile>().ToList();
+		aIGameManager = FindObjectOfType<ChessAIGameManager>();
+		skillLoader = FindObjectOfType<SkillLoader>();
+	}
+
+	public void SetField(CardData cardData, PieceSkillType skillType, List<ChessPieceType> pieceTypes, bool isAll, ChessColor color)
+	{
+		this.cardData = cardData;
+		type = skillType;
+		if (!isAll)
+		{
+			this.pieceTypes = pieceTypes;
+		}
+		else
+		{
+			SelectColor = color;
+		}
+		
+	}
+
+	private void OnEnable()
+	{
+		aIGameManager.isPieceSelect = true;
+		aIGameManager.Deselect();
 		image = GetComponent<Image>();
 		cameraSize = FindObjectsOfType<Canvas>().Where(p => p.CompareTag("ScreenUI")).FirstOrDefault();
 
@@ -26,284 +75,98 @@ public class PieceSelector : MonoBehaviour
 
 		GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -230, 0);
 
-		image.enabled = false;
-	}
+		transform.SetAsLastSibling();
 
-	public void EnableImage(PieceType piece)
-	{
-		GameManager.instance.isSelectorEnable = true;
-		image.enabled = true;
-		pieceType = piece;
-		tweenMover.SetActive(true);
-		transform.SetSiblingIndex(FindFirstPiece(piece).gameObject.transform.GetSiblingIndex() - 1);
-	}
-
-	public void EnableImageAndCheckCoord(PieceType piece)
-	{
-		if (FindFirstPieceAndCheckCoord(piece) == null)
-		{
-			FindObjectOfType<SkillLoader>().warningLog.log = "이동 가능한 기물이 없습니다!";
-			FindObjectOfType<SkillLoader>().warningLog.gameObject.SetActive(true);
-			if (GameManager.instance.TopChange) GameManager.instance.TopChange = false;
-			else if (GameManager.instance.ChaosKnight) GameManager.instance.ChaosKnight = false;
-		}
-		else
-		{
-			transform.SetSiblingIndex(FindFirstPieceAndCheckCoord(piece).gameObject.transform.GetSiblingIndex() - 1);
-			GameManager.instance.isSelectorEnable = true;
-			image.enabled = true;
-			pieceType = piece;
-			tweenMover.SetActive(true);
-		}
-	}
-
-	public void EnableImage(bool isPlayerPiece)
-	{
-		GameManager.instance.isSelectorEnable = true;
-		image.enabled = true;
-		tweenMover.SetActive(true);
-		transform.SetSiblingIndex(FindPiece(isPlayerPiece).gameObject.transform.GetSiblingIndex() - 1);
+		log.SetActive(true);
+		DoneBtn.gameObject.SetActive(true);
+		DoneBtn.onClick.RemoveAllListeners();
+		DoneBtn.onClick.AddListener(() => PieceAttributeChange());
 	}
 
 	public void DisableImage()
 	{
-		GameManager.instance.isSelectorEnable = false;
-		image.enabled = false;
-		tweenMover.SetActive(false);
-		DisablePieceMaterial(pieceType);
-		GameManager.instance.SortPieceSibling();
+		aIGameManager.isPieceSelect = false;
+		DestroyAllEntity();
+		log.SetActive(false);
+		DoneBtn.gameObject.SetActive(false);
+		gameObject.SetActive(false);
 	}
 
-	public void DisableImage(params PieceType[] pieces)
+	private void Update()
 	{
-		GameManager.instance.isSelectorEnable = false;
-		image.enabled = false;
-		tweenMover.SetActive(false);
-		DisablePieceMaterial(pieces);
-		GameManager.instance.SortPieceSibling();
-	}
-
-	private bool IsInclude(PieceData piece, PieceType[] pieces)
-	{
-		for (int i = 0; i < pieces.Length; i++)
+		if (selectedPieces.Count >= cardData.RequirePieceCnt)
 		{
-			if (piece.PieceType == pieces[i])
-			{
-				return true;
-			}
+			DoneBtn.interactable = true;
 		}
-		return false;
+		else DoneBtn.interactable = false;
 	}
 
-	private PieceData FindPiece(bool isPlayerPiece)
+	public void AddEntity(VisualChessTableTile tile)
 	{
-		List<PieceData> pieces = FindObjectsOfType<PieceData>().Where(p => p.IsPlayerPiece == isPlayerPiece).ToList();
-
-
-		pieces.Sort((a, b) =>
+		selectedPieces.Add(tile);
+		OnAddEntity.RemoveAllListeners();
+		OnAddEntity.AddListener((t) =>
 		{
-			if (a.coordinate.x == b.coordinate.x)
-				return a.coordinate.y.CompareTo(b.coordinate.y);
-			else
-				return a.coordinate.x.CompareTo(b.coordinate.x);
+			TileSelect(t);
 		});
 
-		PieceData result = null;
-
-		foreach (PieceData n in pieces)
-		{
-			if (result == null)
-			{
-				result = n;
-			}
-			else
-			{
-				if (n.coordinate.x < result.coordinate.x)
-					result = n;
-			}
-			n.transform.SetAsLastSibling();
-		}
-
-		return result;
+		OnAddEntity?.Invoke(tile);
 	}
 
-	/// <summary>
-	/// 선택되는 요소를 메테리얼을 활성화한 상태로 반환합니다.
-	/// </summary>
-	/// <param name="piece"></param>
-	/// <returns></returns>
-	private PieceData FindFirstPiece(PieceType piece)
+	public void DestroyEntity(VisualChessTableTile tile)
 	{
-		List<PieceData> pieces = FindObjectsOfType<PieceData>().Where(p => p.IsPlayerPiece && p.PieceType == piece).ToList();
-
-		pieces.Sort((a, b) =>
+		selectedPieces.Remove(tile);
+		OnDestroyEntity.RemoveAllListeners();
+		OnDestroyEntity.AddListener((t) =>
 		{
-			if (a.coordinate.x == b.coordinate.x)
-				return a.coordinate.y.CompareTo(b.coordinate.y);
-			else
-				return a.coordinate.x.CompareTo(b.coordinate.x);
+			TileDeselect(t);
+		});	
+
+		OnDestroyEntity?.Invoke(tile);
+	}
+
+	public void DestroyAllEntity()
+	{
+		List<VisualChessTableTile> list = selectedPieces.ToList();
+		foreach (VisualChessTableTile tile in list)
+		{
+			selectedPieces.Remove(tile);
+			TileDeselect(tile);
+		}
+	}
+
+	public void DestroyFirstEntity()
+	{
+		VisualChessTableTile tile1 = selectedPieces[0];
+		selectedPieces.Remove(tile1);
+		OnDestroyEntity.RemoveAllListeners();
+		OnDestroyEntity.AddListener((t) =>
+		{
+			TileDeselect(t);
 		});
 
-		PieceData result = null;
-
-		foreach (PieceData n in pieces)
-		{
-			if (result == null)
-			{
-				result = n;
-			}
-			else
-			{
-				if (n.coordinate.x < result.coordinate.x)
-					result = n;
-			}
-			n.transform.SetAsLastSibling();
-		}
-
-		EnablePieceMaterial(pieceType);
-
-		return result;
+		OnDestroyEntity?.Invoke(tile1);
 	}
 
-	/// <summary>
-	/// 선택되는 요소 + 조건 성립 시 메테리얼을 활성화한 상태로 반환
-	/// </summary>
-	/// <param name="piece"></param>
-	/// <param name="expectedCoord"></param>
-	/// <returns></returns>
-	private PieceData FindFirstPieceAndCheckCoord(PieceType piece)
+	public void TileSelect(VisualChessTableTile tile)
 	{
-		List<PieceData> pieces = FindObjectsOfType<PieceData>().Where(p => p.IsPlayerPiece && p.PieceType == piece).ToList();
-
-		pieces.Sort((a, b) =>
-		{
-			if (a.coordinate.x == b.coordinate.x)
-				return a.coordinate.y.CompareTo(b.coordinate.y);
-			else
-				return a.coordinate.x.CompareTo(b.coordinate.x);
-		});
-
-		PieceData result = null;
-
-		foreach (PieceData n in pieces)
-		{
-
-			if (GameManager.instance.TopChange)
-			{
-				Vector2Int newCoord = new Vector2Int(7 - n.coordinate.x, 7 - n.coordinate.y);
-
-				//갈 수 없는 좌표가 있으면 오브젝트 추가하지 않기
-				TableData t = FindObjectOfType<TableManager>().GetTableByCoordinate(newCoord);
-
-				if (t.piece && t.piece.IsPlayerPiece)
-				{
-					SetPieceMaterial(n, false);
-					continue;
-				}
-			}
-
-			else if (GameManager.instance.ChaosKnight)
-			{
-				//1. 현재 갈 수 있는 곳이 있는지 판별
-				//2. 갈 수 있는 곳이 하나라도 있으면 아래 if문 실행하기
-				List<Vector2Int> list = FindObjectOfType<ChaosKnight>().moveOffsetList;
-
-				int count = list.Count;
-
-				for (int i = 0; i < list.Count; i++)
-				{
-					//if (list.Count - 1 < i) break;
-					Vector2Int nc = n.coordinate + list[i];
-					Debug.Log($"{list[i]} + {n.coordinate} = {nc}");
-					if (nc.x < 0 || nc.x > 7 || nc.y < 0 || nc.y > 7)
-					{
-						list.RemoveAt(i);
-						continue;
-					}
-
-					TableData t = FindObjectOfType<TableManager>().GetTableByCoordinate(nc);
-					Debug.Log(t ? 1 : 0);
-					if (t.piece && t.piece.IsPlayerPiece)
-					{
-						list.RemoveAt(i);
-					}
-				}
-				if (list.Count <= 0)
-				{
-					SetPieceMaterial(n, false);
-					continue;
-				}
-			}
-
-
-			if (result == null)
-			{
-				result = n;
-			}
-			else
-			{
-				if (n.coordinate.x < result.coordinate.x)
-					result = n;
-			}
-			n.transform.SetAsLastSibling();
-			SetPieceMaterial(n, true);
-		}
-
-		return result;
+		tile.GetComponent<TileHandler>().OnFrontHighlight();
 	}
-
-	private void DisablePieceMaterial(PieceType piece)
+	public void TileDeselect(VisualChessTableTile tile)
 	{
-		List<PieceData> pieces = FindObjectsOfType<PieceData>().Where(p => p.IsPlayerPiece && p.PieceType == piece).ToList();
-		for (int i = 0; i < pieces.Count; i++)
-		{
-			pieces[i].SetOutline(0);
-		}
+		tile.GetComponent<TileHandler>().OnFrontUnhilight();
 	}
 
-	private void DisablePieceMaterial(params PieceType[] types)
+	public void PieceAttributeChange()
 	{
-		List<PieceData> matchingPieces = FindObjectsOfType<PieceData>()
-			.Where(p => p.IsPlayerPiece && types.Contains(p.PieceType))
-			.ToList();
+		List<VisualChessPiece> list = new List<VisualChessPiece>();
 
-		for (int i = 0; i < matchingPieces.Count; i++)
+		for (int i = 0; i < selectedPieces.Count; i++)
 		{
-			matchingPieces[i].SetOutline(0);
+			list.Add(selectedPieces[i].GetVisualPiece());
 		}
+		skillLoader.ExecuteSkill(list);
+		DisableImage();
 	}
 
-	private void EnablePieceMaterial(PieceType piece)
-	{
-		List<PieceData> pieces = FindObjectsOfType<PieceData>().Where(p => p.IsPlayerPiece && p.PieceType == piece).ToList();
-
-		Debug.Log("호출됨" + pieces.Count);
-		for (int i = 0; i < pieces.Count; i++)
-		{
-			pieces[i].SetOutline(1);
-		}
-	}
-
-	private void SetPieceMaterial(PieceData piece, bool on)
-	{
-		piece.SetOutline(on ? 1 : 0);
-	}
-
-	private void EnablePieceMaterial(PieceType[] piece)
-	{
-		List<PieceData> pieces = FindObjectsOfType<PieceData>().Where(p => p.IsPlayerPiece).ToList();
-
-		for (int i = 0; i < pieces.Count; i++)
-		{
-			if (!IsInclude(pieces[i], piece))
-			{
-				pieces.RemoveAt(i);
-			}
-		}
-
-		for (int i = 0; i < pieces.Count; i++)
-		{
-			pieces[i].SetOutline(1);
-		}
-	}
 }
