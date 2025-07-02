@@ -415,7 +415,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			Debug.Log("클릭함1");
 			if (pieceData.PieceType == PieceType.Pawn && GameManager.instance.isSnakePawn)
 			{
-				FindObjectOfType<SnakePawn>().SetpieceData(pieceData);
+				//FindObjectOfType<SnakePawn>().SetpieceData(pieceData);
 
 				FindObjectOfType<SkillLoader>().ExecuteSkill();
 				GameManager.instance.isSnakePawn = false;
@@ -439,7 +439,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 			if (!pieceData.IsPlayerPiece && GameManager.instance.DarknessHand)
 			{
-				FindObjectOfType<DarknessHand>().SetpieceData(pieceData);
+				//FindObjectOfType<DarknessHand>().SetpieceData(pieceData);
 
 				FindObjectOfType<SkillLoader>().ExecuteSkill();
 				GameManager.instance.DarknessHand = false;

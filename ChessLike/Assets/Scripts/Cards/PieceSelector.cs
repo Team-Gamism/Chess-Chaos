@@ -31,6 +31,7 @@ public class PieceSelector : MonoBehaviour
 	public CardData cardData;
 	[HideInInspector]
 	public int NotMoveCount;
+	public Material OutlineMaterial;
 
 	private UnityEvent<VisualChessTableTile> OnAddEntity = new UnityEvent<VisualChessTableTile>();
 	private UnityEvent<VisualChessTableTile> OnDestroyEntity = new UnityEvent<VisualChessTableTile>();
@@ -51,15 +52,9 @@ public class PieceSelector : MonoBehaviour
 	{
 		this.cardData = cardData;
 		type = skillType;
-		if (!isAll)
-		{
-			this.pieceTypes = pieceTypes;
-		}
-		else
-		{
-			SelectColor = color;
-		}
-		
+		this.pieceTypes = pieceTypes;
+		SelectColor = color;
+
 	}
 
 	private void OnEnable()
@@ -108,6 +103,7 @@ public class PieceSelector : MonoBehaviour
 		OnAddEntity.AddListener((t) =>
 		{
 			TileSelect(t);
+			PieceSelect(t);
 		});
 
 		OnAddEntity?.Invoke(tile);
@@ -120,7 +116,8 @@ public class PieceSelector : MonoBehaviour
 		OnDestroyEntity.AddListener((t) =>
 		{
 			TileDeselect(t);
-		});	
+			PieceDeselect(t);
+		});
 
 		OnDestroyEntity?.Invoke(tile);
 	}
@@ -132,6 +129,7 @@ public class PieceSelector : MonoBehaviour
 		{
 			selectedPieces.Remove(tile);
 			TileDeselect(tile);
+			PieceDeselect(tile);
 		}
 	}
 
@@ -143,6 +141,7 @@ public class PieceSelector : MonoBehaviour
 		OnDestroyEntity.AddListener((t) =>
 		{
 			TileDeselect(t);
+			PieceDeselect(t);
 		});
 
 		OnDestroyEntity?.Invoke(tile1);
@@ -167,6 +166,24 @@ public class PieceSelector : MonoBehaviour
 		}
 		skillLoader.ExecuteSkill(list);
 		DisableImage();
+	}
+
+	public void PieceSelect(VisualChessTableTile tile)
+	{
+		SpriteRenderer render = tile.GetVisualPiece().Renderer as SpriteRenderer;
+		render.material = Instantiate(OutlineMaterial);
+		render.color = Color.white;
+		render.material.SetTexture("_MainTex", render.sprite.texture);
+		render.material.SetFloat("_OutlineThick", 1f);
+	}
+
+	public void PieceDeselect(VisualChessTableTile tile)
+	{
+		SpriteRenderer render = tile.GetVisualPiece().Renderer as SpriteRenderer;
+		render.material = Instantiate(OutlineMaterial);
+		render.color = Color.white;
+		render.material.SetTexture("_MainTex", render.sprite.texture);
+		render.material.SetFloat("_OutlineThick", 0f);
 	}
 
 }

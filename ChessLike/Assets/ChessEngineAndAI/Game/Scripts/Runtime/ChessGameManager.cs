@@ -59,6 +59,7 @@ namespace ChessEngine.Game
         public UnityEvent SelectionChanged;
         [Tooltip("An event that is invoked when a chess piece is moved by this game manager.\n\nArg0: ChessPiece - The chess piece that was moved.\nArg1: MoveInfo - Information about the move.")]
         public MoveUnityEvent ChessPieceMoved;
+        public UnityEvent TurnAdded;
         #endregion
         #region Public Properties
         /// <summary>A reference to the ChessEngine.Instance that is simulating the chess game.</summary>

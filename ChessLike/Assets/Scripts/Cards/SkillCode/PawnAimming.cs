@@ -1,24 +1,40 @@
-using System.Linq;
+using System.Collections.Generic;
+using ChessEngine;
+using ChessEngine.Game;
 using DG.Tweening;
 using UnityEngine;
 
-public class PawnAimming : MonoBehaviour, ICardSkill
+public class PawnAimming : MonoBehaviour, IPieceSkill
 {
-	private TableManager tableManager;
-	private RectTransform rectTransform;
+	[SerializeField]
+	private PieceSelector selector;
 
-	private PieceData pieceData;
 	private NCard ncard;
+	public PieceSkillType skillType;
 	private void Start()
 	{
-		tableManager = FindObjectOfType<TableManager>();
-		rectTransform = GetComponent<RectTransform>();
 		ncard = GetComponent<NCard>();
 	}
 
-	public void Execute()
+
+	public void LoadSelector(List<ChessPieceType> pieceTypes, bool isAll, ChessColor color)
 	{
-		GameManager.instance.isPawnAimming = true;
+		selector.gameObject.SetActive(true);
+		selector.SetField(cardData: ncard.cardData,
+						skillType: skillType,
+						pieceTypes: pieceTypes,
+						isAll: false,
+						color: color);
+    }
+
+    public void Execute(List<VisualChessPiece> pieces)
+    {
+		for (int i = 0; i < pieces.Count; i++)
+		{
+			pieces[i].isMoveSide = true;
+			pieces[i].UpdateMoveSide();
+		}
+		
 		ncard.DOEndAnimation();
-	}
+    }
 }

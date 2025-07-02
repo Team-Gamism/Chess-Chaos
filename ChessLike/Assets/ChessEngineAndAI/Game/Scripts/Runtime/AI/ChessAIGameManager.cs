@@ -276,7 +276,7 @@ namespace ChessEngine.Game.AI
                                 MoveInfo moveInfo = tilePiece.Move(pTo, toTile.GetPiece());
 
                                 Debug.Log(pTo);
-                                
+
                                 // Reset selection.
                                 Deselect();
 
@@ -302,6 +302,23 @@ namespace ChessEngine.Game.AI
                 if (tile.tile.isTileblock)
                 {
                     tile.UpdateTileState();
+                }
+            }
+        }
+        public void UpdatePieceSate()
+        {
+            List<VisualChessPiece> pieces = FindObjectsOfType<VisualChessPiece>().ToList();
+
+            foreach (VisualChessPiece p in pieces)
+            {
+                if (p.PinCount > 0)
+                {
+                    p.PinCount--;
+                    p.UpdatePin();
+                }
+                else
+                {
+                    p.SetPin(false);
                 }
             }
         }

@@ -50,5 +50,7 @@ public enum PieceSkillType
     RookInverse,
     ChaosKnight,
     ReturnPiece,
-    IsPin
+    IsPin,
+    IsMoveSide,
+    IsSnakePawn
 }

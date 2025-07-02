@@ -311,7 +311,7 @@ namespace ChessEngine.Game
                 {
                     pieceSelector = FindObjectOfType<PieceSelector>();
 
-                    if (GetVisualPiece() == null || GetVisualPiece().Piece.Color == ChessColor.Black) return;
+                    if (GetVisualPiece() == null) return;
 
                     if (pieceSelector.type == PieceSkillType.Shield)
                     {
@@ -321,6 +321,26 @@ namespace ChessEngine.Game
                     else if (pieceSelector.type == PieceSkillType.Revenge)
                     {
                         if (GetVisualPiece().isRevenge) return;
+                        AddPieceSelectorAttribute();
+                    }
+                    else if (pieceSelector.type == PieceSkillType.FaseMove)
+                    {
+                        if (GetVisualPiece().isTwoMove) return;
+                        AddPieceSelectorAttribute();
+                    }
+                    else if (pieceSelector.type == PieceSkillType.IsMoveSide)
+                    {
+                        if (GetVisualPiece().isMoveSide) return;
+                        AddPieceSelectorAttribute();
+                    }
+                    else if (pieceSelector.type == PieceSkillType.IsSnakePawn)
+                    {
+                        if (GetVisualPiece().isSnakePawn) return;
+                        AddPieceSelectorAttribute();
+                    }
+                    else if (pieceSelector.type == PieceSkillType.IsPin)
+                    {
+                        if (GetVisualPiece().isPin) return;
                         AddPieceSelectorAttribute();
                     }
                 }

@@ -11,10 +11,10 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: adc443ef039e5ba488eb17ae567f2ed2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _ALPHATEST_ON
+  m_ValidKeywords: []
   m_InvalidKeywords:
   - _ALPHAPREMULTIPLY_ON
+  - _ALPHATEST_ON
   - _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -51,6 +51,7 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _CastShadows: 1
+    - _ColorMask: 15
     - _Cull: 2
     - _DstBlend: 10
     - _OutlineThick: 1
@@ -58,13 +59,21 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _SrcBlend: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
     - _Surface: 1
+    - _UIMaskSoftnessX: 1
+    - _UIMaskSoftnessY: 1
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _OutlineColor: {r: 1, g: 1, b: 1, a: 0}
+    - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
+    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &8265918549703235040

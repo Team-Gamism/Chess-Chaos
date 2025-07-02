@@ -1,44 +1,38 @@
-using System.Linq;
-using DG.Tweening;
+using System.Collections.Generic;
+using ChessEngine;
+using ChessEngine.Game;
 using UnityEngine;
 
-public class DarknessHand : MonoBehaviour, ICardSkill
+public class DarknessHand : MonoBehaviour, IPieceSkill
 {
-	private TableManager tableManager;
-	private RectTransform rectTransform;
+	public PieceSelector selector;
 
-	private PieceSelector selector;
-
-	private PieceData pieceData;
 	private NCard ncard;
-
+	public PieceSkillType skillType;
 	private void Start()
 	{
-		tableManager = FindObjectOfType<TableManager>();
-		rectTransform = GetComponent<RectTransform>();
-
-		selector = FindObjectOfType<PieceSelector>();
 		ncard = GetComponent<NCard>();
 	}
 
-	public void Execute()
-	{
-		GameManager.instance.DarknessHand = true;
-		//selector.EnableImage(false);
-	}
+    public void LoadSelector(List<ChessPieceType> pieceTypes, bool isAll, ChessColor color)
+    {
+		selector.gameObject.SetActive(true);
+		selector.SetField(cardData: ncard.cardData,
+						skillType: skillType,
+						pieceTypes: pieceTypes,
+						isAll: false,
+						color: ChessColor.Black);
+    }
 
-	public void SetpieceData(PieceData pieceData)
-	{
-		this.pieceData = pieceData;
-	}
-
-
-	public void Execute(PieceData piece)
-	{
-		pieceData.IsStatic = true;
-		pieceData.StaticedTurn = 1;
-
-		FindObjectOfType<PieceSelector>().DisableImage();
-		ncard.DOEndAnimation();
-	}
+    public void Execute(List<VisualChessPiece> pieces)
+    {
+		for (int i = 0; i < pieces.Count; i++)
+		{
+			pieces[i].SetPin(true, 2);
+			pieces[i].UpdatePin();
+		}
+		
+        ncard.DOEndAnimation();
+    }
 }
+

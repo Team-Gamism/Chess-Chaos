@@ -628,7 +628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &146875156
 RectTransform:
   m_ObjectHideFlags: 0
@@ -645,7 +645,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -375, y: 0}
+  m_AnchoredPosition: {x: 374.99994, y: 0}
   m_SizeDelta: {x: 220, y: 316}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &146875158
@@ -779,6 +779,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3545497f74952e54dad78a3ab023bed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selector: {fileID: 376395158}
+  skillType: 7
 --- !u!1 &166786808
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +986,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &232057102
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1001,7 +1003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -375, y: 0}
+  m_AnchoredPosition: {x: 124.99997, y: 0}
   m_SizeDelta: {x: 220, y: 316}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &232057103
@@ -1135,6 +1137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8027075350088844b8538e82e0151f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selector: {fileID: 376395158}
+  skillType: 8
 --- !u!1 &277766744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,7 +1159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &277766745
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6490,7 +6494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &355045422
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6641,6 +6645,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6c96053b71c494796d156b22a81bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selector: {fileID: 376395158}
+  skillType: 9
 --- !u!1 &362601637
 GameObject:
   m_ObjectHideFlags: 0
@@ -6843,6 +6849,7 @@ MonoBehaviour:
   SelectColor: 0
   cardData: {fileID: 0}
   NotMoveCount: 0
+  OutlineMaterial: {fileID: 2100000, guid: 5b94710b53c1eed419b21cb857857dbb, type: 2}
   type: 0
 --- !u!1 &391102267
 GameObject:
@@ -8826,7 +8833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -375, y: 0}
+  m_AnchoredPosition: {x: 124.99997, y: 0}
   m_SizeDelta: {x: 220, y: 316}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1163568788
@@ -8960,6 +8967,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e58dbad2eb534c4f9a1c37460488a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selector: {fileID: 376395158}
+  skillType: 2
 --- !u!1 &1191738108
 GameObject:
   m_ObjectHideFlags: 0
@@ -10635,7 +10644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1736334445
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10751,7 +10760,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1736334449}
         m_TargetAssemblyTypeName: NCard, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: LoadEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12689,6 +12698,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5396990769402972350}
+        m_TargetAssemblyTypeName: ChessEngine.Game.AI.ChessAIGameManager, Assembly-CSharp
+        m_MethodName: UpdatePieceSate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   TurnStarted:
     m_PersistentCalls:
       m_Calls:
@@ -12753,6 +12774,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   ChessPieceMoved:
+    m_PersistentCalls:
+      m_Calls: []
+  TurnAdded:
     m_PersistentCalls:
       m_Calls: []
   aiUseAllThinkTime: 0
@@ -12856,8 +12880,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultEvalFilePath: nn-0000000000a0.nnue
   defaultPathMode: 1
-  whiteELO: 1000
-  blackELO: 1000
+  whiteELO: 1200
+  blackELO: 1200
   PostUciInitialized:
     m_PersistentCalls:
       m_Calls: []

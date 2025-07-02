@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using ChessEngine.Game.Events;
 using DG.Tweening;
+using ChessEngine.Game.AI;
 
 namespace ChessEngine.Game
 {
@@ -66,6 +67,11 @@ namespace ChessEngine.Game
 
         public bool isRevenge = false;
         public bool isShield = false;
+        public bool isTwoMove = false;
+        public bool isMoveSide = false;
+        public bool isSnakePawn = false;
+        public bool isPin = false;
+        public int PinCount = 0;
         #endregion
 
         [SerializeField]
@@ -90,10 +96,14 @@ namespace ChessEngine.Game
             moveCount = 0;
 
             // 복수 능력 비활성화
-            ResetRevenge();
+            SetRevenge(false);
 
             // 방어막 능력 비활성화
-            ResetShield();
+            SetShield(false);
+
+            SetTwoMove(false);
+            SetMoveSide(false);
+            SetSnakePawn(false);
         }
 
         void OnDestroy()
@@ -171,9 +181,15 @@ namespace ChessEngine.Game
             RotationUpdated?.Invoke(this);
         }
 
-        public void AddTurnCount()
+        public void AddMoveCount()
         {
             moveCount++;
+        }
+        public void AddTurnCount()
+        {
+            FindObjectOfType<ChessGameManager>().TurnCount++;
+
+            FindObjectOfType<ChessGameManager>().TurnAdded?.Invoke();
         }
 
         private void Update()
@@ -257,38 +273,68 @@ namespace ChessEngine.Game
         }
         #endregion
 
-        private void ResetRevenge()
-        {
-            Piece.SetRevenge(false);
-        }
-
         public void SetRevenge(bool value)
         {
             Piece.SetRevenge(value);
+            isRevenge = Piece.IsRevenge;
         }
         public void UpdateRevenge()
         {
             Piece.SetRevenge(isRevenge);
         }
 
-        private void OnValidate()
-        {
-            //SetRevenge(isRevenge);
-            //SetShield(isShield);
-        }
-
-        private void ResetShield()
-        {
-            Piece.SetShield(false);
-        }
-
         public void SetShield(bool value)
         {
             Piece.SetShield(value);
+            isShield = Piece.IsShield;
         }
         public void UpdateShield()
         {
             Piece.SetShield(isShield);
+        }
+
+        public void SetTwoMove(bool value)
+        {
+            Piece.SetTwoMove(value);
+            isTwoMove = Piece.IsTwoMove;
+        }
+        public void UpdateTwoMove()
+        {
+            Piece.SetTwoMove(isTwoMove);
+        }
+        public void SetMoveSide(bool value)
+        {
+            Piece.SetMoveSide(value);
+            isMoveSide = Piece.IsMoveSide;
+        }
+        public void UpdateMoveSide()
+        {
+            Piece.SetMoveSide(isMoveSide);
+        }
+
+        public void SetSnakePawn(bool value)
+        {
+            Piece.SetSnakePawn(value);
+            isSnakePawn = Piece.IsSnakePawn;
+        }
+        public void UpdateSnakePawn()
+        {
+            Piece.SetSnakePawn(isSnakePawn);
+        }
+        public void SetPin(bool value, int Turn)
+        {
+            Piece.SetPin(value);
+            isPin = Piece.IsPin;
+            PinCount = Turn;
+        }
+        public void SetPin(bool value)
+        {
+            Piece.SetPin(value);
+            isPin = Piece.IsPin;
+        }
+        public void UpdatePin()
+        {
+            Piece.SetPin(isPin);
         }
     }
 }

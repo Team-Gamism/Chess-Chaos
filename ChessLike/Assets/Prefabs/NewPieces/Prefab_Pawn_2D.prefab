@@ -54,9 +54,81 @@ MonoBehaviour:
   Moved:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 6877720016222505670, guid: 7885d2d8d04a7504ab891c0e3b3ebca3, type: 3}
+        m_TargetAssemblyTypeName: ChessEngine.Game.VisualChessPiece, Assembly-CSharp
+        m_MethodName: AddMoveCount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 6809268350922137914}
         m_TargetAssemblyTypeName: ChessEngine.Game.VisualChessPiece, Assembly-CSharp
-        m_MethodName: AddTurnCount
+        m_MethodName: SetTwoMove
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6809268350922137914}
+        m_TargetAssemblyTypeName: ChessEngine.Game.VisualChessPiece, Assembly-CSharp
+        m_MethodName: UpdateTwoMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6809268350922137914}
+        m_TargetAssemblyTypeName: ChessEngine.Game.VisualChessPiece, Assembly-CSharp
+        m_MethodName: SetMoveSide
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6809268350922137914}
+        m_TargetAssemblyTypeName: ChessEngine.Game.VisualChessPiece, Assembly-CSharp
+        m_MethodName: UpdateMoveSide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6809268350922137914}
+        m_TargetAssemblyTypeName: ChessEngine.Game.VisualChessPiece, Assembly-CSharp
+        m_MethodName: SetSnakePawn
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6809268350922137914}
+        m_TargetAssemblyTypeName: ChessEngine.Game.VisualChessPiece, Assembly-CSharp
+        m_MethodName: UpdateSnakePawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -96,6 +168,13 @@ MonoBehaviour:
   VisualsUpdated:
     m_PersistentCalls:
       m_Calls: []
+  isRevenge: 0
+  isShield: 0
+  isTwoMove: 0
+  isMoveSide: 0
+  isSnakePawn: 0
+  isPin: 0
+  PinCount: 0
   moveCount: 0
 --- !u!114 &7792909692617497112
 MonoBehaviour:
@@ -208,7 +287,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 563225291
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

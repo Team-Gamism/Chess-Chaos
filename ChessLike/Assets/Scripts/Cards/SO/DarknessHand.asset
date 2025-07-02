@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: "\uC5B4\uB460 \uC18D\uC758 \uC190"
   Description: "\uC0C1\uB300 \uAE30\uBB3C\uC744 1\uD134 \uB3D9\uC548 \uACE0\uC815\uC2DC\uD0B5\uB2C8\uB2E4."
-  isOwn: 0
+  isOwn: 1
   skillType: 1
-  pieces: 
+  pieces: 01000000020000000300000004000000
   isZone: 0
   RequireZoneCnt: 0
   MaxZoneCnt: 0
   cantMoveCnt: 0
-  isPiece: 0
-  RequirePieceCnt: 0
-  MaxPieceCount: 0
+  isPiece: 1
+  RequirePieceCnt: 1
+  MaxPieceCount: 1
   cardTier: 2
   cardImage: {fileID: 21300000, guid: 44a054df1702e39458b7072b08d0f212, type: 3}

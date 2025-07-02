@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Unity.VisualScripting;
 
 namespace ChessEngine.AI.Stockfish
 {
@@ -190,6 +191,7 @@ namespace ChessEngine.AI.Stockfish
             // If we've reached this point in the function (hasn't returned) then pick the move at random.
             // Build a list of chess pieces whose color matches the AI team color in the main ChessInstance.
             List<ChessPiece> friendlyPieces = GetPieces(Team, ChessInstance);
+            friendlyPieces.RemoveAll(p => p.IsPin);
 
             // Only submit a move if there is at least 1 valid piece.
             if (friendlyPieces.Count > 0)
