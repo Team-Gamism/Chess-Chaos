@@ -311,7 +311,7 @@ namespace ChessEngine.Game
                 {
                     pieceSelector = FindObjectOfType<PieceSelector>();
 
-                    if (GetVisualPiece() == null) return;
+                    if (GetVisualPiece() == null && GetVisualPiece().Piece.Color != pieceSelector.SelectColor) return;
 
                     if (pieceSelector.type == PieceSkillType.Shield)
                     {

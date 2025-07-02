@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using ChessEngine;
 using ChessEngine.Game;
+using ChessEngine.Game.AI;
 using UnityEngine;
 
 public class DarknessHand : MonoBehaviour, IPieceSkill
@@ -21,7 +22,7 @@ public class DarknessHand : MonoBehaviour, IPieceSkill
 						skillType: skillType,
 						pieceTypes: pieceTypes,
 						isAll: false,
-						color: ChessColor.Black);
+						color: FindObjectOfType<ChessAIGameManager>().IsBlackAIEnabled ? ChessColor.Black : ChessColor.White);
     }
 
     public void Execute(List<VisualChessPiece> pieces)

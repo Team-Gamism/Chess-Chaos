@@ -311,14 +311,14 @@ namespace ChessEngine.Game.AI
 
             foreach (VisualChessPiece p in pieces)
             {
-                if (p.PinCount > 0)
+                if (p.PinCount > 1)
                 {
                     p.PinCount--;
                     p.UpdatePin();
                 }
                 else
                 {
-                    p.SetPin(false);
+                    p.SetPin(false, 0);
                 }
             }
         }

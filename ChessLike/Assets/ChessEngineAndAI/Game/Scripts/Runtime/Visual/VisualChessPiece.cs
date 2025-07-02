@@ -77,6 +77,9 @@ namespace ChessEngine.Game
         [SerializeField]
         private int moveCount;
 
+        [SerializeField]
+        private SpriteHandler spriteHandler;
+
         // Unity callback(s).
         #region Unity Callbacks
         void Awake()
@@ -326,6 +329,7 @@ namespace ChessEngine.Game
             Piece.SetPin(value);
             isPin = Piece.IsPin;
             PinCount = Turn;
+            CheckPin();
         }
         public void SetPin(bool value)
         {
@@ -335,6 +339,29 @@ namespace ChessEngine.Game
         public void UpdatePin()
         {
             Piece.SetPin(isPin);
+        }
+        private void CheckPin()
+        {
+            if (isPin)
+            {
+                spriteHandler.ChainEffectOn();
+            }
+            else
+            {
+                spriteHandler.ChainEffectOff();
+            }
+        }
+        public void PieceSelect()
+        {
+            SpriteRenderer spriteRenderer = Renderer as SpriteRenderer;
+            spriteRenderer.sortingLayerName = "UI";
+            spriteRenderer.sortingOrder = 2;
+        }
+        public void PieceDeselect()
+        {
+            SpriteRenderer spriteRenderer = Renderer as SpriteRenderer;
+            spriteRenderer.sortingLayerName = "Piece";
+            spriteRenderer.sortingOrder = 0;
         }
     }
 }

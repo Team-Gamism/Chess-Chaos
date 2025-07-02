@@ -175,6 +175,8 @@ public class PieceSelector : MonoBehaviour
 		render.color = Color.white;
 		render.material.SetTexture("_MainTex", render.sprite.texture);
 		render.material.SetFloat("_OutlineThick", 1f);
+
+		tile.GetVisualPiece().PieceSelect();
 	}
 
 	public void PieceDeselect(VisualChessTableTile tile)
@@ -184,6 +186,8 @@ public class PieceSelector : MonoBehaviour
 		render.color = Color.white;
 		render.material.SetTexture("_MainTex", render.sprite.texture);
 		render.material.SetFloat("_OutlineThick", 0f);
+
+		tile.GetVisualPiece().PieceDeselect();
 	}
 
 }
