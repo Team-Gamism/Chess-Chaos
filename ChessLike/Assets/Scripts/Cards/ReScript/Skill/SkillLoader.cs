@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using ChessEngine;
 using ChessEngine.Game;
+using ChessEngine.Game.AI;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -83,7 +84,7 @@ public class SkillLoader : MonoBehaviour
 		else
 		{
 			if (currentSkillType == SkillType.Piece)
-				pieceSkill.LoadSelector(cardData.pieces, !cardData.isOwn, ChessColor.White);
+				pieceSkill.LoadSelector(cardData.pieces, !cardData.isOwn, !FindObjectOfType<ChessAIGameManager>().IsBlackAIEnabled ? ChessColor.Black : ChessColor.White);
 			else
 				tableSkill.LoadSelector();
 		}

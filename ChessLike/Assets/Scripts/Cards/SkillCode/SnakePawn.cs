@@ -28,8 +28,7 @@ public class SnakePawn : MonoBehaviour, IPieceSkill
     {
 		for (int i = 0; i < pieces.Count; i++)
 		{
-			pieces[i].isSnakePawn = true;
-			pieces[i].UpdateSnakePawn();
+			pieces[i].SetSnakePawn(true);
 		}
 		
         ncard.DOEndAnimation();

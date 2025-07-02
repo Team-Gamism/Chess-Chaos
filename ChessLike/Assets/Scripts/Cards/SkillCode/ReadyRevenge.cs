@@ -31,8 +31,7 @@ public class ReadyRevenge : MonoBehaviour, IPieceSkill
     {
 		for (int i = 0; i < pieces.Count; i++)
 		{
-			pieces[i].isRevenge = true;
-			pieces[i].UpdateRevenge();
+			pieces[i].SetRevenge(true);
 		}
 		
 		ncard.DOEndAnimation();

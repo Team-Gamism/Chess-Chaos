@@ -167,8 +167,15 @@ namespace ChessEngine.Game
         public void UpdatePosition()
         {
             // Set the local position of the piece.
-            transform.DOLocalMove(VisualTable.GetVisualTile(Piece.Tile).GetLocalPosition(VisualTable) + offset, 0.5f)
-                .SetEase(Ease.OutQuint);
+            if (transform.localPosition == Vector3.zero)
+            {
+                transform.localPosition = VisualTable.GetVisualTile(Piece.Tile).GetLocalPosition(VisualTable) + offset;
+            }
+            else
+            {
+                transform.DOLocalMove(VisualTable.GetVisualTile(Piece.Tile).GetLocalPosition(VisualTable) + offset, 0.5f)
+                    .SetEase(Ease.OutQuint);
+            }
 
             // Invoke the 'PositionUpdated' Unity event.
             PositionUpdated?.Invoke(this);
@@ -195,11 +202,6 @@ namespace ChessEngine.Game
             FindObjectOfType<ChessGameManager>().TurnAdded?.Invoke();
         }
 
-        private void Update()
-        {
-            isShield = Piece.IsShield;
-            isRevenge = Piece.IsRevenge;
-        }
         #endregion
         #region Generic Methods
         /// <summary>
@@ -281,55 +283,54 @@ namespace ChessEngine.Game
             Piece.SetRevenge(value);
             isRevenge = Piece.IsRevenge;
         }
-        public void UpdateRevenge()
-        {
-            Piece.SetRevenge(isRevenge);
-        }
+        // public void UpdateRevenge()
+        // {
+        //     Piece.SetRevenge(isRevenge);
+        // }
 
         public void SetShield(bool value)
         {
             Piece.SetShield(value);
             isShield = Piece.IsShield;
         }
-        public void UpdateShield()
-        {
-            Piece.SetShield(isShield);
-        }
+        // public void UpdateShield()
+        // {
+        //     Piece.SetShield(isShield);
+        // }
 
         public void SetTwoMove(bool value)
         {
             Piece.SetTwoMove(value);
             isTwoMove = Piece.IsTwoMove;
         }
-        public void UpdateTwoMove()
-        {
-            Piece.SetTwoMove(isTwoMove);
-        }
+        // public void UpdateTwoMove()
+        // {
+        //     Piece.SetTwoMove(isTwoMove);
+        // }
         public void SetMoveSide(bool value)
         {
             Piece.SetMoveSide(value);
             isMoveSide = Piece.IsMoveSide;
         }
-        public void UpdateMoveSide()
-        {
-            Piece.SetMoveSide(isMoveSide);
-        }
+        // public void UpdateMoveSide()
+        // {
+        //     Piece.SetMoveSide(isMoveSide);
+        // }
 
         public void SetSnakePawn(bool value)
         {
             Piece.SetSnakePawn(value);
             isSnakePawn = Piece.IsSnakePawn;
         }
-        public void UpdateSnakePawn()
-        {
-            Piece.SetSnakePawn(isSnakePawn);
-        }
+        // public void UpdateSnakePawn()
+        // {
+        //     Piece.SetSnakePawn(isSnakePawn);
+        // }
         public void SetPin(bool value, int Turn)
         {
             Piece.SetPin(value);
             isPin = Piece.IsPin;
             PinCount = Turn;
-            CheckPin();
         }
         public void SetPin(bool value)
         {
@@ -340,9 +341,9 @@ namespace ChessEngine.Game
         {
             Piece.SetPin(isPin);
         }
-        private void CheckPin()
+        public void EffectHandler(bool value)
         {
-            if (isPin)
+            if (value)
             {
                 spriteHandler.ChainEffectOn();
             }
@@ -351,6 +352,7 @@ namespace ChessEngine.Game
                 spriteHandler.ChainEffectOff();
             }
         }
+
         public void PieceSelect()
         {
             SpriteRenderer spriteRenderer = Renderer as SpriteRenderer;
@@ -362,6 +364,10 @@ namespace ChessEngine.Game
             SpriteRenderer spriteRenderer = Renderer as SpriteRenderer;
             spriteRenderer.sortingLayerName = "Piece";
             spriteRenderer.sortingOrder = 0;
+        }
+        public void ChangeQueen()
+        {
+            Piece.Table.ChessInstance.QueenAny(Piece);
         }
     }
 }

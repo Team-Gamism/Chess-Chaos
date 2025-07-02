@@ -28,8 +28,7 @@ public class PawnMoveOnce : MonoBehaviour, IPieceSkill
     {
 		for (int i = 0; i < pieces.Count; i++)
 		{
-			pieces[i].isTwoMove = true;
-			pieces[i].UpdateTwoMove();
+			pieces[i].SetMoveSide(true);
 		}
 		
         ncard.DOEndAnimation();

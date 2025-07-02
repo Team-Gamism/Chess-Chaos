@@ -52,5 +52,7 @@ public enum PieceSkillType
     ReturnPiece,
     IsPin,
     IsMoveSide,
-    IsSnakePawn
+    IsSnakePawn,
+    GodsOne,
+    DimensionBreak
 }

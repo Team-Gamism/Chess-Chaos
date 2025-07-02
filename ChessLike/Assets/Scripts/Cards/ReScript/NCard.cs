@@ -10,7 +10,6 @@ public class NCard : MonoBehaviour, IPointerClickHandler
 	public CardData cardData;
 
 	private ICardSkill skill;
-	private bool isFirst = false;
 
 	private void Start()
 	{
@@ -25,8 +24,8 @@ public class NCard : MonoBehaviour, IPointerClickHandler
 		Vector2 vec = new Vector2(rect.anchoredPosition.x, -500);
 		GetComponent<RectTransform>().anchoredPosition = vec;
 
-		float Delay = !isFirst ? 2.5f : 0.3f;
-		GetComponent<RectTransform>().DOAnchorPosY(0, 0.7f).SetEase(Ease.OutQuint).SetDelay(Delay).OnComplete(() => { isFirst = true; });
+		float Delay = 0.5f;
+		GetComponent<RectTransform>().DOAnchorPosY(0, 0.7f).SetEase(Ease.OutQuint).SetDelay(Delay);
 	}
 	private void CloseCard()
 	{

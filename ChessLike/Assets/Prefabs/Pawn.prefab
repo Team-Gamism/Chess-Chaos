@@ -72,7 +72,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7fc16a360525a7a48a62c0c9d07fc25c, type: 3}
+  m_Sprite: {fileID: 1695917087, guid: 59283a7737315fd4faf3f074b5c0814c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -101,6 +101,7 @@ MonoBehaviour:
   StaticedTurn: 0
   IsSnakePawn: 0
   IsShield: 0
+  DownAnimation: 1
   Outline: {fileID: 2100000, guid: 5b94710b53c1eed419b21cb857857dbb, type: 2}
   coordinate: {x: 0, y: 0}
   curTable: {fileID: 0}
@@ -336,7 +337,7 @@ MonoBehaviour:
   m_PixelsPerUnitMultiplier: 1
 --- !u!95 &1762091581964502381
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -350,6 +351,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1

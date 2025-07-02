@@ -454,13 +454,13 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			if (pieceData.IsPlayerPiece && GameManager.instance.GodsOne && pieceData.PieceType != PieceType.King)
 			{
 				GodsOne weirdCastling = FindObjectOfType<GodsOne>();
-				weirdCastling.SetpieceData(pieceData);
+				//weirdCastling.SetpieceData(pieceData);
 			}
 
 			if (!pieceData.IsPlayerPiece && GameManager.instance.DimensionBreak && pieceData.PieceType != PieceType.King)
 			{
 				DimensionBreak dimensionBreak = FindObjectOfType<DimensionBreak>();
-				dimensionBreak.SetpieceData(pieceData);
+				//dimensionBreak.SetpieceData(pieceData);
 			}
 
 			if (pieceData.IsPlayerPiece && GameManager.instance.ChaosKnight && pieceData.PieceType == PieceType.Knight)

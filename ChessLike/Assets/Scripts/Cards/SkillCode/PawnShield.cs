@@ -31,8 +31,7 @@ public class PawnShield : MonoBehaviour, IPieceSkill
     {
 		for (int i = 0; i < pieces.Count; i++)
 		{
-			pieces[i].isShield = true;
-			pieces[i].UpdateShield();
+			pieces[i].SetShield(true);
 		}
 		
 		ncard.DOEndAnimation();

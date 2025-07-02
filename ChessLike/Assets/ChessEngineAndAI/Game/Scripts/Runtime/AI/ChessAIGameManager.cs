@@ -250,6 +250,19 @@ namespace ChessEngine.Game.AI
                     // Ensure it is tilePiece's turn.
                     if (ChessInstance.turn == tilePiece.Color)
                     {
+                        if (tilePiece.IsPin)
+                        {
+                            if (WhiteAIInstance != null)
+                            {
+                                WhiteAIInstance.RequestBestMove(whiteAIThinkDepth, whiteAIThinkTime);
+                                return;
+                            }
+                            if (BlackAIInstance != null)
+                            {
+                                BlackAIInstance.RequestBestMove(blackAIThinkDepth, blackAIThinkTime);
+                                return;
+                            }
+                        }
                         // Ensure there is a valid tile at 'pTo'.
                         ChessTableTile toTile = ChessInstance.Table.GetTile(pTo);
                         if (toTile != null)
@@ -267,6 +280,7 @@ namespace ChessEngine.Game.AI
                                     return;
                                 }
                             }
+
                             // Confirm the move is legal.
                             var validMoves = tilePiece.GetValidMoves();
                             var validAttacks = tilePiece.GetValidAttacks();
@@ -274,8 +288,6 @@ namespace ChessEngine.Game.AI
                             {
                                 // Move the 'tilePiece' to the 'pTo' tile attacking any piece on 'toTile'.
                                 MoveInfo moveInfo = tilePiece.Move(pTo, toTile.GetPiece());
-
-                                Debug.Log(pTo);
 
                                 // Reset selection.
                                 Deselect();
@@ -311,13 +323,16 @@ namespace ChessEngine.Game.AI
 
             foreach (VisualChessPiece p in pieces)
             {
-                if (p.PinCount > 1)
+                if (!p.isPin) continue;
+
+                if (p.PinCount >= 1)
                 {
                     p.PinCount--;
                     p.UpdatePin();
                 }
                 else
                 {
+                    p.EffectHandler(false);
                     p.SetPin(false, 0);
                 }
             }

@@ -30,7 +30,7 @@ public class DarknessHand : MonoBehaviour, IPieceSkill
 		for (int i = 0; i < pieces.Count; i++)
 		{
 			pieces[i].SetPin(true, 2);
-			pieces[i].UpdatePin();
+			pieces[i].EffectHandler(true);
 		}
 		
         ncard.DOEndAnimation();

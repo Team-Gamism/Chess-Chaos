@@ -127,6 +127,7 @@ namespace ChessEngine.AI.Stockfish
             {
                 // Build a list of chess pieces whose color matches the AI team color in the main ChessInstance.
                 List<ChessPiece> friendlyPieces = GetPieces(Team, ChessInstance);
+                friendlyPieces.RemoveAll(p => p.IsPin);
 
                 // Only submit a move if there is at least 1 valid piece.
                 if (friendlyPieces.Count > 0)
@@ -177,7 +178,7 @@ namespace ChessEngine.AI.Stockfish
             if (moveFromTile != null)
             {
                 ChessTableTile moveToTile = ChessInstance.Table.GetTileByID(moveToID);
-                if (moveToTile != null)
+                if (moveToTile != null && !moveToTile.IsTileBlock)
                 {
                     // No longer awaiting best move.
                     IsAwaitingBestMove = false;
@@ -193,6 +194,7 @@ namespace ChessEngine.AI.Stockfish
             List<ChessPiece> friendlyPieces = GetPieces(Team, ChessInstance);
             friendlyPieces.RemoveAll(p => p.IsPin);
 
+            UnityEngine.Debug.Log(friendlyPieces.Count);
             // Only submit a move if there is at least 1 valid piece.
             if (friendlyPieces.Count > 0)
             {

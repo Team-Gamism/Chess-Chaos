@@ -1,57 +1,50 @@
-using System.Linq;
-using DG.Tweening;
+using System.Collections.Generic;
+using ChessEngine;
+using ChessEngine.Game;
+using ChessEngine.Game.AI;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class DimensionBreak : MonoBehaviour, ICardSkill
+public class DimensionBreak : MonoBehaviour, IPieceSkill
 {
-    private TableManager tableManager;
-    private RectTransform rectTransform;
-    [SerializeField]
-    private MultiPieceSelector selector;
+	public PieceSelector selector;
 
-    public PieceData[] pieceData;
-    private CardData cardData;
-    private NCard ncard;
-    private void Start()
-    {
-        tableManager = FindObjectOfType<TableManager>();
-        rectTransform = GetComponent<RectTransform>();
-        ncard = GetComponent<NCard>();
-    }
+	private NCard ncard;
+	public PieceSkillType skillType;
+	private void Start()
+	{
+		ncard = GetComponent<NCard>();
+	}
 
-    public void SetpieceData(PieceData pieceData)
-    {
-        selector.QueueManage(pieceData);
-    }
+	public void LoadSelector(List<ChessPieceType> pieceTypes, bool isAll, ChessColor color)
+	{
+		selector.gameObject.SetActive(true);
+		selector.SetField(cardData: ncard.cardData,
+						skillType: skillType,
+						pieceTypes: pieceTypes,
+						isAll: false,
+						color: FindObjectOfType<ChessAIGameManager>().IsBlackAIEnabled ? ChessColor.Black : ChessColor.White);
+	}
 
-    public void Execute()
-    {
-        GameManager.instance.DimensionBreak = true;
-        cardData = GetComponent<NCard>().cardData;
-        selector.cardData = cardData;
-        selector.gameObject.SetActive(true);
+	public void Execute(List<VisualChessPiece> pieces)
+	{
+		for (int i = 0; i < pieces.Count; i++)
+		{
+			string Rand = "";
+			do
+			{
+				Rand = "";
+				Rand += (char)Random.Range(97, 105);
+				Rand += Random.Range(1, 9);
+			} while (pieces[i].VisualTable.GetVisualTileByID(Rand) == null &&
+				pieces[i].VisualTable.GetVisualTileByID(Rand).isTileblock &&
+				pieces[i].VisualTable.GetVisualTileByID(Rand).GetVisualPiece() != null
+				);
+			pieces[i].VisualTable.GetVisualTileByID(Rand).Tile.MovePieceToTileNotCond(pieces[i].Piece, false);
+		}
 
-        selector.EnableImage(false);
-    }
 
-    public void Execute(PieceData none)
-    {
-        pieceData = selector.ReturnPieces();
-
-        MovePieces();
-
-        GameManager.instance.DimensionBreak = false;
-        ncard.DOEndAnimation();
-    }
-    private void MovePieces()
-    {
-        for (int i = 0; i < pieceData.Length; i++)
-        {
-            Vector2Int coord = tableManager.ReturnRandomCoordinate();
-            Debug.Log(coord);
-            pieceData[i].GetComponent<PieceHandler>().MovePieceByCoordinate(coord);
-        }
-
-        GameManager.instance.SortPieceSibling();
-    }
+		ncard.DOEndAnimation();
+	}
 }
+

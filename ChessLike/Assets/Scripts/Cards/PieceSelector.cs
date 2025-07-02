@@ -116,7 +116,7 @@ public class PieceSelector : MonoBehaviour
 		OnDestroyEntity.AddListener((t) =>
 		{
 			TileDeselect(t);
-			PieceDeselect(t);
+			PieceDeselect(t.GetVisualPiece());
 		});
 
 		OnDestroyEntity?.Invoke(tile);
@@ -129,7 +129,7 @@ public class PieceSelector : MonoBehaviour
 		{
 			selectedPieces.Remove(tile);
 			TileDeselect(tile);
-			PieceDeselect(tile);
+			PieceDeselect(tile.GetVisualPiece());
 		}
 	}
 
@@ -141,7 +141,7 @@ public class PieceSelector : MonoBehaviour
 		OnDestroyEntity.AddListener((t) =>
 		{
 			TileDeselect(t);
-			PieceDeselect(t);
+			PieceDeselect(t.GetVisualPiece());
 		});
 
 		OnDestroyEntity?.Invoke(tile1);
@@ -179,15 +179,16 @@ public class PieceSelector : MonoBehaviour
 		tile.GetVisualPiece().PieceSelect();
 	}
 
-	public void PieceDeselect(VisualChessTableTile tile)
+	public void PieceDeselect(VisualChessPiece piece)
 	{
-		SpriteRenderer render = tile.GetVisualPiece().Renderer as SpriteRenderer;
+		Debug.Log(piece != null ? false : true);
+		SpriteRenderer render = piece.Renderer as SpriteRenderer;
 		render.material = Instantiate(OutlineMaterial);
 		render.color = Color.white;
 		render.material.SetTexture("_MainTex", render.sprite.texture);
 		render.material.SetFloat("_OutlineThick", 0f);
 
-		tile.GetVisualPiece().PieceDeselect();
+		piece.PieceDeselect();
 	}
 
 }

@@ -98,22 +98,13 @@ namespace ChessEngine.Game
             isTileblock = false;
 
             // Reset the position of the tile.
-            ResetPosition(idx);
-        }
-
-        private void OnValidate()
-        {
-            if (isTileblock)
-                UpdateTileBlock();
-            // else
-            //     CloseTileBlock();
+            ResetPosition();
         }
 
         /// <summary>Resets the position of the visual chess table tile.</summary>
-        public void ResetPosition(int idx)
+        public void ResetPosition()
         {
             transform.localPosition = GetLocalPosition(VisualChessTable);
-            AppearAnimation(idx);
 
             // Invoke the PositionReset Unity event.
             PositionReset?.Invoke(this);
@@ -132,25 +123,6 @@ namespace ChessEngine.Game
 
             // Invoke the PositionReset Unity event.
             TileBlocked?.Invoke();
-        }
-
-        //타일 등장 애니메이션
-        public void AppearAnimation(int idx)
-        {
-            //Dotween Animation Setup
-            Vector3 pos = transform.position;
-            transform.position += Vector3.up * -13f;
-
-            //Dotween Sequence Set
-            DG.Tweening.Sequence seq = DOTween.Sequence();
-
-            SpriteRenderer rend = Renderer as SpriteRenderer;
-            rend.sortingOrder = idx;
-
-            seq.AppendInterval(idx * 0.03f);
-            seq.Append(transform.DOMove(pos, 1f).From(transform.position).SetEase(Ease.OutBack));
-
-            seq.Play();
         }
 
         /// <summary>
@@ -311,7 +283,7 @@ namespace ChessEngine.Game
                 {
                     pieceSelector = FindObjectOfType<PieceSelector>();
 
-                    if (GetVisualPiece() == null && GetVisualPiece().Piece.Color != pieceSelector.SelectColor) return;
+                    if (GetVisualPiece() == null || GetVisualPiece().Piece.Color != pieceSelector.SelectColor) return;
 
                     if (pieceSelector.type == PieceSkillType.Shield)
                     {
@@ -339,6 +311,21 @@ namespace ChessEngine.Game
                         AddPieceSelectorAttribute();
                     }
                     else if (pieceSelector.type == PieceSkillType.IsPin)
+                    {
+                        if (GetVisualPiece().isPin) return;
+                        AddPieceSelectorAttribute();
+                    }
+                    else if (pieceSelector.type == PieceSkillType.GodsOne)
+                    {
+                        if (GetVisualPiece().isShield ||
+                            GetVisualPiece().isRevenge ||
+                            GetVisualPiece().isTwoMove ||
+                            GetVisualPiece().isMoveSide ||
+                            GetVisualPiece().isSnakePawn ||
+                            GetVisualPiece().isPin) return;
+                        AddPieceSelectorAttribute();
+                    }
+                    else if (pieceSelector.type == PieceSkillType.DimensionBreak)
                     {
                         if (GetVisualPiece().isPin) return;
                         AddPieceSelectorAttribute();

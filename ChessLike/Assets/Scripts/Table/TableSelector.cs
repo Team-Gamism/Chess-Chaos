@@ -65,7 +65,6 @@ public class TableSelector : MonoBehaviour
 
 	public void DisableImage()
 	{
-		GameManager.instance.isSelectorEnable = false;
 		aIGameManager.isCardSelect = false;
 		DestroyAllEntity();
 		log.SetActive(false);
