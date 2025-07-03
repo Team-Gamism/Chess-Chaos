@@ -1,50 +1,48 @@
-using System.Linq;
+using System.Collections.Generic;
+using ChessEngine;
+using ChessEngine.Game;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
-public class TopChange : MonoBehaviour, ICardSkill
+public class TopChange : MonoBehaviour, IPieceSkill
 {
-	private TableManager tableManager;
-	private RectTransform rectTransform;
+	public PieceSelector selector;
 
-	private PieceSelector selector;
-
-	private PieceHandler handler;
 	private NCard ncard;
+	public PieceSkillType skillType;
 	private void Start()
 	{
-		tableManager = FindObjectOfType<TableManager>();
-		rectTransform = GetComponent<RectTransform>();
-
-		selector = FindObjectOfType<PieceSelector>();
 		ncard = GetComponent<NCard>();
 	}
 
-	public void Execute()
+	public void LoadSelector(List<ChessPieceType> pieceTypes, bool isAll, ChessColor color)
 	{
-		GameManager.instance.TopChange = true;
-
-		//selector.EnableImageAndCheckCoord(PieceType.Rook);
+		selector.gameObject.SetActive(true);
+		selector.SetField(cardData: ncard.cardData,
+						skillType: skillType,
+						pieceTypes: pieceTypes,
+						isAll: false,
+						color: color);
 	}
 
-	public void SetHandler(PieceHandler handler)
+	public void Execute(List<VisualChessPiece> pieces)
 	{
-		this.handler = handler;
-	}
+		TileIndex t = pieces[0].Piece.TileIndex;
 
+		int reverseX = 7 - t.x;
+		int reverseY = 7 - t.y;
 
-	public void Execute(PieceData piece)
-	{
-		Vector2Int coord = handler.GetComponent<PieceData>().coordinate;
-		Vector2Int newCoord = new Vector2Int(7 - coord.x, 7 - coord.y);
+		TileIndex newT = new TileIndex
+		{
+			x = reverseX,
+			y = reverseY
+		};
 
-		handler.MovePieceByCoordinate(newCoord);
+		ChessTableTile tile = pieces[0].VisualTable.Table.GetTile(newT);
 
-		FindObjectOfType<PieceSelector>().DisableImage();
+		tile.MovePieceToTileNotCond(pieces[0].Piece, false);
+        
 		ncard.DOEndAnimation();
 	}
-
-	private Vector2Int reverseCoordinate(Vector2Int coord)
-	{
-		return new Vector2Int(7 - coord.x, 7 - coord.y);
-	}
 }
+

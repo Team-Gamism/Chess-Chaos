@@ -55,5 +55,6 @@ public enum PieceSkillType
     IsSnakePawn,
     GodsOne,
     DimensionBreak,
-    Any
+    Any,
+    TopChange
 }

@@ -72,6 +72,7 @@ namespace ChessEngine.Game
         public bool isSnakePawn = false;
         public bool isPin = false;
         public int PinCount = 0;
+        public bool isEmerReturn = false;
         #endregion
 
         [SerializeField]
@@ -189,6 +190,14 @@ namespace ChessEngine.Game
 
             // Invoke the 'RotationUpdated' Unity event.
             RotationUpdated?.Invoke(this);
+        }
+
+        public void EmerReturn()
+        {
+            if (isEmerReturn)
+            {
+                ResetRotation();
+            }
         }
 
         public void AddMoveCount()
@@ -369,5 +378,11 @@ namespace ChessEngine.Game
         {
             Piece.Table.ChessInstance.QueenAny(Piece);
         }
+        public void SetEmerReturn(bool value)
+        {
+            Piece.SetEmerReturn(value);
+            isEmerReturn = Piece.IsEmerReturn;
+        }
+    
     }
 }

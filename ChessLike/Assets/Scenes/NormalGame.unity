@@ -6398,7 +6398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &355045422
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6776,7 +6776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &473471415
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6927,6 +6927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e479ec8e26d9204a976de2373041c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selector: {fileID: 376395158}
+  skillType: 13
 --- !u!1 &474577669
 GameObject:
   m_ObjectHideFlags: 0
@@ -12470,6 +12472,7 @@ GameObject:
   - component: {fileID: 5396990769402972349}
   - component: {fileID: 8952516743719737489}
   - component: {fileID: 8952516743719737490}
+  - component: {fileID: 8952516743719737492}
   m_Layer: 0
   m_Name: Prefab_ChessAIGameManager
   m_TagString: Untagged
@@ -12720,6 +12723,52 @@ MonoBehaviour:
   PostUciInitialized:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8952516743719737492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396990769402972338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8794e9d4021669c449d9718498529f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0, z: 0}
+  m_RendererOverride: {fileID: 0}
+  m_WhiteMaterial: {fileID: 0}
+  m_BlackMaterial: {fileID: 0}
+  Moved:
+    m_PersistentCalls:
+      m_Calls: []
+  Captured:
+    m_PersistentCalls:
+      m_Calls: []
+  Initialized:
+    m_PersistentCalls:
+      m_Calls: []
+  Destroyed:
+    m_PersistentCalls:
+      m_Calls: []
+  PositionUpdated:
+    m_PersistentCalls:
+      m_Calls: []
+  RotationUpdated:
+    m_PersistentCalls:
+      m_Calls: []
+  VisualsUpdated:
+    m_PersistentCalls:
+      m_Calls: []
+  isRevenge: 0
+  isShield: 0
+  isTwoMove: 0
+  isMoveSide: 0
+  isSnakePawn: 0
+  isPin: 0
+  PinCount: 0
+  moveCount: 0
+  spriteHandler: {fileID: 0}
 --- !u!222 &8976345912997469424
 CanvasRenderer:
   m_ObjectHideFlags: 0

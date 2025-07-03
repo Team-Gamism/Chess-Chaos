@@ -431,7 +431,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 			if (pieceData.PieceType == PieceType.Rook && GameManager.instance.TopChange && pieceData.IsPlayerPiece)
 			{
-				FindObjectOfType<TopChange>().SetHandler(this);
+				//FindObjectOfType<TopChange>().SetHandler(this);
 
 				FindObjectOfType<SkillLoader>().ExecuteSkill();
 				GameManager.instance.TopChange = false;

@@ -105,7 +105,19 @@ MonoBehaviour:
         m_CallState: 2
   Captured:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6809268350922137914}
+        m_TargetAssemblyTypeName: ChessEngine.Game.VisualChessPiece, Assembly-CSharp
+        m_MethodName: EmerReturn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   Initialized:
     m_PersistentCalls:
       m_Calls:
@@ -140,6 +152,7 @@ MonoBehaviour:
   isSnakePawn: 0
   isPin: 0
   PinCount: 0
+  isEmerReturn: 0
   moveCount: 0
   spriteHandler: {fileID: 8160048441501836949}
 --- !u!114 &7792909692617497112

@@ -340,6 +340,11 @@ namespace ChessEngine.Game
                         if (GetVisualPiece().isPin) return;
                         AddPieceSelectorAttribute();
                     }
+                    else if (pieceSelector.type == PieceSkillType.TopChange)
+                    {
+                        if (GetVisualPiece().isPin) return;
+                        AddPieceSelectorAttribute();
+                    }
                 }
             }
         }

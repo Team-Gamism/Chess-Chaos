@@ -190,7 +190,6 @@ public class PieceSelector : MonoBehaviour
 
 	public void PieceDeselect(VisualChessPiece piece)
 	{
-		Debug.Log(piece != null ? false : true);
 		SpriteRenderer render = piece.Renderer as SpriteRenderer;
 		render.material = Instantiate(OutlineMaterial);
 		render.color = Color.white;
