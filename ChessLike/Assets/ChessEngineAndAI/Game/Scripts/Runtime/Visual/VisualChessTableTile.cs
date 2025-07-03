@@ -338,7 +338,7 @@ namespace ChessEngine.Game
         {
             if (pieceSelector.selectedPieces.Count < pieceSelector.cardData.MaxPieceCount)
             {
-                if (!pieceSelector.selectedPieces.Contains(this) &&
+                if (!pieceSelector.selectedPieces.Contains(GetVisualPiece()) &&
                     pieceSelector.pieceTypes.Contains(GetVisualPiece().Piece.GetChessPieceType()))
                     pieceSelector.AddEntity(this);
                 else
@@ -346,7 +346,7 @@ namespace ChessEngine.Game
             }
             else
             {
-                if (!pieceSelector.selectedPieces.Contains(this) && 
+                if (!pieceSelector.selectedPieces.Contains(GetVisualPiece()) && 
                     pieceSelector.pieceTypes.Contains(GetVisualPiece().Piece.GetChessPieceType()))
                 {
                     pieceSelector.DestroyFirstEntity();

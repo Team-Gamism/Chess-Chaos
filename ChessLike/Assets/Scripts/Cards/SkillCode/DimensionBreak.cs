@@ -3,7 +3,6 @@ using ChessEngine;
 using ChessEngine.Game;
 using ChessEngine.Game.AI;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class DimensionBreak : MonoBehaviour, IPieceSkill
 {
@@ -42,7 +41,6 @@ public class DimensionBreak : MonoBehaviour, IPieceSkill
 				);
 			pieces[i].VisualTable.GetVisualTileByID(Rand).Tile.MovePieceToTileNotCond(pieces[i].Piece, false);
 		}
-
 
 		ncard.DOEndAnimation();
 	}

@@ -3,6 +3,7 @@ using System.Linq;
 using ChessEngine;
 using ChessEngine.Game;
 using ChessEngine.Game.AI;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -23,7 +24,8 @@ public class PieceSelector : MonoBehaviour
 	public bool Donable = false;
 
 	private static List<VisualChessTableTile> tiles;
-	public List<VisualChessTableTile> selectedPieces = new List<VisualChessTableTile>();
+	public List<VisualChessPiece> selectedPieces = new List<VisualChessPiece>();
+	public List<VisualChessTableTile> selectedTiles = new List<VisualChessTableTile>();
 	public List<ChessPieceType> pieceTypes = new List<ChessPieceType>();
 	public ChessColor SelectColor;
 
@@ -98,7 +100,8 @@ public class PieceSelector : MonoBehaviour
 
 	public void AddEntity(VisualChessTableTile tile)
 	{
-		selectedPieces.Add(tile);
+		selectedPieces.Add(tile.GetVisualPiece());
+		selectedTiles.Add(tile);
 		OnAddEntity.RemoveAllListeners();
 		OnAddEntity.AddListener((t) =>
 		{
@@ -111,7 +114,8 @@ public class PieceSelector : MonoBehaviour
 
 	public void DestroyEntity(VisualChessTableTile tile)
 	{
-		selectedPieces.Remove(tile);
+		selectedPieces.Remove(tile.GetVisualPiece());
+		selectedTiles.Remove(tile);
 		OnDestroyEntity.RemoveAllListeners();
 		OnDestroyEntity.AddListener((t) =>
 		{
@@ -124,24 +128,29 @@ public class PieceSelector : MonoBehaviour
 
 	public void DestroyAllEntity()
 	{
-		List<VisualChessTableTile> list = selectedPieces.ToList();
-		foreach (VisualChessTableTile tile in list)
+		List<VisualChessTableTile> list = selectedTiles;
+		List<VisualChessPiece> piecelist = selectedPieces;
+
+		for (int i = list.Count - 1; i >= 0; i--)
 		{
-			selectedPieces.Remove(tile);
-			TileDeselect(tile);
-			PieceDeselect(tile.GetVisualPiece());
+			TileDeselect(list[i]);
+			PieceDeselect(piecelist[i]);
+			selectedTiles.RemoveAt(i);
+			selectedPieces.RemoveAt(i);
 		}
 	}
 
 	public void DestroyFirstEntity()
 	{
-		VisualChessTableTile tile1 = selectedPieces[0];
-		selectedPieces.Remove(tile1);
+		VisualChessTableTile tile1 = selectedTiles[0];
+		VisualChessPiece piece1 = selectedPieces[0];
+		selectedTiles.Remove(tile1);
+		selectedPieces.Remove(piece1);
 		OnDestroyEntity.RemoveAllListeners();
 		OnDestroyEntity.AddListener((t) =>
 		{
-			TileDeselect(t);
-			PieceDeselect(t.GetVisualPiece());
+			TileDeselect(tile1);
+			PieceDeselect(piece1);
 		});
 
 		OnDestroyEntity?.Invoke(tile1);
@@ -162,7 +171,7 @@ public class PieceSelector : MonoBehaviour
 
 		for (int i = 0; i < selectedPieces.Count; i++)
 		{
-			list.Add(selectedPieces[i].GetVisualPiece());
+			list.Add(selectedPieces[i]);
 		}
 		skillLoader.ExecuteSkill(list);
 		DisableImage();
