@@ -448,7 +448,7 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 			if (pieceData.IsPlayerPiece && GameManager.instance.WeirdCasting && pieceData.PieceType != PieceType.King)
 			{
 				WeirdCastling weirdCastling = FindObjectOfType<WeirdCastling>();
-				weirdCastling.SetpieceData(pieceData);
+				//weirdCastling.SetpieceData(pieceData);
 			}
 
 			if (pieceData.IsPlayerPiece && GameManager.instance.GodsOne && pieceData.PieceType != PieceType.King)
@@ -465,11 +465,11 @@ public class PieceHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 			if (pieceData.IsPlayerPiece && GameManager.instance.ChaosKnight && pieceData.PieceType == PieceType.Knight)
 			{
-				Debug.Log("조건성립");
-				FindObjectOfType<ChaosKnight>().SetHandler(this);
+				// Debug.Log("조건성립");
+				// FindObjectOfType<ChaosKnight>().SetHandler(this);
 
-				FindObjectOfType<SkillLoader>().ExecuteSkill();
-				GameManager.instance.ChaosKnight = false;
+				// FindObjectOfType<SkillLoader>().ExecuteSkill();
+				// GameManager.instance.ChaosKnight = false;
 			}
 		}
 	}

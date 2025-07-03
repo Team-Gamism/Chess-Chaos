@@ -330,6 +330,16 @@ namespace ChessEngine.Game
                         if (GetVisualPiece().isPin) return;
                         AddPieceSelectorAttribute();
                     }
+                    else if (pieceSelector.type == PieceSkillType.Any)
+                    {
+                        if (GetVisualPiece().isPin) return;
+                        AddPieceSelectorAttribute();
+                    }
+                    else if (pieceSelector.type == PieceSkillType.ChaosKnight)
+                    {
+                        if (GetVisualPiece().isPin) return;
+                        AddPieceSelectorAttribute();
+                    }
                 }
             }
         }

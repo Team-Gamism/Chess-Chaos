@@ -54,5 +54,6 @@ public enum PieceSkillType
     IsMoveSide,
     IsSnakePawn,
     GodsOne,
-    DimensionBreak
+    DimensionBreak,
+    Any
 }

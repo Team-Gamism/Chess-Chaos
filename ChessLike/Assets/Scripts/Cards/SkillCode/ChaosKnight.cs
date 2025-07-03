@@ -1,80 +1,40 @@
 using System.Collections.Generic;
-using System.Linq;
-using DG.Tweening;
+using ChessEngine;
+using ChessEngine.Game;
+using ChessEngine.Game.AI;
 using UnityEngine;
 
-public class ChaosKnight : MonoBehaviour, ICardSkill
+public class ChaosKnight : MonoBehaviour, IPieceSkill
 {
-    private TableManager tableManager;
-    private RectTransform rectTransform;
+	public PieceSelector selector;
 
-    private PieceSelector selector;
+	private NCard ncard;
+	public PieceSkillType skillType;
+	private void Start()
+	{
+		ncard = GetComponent<NCard>();
+	}
 
-    private PieceHandler handler;
-    private NCard ncard;
-    [HideInInspector]
-    public List<Vector2Int> moveOffsetList = new List<Vector2Int>
-        {
-        new Vector2Int(2, -1),
-        new Vector2Int(2, 1),
-        new Vector2Int(1, -2),
-        new Vector2Int(1, 2),
-        new Vector2Int(-1, -2),
-        new Vector2Int(-1, 2),
-        new Vector2Int(-2, -1),
-        new Vector2Int(-2, 1),
-        
-        new Vector2Int(1, 0), new Vector2Int(-1, 0),
-        new Vector2Int(0, 1), new Vector2Int(0, -1),
-        new Vector2Int(1, 1), new Vector2Int(1, -1),
-        new Vector2Int(-1, 1), new Vector2Int(-1, -1),
+	public void LoadSelector(List<ChessPieceType> pieceTypes, bool isAll, ChessColor color)
+	{
+		selector.gameObject.SetActive(true);
+		selector.SetField(cardData: ncard.cardData,
+						skillType: skillType,
+						pieceTypes: pieceTypes,
+						isAll: false,
+						color: color);
+	}
 
-        new Vector2Int(0, 2), new Vector2Int(0, -2),   
-        new Vector2Int(2, 0), new Vector2Int(-2, 0)
-        };
-    private void Start()
-    {
-        tableManager = FindObjectOfType<TableManager>();
-        rectTransform = GetComponent<RectTransform>();
+	public void Execute(List<VisualChessPiece> pieces)
+	{
+        ChessPiece piece = pieces[0].Piece;
+        List<ChessTableTile> tiles = piece.Table.GenerateRangeMoveList(piece.TileIndex, 2);
 
-        selector = FindObjectOfType<PieceSelector>();
-        ncard = GetComponent<NCard>();
-    }
-
-    public void Execute()
-    {
-        GameManager.instance.ChaosKnight = true;
-        //selector.EnableImageAndCheckCoord(PieceType.Knight);
-    }
-
-    public void SetHandler(PieceHandler handler)
-    {
-        this.handler = handler;
-    }
-
-
-    public void Execute(PieceData piece)
-    {
-        Vector2Int coord = RandomOffset(handler.GetComponent<PieceData>());
-
-        handler.MovePieceByCoordinate(coord);
-
-        FindObjectOfType<PieceSelector>().DisableImage();
-        ncard.DOEndAnimation();
-    }
-
-    private Vector2Int RandomOffset(PieceData piece)
-    {
-        int n = 0;
-        Vector2Int coord = Vector2Int.zero;
-        do
-        {
-            n = Random.Range(0, moveOffsetList.Count-1);
-            coord += piece.coordinate + moveOffsetList[n];
-
-        } while (coord.x > 7 && coord.x < 0 &&
-                coord.y > 7 && coord.y < 0);
-
-        return coord;
-    }
+		ChessTableTile tile = tiles[Random.Range(0, tiles.Count - 1)];
+		//지정 타일에 pieces[0]을 이동시키기
+		tile.MovePieceToTileNotCond(piece, false);
+            
+		ncard.DOEndAnimation();
+	}
 }
+

@@ -1,59 +1,40 @@
+using System.Collections.Generic;
 using System.Linq;
+using ChessEngine;
+using ChessEngine.Game;
+using ChessEngine.Game.AI;
 using UnityEngine;
 
-public class WeirdCastling : MonoBehaviour, ICardSkill
+public class WeirdCastling : MonoBehaviour, IPieceSkill
 {
-	private TableManager tableManager;
-	private RectTransform rectTransform;
-	[SerializeField]
-	private MultiPieceSelector selector;
+	public PieceSelector selector;
 
-	public PieceData pieceData;
-	private PieceData King;
-
-	public PieceType[] EnablePieces;
-
-	private CardData cardData;
 	private NCard ncard;
+	public PieceSkillType skillType;
 	private void Start()
 	{
-		tableManager = FindObjectOfType<TableManager>();
-		rectTransform = GetComponent<RectTransform>();
 		ncard = GetComponent<NCard>();
 	}
 
-	public void SetpieceData(PieceData pieceData)
+	public void LoadSelector(List<ChessPieceType> pieceTypes, bool isAll, ChessColor color)
 	{
-		this.pieceData = pieceData;
-		selector.QueueManage(pieceData);
-	}
-
-	public void Execute()
-	{
-		King = FindObjectsOfType<PieceData>().Where(p => p.IsPlayerPiece && p.PieceType == PieceType.King).FirstOrDefault();
-
-		GameManager.instance.WeirdCasting = true;
-		cardData = GetComponent<NCard>().cardData;
-		selector.cardData = cardData;
 		selector.gameObject.SetActive(true);
-
-		selector.EnableImage(EnablePieces);
+		selector.SetField(cardData: ncard.cardData,
+						skillType: skillType,
+						pieceTypes: pieceTypes,
+						isAll: false,
+						color: color);
 	}
 
-	public void Execute(PieceData none)
+	public void Execute(List<VisualChessPiece> pieces)
 	{
-		pieceData = selector.ReturnPiece();
+		//킹과 위치 바꾸기
+		ChessPiece fromPiece = pieces[0].Piece;
+		ChessPiece king = pieces[0].VisualTable.Table.GetKing(!FindObjectOfType<ChessAIGameManager>().IsBlackAIEnabled ? ChessColor.Black : ChessColor.White);
 
-		PieceData n = pieceData;
-		Vector2Int coord = King.coordinate;
+		fromPiece.Tile.MovePieceToPieceTile(king);
 
-		King.GetComponent<PieceHandler>().MovePieceByCoordinate_AnimationDone(n.coordinate);
-		pieceData.GetComponent<PieceHandler>().MovePieceByCoordinate_AnimationDone(coord);
-
-		GameManager.instance.WeirdCasting = false;
-
-		GameManager.instance.SortPieceSibling();
 		ncard.DOEndAnimation();
 	}
-
 }
+

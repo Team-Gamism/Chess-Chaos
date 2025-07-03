@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: "\uAE30\uBB18\uD55C \uCE90\uC2AC\uB9C1"
   Description: "\uC655\uC774 \uBAA8\uB4E0 \uAE30\uBB3C\uACFC \uC704\uCE58\uB97C \uAD50\uD658\uD569\uB2C8\uB2E4."
-  isOwn: 0
+  isOwn: 1
   skillType: 1
-  pieces: 
+  pieces: 0100000002000000030000000400000005000000
   isZone: 0
   RequireZoneCnt: 0
   MaxZoneCnt: 0
