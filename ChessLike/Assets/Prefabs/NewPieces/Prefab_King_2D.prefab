@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 563225291
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1468530286, guid: 59283a7737315fd4faf3f074b5c0814c, type: 3}
+  m_Sprite: {fileID: -197466912, guid: 59283a7737315fd4faf3f074b5c0814c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   isSnakePawn: 0
   isPin: 0
   PinCount: 0
+  isEmerReturn: 0
   moveCount: 0
   spriteHandler: {fileID: 1338410089632989459}
 --- !u!114 &2024578904563387980
