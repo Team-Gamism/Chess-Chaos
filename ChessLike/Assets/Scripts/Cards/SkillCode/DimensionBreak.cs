@@ -25,24 +25,31 @@ public class DimensionBreak : MonoBehaviour, IPieceSkill
 						color: FindObjectOfType<ChessAIGameManager>().IsBlackAIEnabled ? ChessColor.Black : ChessColor.White);
 	}
 
-	public void Execute(List<VisualChessPiece> pieces)
+public void Execute(List<VisualChessPiece> pieces)
+{
+	for (int i = 0; i < pieces.Count; i++)
 	{
-		for (int i = 0; i < pieces.Count; i++)
-		{
-			string Rand = "";
-			do
-			{
-				Rand = "";
-				Rand += (char)Random.Range(97, 105);
-				Rand += Random.Range(1, 9);
-			} while (pieces[i].VisualTable.GetVisualTileByID(Rand) == null &&
-				pieces[i].VisualTable.GetVisualTileByID(Rand).isTileblock &&
-				pieces[i].VisualTable.GetVisualTileByID(Rand).GetVisualPiece() != null
-				);
-			pieces[i].VisualTable.GetVisualTileByID(Rand).Tile.MovePieceToTileNotCond(pieces[i].Piece, false);
-		}
+		string Rand = "";
+		VisualChessTableTile targetTile = null;
 
-		ncard.DOEndAnimation();
+		do
+		{
+			Rand = "";
+			Rand += (char)Random.Range(97, 105); // a~h
+			Rand += Random.Range(1, 9); // 1~8
+
+			targetTile = pieces[i].VisualTable.GetVisualTileByID(Rand);
+		}
+		while (
+			targetTile == null || // 존재하지 않거나
+			targetTile.isTileblock || // 막혀있거나
+			targetTile.GetVisualPiece() != null // 이미 기물이 있는 경우
+		);
+
+		targetTile.Tile.MovePieceToTileNotCond(pieces[i].Piece, false);
 	}
+
+	ncard.DOEndAnimation();
+}
 }
 
