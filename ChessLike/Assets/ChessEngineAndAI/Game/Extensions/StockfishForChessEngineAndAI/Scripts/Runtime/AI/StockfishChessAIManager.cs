@@ -82,6 +82,9 @@ namespace ChessEngine.AI.Stockfish
 
             // Send the UCI command to get settings.
             StockfishWrapper.UCI.ProcessCommand("uci");
+
+            whiteELO = (ushort)EnemyManager.instance.ELO;
+            blackELO = (ushort)EnemyManager.instance.ELO;
         }
 
         void OnEnable()

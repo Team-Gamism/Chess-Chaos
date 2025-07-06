@@ -108,7 +108,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6809268350922137914}
         m_TargetAssemblyTypeName: ChessEngine.Game.VisualChessPiece, Assembly-CSharp
-        m_MethodName: EmerReturn
+        m_MethodName: EnemyCaptured
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

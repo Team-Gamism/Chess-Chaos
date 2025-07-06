@@ -43,6 +43,7 @@ public class CardSortManager : MonoBehaviour
     public void GetNewCard()
     {
         NCard n = null;
+        if (curCard.Count >= 4) return;
         do
         {
             //특정한 가중치를 가진 랜덤한 카드 티어를 가져오기
@@ -60,7 +61,7 @@ public class CardSortManager : MonoBehaviour
     }
     private void SetRandomCard()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < PlayerManager.instance.CardCount; i++)
         {
             NCard n = null;
             do
