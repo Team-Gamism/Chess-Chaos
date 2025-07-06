@@ -24,7 +24,7 @@ public class PromotionUIManager : MonoBehaviour
 	}
 	public void StartPromotion(VisualChessPiece piece, MoveInfo move)
 	{
-		canvasGroup.alpha = 1f;
+		canvasGroup.DOFade(1f, 0.5f);
 		canvasGroup.blocksRaycasts = true;
 		FindObjectOfType<ChessAIGameManager>().isPromotionSelect = true;
 		AddButtonEvent(piece, move);
@@ -39,7 +39,7 @@ public class PromotionUIManager : MonoBehaviour
 				//프로모션 진행하기 & 턴 끝내기
 				piece.ChangeOther(idx + 2);
 				canvasGroup.blocksRaycasts = false;
-				canvasGroup.alpha = 0f;
+				canvasGroup.DOFade(0f, 0.5f);
 				FindObjectOfType<ChessAIGameManager>().ChessInstance.EndTurn(move);
 				FindObjectOfType<ChessAIGameManager>().isPromotionSelect = false;
 			});

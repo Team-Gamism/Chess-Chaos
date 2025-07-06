@@ -346,6 +346,10 @@ namespace ChessEngine.Game
                         if (GetVisualPiece().isPin) return;
                         AddPieceSelectorAttribute();
                     }
+                    else if (pieceSelector.type == PieceSkillType.FastReturn)
+                    {
+                        AddPieceSelectorAttribute();
+                    }
                 }
             }
         }

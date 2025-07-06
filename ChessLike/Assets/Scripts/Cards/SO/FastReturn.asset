@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d45401f8ea3ac36418cc8af574017f3e, type: 3}
+  m_Name: FastReturn
+  m_EditorClassIdentifier: 
+  Title: "\uCD08\uC18D \uBCF5\uADC0"
+  Description: "\uC0C1\uB300\uAC00 \uC120\uD0DD \uAE30\uBB3C\uC744 \uC7A1\uC744 \uC2DC
+    \uC774 \uAE30\uBB3C\uC744 \uC6D0\uC704\uCE58\uB85C \uC774\uB3D9"
+  isOwn: 1
+  skillType: 1
+  pieces: 0100000002000000030000000400000005000000
+  isZone: 0
+  RequireZoneCnt: 0
+  MaxZoneCnt: 0
+  cantMoveCnt: 0
+  isPiece: 1
+  RequirePieceCnt: 1
+  MaxPieceCount: 1
+  cardTier: 1
+  cardImage: {fileID: 21300000, guid: 44a054df1702e39458b7072b08d0f212, type: 3}

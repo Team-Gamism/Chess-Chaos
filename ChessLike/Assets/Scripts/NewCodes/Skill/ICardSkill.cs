@@ -56,5 +56,6 @@ public enum PieceSkillType
     GodsOne,
     DimensionBreak,
     Any,
-    TopChange
+    TopChange,
+    FastReturn
 }
