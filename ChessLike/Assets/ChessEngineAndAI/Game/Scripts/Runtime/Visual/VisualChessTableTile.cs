@@ -244,7 +244,8 @@ namespace ChessEngine.Game
         public void Select()
         {
             // if there is a valid GameManager referenced select this tile.
-            if (GameManager != null && !GameManager.isCardSelect && !GameManager.isPieceSelect)
+            if (GameManager != null && !GameManager.isCardSelect &&
+                !GameManager.isPieceSelect && !GameManager.isPromotionSelect)
             {
                 GameManager.SelectTile(this);
             }

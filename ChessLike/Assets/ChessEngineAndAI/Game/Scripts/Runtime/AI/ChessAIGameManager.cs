@@ -290,7 +290,7 @@ namespace ChessEngine.Game.AI
                                 MoveInfo moveInfo = tilePiece.Move(pTo, toTile.GetPiece());
 
                                 // Reset selection.
-                                Deselect();
+                                    Deselect();
 
                                 // End the turn.
                                 ChessInstance.EndTurn(moveInfo);

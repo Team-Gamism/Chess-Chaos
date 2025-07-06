@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using ChessEngine.Game;
-using DG.Tweening;
 using UnityEngine;
 
 public class PawnMoveOnce : MonoBehaviour, IPieceSkill
@@ -28,7 +27,7 @@ public class PawnMoveOnce : MonoBehaviour, IPieceSkill
     {
 		for (int i = 0; i < pieces.Count; i++)
 		{
-			pieces[i].SetMoveSide(true);
+			pieces[i].SetTwoMove(true);
 		}
 		
         ncard.DOEndAnimation();

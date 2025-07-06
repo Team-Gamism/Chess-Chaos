@@ -119,6 +119,11 @@ namespace ChessEngine.Game
             Destroyed?.Invoke();
         }
         #endregion
+        [ContextMenu("Log Promotion")]
+        public void LogPromotion()
+        {
+            Debug.Log(Piece.EnablePromotion);
+        }
 
         // Public method(s).
         #region Initialization
@@ -289,8 +294,11 @@ namespace ChessEngine.Game
 
         public void SetRevenge(bool value)
         {
-            Piece.SetRevenge(value);
-            isRevenge = Piece.IsRevenge;
+            if (Piece != null)
+            {
+                Piece.SetRevenge(value);
+                isRevenge = Piece.IsRevenge;
+            }
         }
         // public void UpdateRevenge()
         // {
@@ -299,6 +307,7 @@ namespace ChessEngine.Game
 
         public void SetShield(bool value)
         {
+            if (Piece == null) return;
             Piece.SetShield(value);
             isShield = Piece.IsShield;
         }
@@ -309,6 +318,7 @@ namespace ChessEngine.Game
 
         public void SetTwoMove(bool value)
         {
+            if (Piece == null) return;
             Piece.SetTwoMove(value);
             isTwoMove = Piece.IsTwoMove;
         }
@@ -318,6 +328,7 @@ namespace ChessEngine.Game
         // }
         public void SetMoveSide(bool value)
         {
+            if (Piece == null) return;
             Piece.SetMoveSide(value);
             isMoveSide = Piece.IsMoveSide;
         }
@@ -328,6 +339,7 @@ namespace ChessEngine.Game
 
         public void SetSnakePawn(bool value)
         {
+            if (Piece == null) return;
             Piece.SetSnakePawn(value);
             isSnakePawn = Piece.IsSnakePawn;
         }
@@ -337,17 +349,20 @@ namespace ChessEngine.Game
         // }
         public void SetPin(bool value, int Turn)
         {
+            if (Piece == null) return;
             Piece.SetPin(value);
             isPin = Piece.IsPin;
             PinCount = Turn;
         }
         public void SetPin(bool value)
         {
+            if (Piece == null) return;
             Piece.SetPin(value);
             isPin = Piece.IsPin;
         }
         public void UpdatePin()
         {
+            if (Piece == null) return;
             Piece.SetPin(isPin);
         }
         public void EffectHandler(bool value)
@@ -376,10 +391,28 @@ namespace ChessEngine.Game
         }
         public void ChangeQueen()
         {
+            if (Piece == null) return;
             Piece.Table.ChessInstance.QueenAny(Piece);
+        }
+        public void ChangeOther(int i)
+        {
+            if (Piece == null) return;
+            switch (i)
+            {
+                case (int)ChessPieceType.Rook:
+                    Piece.Table.ChessInstance.QueenRook(Piece); break;
+                case (int)ChessPieceType.Knight:
+                    Piece.Table.ChessInstance.QueenKnight(Piece); break;
+                case (int)ChessPieceType.Bishop:
+                    Piece.Table.ChessInstance.QueenBishop(Piece); break;
+                case (int)ChessPieceType.Queen:
+
+                    Piece.Table.ChessInstance.QueenAny(Piece); break;
+            }
         }
         public void SetEmerReturn(bool value)
         {
+            if (Piece == null) return;
             Piece.SetEmerReturn(value);
             isEmerReturn = Piece.IsEmerReturn;
         }

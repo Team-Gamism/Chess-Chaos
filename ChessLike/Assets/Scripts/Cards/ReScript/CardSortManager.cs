@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class CardSortManager : MonoBehaviour
@@ -61,7 +60,7 @@ public class CardSortManager : MonoBehaviour
     }
     private void SetRandomCard()
     {
-        for (int i = 0; i < (int)GameManager.instance.level; i++)
+        for (int i = 0; i < 4; i++)
         {
             NCard n = null;
             do

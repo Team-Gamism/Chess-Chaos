@@ -20,7 +20,6 @@ public class PawnPromotion : MonoBehaviour
 	public void StartPromotion()
 	{
 		Debug.Log("프로모션 시작");
-		PromotionUI.AddButtonEvent(this);
 	}
 
 	public void Promotion(int n)
@@ -76,6 +75,6 @@ public class PawnPromotion : MonoBehaviour
 
 		GameManager.instance.SortPieceSibling();
 
-		PromotionUI.ClosePanel();
+		//PromotionUI.ClosePanel();
 	}
 }

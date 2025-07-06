@@ -33,6 +33,7 @@ namespace ChessEngine.Game
         public bool autoStartGame = true;
         public bool isCardSelect = false;
         public bool isPieceSelect = false;
+        public bool isPromotionSelect = false;
         [Tooltip("A reference to a VisualChessTable component that will be used to visualize the 'ChessInstance' associated with this chess game manager.")]
         public VisualChessTable visualTable;
         [Tooltip("An editor-set reference to the selected tile material.")]
@@ -289,11 +290,25 @@ namespace ChessEngine.Game
                             // Move the piece.
                             MoveInfo moveInfo = Selected.visualPiece.Piece.Move(pVisualTile.Tile.TileIndex, visualPiece != null ? visualPiece.Piece : null);
 
-                            // Reset selection.
-                            Deselect();
 
-                            // End the turn.
-                            ChessInstance.EndTurn(moveInfo);
+                            if (Selected.visualPiece.Piece.EnablePromotion)
+                            {
+                                Debug.Log("dds");
+                                Selected.visualPiece.Piece.EnablePromotion = false;
+                                //이후 프로모션 진행하기
+                                FindObjectOfType<PromotionUIManager>().StartPromotion(Selected.visualPiece, moveInfo);
+
+                                // Reset selection.
+                                Deselect();
+                            }
+                            else
+                            {
+                                Deselect();
+                                
+                                // End the turn.
+                                ChessInstance.EndTurn(moveInfo);
+                            }
+
                         }
                     }
                 }

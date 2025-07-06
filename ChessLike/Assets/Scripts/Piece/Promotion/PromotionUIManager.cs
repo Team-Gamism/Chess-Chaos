@@ -1,3 +1,6 @@
+using ChessEngine;
+using ChessEngine.Game;
+using ChessEngine.Game.AI;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,28 +22,27 @@ public class PromotionUIManager : MonoBehaviour
 		for (int i = 0; i < btns.Length; i++)
 			btns[i].image.sprite = AtlasManager.instance.GetCurrentSkinSprite(GameManager.instance.PlayerColor, btns[i].GetComponent<ButtonInfo>().piece);
 	}
-
-	public void AddButtonEvent(PawnPromotion pawnPromotion)
+	public void StartPromotion(VisualChessPiece piece, MoveInfo move)
 	{
-		//애니메이션 실행
-
-		//프로모션 진행 상태 활성화
-		GameManager.instance.IsPromotion = true;
-
-		canvasGroup.alpha = 1.0f;
-		rectTransform.anchoredPosition = new Vector3(0f, 8f, 0f);
-		GetComponent<RectTransform>().DOAnchorPos(new Vector2(0f, 4.7f), 0.5f).SetEase(Ease.OutCirc);
-
+		canvasGroup.alpha = 1f;
+		canvasGroup.blocksRaycasts = true;
+		FindObjectOfType<ChessAIGameManager>().isPromotionSelect = true;
+		AddButtonEvent(piece, move);
+	}
+	public void AddButtonEvent(VisualChessPiece piece, MoveInfo move)
+	{
 		for (int i = 0; i < btns.Length; i++)
 		{
 			int idx = i;
-			btns[i].onClick.AddListener(() => pawnPromotion.Promotion(idx));
+			btns[i].onClick.AddListener(() =>
+			{
+				//프로모션 진행하기 & 턴 끝내기
+				piece.ChangeOther(idx + 2);
+				canvasGroup.blocksRaycasts = false;
+				canvasGroup.alpha = 0f;
+				FindObjectOfType<ChessAIGameManager>().ChessInstance.EndTurn(move);
+				FindObjectOfType<ChessAIGameManager>().isPromotionSelect = false;
+			});
 		}
-	}
-
-	public void ClosePanel()
-	{
-		canvasGroup.alpha = 1.0f;
-		GetComponent<RectTransform>().DOAnchorPos(new Vector2(0f, 8f), 0.5f).SetEase(Ease.OutCirc).OnComplete(() => { canvasGroup.alpha = 0f; });
 	}
 }
