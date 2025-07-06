@@ -183,7 +183,19 @@ MonoBehaviour:
       m_Calls: []
   VisualsUpdated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3600132225348968109}
+        m_TargetAssemblyTypeName: ColorSetter, Assembly-CSharp
+        m_MethodName: ColorChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   isRevenge: 0
   isShield: 0
   isTwoMove: 0
@@ -191,8 +203,10 @@ MonoBehaviour:
   isSnakePawn: 0
   isPin: 0
   PinCount: 0
-  isEmerReturn: 0
-  moveCount: 0
+  tileIndex:
+    x: 0
+    y: 0
+  moveCount: 114
   spriteHandler: {fileID: 1338410089632989459}
 --- !u!114 &2024578904563387980
 MonoBehaviour:
