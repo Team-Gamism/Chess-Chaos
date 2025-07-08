@@ -7,7 +7,7 @@ public class TileHandler : MonoBehaviour
     public VisualChessTableTile Tile;
     private VisualChessPiece piece;
     public TileSpriter spriter;
-    public TileSpriter frontSpriter;
+    public TileSpriter FrontSpriter;
 
     public void OnHighlight()
     {
@@ -32,10 +32,10 @@ public class TileHandler : MonoBehaviour
 
     public void OnFrontHighlight()
     {
-        frontSpriter.SpriteOn(HighlightType.Select);
+        FrontSpriter.SpriteOn(HighlightType.FrontSelect);
     }
     public void OnFrontUnhilight()
     {
-        frontSpriter.SpriteOff();
+        FrontSpriter.SpriteOff();
     }
 }

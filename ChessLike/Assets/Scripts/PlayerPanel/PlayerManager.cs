@@ -4,7 +4,10 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
+    [Header("플레이어 정보")]
     public string PlayerName;
+    public Sprite PlayerIcon;
+    [Header("인게임 플레이어 정보")]
     public int commonPercent = 40;
     public int uncommonPrecent = 30;
     public int rarePrecent = 15;
@@ -23,5 +26,9 @@ public class PlayerManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    private void SetDefault()
+    {
+        
     }
 }
