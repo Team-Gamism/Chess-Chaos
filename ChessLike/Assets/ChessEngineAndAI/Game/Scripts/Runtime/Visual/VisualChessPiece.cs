@@ -115,7 +115,7 @@ namespace ChessEngine.Game
         {
             //무한 모드에서는 흰색만 선택할 것이기 때문에 Black만 관리
             //추후 상대 색깔 가져오는 메서드 추가할 것.
-            if (this.Piece.Color == ChessColor.Black)
+            if (Piece.Color == ChessColor.Black)
             {
                 FindObjectOfType<CardSortManager>().GetNewCard();
             }
@@ -369,6 +369,20 @@ namespace ChessEngine.Game
             {
                 spriteHandler.ChainEffectOff();
             }
+        }
+        public void ShieldHandler(bool value)
+        {
+            if (value)
+                spriteHandler.ShieldEffectOn();
+            else
+                spriteHandler.ShieldEffectOff();
+        }
+        public void ReturnHandler(bool value)
+        {
+            if (value)
+                spriteHandler.ReturnEffectOn();
+            else
+                spriteHandler.ReturnEffectOff();
         }
         public void RevengeEffect()
         {

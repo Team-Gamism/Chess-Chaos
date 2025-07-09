@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc8050dece2fd4d46908f7e3d907ea04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ELO: 1200
+  EnemyName: 
+  EnemyIcon: {fileID: 0}
+  ELO: 700

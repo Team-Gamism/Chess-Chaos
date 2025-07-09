@@ -13,6 +13,8 @@ public class SpriteHandler : MonoBehaviour
     public GameObject Effect;
     [Header("고정 효과")]
     public PieceUI pieceUI;
+    [Header("복귀 효과")]
+    public GameObject obj2;
     private void Start()
     {
         shade.sprite = Renderer.sprite;
@@ -37,6 +39,14 @@ public class SpriteHandler : MonoBehaviour
     public void ShieldEffectOff()
     {
         obj1.SetActive(false);
+    }
+    public void ReturnEffectOn()
+    {
+        obj2.SetActive(true);
+    }
+    public void ReturnEffectOff()
+    {
+        obj2.SetActive(false);
     }
     public void RevengeOn()
     {

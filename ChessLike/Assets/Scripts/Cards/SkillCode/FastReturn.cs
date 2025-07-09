@@ -29,6 +29,7 @@ public class FastReturn : MonoBehaviour, IPieceSkill
 		for (int i = 0; i < pieces.Count; i++)
 		{
 			pieces[i].Piece.SetEmerReturn(true);
+			pieces[i].ReturnHandler(true);
 		}
 		
         ncard.DOEndAnimation();
