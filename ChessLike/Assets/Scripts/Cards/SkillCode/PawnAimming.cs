@@ -32,6 +32,7 @@ public class PawnAimming : MonoBehaviour, IPieceSkill
 		for (int i = 0; i < pieces.Count; i++)
 		{
 			pieces[i].SetMoveSide(true);
+			pieces[i].IconHandler(IconType.SideMove, true);
 		}
 		
 		ncard.DOEndAnimation();

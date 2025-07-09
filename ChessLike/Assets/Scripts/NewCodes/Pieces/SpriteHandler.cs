@@ -1,4 +1,5 @@
 using DG.Tweening;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class SpriteHandler : MonoBehaviour
@@ -15,6 +16,13 @@ public class SpriteHandler : MonoBehaviour
     public PieceUI pieceUI;
     [Header("복귀 효과")]
     public GameObject obj2;
+    public IconUI iconUI;
+    [Header("사선 이동")]
+    public GameObject obj3;
+    [Header("두칸 이동")]
+    public GameObject obj4;
+    [Header("암습의 폰")]
+    public GameObject obj5;
     private void Start()
     {
         shade.sprite = Renderer.sprite;
@@ -60,5 +68,38 @@ public class SpriteHandler : MonoBehaviour
     {
         Debug.Log("실행1");
         pieceUI.SetRotation();
+        iconUI.SetRotation();
     }
+
+    public void IconOn(IconType iconType)
+    {
+        switch ((int)iconType)
+        {
+            case 0:
+                obj3.SetActive(true); break;
+            case 1:
+                obj4.SetActive(true); break;
+            case 2:
+                obj5.SetActive(true); break;
+        }
+    }
+    public void IconOff(IconType iconType)
+    {
+        switch ((int)iconType)
+        {
+            case 0:
+                obj3.SetActive(false); break;
+            case 1:
+                obj4.SetActive(false); break;
+            case 2:
+                obj5.SetActive(false); break;
+        }
+    }
+
+}
+public enum IconType
+{
+    SideMove = 0,
+    TwoMove,
+    SnakePawn
 }

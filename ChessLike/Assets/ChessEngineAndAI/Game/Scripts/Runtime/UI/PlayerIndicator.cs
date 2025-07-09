@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using ChessEngine.AI;
 using ChessEngine.Game.AI;
+using TMPro;
 
 namespace ChessEngine.Game.Demo.UI
 {
@@ -18,11 +19,8 @@ namespace ChessEngine.Game.Demo.UI
         [Tooltip("The current image being displayed/driven for the black team.")]
         public Image blackImage;
 
-        [Header("Settings")]
-        [Tooltip("The sprite for a human player.")]
-        public Sprite humanSprite;
-        [Tooltip("The sprite for AI.")]
-        public Sprite aiSprite;
+        public TMP_Text whiteName;
+        public TMP_Text blackName;
 
         [Header("References")]
         [Tooltip("A reference to the ChessGameManager that drives this indicator. (If null AI will not be considered.)")]
@@ -75,13 +73,19 @@ namespace ChessEngine.Game.Demo.UI
                     if (chessAIGameManager.IsWhiteAIEnabled)
                     {
                         if (chessAIGameManager.WhiteAIInstance is ChessAI)
-                            whiteImage.sprite = aiSprite;
+                        {
+                            whiteImage.sprite = EnemyManager.instance.EnemyIcon;
+                            whiteName.text = EnemyManager.instance.EnemyName;
+                        }
                     }
                 }
 
                 // If team image sprite is still null set to human.
                 if (whiteImage.sprite == null)
-                    whiteImage.sprite = humanSprite;
+                {
+                    whiteImage.sprite = PlayerManager.instance.PlayerIcon;
+                    whiteName.text = PlayerManager.instance.PlayerName;
+                }
 
                 // If there is a valid white image activate the indicator.
                 if (whiteImage != null && whiteImage.sprite != null)
@@ -100,13 +104,19 @@ namespace ChessEngine.Game.Demo.UI
                     if (chessAIGameManager.IsBlackAIEnabled)
                     {
                         if (chessAIGameManager.BlackAIInstance is ChessAI)
-                            blackImage.sprite = aiSprite;
+                        {
+                            blackImage.sprite = EnemyManager.instance.EnemyIcon;
+                            blackName.text = EnemyManager.instance.EnemyName;
+                        }
                     }
                 }
 
                 // If team image sprite is still null set to human.
                 if (blackImage.sprite == null)
-                    blackImage.sprite = humanSprite;
+                {
+                    blackImage.sprite = PlayerManager.instance.PlayerIcon;
+                    blackName.text = PlayerManager.instance.PlayerName;
+                }
 
                 // If there is a valid black image activate the indicator.
                 if (blackImage != null && blackImage.sprite != null)

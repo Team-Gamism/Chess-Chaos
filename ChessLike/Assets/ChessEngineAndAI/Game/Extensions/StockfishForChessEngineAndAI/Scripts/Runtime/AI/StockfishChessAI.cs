@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using Unity.VisualScripting;
 
 namespace ChessEngine.AI.Stockfish
 {
@@ -180,12 +178,15 @@ namespace ChessEngine.AI.Stockfish
                 ChessTableTile moveToTile = ChessInstance.Table.GetTileByID(moveToID);
                 if (moveToTile != null && !moveToTile.IsTileBlock)
                 {
-                    // No longer awaiting best move.
-                    IsAwaitingBestMove = false;
+                    if (!moveFromTile.GetPiece().IsPin)
+                    {
+                        // No longer awaiting best move.
+                        IsAwaitingBestMove = false;
 
-                    // Submit the move and return.
-                    BestMoveData = new MoveData() { fromTileIndex = moveFromTile.TileIndex, toTileIndex = moveToTile.TileIndex };
-                    return;
+                        // Submit the move and return.
+                        BestMoveData = new MoveData() { fromTileIndex = moveFromTile.TileIndex, toTileIndex = moveToTile.TileIndex };
+                        return;
+                    }
                 }
             }
 

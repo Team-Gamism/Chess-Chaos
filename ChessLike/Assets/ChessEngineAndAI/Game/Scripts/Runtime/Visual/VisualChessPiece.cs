@@ -323,12 +323,14 @@ namespace ChessEngine.Game
             if (Piece == null) return;
             Piece.SetTwoMove(value);
             isTwoMove = Piece.IsTwoMove;
+            IconHandler(IconType.TwoMove, isTwoMove);
         }
         public void SetMoveSide(bool value)
         {
             if (Piece == null) return;
             Piece.SetMoveSide(value);
             isMoveSide = Piece.IsMoveSide;
+            IconHandler(IconType.SideMove, isMoveSide);
         }
 
         public void SetSnakePawn(bool value)
@@ -336,6 +338,7 @@ namespace ChessEngine.Game
             if (Piece == null) return;
             Piece.SetSnakePawn(value);
             isSnakePawn = Piece.IsSnakePawn;
+            IconHandler(IconType.SnakePawn, isSnakePawn);
         }
         public void SetPin(bool value, int Turn)
         {
@@ -383,6 +386,13 @@ namespace ChessEngine.Game
                 spriteHandler.ReturnEffectOn();
             else
                 spriteHandler.ReturnEffectOff();
+        }
+        public void IconHandler(IconType type, bool value)
+        {
+            if (value)
+                spriteHandler.IconOn(type);
+            else
+                spriteHandler.IconOff(type);
         }
         public void RevengeEffect()
         {

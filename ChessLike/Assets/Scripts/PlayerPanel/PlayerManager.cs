@@ -99,6 +99,16 @@ public class PlayerManager : MonoBehaviour
         
         BuffQueue.Add(buff);
     }
+    public void AddBuff()
+    {
+        UnityEvent buff = new UnityEvent();
+        buff.AddListener(() =>
+        {
+            CardCount++;
+        });
+
+        BuffQueue.Add(buff);
+    }
 
     public void AddTier(CardTier cardTier)
     {

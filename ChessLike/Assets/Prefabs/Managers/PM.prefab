@@ -44,9 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401af3a20f59d2a42b57f6b4533934f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerName: "\uC774\uAC83\uC774\uB9AC\uC5BC\uCCAD"
+  PlayerIcon: {fileID: 4894923789156735290, guid: 703ea762a9874cd4390c9ada3bc16aa9, type: 3}
   commonPercent: 40
-  uncommonPrecen: 30
+  uncommonPrecent: 30
   rarePrecent: 15
   mythicPercent: 10
   legendaryPrecent: 5
   CardCount: 3
+  MaxCardCount: 4
+  CommonIndex: 0
+  UnCommonIndex: 0
+  RareIndex: 0
+  MythicIndex: 0
+  LegendaryIndex: 0
+  BuffQueue: []
