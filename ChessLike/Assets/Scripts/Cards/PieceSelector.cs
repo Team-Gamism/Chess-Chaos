@@ -3,7 +3,6 @@ using System.Linq;
 using ChessEngine;
 using ChessEngine.Game;
 using ChessEngine.Game.AI;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;

@@ -67,6 +67,7 @@ namespace ChessEngine.Game
             {
                 // Rotate 'VisualPiece.transform' 'blackRotation' degrees around the 'blackAxis' in local space.
                 VisualPiece.transform.Rotate(blackAxis, blackRotation);
+                VisualPiece.UpdateCanvasRot();
             }
 
             // Invoke the 'PostRotatedByColor' Unity event.

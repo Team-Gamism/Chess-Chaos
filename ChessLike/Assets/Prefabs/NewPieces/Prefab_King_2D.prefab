@@ -218,7 +218,7 @@ MonoBehaviour:
   tileIndex:
     x: 0
     y: 0
-  moveCount: 114
+  moveCount: 116
   spriteHandler: {fileID: 1338410089632989459}
 --- !u!114 &2024578904563387980
 MonoBehaviour:

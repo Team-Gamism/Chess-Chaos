@@ -4,32 +4,30 @@ using UnityEngine;
 public class SpriteHandler : MonoBehaviour
 {
     public SpriteRenderer Renderer;
-    [Header("사슬 효과")]
-    public GameObject ChainObj;
-    public Transform[] chains;
-    public Transform[] FromPos;
-    public Transform[] EndPos;
-    public SpriteMask mask;
+    [Header("고정 효과")]
+    public SpriteRenderer locker;
+    public SpriteRenderer shade;
     [Header("방어막 효과")]
     public GameObject obj1;
+    [Header("복수 효과")]
+    public GameObject Effect;
+    [Header("고정 효과")]
+    public PieceUI pieceUI;
+    private void Start()
+    {
+        shade.sprite = Renderer.sprite;
+    }
 
     public void ChainEffectOn()
     {
-        Debug.Log("호출됨");
-        ChainObj.SetActive(true);
-        mask.sprite = Renderer.sprite;
-        for (int i = 0; i < chains.Length; i++)
-        {
-            chains[i].position = FromPos[i].position;
-            chains[i].DOMove(EndPos[i].position, 1f).SetEase(Ease.OutQuint);
-        }
-        
+        locker.DOFade(1f, 0.5f);
+        shade.DOFade(1f, 0.5f);
     }
 
     public void ChainEffectOff()
     {
-        chains[0].DOMove(FromPos[0].position, 1f).SetEase(Ease.OutQuint);
-        chains[1].DOMove(FromPos[1].position, 1f).SetEase(Ease.OutQuint).OnComplete(() => { ChainObj.SetActive(false); });
+        locker.DOFade(0f, 0.5f);
+        shade.DOFade(0f, 0.5f);
     }
 
     public void ShieldEffectOn()
@@ -39,5 +37,18 @@ public class SpriteHandler : MonoBehaviour
     public void ShieldEffectOff()
     {
         obj1.SetActive(false);
+    }
+    public void RevengeOn()
+    {
+        Effect.SetActive(true);
+    }
+    public void UpdatePieceUI(int value)
+    {
+        pieceUI.SetNumber(value);
+    }
+    public void CanvasRot()
+    {
+        Debug.Log("실행1");
+        pieceUI.SetRotation();
     }
 }

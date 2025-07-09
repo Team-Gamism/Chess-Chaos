@@ -3,8 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using ChessEngine.Game.Events;
 using DG.Tweening;
-using ChessEngine.Game.AI;
-using UnityEditor.Rendering;
+using NUnit.Framework;
 
 namespace ChessEngine.Game
 {
@@ -110,6 +109,7 @@ namespace ChessEngine.Game
             SetMoveSide(false);
             SetSnakePawn(false);
             tileIndex = Piece.defaultIndex;
+
         }
         public void EnemyCaptured()
         {
@@ -154,6 +154,7 @@ namespace ChessEngine.Game
             // Update initial position for the chess piece.
             UpdatePosition();
 
+            
             // Subscribe to 'Piece' events.
             SubscribeToPieceEvents();
 
@@ -172,7 +173,10 @@ namespace ChessEngine.Game
                 {
                     Renderer.material = m_WhiteMaterial;
                 }
-                else { Renderer.material = m_BlackMaterial; }
+                else
+                {
+                    Renderer.material = m_BlackMaterial;
+                }
             }
 
             // Invoke the 'VisualsUpdated' Unity event.
@@ -206,6 +210,11 @@ namespace ChessEngine.Game
 
             // Invoke the 'RotationUpdated' Unity event.
             RotationUpdated?.Invoke(this);
+        }
+
+        public void UpdateCanvasRot()
+        {
+            spriteHandler.CanvasRot();
         }
 
         public void AddMoveCount()
@@ -303,42 +312,24 @@ namespace ChessEngine.Game
                 isRevenge = Piece.IsRevenge;
             }
         }
-        // public void UpdateRevenge()
-        // {
-        //     Piece.SetRevenge(isRevenge);
-        // }
-
         public void SetShield(bool value)
         {
             if (Piece == null) return;
             Piece.SetShield(value);
             isShield = Piece.IsShield;
         }
-        // public void UpdateShield()
-        // {
-        //     Piece.SetShield(isShield);
-        // }
-
         public void SetTwoMove(bool value)
         {
             if (Piece == null) return;
             Piece.SetTwoMove(value);
             isTwoMove = Piece.IsTwoMove;
         }
-        // public void UpdateTwoMove()
-        // {
-        //     Piece.SetTwoMove(isTwoMove);
-        // }
         public void SetMoveSide(bool value)
         {
             if (Piece == null) return;
             Piece.SetMoveSide(value);
             isMoveSide = Piece.IsMoveSide;
         }
-        // public void UpdateMoveSide()
-        // {
-        //     Piece.SetMoveSide(isMoveSide);
-        // }
 
         public void SetSnakePawn(bool value)
         {
@@ -346,16 +337,16 @@ namespace ChessEngine.Game
             Piece.SetSnakePawn(value);
             isSnakePawn = Piece.IsSnakePawn;
         }
-        // public void UpdateSnakePawn()
-        // {
-        //     Piece.SetSnakePawn(isSnakePawn);
-        // }
         public void SetPin(bool value, int Turn)
         {
             if (Piece == null) return;
             Piece.SetPin(value);
             isPin = Piece.IsPin;
             PinCount = Turn;
+        }
+        public void UpdatePieceUI()
+        {
+            spriteHandler.pieceUI.SetNumber(PinCount);
         }
         public void SetPin(bool value)
         {
@@ -378,6 +369,10 @@ namespace ChessEngine.Game
             {
                 spriteHandler.ChainEffectOff();
             }
+        }
+        public void RevengeEffect()
+        {
+            spriteHandler.RevengeOn();
         }
 
         public void PieceSelect()

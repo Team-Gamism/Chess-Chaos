@@ -325,15 +325,17 @@ namespace ChessEngine.Game.AI
             {
                 if (!p.isPin) continue;
 
-                if (p.PinCount >= 1)
+                if (p.PinCount > 1)
                 {
                     p.PinCount--;
                     p.UpdatePin();
+                    p.UpdatePieceUI();
                 }
                 else
                 {
                     p.EffectHandler(false);
                     p.SetPin(false, 0);
+                    p.UpdatePieceUI();
                 }
             }
         }

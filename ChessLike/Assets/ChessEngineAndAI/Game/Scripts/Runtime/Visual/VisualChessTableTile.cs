@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using ChessEngine.Game.Events;
-using DG.Tweening;
-using Unity.VisualScripting;
 
 namespace ChessEngine.Game
 {
@@ -298,17 +296,21 @@ namespace ChessEngine.Game
                     }
                     else if (pieceSelector.type == PieceSkillType.FaseMove)
                     {
-                        if (GetVisualPiece().isTwoMove) return;
+                        if (GetVisualPiece().isTwoMove ||
+                            GetVisualPiece().isMoveSide) return;
                         AddPieceSelectorAttribute();
                     }
                     else if (pieceSelector.type == PieceSkillType.IsMoveSide)
                     {
-                        if (GetVisualPiece().isMoveSide) return;
+                        if (GetVisualPiece().isMoveSide ||
+                            GetVisualPiece().isTwoMove) return;
                         AddPieceSelectorAttribute();
                     }
                     else if (pieceSelector.type == PieceSkillType.IsSnakePawn)
                     {
-                        if (GetVisualPiece().isSnakePawn) return;
+                        if (GetVisualPiece().isSnakePawn ||
+                            GetVisualPiece().isMoveSide ||
+                            GetVisualPiece().isTwoMove) return;
                         AddPieceSelectorAttribute();
                     }
                     else if (pieceSelector.type == PieceSkillType.IsPin)
@@ -358,16 +360,18 @@ namespace ChessEngine.Game
         {
             if (pieceSelector.selectedPieces.Count < pieceSelector.cardData.MaxPieceCount)
             {
-                if (!pieceSelector.selectedPieces.Contains(GetVisualPiece()) &&
-                    pieceSelector.pieceTypes.Contains(GetVisualPiece().Piece.GetChessPieceType()))
+                if (!pieceSelector.pieceTypes.Contains(GetVisualPiece().Piece.GetChessPieceType())) return;
+
+                if (!pieceSelector.selectedPieces.Contains(GetVisualPiece()))
                     pieceSelector.AddEntity(this);
                 else
                     pieceSelector.DestroyEntity(this);
             }
             else
             {
-                if (!pieceSelector.selectedPieces.Contains(GetVisualPiece()) && 
-                    pieceSelector.pieceTypes.Contains(GetVisualPiece().Piece.GetChessPieceType()))
+                if (!pieceSelector.pieceTypes.Contains(GetVisualPiece().Piece.GetChessPieceType())) return;
+
+                if (!pieceSelector.selectedPieces.Contains(GetVisualPiece()))
                 {
                     pieceSelector.DestroyFirstEntity();
                     pieceSelector.AddEntity(this);

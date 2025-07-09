@@ -30,6 +30,7 @@ public class DarknessHand : MonoBehaviour, IPieceSkill
 		for (int i = 0; i < pieces.Count; i++)
 		{
 			pieces[i].SetPin(true, 2);
+			pieces[i].UpdatePieceUI();
 			pieces[i].EffectHandler(true);
 		}
 		
