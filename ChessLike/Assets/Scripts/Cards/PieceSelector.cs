@@ -13,6 +13,8 @@ public class PieceSelector : MonoBehaviour
 
 	[SerializeField]
 	private GameObject log;
+	[SerializeField]
+	private WarningLog warningLog;
 
 	[SerializeField]
 	private Button DoneBtn;
@@ -56,6 +58,7 @@ public class PieceSelector : MonoBehaviour
 		this.pieceTypes = pieceTypes;
 		SelectColor = color;
 
+		IsUse(type);
 	}
 
 	private void OnEnable()
@@ -74,6 +77,7 @@ public class PieceSelector : MonoBehaviour
 		transform.SetAsLastSibling();
 
 		log.SetActive(true);
+
 		DoneBtn.gameObject.SetActive(true);
 		DoneBtn.onClick.RemoveAllListeners();
 		DoneBtn.onClick.AddListener(() => PieceAttributeChange());
@@ -208,9 +212,35 @@ public class PieceSelector : MonoBehaviour
 		};
 
 		ChessTableTile newTile = tile.Table.GetTile(index);
+		if (newTile.GetPiece() == null) return true;
 
 		if (newTile.GetPiece().Color != tile.GetPiece().Color) return true;
 		else return false;
+	}
+
+	public void IsUse(PieceSkillType type)
+	{
+		switch (type)
+		{
+			case PieceSkillType.TopChange:
+				if (FindObjectsOfType<VisualChessPiece>().Where(v => v.Piece.GetChessPieceType() == ChessPieceType.Rook && 
+				v.Piece.Color == SelectColor).Count() <= 0)
+				{
+					warningLog.log = "기물이 존재하지 않습니다!";
+					warningLog.gameObject.SetActive(true);
+					DisableImage();
+				}
+				break;
+			case PieceSkillType.ChaosKnight:
+				if (FindObjectsOfType<VisualChessPiece>().Where(v => v.Piece.GetChessPieceType() == ChessPieceType.Knight &&
+				v.Piece.Color == SelectColor).Count() <= 0)
+				{
+					warningLog.log = "기물이 존재하지 않습니다!";
+					warningLog.gameObject.SetActive(true);
+					DisableImage();
+				}
+				break;
+		}
 	}
 
 }

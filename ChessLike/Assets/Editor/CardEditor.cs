@@ -11,6 +11,7 @@ public class CardEditor : Editor
 		SerializedProperty description = serializedObject.FindProperty("Description");
 		SerializedProperty skillType = serializedObject.FindProperty("skillType");
 		SerializedProperty isOwn = serializedObject.FindProperty("isOwn");
+		SerializedProperty enemyTarget = serializedObject.FindProperty("EnemyTarget");
 		SerializedProperty isZone = serializedObject.FindProperty("isZone");
 		SerializedProperty requireZoneCnt = serializedObject.FindProperty("RequireZoneCnt");
 		SerializedProperty maxZoneCnt = serializedObject.FindProperty("MaxZoneCnt");
@@ -28,6 +29,7 @@ public class CardEditor : Editor
 		EditorGUILayout.PropertyField(description);
 		EditorGUILayout.PropertyField(skillType);
 		EditorGUILayout.PropertyField(isOwn);
+		EditorGUILayout.PropertyField(enemyTarget);
 
 		if (isOwn.boolValue)
 		{

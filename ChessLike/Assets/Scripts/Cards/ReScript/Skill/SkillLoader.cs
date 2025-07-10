@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using ChessEngine;
 using ChessEngine.Game;
 using ChessEngine.Game.AI;
@@ -15,6 +16,14 @@ public class SkillLoader : MonoBehaviour
 	private Image cardImage;
 	[SerializeField]
 	private TMP_Text description;
+	[SerializeField]
+	private TMP_Text tier;
+	[SerializeField]
+	private GameObject rect;
+	[SerializeField]
+	private TMP_Text subText;
+
+	private List<PieceInfo> images = new List<PieceInfo>();
 
 	private SkillType currentSkillType;
 	private ISkill immeSkill; //즉시 실행 스킬
@@ -22,8 +31,20 @@ public class SkillLoader : MonoBehaviour
 	private ITableSkill tableSkill; // 테이블 관련 스킬
 	private CardData cardData;
 
+	private Color32[] colors = {
+		new Color32(99, 155, 255, 255),
+		new Color32(106,  190, 48, 255),
+		new Color32(223,  113, 38, 255),
+		new Color32(118, 66, 138, 255),
+		new Color32(251, 242, 54, 255)
+	};
 
-	public WarningLog warningLog;
+	private void Start()
+	{
+		images = rect.GetComponentsInChildren<PieceInfo>().ToList();
+    }
+
+    public WarningLog warningLog;
 
 	public void LoadSkill(GameObject obj)
 	{
@@ -44,6 +65,33 @@ public class SkillLoader : MonoBehaviour
 		cardImage.sprite = data.cardImage;
 		title.text = data.Title;
 		description.text = data.Description;
+		tier.text = CardTierToKorean(data.cardTier);
+		tier.color = colors[(int)data.cardTier];
+
+		ChessAIGameManager ai = FindObjectOfType<ChessAIGameManager>();
+
+		bool playerColor = ai.enableBlackAI ? true : false;
+
+		for (int i = 0; i < images.Count; i++)
+		{
+
+			images[i].GetComponent<Image>().sprite = AtlasManager.instance.GetCurrentSkinSprite(!data.EnemyTarget, images[i].GetComponent<PieceInfo>().pieceType);
+			if (data.pieces.Contains(images[i].piece))
+				images[i].gameObject.SetActive(true);
+
+			else
+				images[i].gameObject.SetActive(false);
+		}
+
+		if (data.pieces.Count <= 0)
+		{
+			if (data.skillType == SkillType.Imme) subText.text = "즉시 실행 기믹";
+			else subText.text = "칸 선택 기믹";
+		}
+		else
+		{
+			subText.text = "적용 가능 기물";
+		}
 
 		currentSkillType = data.skillType;
 
@@ -93,7 +141,7 @@ public class SkillLoader : MonoBehaviour
 				tableSkill.LoadSelector();
 		}
 	}
-	
+
 	//즉시 실행
 	public void ExecuteSkill()
 	{
@@ -110,6 +158,25 @@ public class SkillLoader : MonoBehaviour
 	public void ExecuteSkill(List<VisualChessTableTile> list)
 	{
 		tableSkill.Execute(list);
+	}
+	
+	private string CardTierToKorean(CardTier tier) 
+	{
+		switch (tier)
+		{
+			case CardTier.Common:
+				return "일반";
+			case CardTier.Uncommon:
+				return "고급";
+			case CardTier.Rare:
+				return "희귀";
+			case CardTier.Mythic:
+				return "신화";
+			case CardTier.Legendary:
+				return "전설";
+			default:
+				return "알 수 없음";
+		}
 	}
 
 }

@@ -8,6 +8,7 @@ public class CardData : ScriptableObject
 	public string Title;
 	public string Description;
 	public bool isOwn;
+	public bool EnemyTarget;
 	public SkillType skillType;
 	
 	public List<ChessPieceType> pieces;

@@ -287,7 +287,7 @@ namespace ChessEngine.Game
 
                     if (pieceSelector.type == PieceSkillType.Shield)
                     {
-                        if (GetVisualPiece().isShield) return;
+                        if (GetVisualPiece().Piece.IsShield) return;
                         AddPieceSelectorAttribute();
                     }
                     else if (pieceSelector.type == PieceSkillType.Revenge)
