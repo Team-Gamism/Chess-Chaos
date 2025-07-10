@@ -18,6 +18,6 @@ public class PieceUI : MonoBehaviour
     }
     public void SetRotation()
     {
-        //canvas.transform.parent.localEulerAngles = new Vector3(0f, 180f, 0f);
+        canvas.transform.parent.GetComponent<SpriteRenderer>().flipX = true;
     }
 }
