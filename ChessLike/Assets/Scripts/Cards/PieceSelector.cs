@@ -198,4 +198,19 @@ public class PieceSelector : MonoBehaviour
 		piece.PieceDeselect();
 	}
 
+	//탑 체인지 전용
+	public bool IsMoveable(ChessTableTile tile)
+	{
+		TileIndex index = new TileIndex
+		{
+			x = 7 - tile.TileIndex.x,
+			y = 7 - tile.TileIndex.y
+		};
+
+		ChessTableTile newTile = tile.Table.GetTile(index);
+
+		if (newTile.GetPiece().Color != tile.GetPiece().Color) return true;
+		else return false;
+	}
+
 }

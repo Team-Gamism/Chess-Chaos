@@ -5,8 +5,10 @@ public class CheckmateDec : MonoBehaviour, ISkill
 {
     public void Execute()
     {
-        if(canExecute())
+        if (canExecute())
             FindObjectOfType<ChessGameManager>().isCheckmateDec = true;
+            
+        GetComponent<NCard>().DOEndAnimation();
     }
 
     public bool canExecute()

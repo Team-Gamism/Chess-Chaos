@@ -243,7 +243,8 @@ namespace ChessEngine.Game
         {
             // if there is a valid GameManager referenced select this tile.
             if (GameManager != null && !GameManager.isCardSelect &&
-                !GameManager.isPieceSelect && !GameManager.isPromotionSelect)
+                !GameManager.isPieceSelect && !GameManager.isPromotionSelect &&
+                !GameManager.isCardInfo)
             {
                 GameManager.SelectTile(this);
             }
@@ -345,8 +346,13 @@ namespace ChessEngine.Game
                     }
                     else if (pieceSelector.type == PieceSkillType.TopChange)
                     {
-                        if (GetVisualPiece().isPin) return;
-                        AddPieceSelectorAttribute();
+                        if (GetVisualPiece().isPin)
+                            return;
+
+                        if (pieceSelector.IsMoveable(GetVisualPiece().Piece.Tile))
+                        {
+                            AddPieceSelectorAttribute();
+                        }
                     }
                     else if (pieceSelector.type == PieceSkillType.FastReturn)
                     {

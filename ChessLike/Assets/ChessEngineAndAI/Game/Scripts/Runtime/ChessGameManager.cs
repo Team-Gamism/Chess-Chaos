@@ -34,6 +34,7 @@ namespace ChessEngine.Game
         public bool isCardSelect = false;
         public bool isPieceSelect = false;
         public bool isPromotionSelect = false;
+        public bool isCardInfo = false;
         public bool isCheckmateDec = false;
         [Tooltip("A reference to a VisualChessTable component that will be used to visualize the 'ChessInstance' associated with this chess game manager.")]
         public VisualChessTable visualTable;

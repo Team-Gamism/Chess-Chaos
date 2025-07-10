@@ -4,7 +4,6 @@ using ChessEngine.Game;
 using ChessEngine.Game.AI;
 using DG.Tweening;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +28,8 @@ public class SkillLoader : MonoBehaviour
 	public void LoadSkill(GameObject obj)
 	{
 		InitSkillType();
+
+		FindObjectOfType<ChessGameManager>().isCardInfo = true;
 
 		NCard n = obj.GetComponent<NCard>();
 		CardData data = n.cardData;
@@ -62,6 +63,8 @@ public class SkillLoader : MonoBehaviour
 
 	public void CloseSkill()
 	{
+		FindObjectOfType<ChessGameManager>().isCardInfo = false;
+
 		CanvasGroup skillDescription = GetComponent<CanvasGroup>();
 		skillDescription.interactable = false;
 		skillDescription.blocksRaycasts = false;
