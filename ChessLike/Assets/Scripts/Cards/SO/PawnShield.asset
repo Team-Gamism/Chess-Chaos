@@ -26,4 +26,4 @@ MonoBehaviour:
   RequirePieceCnt: 1
   MaxPieceCount: 1
   cardTier: 0
-  cardImage: {fileID: 21300000, guid: 44a054df1702e39458b7072b08d0f212, type: 3}
+  cardImage: {fileID: -1344496172, guid: 9d099242d0c76ce419833da9e00ad5f3, type: 3}

@@ -6,6 +6,7 @@ public class TweenFader : MonoBehaviour
 {
 	[SerializeField]
 	private CanvasGroup canvasGroup;
+	public bool PlayOnEnable;
 
 	public UnityEvent FadeInCompleteEvent;
 	public UnityEvent FadeOutCompleteEvent;
@@ -21,7 +22,8 @@ public class TweenFader : MonoBehaviour
 
 	private void OnEnable()
 	{
-		FadeIn(Duration);
+		if(PlayOnEnable)
+			FadeIn(Duration);
 	}
 
 	public void FadeIn(float duration)

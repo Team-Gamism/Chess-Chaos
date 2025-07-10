@@ -294,7 +294,6 @@ namespace ChessEngine.Game
 
                             if (Selected.visualPiece.Piece.EnablePromotion)
                             {
-                                Debug.Log("dds");
                                 Selected.visualPiece.Piece.EnablePromotion = false;
                                 //이후 프로모션 진행하기
                                 FindObjectOfType<PromotionUIManager>().StartPromotion(Selected.visualPiece, moveInfo);

@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Icon : MonoBehaviour
@@ -13,6 +14,7 @@ public class Icon : MonoBehaviour
     public PlayerProfile profile;
     private TMP_Text tmp;
     private Image image;
+    public UnityEvent OnIconUpdated = new UnityEvent();
 
     private void Start()
     {
@@ -27,6 +29,6 @@ public class Icon : MonoBehaviour
     {
         PlayerManager.instance.PlayerIcon = sprite;
         profile.UpdateUI();
-        profile.IconPanelTrigger(false);
+        OnIconUpdated?.Invoke();
     }
 }
