@@ -66,7 +66,6 @@ public class SpriteHandler : MonoBehaviour
     }
     public void CanvasRot()
     {
-        Debug.Log("실행1");
         pieceUI.SetRotation();
         iconUI.SetRotation();
     }

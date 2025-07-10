@@ -41,7 +41,7 @@ public class PlayerManager : MonoBehaviour
     public int RareIndex = 0;
     public int MythicIndex = 0;
     public int LegendaryIndex = 0;
-    
+
     //지금까지 적용된 버프를 보여주는 큐
     public Queue<BuffInfo> BuffDataQueue = new Queue<BuffInfo>();
 
@@ -88,7 +88,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void ApplyBuff()
     {
-        
+
     }
 
 
@@ -96,7 +96,7 @@ public class PlayerManager : MonoBehaviour
     {
         UnityEvent buff = new UnityEvent();
         buff.AddListener(() => { AddTier(cardTier); });
-        
+
         BuffQueue.Add(buff);
     }
     public void AddBuff()
@@ -165,6 +165,11 @@ public class PlayerManager : MonoBehaviour
 
         legendaryPrecent += LegendarySeq[LegendaryIndex];
         LegendaryIndex++;
+    }
+
+    public void UpdateIcon(Sprite icon)
+    {
+        PlayerIcon = icon;
     }
 
 }

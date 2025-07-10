@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
@@ -21,6 +22,10 @@ public class SceneTransition : MonoBehaviour
     {
         StartCoroutine(loadScene(scene));
     }
+    public void LoadCanvas(int n, UnityEvent OnTransitionComplete = null)
+    {
+        StartCoroutine(loadCanvas((CanvasType)n, OnTransitionComplete));
+    }
     public void LoadCanvas(int n)
     {
         StartCoroutine(loadCanvas((CanvasType)n));
@@ -32,6 +37,14 @@ public class SceneTransition : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
+    private IEnumerator loadCanvas(CanvasType canvasType, UnityEvent e)
+    {
+        animator.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(0.5f);
+        canvasManager.LoadCanvas(canvasType);
+        animator.SetTrigger("FadeIn");
+        e?.Invoke();
+    }
     private IEnumerator loadCanvas(CanvasType canvasType)
     {
         animator.SetTrigger("FadeOut");
