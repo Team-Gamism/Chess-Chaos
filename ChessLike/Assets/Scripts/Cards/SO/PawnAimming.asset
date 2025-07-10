@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PawnAimming
   m_EditorClassIdentifier: 
   Title: "\uC870\uC900"
-  Description: "\uD3F0\uC774 \uB300\uAC01\uC120\uC73C\uB85C 1\uD68C \uC774\uB3D9\uC774
-    \uAC00\uB2A5\uD574\uC9D1\uB2C8\uB2E4."
+  Description: "\uD3F0 \uAE30\uBB3C\uC774 \uC804\uBC29 \uC0AC\uC120\uC73C\uB85C 1\uD68C
+    \uC774\uB3D9\uD560 \uC218 \uC788\uAC8C \uB429\uB2C8\uB2E4."
   isOwn: 1
   skillType: 1
   pieces: 01000000

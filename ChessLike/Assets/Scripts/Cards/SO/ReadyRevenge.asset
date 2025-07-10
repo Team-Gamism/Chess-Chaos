@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: ReadyRevenge
   m_EditorClassIdentifier: 
   Title: "\uC5ED\uC2B5 \uC900\uBE44"
-  Description: "\uB300\uC0C1 \uAE30\uBB3C\uC774 \uC7A1\uD790 \uB54C, \uC0C1\uB300\uB97C
-    \uAC19\uC774 \uC7A1\uC2B5\uB2C8\uB2E4."
+  Description: "\uC7A1\uD788\uB294 \uAE30\uBB3C\uC774 \uC0C1\uB300\uC5D0\uAC8C \uBC18\uACA9\uD569\uB2C8\uB2E4."
   isOwn: 1
   skillType: 1
   pieces: 01000000020000000300000004000000

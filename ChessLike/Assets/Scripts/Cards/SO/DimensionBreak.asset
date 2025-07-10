@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DimensionBreak
   m_EditorClassIdentifier: 
   Title: "\uCC28\uC6D0 \uAD50\uB780"
-  Description: "\uC0C1\uB300 \uAE30\uBB3C 2\uAC1C\uC758 \uC704\uCE58\uB97C \uBB34\uC791\uC704\uB85C
-    \uBCC0\uACBD\uD569\uB2C8\uB2E4."
+  Description: "\uC0C1\uB300 \uAE30\uBB3C 2\uAC1C\uB97C \uC774\uB3D9 \uAC00\uB2A5\uD55C
+    \uBB34\uC791\uC704 \uCE78\uC73C\uB85C \uC774\uB3D9\uC2DC\uD0B5\uB2C8\uB2E4."
   isOwn: 1
   skillType: 1
   pieces: 01000000020000000300000004000000

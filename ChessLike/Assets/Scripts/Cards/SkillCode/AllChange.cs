@@ -30,7 +30,7 @@ public class AllChange : MonoBehaviour, ISkill
                     p.MoveCount = 0;
                 }
             }
-            
+
             foreach (ChessPiece e in enemyPiece)
             {
                 manager.visualTable.GetVisualPiece(e).UpdatePosition();
@@ -41,6 +41,7 @@ public class AllChange : MonoBehaviour, ISkill
                 }
             }
         }
+        GetComponent<NCard>().DOEndAnimation();
     }
 
     public bool canExecute()

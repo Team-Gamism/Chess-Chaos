@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: AvoidLanding
   m_EditorClassIdentifier: 
   Title: "\uB2E8\uC77C \uAD6C\uC5ED \uBD09\uC1C4"
-  Description: "\uD2B9\uC815 \uCE78\uC744 1\uD68C \uB4E4\uC5B4\uC62C \uC218 \uC5C6\uAC8C
-    \uD569\uB2C8\uB2E4."
+  Description: "\uC120\uD0DD\uD55C \uCE78 \uD558\uB098\uB97C 2\uD134\uB3D9\uC548
+    \uBD09\uC1C4\uD569\uB2C8\uB2E4."
   isOwn: 0
   skillType: 2
   pieces: 

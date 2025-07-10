@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45401f8ea3ac36418cc8af574017f3e, type: 3}
   m_Name: TripleBarrier
   m_EditorClassIdentifier: 
-  Title: "3\uC911 \uBC29\uD574 \uC7A5\uB9C9"
-  Description: "\uC9C0\uC815\uD55C \uAD6C\uC5ED 3\uAC1C\uB97C 2\uD134 \uB3D9\uC548
-    \uBD09\uC778\uD569\uB2C8\uB2E4."
+  Title: "3\uAD6C\uC5ED \uBD09\uC1C4"
+  Description: "\uC120\uD0DD\uD55C \uAD6C\uC5ED 3\uAC1C\uB97C 4\uD134 \uB3D9\uC548
+    \uBD09\uC1C4\uD569\uB2C8\uB2E4."
   isOwn: 0
   skillType: 2
   pieces: 

@@ -4,6 +4,7 @@ using ChessEngine.Game;
 using ChessEngine.Game.AI;
 using DG.Tweening;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +13,7 @@ public class SkillLoader : MonoBehaviour
 	[SerializeField]
 	private TMP_Text title;
 	[SerializeField]
-	private Toggle isOwn;
+	private Image cardImage;
 	[SerializeField]
 	private TMP_Text description;
 
@@ -39,7 +40,7 @@ public class SkillLoader : MonoBehaviour
 
 		DOTween.To(() => skillDescription.alpha, x => skillDescription.alpha = x, 1f, 0.2f);
 
-		isOwn.isOn = data.isOwn;
+		cardImage.sprite = data.cardImage;
 		title.text = data.Title;
 		description.text = data.Description;
 

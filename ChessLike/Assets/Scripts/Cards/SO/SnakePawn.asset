@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SnakePawn
   m_EditorClassIdentifier: 
   Title: "\uC554\uC2B5\uC758 \uD3F0"
-  Description: "\uD55C \uD134 \uB3D9\uC548 \uD3F0\uC774 \uB098\uC774\uD2B8\uCC98\uB7FC
-    \uC6C0\uC9C1\uC785\uB2C8\uB2E4."
+  Description: "\uD3F0 \uAE30\uBB3C\uC774 \uB098\uC774\uD2B8 \uAE30\uBB3C\uC758 \uC774\uB3D9
+    \uBC29\uC2DD\uC744 1\uD68C \uAC00\uC9C0\uAC8C \uB429\uB2C8\uB2E4."
   isOwn: 1
   skillType: 1
   pieces: 01000000

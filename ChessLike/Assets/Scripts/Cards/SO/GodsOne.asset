@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: GodsOne
   m_EditorClassIdentifier: 
   Title: "\uC2E0\uC758 \uC218"
-  Description: "\uC6D0\uD558\uB294 \uAE30\uBB3C \uD558\uB098\uB97C \uD038\uC73C\uB85C
-    \uBC14\uAFC9\uB2C8\uB2E4."
+  Description: "\uC120\uD0DD \uAE30\uBB3C\uC744 \uD038 \uAE30\uBB3C\uB85C \uC2B9\uACA9\uC2DC\uD0B5\uB2C8\uB2E4."
   isOwn: 1
   skillType: 1
   pieces: 01000000020000000300000004000000
