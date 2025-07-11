@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: PawnShield
   m_EditorClassIdentifier: 
   Title: "\uBCF4\uD638\uB9C9"
-  Description: "\uD3F0 \uAE30\uBB3C\uC5D0\uAC8C \uBCF4\uD638\uB9C9\uC744 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
+  Description: "\uD3F0 \uAE30\uBB3C\uC5D0\uAC8C <color=#ff00ff>\uBCF4\uD638\uB9C9</color>\uC744
+    \uBD80\uC5EC\uD569\uB2C8\uB2E4."
   isOwn: 1
+  EnemyTarget: 0
   skillType: 1
   pieces: 01000000
   isZone: 0

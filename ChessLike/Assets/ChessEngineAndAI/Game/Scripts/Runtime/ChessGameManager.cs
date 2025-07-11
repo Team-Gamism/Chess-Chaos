@@ -292,7 +292,6 @@ namespace ChessEngine.Game
                             // Move the piece.
                             MoveInfo moveInfo = Selected.visualPiece.Piece.Move(pVisualTile.Tile.TileIndex, visualPiece != null ? visualPiece.Piece : null);
 
-
                             if (Selected.visualPiece.Piece.EnablePromotion)
                             {
                                 Selected.visualPiece.Piece.EnablePromotion = false;
@@ -305,11 +304,26 @@ namespace ChessEngine.Game
                             else
                             {
                                 Deselect();
-                                
+
                                 // End the turn.
                                 ChessInstance.EndTurn(moveInfo);
                             }
+                        }
 
+                        // Don't allow us to kill a king.
+                        else if (visualPiece == null || visualPiece.IsPiece<King>())
+                        {
+                            // Move the piece.
+                            MoveInfo moveInfo = Selected.visualPiece.Piece.Move(pVisualTile.Tile.TileIndex, visualPiece != null ? visualPiece.Piece : null);
+
+                            ChessColor pieceColor = Selected.visualPiece.Piece.Color;
+
+                            Deselect();
+
+                            // End the turn.
+                            GameOverReason reason = GameOverReason.Won;
+
+                            ChessInstance.EndGame(pieceColor, reason);
                         }
                     }
                 }

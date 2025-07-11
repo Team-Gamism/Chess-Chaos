@@ -22,6 +22,8 @@ public class SkillLoader : MonoBehaviour
 	private GameObject rect;
 	[SerializeField]
 	private TMP_Text subText;
+	[SerializeField]
+	private Image tierColorImage;
 
 	private List<PieceInfo> images = new List<PieceInfo>();
 
@@ -30,6 +32,8 @@ public class SkillLoader : MonoBehaviour
 	private IPieceSkill pieceSkill; // 기물 관련 스킬
 	private ITableSkill tableSkill; // 테이블 관련 스킬
 	private CardData cardData;
+
+	private GameObject selectedObj;
 
 	private Color32[] colors = {
 		new Color32(99, 155, 255, 255),
@@ -48,6 +52,10 @@ public class SkillLoader : MonoBehaviour
 
 	public void LoadSkill(GameObject obj)
 	{
+		selectedObj = obj;
+		selectedObj.GetComponent<RectTransform>().DOAnchorPosY(100, 0.5f).SetEase(Ease.OutQuint);
+
+
 		InitSkillType();
 
 		FindObjectOfType<ChessGameManager>().isCardInfo = true;
@@ -66,7 +74,7 @@ public class SkillLoader : MonoBehaviour
 		title.text = data.Title;
 		description.text = data.Description;
 		tier.text = CardTierToKorean(data.cardTier);
-		tier.color = colors[(int)data.cardTier];
+		tierColorImage.color = colors[(int)data.cardTier];
 
 		ChessAIGameManager ai = FindObjectOfType<ChessAIGameManager>();
 
@@ -112,6 +120,8 @@ public class SkillLoader : MonoBehaviour
 	public void CloseSkill()
 	{
 		FindObjectOfType<ChessGameManager>().isCardInfo = false;
+
+		selectedObj.GetComponent<RectTransform>().DOAnchorPosY(0, 0.5f).SetEase(Ease.OutQuint);
 
 		CanvasGroup skillDescription = GetComponent<CanvasGroup>();
 		skillDescription.interactable = false;

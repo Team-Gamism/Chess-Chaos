@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45401f8ea3ac36418cc8af574017f3e, type: 3}
   m_Name: DarknessHand
   m_EditorClassIdentifier: 
-  Title: "\uC5B4\uB460 \uC18D\uC758 \uC190"
-  Description: "\uC0C1\uB300 \uAE30\uBB3C 1\uAC1C\uB97C 2\uD134\uAC04 \uACE0\uC815\uC2DC\uD0B5\uB2C8\uB2E4."
+  Title: "\uAE30\uBB3C \uC7A0\uAE08"
+  Description: "\uC0C1\uB300 \uAE30\uBB3C 1\uAC1C\uB97C 2\uD134\uAC04 <color=#00ffff>\uACE0\uC815</color>\uC2DC\uD0B5\uB2C8\uB2E4."
   isOwn: 1
   EnemyTarget: 1
   skillType: 1

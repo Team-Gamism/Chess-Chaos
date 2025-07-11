@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using ChessEngine;
 using ChessEngine.Game;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class TopChange : MonoBehaviour, IPieceSkill
 {
@@ -40,7 +38,7 @@ public class TopChange : MonoBehaviour, IPieceSkill
 		};
 
 		ChessTableTile tile = pieces[0].VisualTable.Table.GetTile(newT);
-
+		
 		tile.MovePieceToTileNotCond(pieces[0].Piece, false);
 
 		ncard.DOEndAnimation();

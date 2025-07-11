@@ -212,18 +212,35 @@ public class PieceSelector : MonoBehaviour
 		};
 
 		ChessTableTile newTile = tile.Table.GetTile(index);
-		if (newTile.GetPiece() == null) return true;
+		if (newTile == null) return false; // 좌표가 범위 밖일 경우
 
-		if (newTile.GetPiece().Color != tile.GetPiece().Color) return true;
-		else return false;
+		var targetPiece = newTile.GetPiece();
+		var sourcePiece = tile.GetPiece();
+
+		// 타겟이 비어 있으면 이동 가능
+		if (targetPiece == null) return true;
+
+		// 적 진영의 말이면 이동 가능
+		if (targetPiece.Color != sourcePiece.Color)
+		{
+			// 단, 킹이면 이동 불가 (킹을 보호하려는 목적이면)
+			if (targetPiece.GetChessPieceType() == ChessPieceType.King)
+				return false;
+
+			return true;
+		}
+
+		// 나와 같은 색 말이 있으면 이동 불가
+		return false;
 	}
+
 
 	public void IsUse(PieceSkillType type)
 	{
 		switch (type)
 		{
 			case PieceSkillType.TopChange:
-				if (FindObjectsOfType<VisualChessPiece>().Where(v => v.Piece.GetChessPieceType() == ChessPieceType.Rook && 
+				if (FindObjectsOfType<VisualChessPiece>().Where(v => v.Piece.GetChessPieceType() == ChessPieceType.Rook &&
 				v.Piece.Color == SelectColor).Count() <= 0)
 				{
 					warningLog.log = "기물이 존재하지 않습니다!";

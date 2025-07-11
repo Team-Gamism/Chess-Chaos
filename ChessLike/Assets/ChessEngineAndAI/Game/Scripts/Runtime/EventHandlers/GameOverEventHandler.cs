@@ -13,8 +13,8 @@ namespace ChessEngine.Game.EventHandlers
     public class GameOverEventHandler : MonoBehaviour
     {
         [Header("Settings")]
-        [Tooltip("A reference to the Text that represents the game over message.")]
-        public TMP_Text gameOverText;
+        public Image image;
+        public Sprite[] sprites;
 
         /// <summary>A reference to the ChessGameManager associated with this component.</summary>
         public ChessGameManager GameManager { get; private set; }
@@ -41,10 +41,10 @@ namespace ChessEngine.Game.EventHandlers
         /// Sets the 'gameOverText.text' value for this component if a valid gameOverText reference is set.
         /// </summary>
         /// <param name="pText"></param>
-        public void SetGameOverText(string pText)
+        public void SetGameOverText(Sprite sprite)
         {
-            if (gameOverText != null)
-                gameOverText.text = pText;
+            if (image != null)
+                image.sprite = sprite;
         }
 
         // Private callback(s).
@@ -59,31 +59,32 @@ namespace ChessEngine.Game.EventHandlers
             {
                 case GameOverReason.Won:
                     // Set game over text to display current turn color as winner.
-                    SetGameOverText("게임 결과 : " + (pTurn == ChessColor.White ? "백 승리!" : "흑 승리!"));
+                    // 추후 화이트가 아닌 지정된 플레이어 컬러로 구분하기
+                    if (pTurn == ChessColor.White)
+                        SetGameOverText(sprites[0]);
+                    else
+                        SetGameOverText(sprites[1]);
                     break;
                 case GameOverReason.Draw:
                     // Set game over text to display draw.
-                    SetGameOverText("게임 결과 : 무승부");
+                    SetGameOverText(sprites[2]);
                     break;
                 case GameOverReason.Forfeit:
                     // Set game over text to display opposite color as winner.
                     if (pTurn == ChessColor.Black)
                     {
-                        SetGameOverText("게임 결과 : 백 승리!");
+                        SetGameOverText(sprites[((int)pReason) - 1]);
                     }
-                    else { SetGameOverText("게임 결과 : 흑 승리!"); }
+                    else { SetGameOverText(sprites[((int)pReason) - 1]); }
                     break;
                 case GameOverReason.TimeExpired:
                     if (pTurn == ChessColor.Black)
                     {
-                        SetGameOverText("Game Over!\nWhite wins!");
+                        SetGameOverText(sprites[((int)pReason) - 1]);;
                     }
-                    else { SetGameOverText("Game Over!\nBlack wins!"); }
+                    else { SetGameOverText(sprites[((int)pReason) - 1]); }
                     break;
                 default:
-                    // Set game over text.
-                    SetGameOverText("Game Over!");
-
                     // Log unhandled game over reason warning.
                     Debug.LogWarning("Unhandled GameOverReason found '" + pReason.ToString() + "'!");
                     break;

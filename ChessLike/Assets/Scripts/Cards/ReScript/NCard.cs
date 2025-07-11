@@ -24,8 +24,8 @@ public class NCard : MonoBehaviour, IPointerClickHandler
 		Vector2 vec = new Vector2(rect.anchoredPosition.x, -500);
 		GetComponent<RectTransform>().anchoredPosition = vec;
 
-		float Delay = 0.5f;
-		GetComponent<RectTransform>().DOAnchorPosY(0, 0.7f).SetEase(Ease.OutQuint).SetDelay(Delay);
+		float Delay = 0.4f;
+		GetComponent<RectTransform>().DOAnchorPosY(0, 0.7f).SetEase(Ease.OutBack).SetDelay(Delay);
 	}
 	private void CloseCard()
 	{

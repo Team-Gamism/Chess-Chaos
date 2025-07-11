@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45401f8ea3ac36418cc8af574017f3e, type: 3}
   m_Name: TopChange
   m_EditorClassIdentifier: 
-  Title: "\uD0D1 \uCCB4\uC778\uC9C0"
+  Title: "\uC131\uC758 \uBC18\uC804"
   Description: "\uB8E9 \uAE30\uBB3C\uC758 \uC704\uCE58\uB97C \uD604\uC7AC \uC88C\uD45C\uC758
     \uBC18\uB300 \uC88C\uD45C\uB85C \uC774\uB3D9\uC2DC\uD0B5\uB2C8\uB2E4."
   isOwn: 1
+  EnemyTarget: 0
   skillType: 1
   pieces: 02000000
   isZone: 0

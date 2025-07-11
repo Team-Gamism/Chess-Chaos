@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: "\uD63C\uB780\uC758 \uB098\uC774\uD2B8"
   Description: "\uB098\uC774\uD2B8 \uAE30\uBB3C\uC774 \uD604 \uC88C\uD45C \uAE30\uC900
-    5x5 \uC704\uCE58 \uC911 \uAC00\uB2A5\uD55C \uCE78 \uC911 \uD558\uB098\uB85C \uC774\uB3D9\uD569\uB2C8\uB2E4."
+    5x5 \uC704\uCE58 \uC911\\n\uAC00\uB2A5\uD55C \uCE78 \uC911 \uD558\uB098\uB85C
+    \uC774\uB3D9\uD569\uB2C8\uB2E4."
   isOwn: 1
+  EnemyTarget: 0
   skillType: 1
   pieces: 03000000
   isZone: 0
