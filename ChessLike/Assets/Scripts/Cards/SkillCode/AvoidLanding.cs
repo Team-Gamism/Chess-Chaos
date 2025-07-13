@@ -9,9 +9,11 @@ public class AvoidLanding : MonoBehaviour, ITableSkill
 	private TableSelector TableSelectPanel;
 
 	private CardData cardData;
+	public AudioClip SFX;
 
 	public void Execute(List<VisualChessTableTile> tiles)
 	{
+		SoundManager.Instance.SFXPlay("sfx", SFX);
 		for (int i = 0; i < tiles.Count; i++)
 		{
 			tiles[i].isTileblock = true;

@@ -30,6 +30,9 @@ public class SpriteHandler : MonoBehaviour
     public AudioClip RevengeOffSFX;
     public AudioClip ReturnSFX;
     public AudioClip ReturnOffSFX;
+    public AudioClip PinSFX;
+    public AudioClip ApplySFX;
+
     private void Start()
     {
         shade.sprite = Renderer.sprite;
@@ -37,12 +40,14 @@ public class SpriteHandler : MonoBehaviour
 
     public void ChainEffectOn()
     {
+        SoundManager.Instance.SFXPlay("pin", PinSFX);
         locker.DOFade(1f, 0.5f);
         shade.DOFade(1f, 0.5f);
     }
 
     public void ChainEffectOff()
     {
+        SoundManager.Instance.SFXPlay("pinOff", PinSFX);
         locker.DOFade(0f, 0.5f);
         shade.DOFade(0f, 0.5f);
     }
@@ -87,11 +92,17 @@ public class SpriteHandler : MonoBehaviour
         switch ((int)iconType)
         {
             case 0:
-                obj3.SetActive(true); break;
+                obj3.SetActive(true);
+                SoundManager.Instance.SFXPlay("apply", ApplySFX);
+                break;
             case 1:
-                obj4.SetActive(true); break;
+                obj4.SetActive(true);
+                SoundManager.Instance.SFXPlay("apply", ApplySFX);
+                break;
             case 2:
-                obj5.SetActive(true); break;
+                obj5.SetActive(true);
+                SoundManager.Instance.SFXPlay("apply", ApplySFX);
+                break;
         }
     }
     public void IconOff(IconType iconType)

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using ChessEngine;
-using ChessEngine.Delegates;
 using ChessEngine.Game;
 using ChessEngine.Game.AI;
 using UnityEngine;
@@ -18,6 +17,8 @@ public class CheckmateDecManage : MonoBehaviour
     public UnityEvent<int> OnTurnAdded = new UnityEvent<int>();
     public CheckmateUI ui;
     public CheckmateIconTween tween;
+    public AudioClip CheckmateSFX;
+    public AudioClip CheckmateEndSFX;
     private ChessColor color;
     private ChessColor enemyColor;
     private void Start()
@@ -32,6 +33,7 @@ public class CheckmateDecManage : MonoBehaviour
 
     public void TweenEnable()
     {
+        SoundManager.Instance.SFXPlay("c", CheckmateSFX);
         tween.gameObject.SetActive(true);
         ui.group.alpha = 1f;
         int t = MaxTurnCount + 1 - turnCount;
@@ -46,6 +48,7 @@ public class CheckmateDecManage : MonoBehaviour
             turnCount <= MaxTurnCount &&
             chessManager.isCheckmateDec)
         {
+            SoundManager.Instance.SFXPlay("play", CheckmateEndSFX);
             List<ChessPiece> pieces = chessManager.visualTable.Table.GetColorPiece(enemyColor);
             //상대 기물 랜덤하게 파괴하기
             for (int i = 0; i < MaxDestroyPieceCount; i++)

@@ -3,10 +3,10 @@ using ChessEngine;
 using ChessEngine.Game;
 using ChessEngine.Game.AI;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class AllChange : MonoBehaviour, ISkill
 {
+    public AudioClip ChangeSFX;
     public void Execute()
     {
         ChessGameManager manager = FindObjectOfType<ChessGameManager>();
@@ -17,6 +17,7 @@ public class AllChange : MonoBehaviour, ISkill
 
         if (canExecute())
         {
+            SoundManager.Instance.SFXPlay("change", ChangeSFX);
             manager.visualTable.Table.ChangeAllPiece(player, enemy);
             List<ChessPiece> playerPiece = manager.visualTable.Table.GetColorPieceAll(player);
             List<ChessPiece> enemyPiece = manager.visualTable.Table.GetColorPieceAll(enemy);

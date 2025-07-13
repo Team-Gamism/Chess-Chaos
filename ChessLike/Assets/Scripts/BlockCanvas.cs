@@ -16,13 +16,13 @@ public class BlockCanvas : MonoBehaviour
 
     private void Update()
     {
-        if (manager.ChessInstance.turn == ChessColor.White)
+        if (manager.ChessInstance.turn != ChessColor.White || manager.isGameEnd)
         {
-            group.blocksRaycasts = false;
+            group.blocksRaycasts = true;
         }
         else
         {
-            group.blocksRaycasts = true;
+            group.blocksRaycasts = false;
         }
     }
 }

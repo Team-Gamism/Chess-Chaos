@@ -10,6 +10,7 @@ public class GodsOne : MonoBehaviour, IPieceSkill
 
 	private NCard ncard;
 	public PieceSkillType skillType;
+	public AudioClip SFX;
 	private void Start()
 	{
 		ncard = GetComponent<NCard>();
@@ -27,6 +28,7 @@ public class GodsOne : MonoBehaviour, IPieceSkill
 
     public void Execute(List<VisualChessPiece> pieces)
     {
+		SoundManager.Instance.SFXPlay("sfx", SFX);
 		for (int i = 0; i < pieces.Count; i++)
 		{
 			pieces[i].ChangeQueen();

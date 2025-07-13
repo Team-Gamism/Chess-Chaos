@@ -263,6 +263,15 @@ public class PieceSelector : MonoBehaviour
 					DisableImage();
 				}
 				break;
+			case PieceSkillType.DimensionBreak:
+				if (FindObjectsOfType<VisualChessPiece>().Where(v => v.Piece.Color == SelectColor &&
+				v.Piece.GetChessPieceType() != ChessPieceType.King).Count() < 2)
+				{
+					warningLog.log = "상대 기물이 부족합니다!";
+					warningLog.gameObject.SetActive(true);
+					DisableImage();
+				}
+				break;
 		}
 	}
 

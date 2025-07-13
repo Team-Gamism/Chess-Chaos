@@ -55,9 +55,13 @@ public class EnemyManager : MonoBehaviour
     }
     public void SetLevel(int n)
     {
-        int[] ELOs = { 900, 1000, 1500 };
+        int[] ELOs = { 1000, 1400, 1800 };
         string[] names = { "이지 레벨 봇", "노멀 레벨 봇", "하드 레벨 봇" };
         ELO = ELOs[n];
         EnemyName = names[n];
+    }
+    public void GameEnd()
+    {
+        Destroy(gameObject);
     }
 }
