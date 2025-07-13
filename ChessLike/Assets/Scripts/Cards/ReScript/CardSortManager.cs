@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class CardSortManager : MonoBehaviour
 {
+    public float spacing;
     public List<NCard> cardList = new List<NCard>();
     public CardRandomize cardRandomize;
 
     public List<NCard> curCard = new List<NCard>();
-
-    private float minValue = -375;
-    private float maxValue = 375;
 
     private void Start()
     {
@@ -83,7 +81,6 @@ public class CardSortManager : MonoBehaviour
         int count = curCard.Count;
         if (count == 0) return;
 
-        float spacing = 250f; // 카드 간 간격 (원하는 값으로 조절)
         float totalWidth = spacing * (count - 1);
         float startX = -totalWidth / 2f; // 중앙 기준으로 좌우로 퍼지게
 
@@ -98,8 +95,7 @@ public class CardSortManager : MonoBehaviour
     {
         int count = curCard.Count;
         if (count == 0) return;
-
-        float spacing = 250f; // 카드 간 간격 (원하는 값으로 조절)
+        
         float totalWidth = spacing * (count - 1);
         float startX = -totalWidth / 2f; // 중앙 기준으로 좌우로 퍼지게
 

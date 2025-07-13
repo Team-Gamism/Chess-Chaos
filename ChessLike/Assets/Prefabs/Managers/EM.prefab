@@ -45,5 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyName: "\uD3C9\uBC94 \uCCB4\uC2A4 \uBD07"
-  EnemyIcon: {fileID: 388518445, guid: 703ea762a9874cd4390c9ada3bc16aa9, type: 3}
+  EnemyIcon: {fileID: 1736811562, guid: 53a03277837a9df4e93fcded5c845ad1, type: 3}
   ELO: 700
+  BuffQueue: []
+  DecIndex: 0

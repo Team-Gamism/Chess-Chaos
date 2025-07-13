@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401af3a20f59d2a42b57f6b4533934f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerName: "\uC774\uAC83\uC774\uB9AC\uC5BC\uCCAD"
-  PlayerIcon: {fileID: 4894923789156735290, guid: 703ea762a9874cd4390c9ada3bc16aa9, type: 3}
+  PlayerName: "\uD14C\uC2A4\uD2B8\uB2C9\uB124\uC784"
+  PlayerIcon: {fileID: 7001673065558221360, guid: 53a03277837a9df4e93fcded5c845ad1, type: 3}
   commonPercent: 40
   uncommonPrecent: 30
   rarePrecent: 15

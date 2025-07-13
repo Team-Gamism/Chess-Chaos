@@ -24,6 +24,10 @@ public class SkillLoader : MonoBehaviour
 	private TMP_Text subText;
 	[SerializeField]
 	private Image tierColorImage;
+    public WarningLog warningLog;
+	[Header("Sound")]
+	public AudioClip CardClose;
+	public AudioClip UseCard;
 
 	private List<PieceInfo> images = new List<PieceInfo>();
 
@@ -48,7 +52,6 @@ public class SkillLoader : MonoBehaviour
 		images = rect.GetComponentsInChildren<PieceInfo>().ToList();
     }
 
-    public WarningLog warningLog;
 
 	public void LoadSkill(GameObject obj)
 	{
@@ -121,6 +124,8 @@ public class SkillLoader : MonoBehaviour
 	{
 		FindObjectOfType<ChessGameManager>().isCardInfo = false;
 
+		SoundManager.Instance.SFXPlay("CardClose", CardClose);
+
 		selectedObj.GetComponent<RectTransform>().DOAnchorPosY(0, 0.5f).SetEase(Ease.OutQuint);
 
 		CanvasGroup skillDescription = GetComponent<CanvasGroup>();
@@ -141,6 +146,7 @@ public class SkillLoader : MonoBehaviour
 	//버튼 이벤트 전용
 	public void Execute()
 	{
+		SoundManager.Instance.SFXPlay("useCard", UseCard);
 		if ((int)currentSkillType == 0)
 			immeSkill.Execute();
 		else

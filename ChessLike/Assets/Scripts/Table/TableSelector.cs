@@ -20,6 +20,10 @@ public class TableSelector : MonoBehaviour
 
 	[HideInInspector]
 	public bool Donable = false;
+	[Header("Sound")]
+	public AudioClip Select;
+	public AudioClip Deselect;
+	[Header("list")]
 
 	private static List<VisualChessTableTile> tiles;
 	public List<VisualChessTableTile> selectedTiles = new List<VisualChessTableTile>();
@@ -130,10 +134,12 @@ public class TableSelector : MonoBehaviour
 
 	public void TileSelect(VisualChessTableTile tile)
 	{
+		SoundManager.Instance.SFXPlay("Select", Select);
 		tile.GetComponent<TileHandler>().OnFrontHighlight();
 	}
 	public void TileDeselect(VisualChessTableTile tile)
 	{
+		SoundManager.Instance.SFXPlay("Deselect", Deselect);
 		tile.GetComponent<TileHandler>().OnFrontUnhilight();
 	}
 

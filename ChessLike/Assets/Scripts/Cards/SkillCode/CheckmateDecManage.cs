@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using ChessEngine;
+using ChessEngine.Delegates;
 using ChessEngine.Game;
 using ChessEngine.Game.AI;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CheckmateDecManage : MonoBehaviour
 {
@@ -13,6 +15,9 @@ public class CheckmateDecManage : MonoBehaviour
     public int MaxTurnCount = 5;
     public int MaxDestroyPieceCount = 5;
     public bool IsInCheck = false;
+    public UnityEvent<int> OnTurnAdded = new UnityEvent<int>();
+    public CheckmateUI ui;
+    public CheckmateIconTween tween;
     private ChessColor color;
     private ChessColor enemyColor;
     private void Start()
@@ -21,6 +26,16 @@ public class CheckmateDecManage : MonoBehaviour
         chessManager = FindObjectOfType<ChessGameManager>();
         color = chessAIManager.IsBlackAIEnabled ? ChessColor.Black : ChessColor.White;
         enemyColor = chessAIManager.IsBlackAIEnabled ? ChessColor.White : ChessColor.Black;
+
+        OnTurnAdded.AddListener(ui.UpdateUI);
+    }
+
+    public void TweenEnable()
+    {
+        tween.gameObject.SetActive(true);
+        ui.group.alpha = 1f;
+        int t = MaxTurnCount + 1 - turnCount;
+        OnTurnAdded?.Invoke(t);
     }
 
     // Update is called once per frame
@@ -31,7 +46,6 @@ public class CheckmateDecManage : MonoBehaviour
             turnCount <= MaxTurnCount &&
             chessManager.isCheckmateDec)
         {
-            Debug.Log("체크메이트");
             List<ChessPiece> pieces = chessManager.visualTable.Table.GetColorPiece(enemyColor);
             //상대 기물 랜덤하게 파괴하기
             for (int i = 0; i < MaxDestroyPieceCount; i++)
@@ -39,6 +53,8 @@ public class CheckmateDecManage : MonoBehaviour
                 chessManager.visualTable.Table.DestroyPiece(pieces[Random.Range(0, pieces.Count)]);
             }
             turnCount = 0;
+            tween.DisableThis();
+            OnTurnAdded?.Invoke(0);
             chessManager.isCheckmateDec = false;
         }
         else if (turnCount > MaxTurnCount)
@@ -49,7 +65,11 @@ public class CheckmateDecManage : MonoBehaviour
     }
     public void AddTurn()
     {
-        if(chessManager.isCheckmateDec)
+        if (chessManager.isCheckmateDec)
+        {
             turnCount++;
+            int t = MaxTurnCount + 1 - turnCount;
+            OnTurnAdded?.Invoke(t);
+        }
     }
 }

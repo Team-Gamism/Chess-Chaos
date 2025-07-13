@@ -10903,3 +10903,9 @@ MonoBehaviour:
   obj3: {fileID: 4711256797352699864}
   obj4: {fileID: 1979916831419255826}
   obj5: {fileID: 8327312180427254692}
+  ShieldOnSFX: {fileID: 8300000, guid: c5dfe83b8d5eb3f459804b76baab0230, type: 3}
+  ShieldOffSFX: {fileID: 8300000, guid: e4875678683737e4585d50bf132c7def, type: 3}
+  RevengeOnSFX: {fileID: 8300000, guid: 2b4da937e666a3c4e9bdae920c6eb2e3, type: 3}
+  RevengeOffSFX: {fileID: 8300000, guid: d45412d4b20f03a49bc6cc8e128d4a5d, type: 3}
+  ReturnSFX: {fileID: 8300000, guid: 96290c70eade7b446ba7d36541d9791c, type: 3}
+  ReturnOffSFX: {fileID: 8300000, guid: 52acb7896c30a5a42b75ae7721be3689, type: 3}

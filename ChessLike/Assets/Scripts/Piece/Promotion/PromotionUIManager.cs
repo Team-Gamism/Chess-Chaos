@@ -40,7 +40,6 @@ public class PromotionUIManager : MonoBehaviour
 				piece.ChangeOther(idx + 2);
 				canvasGroup.blocksRaycasts = false;
 				canvasGroup.DOFade(0f, 0.5f);
-				FindObjectOfType<ChessAIGameManager>().ChessInstance.EndTurn(move);
 				FindObjectOfType<ChessAIGameManager>().isPromotionSelect = false;
 			});
 		}

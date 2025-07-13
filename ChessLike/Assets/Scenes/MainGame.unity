@@ -1012,10 +1012,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9abf48d6e294784ca539024475228b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selector: {fileID: 143164304}
-  pieceData: {fileID: 0}
-  Queen: {fileID: 9015967143296187391, guid: 559284ffe2043cc4882597ceb8083ff3, type: 3}
-  EnablePieces: 00000000010000000200000003000000
+  selector: {fileID: 0}
+  skillType: 0
 --- !u!1 &66350670
 GameObject:
   m_ObjectHideFlags: 0
@@ -2437,6 +2435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3545497f74952e54dad78a3ab023bed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selector: {fileID: 0}
+  skillType: 0
 --- !u!1 &162025973
 GameObject:
   m_ObjectHideFlags: 0
@@ -4186,6 +4186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8027075350088844b8538e82e0151f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selector: {fileID: 0}
+  skillType: 0
 --- !u!1 &244173494
 GameObject:
   m_ObjectHideFlags: 0
@@ -6174,7 +6176,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TableSelectPanel: {fileID: 1919796988}
-  cardData: {fileID: 0}
 --- !u!1 &355045421
 GameObject:
   m_ObjectHideFlags: 0
@@ -6346,6 +6347,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6c96053b71c494796d156b22a81bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selector: {fileID: 0}
+  skillType: 0
 --- !u!1 &355419572
 GameObject:
   m_ObjectHideFlags: 0
@@ -6943,7 +6946,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda04e39661d8eb4fb6d4256bc424208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tweenMover: {fileID: 1901369820}
+  log: {fileID: 0}
+  warningLog: {fileID: 0}
+  DoneBtn: {fileID: 0}
+  Donable: 0
+  selectedPieces: []
+  selectedTiles: []
+  pieceTypes: 
+  SelectColor: 0
+  cardData: {fileID: 0}
+  NotMoveCount: 0
+  OutlineMaterial: {fileID: 0}
+  type: 0
 --- !u!1 &386614687
 GameObject:
   m_ObjectHideFlags: 0
@@ -8262,6 +8276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e479ec8e26d9204a976de2373041c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selector: {fileID: 0}
+  skillType: 0
 --- !u!1 &474577669
 GameObject:
   m_ObjectHideFlags: 0
@@ -8526,8 +8542,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: {fileID: 804873128}
-  isOwn: {fileID: 816158332}
+  cardImage: {fileID: 0}
   description: {fileID: 1289405674}
+  tier: {fileID: 0}
+  rect: {fileID: 0}
+  subText: {fileID: 0}
+  tierColorImage: {fileID: 0}
   warningLog: {fileID: 2036480651}
 --- !u!1 &498548435
 GameObject:
@@ -9885,9 +9905,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7019752958051ed40b879a314bd5f50e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selector: {fileID: 143164304}
-  pieceData: {fileID: 0}
-  EnablePieces: 0000000001000000030000000200000004000000
+  selector: {fileID: 0}
+  skillType: 0
 --- !u!114 &597623298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10210,6 +10229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657d220abc5283f4a90744ae2f69c3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spacing: 0
   cardList: []
   cardRandomize: {fileID: 633539385}
   curCard: []
@@ -17108,6 +17128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e58dbad2eb534c4f9a1c37460488a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selector: {fileID: 0}
+  skillType: 0
 --- !u!1 &1169669770
 GameObject:
   m_ObjectHideFlags: 0
@@ -19632,6 +19654,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoStartGame: 1
+  isCardSelect: 0
+  isPieceSelect: 0
+  isPromotionSelect: 0
+  isCardInfo: 0
+  isCheckmateDec: 0
+  isGameEnd: 0
   visualTable: {fileID: 0}
   m_SelectedHighlightMaterial: {fileID: 0}
   m_MoveHighlightMaterial: {fileID: 0}
@@ -19658,6 +19686,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   ChessPieceMoved:
+    m_PersistentCalls:
+      m_Calls: []
+  TurnAdded:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1357356122
@@ -21190,27 +21221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d159c55b75512354a9d87ab9e81187f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveOffsetList:
-  - {x: 2, y: -1}
-  - {x: 2, y: 1}
-  - {x: 1, y: -2}
-  - {x: 1, y: 2}
-  - {x: -1, y: -2}
-  - {x: -1, y: 2}
-  - {x: -2, y: -1}
-  - {x: -2, y: 1}
-  - {x: 1, y: 0}
-  - {x: -1, y: 0}
-  - {x: 0, y: 1}
-  - {x: 0, y: -1}
-  - {x: 1, y: 1}
-  - {x: 1, y: -1}
-  - {x: -1, y: 1}
-  - {x: -1, y: -1}
-  - {x: 0, y: 2}
-  - {x: 0, y: -2}
-  - {x: 2, y: 0}
-  - {x: -2, y: 0}
+  selector: {fileID: 0}
+  skillType: 0
 --- !u!1 &1460024384
 GameObject:
   m_ObjectHideFlags: 0
@@ -23719,8 +23731,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc68700d58b21614484cf57d24985bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selector: {fileID: 143164304}
-  pieceData: []
+  selector: {fileID: 0}
+  skillType: 0
 --- !u!1 &1606765454
 GameObject:
   m_ObjectHideFlags: 0
@@ -26128,6 +26140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ff2868104497c488a58d900f4da9c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selector: {fileID: 0}
+  skillType: 0
 --- !u!1 &1742381720
 GameObject:
   m_ObjectHideFlags: 0
@@ -28944,10 +28958,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9600101c7572d1b4a9d83cebe4afe13c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tableSetter: {fileID: 1597614662}
   log: {fileID: 1191738108}
   DoneBtn: {fileID: 2015190629}
   Donable: 0
+  selectedTiles: []
   cardData: {fileID: 0}
   NotMoveCount: 0
 --- !u!1 &1927818722
@@ -30965,6 +30979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 2036480649}
+  PlayOnEnable: 0
   FadeInCompleteEvent:
     m_PersistentCalls:
       m_Calls:
@@ -30995,6 +31010,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  FadeInStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  FadeOutStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
   Duration: 0.5
   FadeInDelay: 0
   FadeOutDelay: 0.5

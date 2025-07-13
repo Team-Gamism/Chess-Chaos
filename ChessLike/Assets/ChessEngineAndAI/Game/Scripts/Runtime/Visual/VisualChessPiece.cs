@@ -428,10 +428,8 @@ namespace ChessEngine.Game
                 case (int)ChessPieceType.Bishop:
                     Piece.Table.ChessInstance.QueenBishop(Piece); break;
                 case (int)ChessPieceType.Queen:
-
                     Piece.Table.ChessInstance.QueenAny(Piece); break;
             }
         }
-    
     }
 }

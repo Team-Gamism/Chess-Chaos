@@ -23,6 +23,13 @@ public class SpriteHandler : MonoBehaviour
     public GameObject obj4;
     [Header("암습의 폰")]
     public GameObject obj5;
+    [Header("효과음")]
+    public AudioClip ShieldOnSFX;
+    public AudioClip ShieldOffSFX;
+    public AudioClip RevengeOnSFX;
+    public AudioClip RevengeOffSFX;
+    public AudioClip ReturnSFX;
+    public AudioClip ReturnOffSFX;
     private void Start()
     {
         shade.sprite = Renderer.sprite;
@@ -42,22 +49,27 @@ public class SpriteHandler : MonoBehaviour
 
     public void ShieldEffectOn()
     {
+        SoundManager.Instance.SFXPlay("shieldOn", ShieldOnSFX);
         obj1.SetActive(true);
     }
     public void ShieldEffectOff()
     {
+        SoundManager.Instance.SFXPlay("shieldOff", ShieldOffSFX);
         obj1.SetActive(false);
     }
     public void ReturnEffectOn()
     {
+        SoundManager.Instance.SFXPlay("return", ReturnSFX);
         obj2.SetActive(true);
     }
     public void ReturnEffectOff()
     {
+        SoundManager.Instance.SFXPlay("re", ReturnOffSFX);
         obj2.SetActive(false);
     }
     public void RevengeOn()
     {
+        SoundManager.Instance.SFXPlay("RevengeOn", RevengeOnSFX);
         Effect.SetActive(true);
     }
     public void UpdatePieceUI(int value)

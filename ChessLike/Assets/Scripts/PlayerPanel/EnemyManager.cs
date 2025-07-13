@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -51,5 +52,12 @@ public class EnemyManager : MonoBehaviour
         ELO = DefaultELO;
 
         DecIndex = 0;
+    }
+    public void SetLevel(int n)
+    {
+        int[] ELOs = { 900, 1000, 1500 };
+        string[] names = { "이지 레벨 봇", "노멀 레벨 봇", "하드 레벨 봇" };
+        ELO = ELOs[n];
+        EnemyName = names[n];
     }
 }

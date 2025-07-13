@@ -36,6 +36,7 @@ namespace ChessEngine.Game
         public bool isPromotionSelect = false;
         public bool isCardInfo = false;
         public bool isCheckmateDec = false;
+        public bool isGameEnd = false;
         [Tooltip("A reference to a VisualChessTable component that will be used to visualize the 'ChessInstance' associated with this chess game manager.")]
         public VisualChessTable visualTable;
         [Tooltip("An editor-set reference to the selected tile material.")]
@@ -101,6 +102,7 @@ namespace ChessEngine.Game
                 OnSelectionChanged();
             }
         }
+        public void SetEndGame(bool value) { isGameEnd = value; }
         /// <summary>The number of turns played by the current game in this game manager. Incremented immediately at the end of each turn by ChessGameManager.OnTurnEnded.</summary>
         public int TurnCount { get; set; } = 0;
         #endregion
@@ -310,7 +312,7 @@ namespace ChessEngine.Game
                             }
                         }
 
-                        // Don't allow us to kill a king.
+                        // Do allow us to kill a king.
                         else if (visualPiece == null || visualPiece.IsPiece<King>())
                         {
                             // Move the piece.
@@ -325,6 +327,7 @@ namespace ChessEngine.Game
 
                             ChessInstance.EndGame(pieceColor, reason);
                         }
+                        
                     }
                 }
             }

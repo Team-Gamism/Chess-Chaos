@@ -1,15 +1,17 @@
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class NCard : MonoBehaviour, IPointerClickHandler
+public class NCard : MonoBehaviour
 {
 	private SkillLoader skillLoader;
 
 	public CardData cardData;
 
 	private ICardSkill skill;
+
+	public AudioClip CardSpawn;
+	public AudioClip CardDraw;
 
 	private void Start()
 	{
@@ -19,6 +21,7 @@ public class NCard : MonoBehaviour, IPointerClickHandler
 	}
 	private void OnEnable()
 	{
+		SoundManager.Instance.SFXPlay("CardSpawn", CardSpawn);
 		RectTransform rect = GetComponent<RectTransform>();
 
 		Vector2 vec = new Vector2(rect.anchoredPosition.x, -500);
@@ -35,13 +38,10 @@ public class NCard : MonoBehaviour, IPointerClickHandler
 
 	public void LoadEvent()
 	{
+		SoundManager.Instance.SFXPlay("CardDraw", CardDraw);
 		skillLoader.LoadSkill(gameObject);
 	}
 
-	public void OnPointerClick(PointerEventData eventData)
-	{
-		LoadEvent();
-	}
 	public void DOEndAnimation()
 	{
 		var rect = gameObject.GetComponent<RectTransform>();
