@@ -272,6 +272,17 @@ public class PieceSelector : MonoBehaviour
 					DisableImage();
 				}
 				break;
+			case PieceSkillType.IsSnakePawn:
+			case PieceSkillType.Shield:
+			case PieceSkillType.FaseMove:
+				if (FindObjectsOfType<VisualChessPiece>().Where(v => v.Piece.Color == SelectColor &&
+				v.Piece.GetChessPieceType() == ChessPieceType.Pawn).Count() <= 0)
+				{
+					warningLog.log = "기물이 부족합니다!";
+					warningLog.gameObject.SetActive(true);
+					DisableImage();
+				}
+				break;
 		}
 	}
 

@@ -11,16 +11,17 @@ SpriteAtlasAsset:
   m_MasterAtlas: {fileID: 0}
   m_ImporterData:
     packables:
-    - {fileID: -95886718, guid: 45da3ca7933dd2d4b9ecf2c82783f5b4, type: 3}
-    - {fileID: 351804093, guid: 45da3ca7933dd2d4b9ecf2c82783f5b4, type: 3}
-    - {fileID: 1007289399, guid: 45da3ca7933dd2d4b9ecf2c82783f5b4, type: 3}
-    - {fileID: -346109343, guid: 45da3ca7933dd2d4b9ecf2c82783f5b4, type: 3}
-    - {fileID: 822729176, guid: 45da3ca7933dd2d4b9ecf2c82783f5b4, type: 3}
-    - {fileID: 8105552, guid: 45da3ca7933dd2d4b9ecf2c82783f5b4, type: 3}
-    - {fileID: 1917390486, guid: f79b5c0ec95e23943b8fa37454376448, type: 3}
-    - {fileID: -1468775162, guid: f79b5c0ec95e23943b8fa37454376448, type: 3}
-    - {fileID: -1589956970, guid: f79b5c0ec95e23943b8fa37454376448, type: 3}
-    - {fileID: -2010331103, guid: f79b5c0ec95e23943b8fa37454376448, type: 3}
-    - {fileID: -1103917181, guid: f79b5c0ec95e23943b8fa37454376448, type: 3}
-    - {fileID: -826425747, guid: f79b5c0ec95e23943b8fa37454376448, type: 3}
+    - {fileID: 7425438597007568885, guid: 984930367338fa24282c00382f067ce3, type: 3}
+    - {fileID: -5057789744853157014, guid: 984930367338fa24282c00382f067ce3, type: 3}
+    - {fileID: -7864855777358449687, guid: 984930367338fa24282c00382f067ce3, type: 3}
+    - {fileID: -1856150401202322500, guid: 984930367338fa24282c00382f067ce3, type: 3}
+    - {fileID: 7394990034796938797, guid: 984930367338fa24282c00382f067ce3, type: 3}
+    - {fileID: 84288246211954177, guid: 984930367338fa24282c00382f067ce3, type: 3}
+    - {fileID: -243099114694839562, guid: b69fc51a6bc77574eac35ab7b85ccdb9, type: 3}
+    - {fileID: -4830938959515655954, guid: b69fc51a6bc77574eac35ab7b85ccdb9, type: 3}
+    - {fileID: -6860487374272789442, guid: b69fc51a6bc77574eac35ab7b85ccdb9, type: 3}
+    - {fileID: 4278186640425537587, guid: b69fc51a6bc77574eac35ab7b85ccdb9, type: 3}
+    - {fileID: 8250041499104184828, guid: b69fc51a6bc77574eac35ab7b85ccdb9, type: 3}
+    - {fileID: 4285583596039854787, guid: b69fc51a6bc77574eac35ab7b85ccdb9, type: 3}
   m_IsVariant: 0
+  m_ScriptablePacker: {fileID: 0}

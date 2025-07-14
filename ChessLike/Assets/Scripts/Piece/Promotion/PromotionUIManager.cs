@@ -34,6 +34,7 @@ public class PromotionUIManager : MonoBehaviour
 		for (int i = 0; i < btns.Length; i++)
 		{
 			int idx = i;
+			btns[i].onClick.RemoveAllListeners();
 			btns[i].onClick.AddListener(() =>
 			{
 				//프로모션 진행하기 & 턴 끝내기

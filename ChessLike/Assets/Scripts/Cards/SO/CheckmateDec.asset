@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CheckmateDec
   m_EditorClassIdentifier: 
   Title: "\uCCB4\uD06C\uBA54\uC774\uD2B8 \uC120\uC5B8"
-  Description: "\uB2E4\uC74C 6\uD134 \uC548\uC5D0 \uC790\uC2E0\uC774 \uCCB4\uD06C\uBA54\uC774\uD2B8\uB97C
+  Description: "\uB2E4\uC74C 6\uD134 \uC548\uC5D0 \uC790\uC2E0\uC774 \uCCB4\uD06C\uB97C
     \\n\uB2F9\uD560 \uC2DC, \uC0C1\uB300 \uAE30\uBB3C 5\uAC1C\uAC00 <color=red>\uC790\uB3D9\uC73C\uB85C
     \uD30C\uAD34</color>\uB429\uB2C8\uB2E4."
   isOwn: 0
