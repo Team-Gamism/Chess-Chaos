@@ -5,6 +5,7 @@ using UnityEngine.U2D;
 public class SkinLoader : MonoBehaviour
 {
     public List<SpriteAtlas> atlasList = new List<SpriteAtlas>();
+
     private SkinManager skinManager;
 
     private void Start()

@@ -5,10 +5,13 @@ public class EMSetter : MonoBehaviour
     EnemyManager manager;
     void Start()
     {
-        manager = FindObjectOfType<EnemyManager>();
+        manager = FindFirstObjectByType<EnemyManager>();
     }
     public void DestroyManager()
     {
-        Destroy(manager.gameObject);
+        if (manager != null)
+            Destroy(manager.gameObject);
+        else
+            Debug.LogWarning("메니저를 찾을 수 없습니다!");
     }
 }

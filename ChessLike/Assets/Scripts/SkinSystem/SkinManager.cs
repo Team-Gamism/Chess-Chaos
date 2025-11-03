@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -10,13 +9,13 @@ public class SkinManager : MonoBehaviour
 {
     private SkinLoader skinLoader;
     private SkinSetter[] skinSetters = new SkinSetter[20];
-    [SerializeField]
-    private GameObject Setter;
+    private int currentIdx;
+
+    [SerializeField] private GameObject Setter;
+    [SerializeField] private TMP_Text Title;
+
     public Outline outline;
     public Toggle colorToggle;
-    private int currentIdx;
-    [SerializeField]
-    private TMP_Text Title;
     public Button ChooseBtn;
 
     public void Init()

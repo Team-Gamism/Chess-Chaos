@@ -13,7 +13,7 @@ public class PawnPromotion : MonoBehaviour
 	{
 		pieceData = GetComponent<PieceData>();
 		pieceHandler = GetComponent<PieceHandler>();
-		PromotionUI = FindObjectOfType<PromotionUIManager>();
+		PromotionUI = FindFirstObjectByType<PromotionUIManager>();
 
 	}
 
@@ -35,7 +35,7 @@ public class PawnPromotion : MonoBehaviour
 		bool isDraggable = pieceHandler.isDragable;
 
 		var piece = Instantiate(promotionObjects[n]);
-		piece.transform.SetParent(FindObjectOfType<PieceSpawner>().transform, false);
+		piece.transform.SetParent(FindFirstObjectByType<PieceSpawner>().transform, false);
 		piece.transform.position = SpawnPos;
 
 		piece.transform.position = pieceData.transform.position;

@@ -11,7 +11,7 @@ public class BlockCanvas : MonoBehaviour
 
     private void Start()
     {
-        manager = FindObjectOfType<ChessGameManager>();
+        manager = FindFirstObjectByType<ChessGameManager>();
     }
 
     private void Update()
