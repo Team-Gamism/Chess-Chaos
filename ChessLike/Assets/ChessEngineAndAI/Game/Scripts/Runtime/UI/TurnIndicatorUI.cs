@@ -1,3 +1,5 @@
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,24 +14,24 @@ namespace ChessEngine.Game.UI
         [Header("Settings")]
         [Tooltip("A reference to the GameObject that represents the turn indicator.")]
         public GameObject turnIndicatorObject;
-        public Image image;
+        public TMP_Text IndicatorText;
         [Tooltip("The number of seconds the turn indicator is displayed for.")]
         public float turnIndicatorTimeout = 2f;
         public GameObject[] objs;
-
-        public Sprite White;
-        public Sprite Black;
 
         /// <summary>A reference to the ChessGameManager component driving this turn indicator UI component.</summary>
         public ChessGameManager GameManager { get; private set; }
         /// <summary>The next Time.time the turn indicator wil lbe disabled.</summary>
         public float TurnIndicatorDisableTime { get; private set; } = float.NegativeInfinity;
 
+        private float toY;
+        private float fromY;
+
         // Unity callback(s).
         void Awake()
         {
             // Find ChessGameManager reference.
-            GameManager = FindObjectOfType<ChessGameManager>();
+            GameManager = FindFirstObjectByType<ChessGameManager>();
             if (GameManager == null)
                 Debug.LogError("TurnIndicatorUI component was unable to find a ChessGameManager component in the scene!", gameObject);
         }
@@ -48,7 +50,10 @@ namespace ChessEngine.Game.UI
                 // Subscribe to relevant event(s).
                 GameManager.TurnStarted.AddListener(OnTurnStarted);
             }
-        }
+
+			toY = -200f;
+			fromY = -220f;
+		}
 
         void OnDisable()
         {
@@ -88,10 +93,15 @@ namespace ChessEngine.Game.UI
         void OnTurnStarted(ChessColor pTurn)
         {
             // Set turn text.
-            if (image != null)
+            if (IndicatorText != null)
             {
-                image.sprite = pTurn == ChessColor.White ? White : Black;
-                objs[pTurn == ChessColor.White ? 0 : 1].SetActive(true);
+				IndicatorText.text = pTurn == ChessColor.White ? "WHITE" : "BLACK";
+				IndicatorText.color = pTurn == ChessColor.White ? Color.white : Color.black;
+
+
+                IndicatorText.rectTransform.DOAnchorPosY(toY, 0.5f).SetEase(Ease.OutQuad).From(new Vector2(0, fromY));
+
+				objs[pTurn == ChessColor.White ? 0 : 1].SetActive(true);
             }
 
             // Enable the turn indicator.
