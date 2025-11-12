@@ -13,20 +13,27 @@ public class PromotionUIManager : MonoBehaviour
 
 	private RectTransform rectTransform;
 
+	[SerializeField]
+	private ChessAIGameManager ChessAIGameManager;
+
+	private bool whiteColor;
+
 	private void Start()
 	{
 		canvasGroup = GetComponent<CanvasGroup>();
 
 		rectTransform = GetComponent<RectTransform>();
 
-		for (int i = 0; i < btns.Length; i++)
-			btns[i].image.sprite = AtlasManager.instance.GetCurrentSkinSprite(GameManager.instance.PlayerColor, btns[i].GetComponent<ButtonInfo>().piece);
+		whiteColor = ChessAIGameManager.IsWhiteAIEnabled;
 	}
 	public void StartPromotion(VisualChessPiece piece, MoveInfo move)
 	{
+		for (int i = 0; i < btns.Length; i++)
+			btns[i].image.sprite = AtlasManager.instance.GetCurrentSkinSprite(whiteColor, btns[i].GetComponent<ButtonInfo>().piece);
+
 		canvasGroup.DOFade(1f, 0.5f);
 		canvasGroup.blocksRaycasts = true;
-		FindObjectOfType<ChessAIGameManager>().isPromotionSelect = true;
+		FindFirstObjectByType<ChessAIGameManager>().isPromotionSelect = true;
 		AddButtonEvent(piece, move);
 	}
 	public void AddButtonEvent(VisualChessPiece piece, MoveInfo move)
@@ -41,7 +48,7 @@ public class PromotionUIManager : MonoBehaviour
 				piece.ChangeOther(idx + 2);
 				canvasGroup.blocksRaycasts = false;
 				canvasGroup.DOFade(0f, 0.5f);
-				FindObjectOfType<ChessAIGameManager>().isPromotionSelect = false;
+				FindFirstObjectByType<ChessAIGameManager>().isPromotionSelect = false;
 			});
 		}
 	}

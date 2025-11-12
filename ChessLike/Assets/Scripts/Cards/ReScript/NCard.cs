@@ -17,7 +17,7 @@ public class NCard : MonoBehaviour
 	{
 		skill = GetComponent<ICardSkill>();
 		GetComponent<Image>().sprite = cardData.cardImage;
-		skillLoader = FindObjectOfType<SkillLoader>();
+		skillLoader = FindFirstObjectByType<SkillLoader>();
 	}
 	private void OnEnable()
 	{

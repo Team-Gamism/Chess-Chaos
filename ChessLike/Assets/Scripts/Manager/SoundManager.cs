@@ -56,14 +56,15 @@ public class SoundManager : MonoBehaviour
 	}
 	public void SFXPlay(string sfxName, AudioClip clip)
 	{
-		float v = 0f;
-		audioMixer.GetFloat("SFXVolume", out v);
+		float currentSFXVolume;
+		audioMixer.GetFloat("SFXVolume", out currentSFXVolume);
 
-		if (v < -50f) return;
+		if (currentSFXVolume <= -40f)
+			return;
 
 		GameObject go = new GameObject(sfxName + "Sound");
 		AudioSource source = go.AddComponent<AudioSource>();
-		source.outputAudioMixerGroup = audioMixer.FindMatchingGroups("SFX")[0];
+		source.outputAudioMixerGroup = audioMixer.FindMatchingGroups("SFXVolume")[0];
 		source.clip = clip;
 		source.Play();
 
