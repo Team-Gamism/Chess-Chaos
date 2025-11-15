@@ -34,7 +34,7 @@ namespace ChessEngine.Game.Demo.UI
             {
                 chessGameManager = GetComponent<ChessGameManager>();
                 if (chessGameManager == null)
-                    chessGameManager = FindObjectOfType<ChessGameManager>();
+                    chessGameManager = FindFirstObjectByType<ChessGameManager>();
             }
 
             // Subscribe to relevant chessGameManager event(s).

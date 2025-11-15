@@ -10,7 +10,7 @@ public class AtlasManager : MonoBehaviour
     public static AtlasManager instance;
     public static event Action OnChangeSkin;
 
-    [SerializedDictionary("이름", "아틀라스")]
+    [SerializedDictionary("Name", "Atlas")]
     public SerializedDictionary<String, SpriteAtlas> SkinDictionary = new SerializedDictionary<string, SpriteAtlas>();
 
     public SpriteAtlas curSkin { get { return currentSkin; } }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6809268350922137914}
   - component: {fileID: 7792909692617497112}
   - component: {fileID: 1079731966740268436}
+  - component: {fileID: 6086834893733886676}
   m_Layer: 0
   m_Name: Prefab_Pawn_2D
   m_TagString: Untagged
@@ -80,34 +81,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6809268350922137914}
-        m_TargetAssemblyTypeName: ChessEngine.Game.VisualChessPiece, Assembly-CSharp
-        m_MethodName: SetTwoMove
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6809268350922137914}
-        m_TargetAssemblyTypeName: ChessEngine.Game.VisualChessPiece, Assembly-CSharp
-        m_MethodName: SetMoveSide
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6809268350922137914}
-        m_TargetAssemblyTypeName: ChessEngine.Game.VisualChessPiece, Assembly-CSharp
-        m_MethodName: SetSnakePawn
-        m_Mode: 6
+      - m_Target: {fileID: 6086834893733886676}
+        m_TargetAssemblyTypeName: PawnController, Assembly-CSharp
+        m_MethodName: UpdatePawnState
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -219,6 +196,19 @@ MonoBehaviour:
   piece: 0
   White: {fileID: 2100000, guid: 842f57741d674bc4c97504297ff8b366, type: 2}
   randerer: {fileID: 6073554004381791450}
+--- !u!114 &6086834893733886676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677644389951609104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac284e66c94b1c4199759bca268cfd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 6809268350922137914}
 --- !u!1 &686389527338007121
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +337,7 @@ AudioSource:
   m_GameObject: {fileID: 4907798901146485970}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5347214581992015631, guid: b4765558197ad304186c83561416c345, type: 2}
   m_audioClip: {fileID: 8300000, guid: 3a356754082b40d43bd1cb9ed322a21f, type: 3}
   m_Resource: {fileID: 8300000, guid: 3a356754082b40d43bd1cb9ed322a21f, type: 3}
   m_PlayOnAwake: 0

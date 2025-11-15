@@ -1,6 +1,3 @@
-using System.Runtime.CompilerServices;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D;
 using UnityEngine.UI;
@@ -11,19 +8,19 @@ public class SkinSetter : MonoBehaviour
     public SkinPiece[] skinPieces;
     public bool isUsing;
     public bool isWhite;
-    private Image image;
+    public SkinManager skinManager;
+
     private Toggle colorToggle;
 
-    private SkinManager skinManager;
     private void Start()
     {
-        image = GetComponent<Image>();
-        skinManager = GetComponentInParent<SkinManager>();
         colorToggle = skinManager.colorToggle;
     }
-    public void SetSprites(SpriteAtlas newAtlas)
+    public void SetSprites(SpriteAtlas newAtlas, int n)
     {
         altas = newAtlas;
+
+        skinManager.SetOutlineColor(n);
 
         for (int i = 0; i < skinPieces.Length; i++)
         {
@@ -33,7 +30,6 @@ public class SkinSetter : MonoBehaviour
             skinPieces[i].UpdateImage(sprite);
         }
         UpdateSkinSetter();
-        if (!isUsing) gameObject.SetActive(false);
     }
 
 
@@ -51,17 +47,6 @@ public class SkinSetter : MonoBehaviour
         isWhite = colorToggle.isOn;
         
         UpdateSprite();
-
-        if (isUsing)
-        {
-            GetComponentInParent<SkinManager>().outline.effectColor = new Color(136f / 255f, 1f, 1f, 1f);
-            skinManager.ChooseBtn.interactable = false;
-        }
-        else
-        {
-            GetComponentInParent<SkinManager>().outline.effectColor = Color.white;
-            skinManager.ChooseBtn.interactable = true;
-        }
     }
 
     private void UpdateSprite()

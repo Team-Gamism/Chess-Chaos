@@ -156,7 +156,7 @@ namespace Clickables.TouchScreens
                 float dis = Vector2.Distance(pos, Camera.main.WorldToScreenPoint(n.GetLocalPosition(table)));
                 if (dis < 90f)
                 {
-                    Debug.Log(dis);
+                    //Debug.Log(dis);
                     t = n;
                     break;
                 }

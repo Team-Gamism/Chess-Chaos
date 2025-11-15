@@ -11,6 +11,6 @@ public class IconUI : MonoBehaviour
     public void SetRotation()
     {
         canvas.transform.parent.localEulerAngles = new Vector3(0f, 180f, 0f);
-        Debug.Log(canvas.transform.parent.rotation.y);
+        //Debug.Log(canvas.transform.parent.rotation.y);
     }
 }

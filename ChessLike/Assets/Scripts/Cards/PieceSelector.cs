@@ -182,6 +182,7 @@ public class PieceSelector : MonoBehaviour
 		{
 			list.Add(selectedPieces[i]);
 		}
+
 		skillLoader.ExecuteSkill(list);
 		DisableImage();
 	}
