@@ -40,9 +40,9 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShieldValue: 0.71
+    - _ShieldValue: 0.41
     m_Colors:
-    - _ShieldColor: {r: 0, g: 3.0805972, b: 1.7929399, a: 0}
+    - _ShieldColor: {r: 0, g: 1, b: 0.9764705, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &2894143704870166679

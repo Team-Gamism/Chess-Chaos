@@ -10,21 +10,18 @@ using UnityEngine.UI;
 
 public class SkillLoader : MonoBehaviour
 {
-	[SerializeField]
-	private TMP_Text title;
-	[SerializeField]
-	private Image cardImage;
-	[SerializeField]
-	private TMP_Text description;
-	[SerializeField]
-	private TMP_Text tier;
-	[SerializeField]
-	private GameObject rect;
-	[SerializeField]
-	private TMP_Text subText;
-	[SerializeField]
-	private Image tierColorImage;
-    public WarningLog warningLog;
+	[SerializeField] private Image cardImage;
+	[SerializeField] private Image tierColorImage;
+
+	[SerializeField] private TMP_Text title;
+	[SerializeField] private TMP_Text description;
+	[SerializeField] private TMP_Text tier;
+	[SerializeField] private TMP_Text subText;
+
+	[SerializeField] private GameObject rect;
+
+	[SerializeField] private CardEffectSpawner cardSpawner;
+
 	[Header("Sound")]
 	public AudioClip CardClose;
 	public AudioClip UseCard;
@@ -61,7 +58,7 @@ public class SkillLoader : MonoBehaviour
 
 		InitSkillType();
 
-		FindObjectOfType<ChessGameManager>().isCardInfo = true;
+		FindFirstObjectByType<ChessGameManager>().isCardInfo = true;
 
 		NCard n = obj.GetComponent<NCard>();
 		CardData data = n.cardData;
@@ -79,7 +76,7 @@ public class SkillLoader : MonoBehaviour
 		tier.text = CardTierToKorean(data.cardTier);
 		tierColorImage.color = colors[(int)data.cardTier];
 
-		ChessAIGameManager ai = FindObjectOfType<ChessAIGameManager>();
+		ChessAIGameManager ai = FindFirstObjectByType<ChessAIGameManager>();
 
 		bool playerColor = ai.enableBlackAI ? true : false;
 
@@ -122,7 +119,7 @@ public class SkillLoader : MonoBehaviour
 
 	public void CloseSkill()
 	{
-		FindObjectOfType<ChessGameManager>().isCardInfo = false;
+		FindFirstObjectByType<ChessGameManager>().isCardInfo = false;
 
 		SoundManager.Instance.SFXPlay("CardClose", CardClose);
 
@@ -152,7 +149,7 @@ public class SkillLoader : MonoBehaviour
 		else
 		{
 			if (currentSkillType == SkillType.Piece)
-				pieceSkill.LoadSelector(cardData.pieces, !cardData.isOwn, !FindObjectOfType<ChessAIGameManager>().IsBlackAIEnabled ? ChessColor.Black : ChessColor.White);
+				pieceSkill.LoadSelector(cardData.pieces, !cardData.isOwn, !FindFirstObjectByType<ChessAIGameManager>().IsBlackAIEnabled ? ChessColor.Black : ChessColor.White);
 			else
 				tableSkill.LoadSelector();
 		}
@@ -161,18 +158,21 @@ public class SkillLoader : MonoBehaviour
 	//즉시 실행
 	public void ExecuteSkill()
 	{
+		cardSpawner.SpawnEffector(cardData);
 		immeSkill.Execute();
 	}
 
 	//아군 또는 적군 특정 기물 / 모든 기물 중 선택 후 실행
 	public void ExecuteSkill(List<VisualChessPiece> list)
 	{
+		cardSpawner.SpawnEffector(cardData);
 		pieceSkill.Execute(list);
 	}
 
 	//모든 / 기물 없는 테이블 중 선택 후 실행
 	public void ExecuteSkill(List<VisualChessTableTile> list)
 	{
+		cardSpawner.SpawnEffector(cardData);
 		tableSkill.Execute(list);
 	}
 	

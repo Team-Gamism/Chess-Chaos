@@ -117,7 +117,7 @@ namespace ChessEngine.Game
             //추후 상대 색깔 가져오는 메서드 추가할 것.
             if (Piece.Color == ChessColor.Black)
             {
-                FindObjectOfType<CardSortManager>().GetNewCard();
+                FindFirstObjectByType<CardSortManager>().GetNewCard();
             }
         }
 
@@ -304,6 +304,7 @@ namespace ChessEngine.Game
         }
         #endregion
 
+        // 잡힐 때 변경되는 변수
         public void SetRevenge(bool value)
         {
             if (Piece != null)
@@ -318,6 +319,11 @@ namespace ChessEngine.Game
             Piece.SetShield(value);
             isShield = Piece.IsShield;
         }
+
+        // 움직일 때 변경되는 변수
+        public bool GetTwoMove() => isTwoMove;
+        public bool GetMoveSide() => isMoveSide;
+        public bool GetSnakePawn() => isSnakePawn;
         public void SetTwoMove(bool value)
         {
             if (Piece == null) return;
@@ -325,6 +331,7 @@ namespace ChessEngine.Game
             isTwoMove = Piece.IsTwoMove;
             IconHandler(IconType.TwoMove, isTwoMove);
         }
+
         public void SetMoveSide(bool value)
         {
             if (Piece == null) return;
@@ -340,6 +347,8 @@ namespace ChessEngine.Game
             isSnakePawn = Piece.IsSnakePawn;
             IconHandler(IconType.SnakePawn, isSnakePawn);
         }
+
+        // 기물 상태 관리 변수
         public void SetPin(bool value, int Turn)
         {
             if (Piece == null) return;
@@ -347,6 +356,8 @@ namespace ChessEngine.Game
             isPin = Piece.IsPin;
             PinCount = Turn;
         }
+
+
         public void UpdatePieceUI()
         {
             spriteHandler.pieceUI.SetNumber(PinCount);

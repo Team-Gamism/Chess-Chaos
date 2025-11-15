@@ -281,7 +281,7 @@ namespace ChessEngine.Game
                 }
                 else if (GameManager.isPieceSelect)
                 {
-                    pieceSelector = FindObjectOfType<PieceSelector>();
+                    pieceSelector = FindFirstObjectByType<PieceSelector>();
 
                     if (GetVisualPiece() == null || GetVisualPiece().Piece.Color != pieceSelector.SelectColor) return;
 
@@ -295,6 +295,7 @@ namespace ChessEngine.Game
                         if (GetVisualPiece().isRevenge) return;
                         AddPieceSelectorAttribute();
                     }
+                    //faseMove -> fastMove
                     else if (pieceSelector.type == PieceSkillType.FaseMove)
                     {
                         if (GetVisualPiece().isTwoMove ||
