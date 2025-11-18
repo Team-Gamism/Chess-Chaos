@@ -9,8 +9,8 @@ public class AllChange : MonoBehaviour, ISkill
     public AudioClip ChangeSFX;
     public void Execute()
     {
-        ChessGameManager manager = FindObjectOfType<ChessGameManager>();
-        ChessAIGameManager AImanager = FindObjectOfType<ChessAIGameManager>();
+        ChessGameManager manager = FindFirstObjectByType<ChessGameManager>();
+        ChessAIGameManager AImanager = FindFirstObjectByType<ChessAIGameManager>();
 
         ChessColor player = AImanager.IsBlackAIEnabled ? ChessColor.Black : ChessColor.White;
         ChessColor enemy = AImanager.IsBlackAIEnabled ? ChessColor.White : ChessColor.Black;
@@ -47,7 +47,7 @@ public class AllChange : MonoBehaviour, ISkill
 
     public bool canExecute()
     {
-        return FindObjectOfType<ChessGameManager>() != null;
+        return FindFirstObjectByType<ChessGameManager>() != null;
     }
 }
 
