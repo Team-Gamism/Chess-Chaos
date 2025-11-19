@@ -145,7 +145,10 @@ public class SkillLoader : MonoBehaviour
 	{
 		SoundManager.Instance.SFXPlay("useCard", UseCard);
 		if ((int)currentSkillType == 0)
+		{
+			cardSpawner.SpawnEffector(cardData);
 			immeSkill.Execute();
+		}
 		else
 		{
 			if (currentSkillType == SkillType.Piece)

@@ -1734,9 +1734,9 @@ MonoBehaviour:
   FadeOutStartEvent:
     m_PersistentCalls:
       m_Calls: []
-  duration: 0
+  duration: 0.5
   fadeInDelay: 0
-  fadeOutDelay: 0
+  fadeOutDelay: 0.3
 --- !u!225 &179689960
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3013,6 +3013,33 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 326474908}
         m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_blocksRaycasts
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 326474908}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  FadeOutStartEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 326474908}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
         m_MethodName: set_interactable
         m_Mode: 6
         m_Arguments:
@@ -3035,9 +3062,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  FadeOutStartEvent:
-    m_PersistentCalls:
-      m_Calls: []
   duration: 0.5
   fadeInDelay: 0
   fadeOutDelay: 0
@@ -8365,9 +8389,9 @@ RectTransform:
   - {fileID: 1070914493}
   m_Father: {fileID: 1040895992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 543.05, y: -487.75833}
   m_SizeDelta: {x: 906.45, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &365311522
@@ -8414,13 +8438,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 326474904}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 326474909}
+        m_TargetAssemblyTypeName: TweenFader, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8760,7 +8784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &390091708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8871,7 +8895,7 @@ MonoBehaviour:
   FadeOutStartEvent:
     m_PersistentCalls:
       m_Calls: []
-  duration: 0
+  duration: 0.5
   fadeInDelay: 0
   fadeOutDelay: 0
 --- !u!225 &390091713
@@ -8882,7 +8906,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390091707}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -9008,13 +9032,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 326474909}
         m_TargetAssemblyTypeName: TweenFader, Assembly-CSharp
-        m_MethodName: FadeOut
+        m_MethodName: FadeIn
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.5
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -9964,9 +9988,9 @@ MonoBehaviour:
   FadeOutStartEvent:
     m_PersistentCalls:
       m_Calls: []
-  duration: 0
+  duration: 0.5
   fadeInDelay: 0
-  fadeOutDelay: 0
+  fadeOutDelay: 0.3
 --- !u!225 &595973149
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -12642,9 +12666,9 @@ RectTransform:
   - {fileID: 1512136557}
   m_Father: {fileID: 1040895992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 543.05, y: -129.55167}
   m_SizeDelta: {x: 906.45, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1065019722
@@ -17942,9 +17966,9 @@ RectTransform:
   - {fileID: 1665031792}
   m_Father: {fileID: 1040895992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 543.05, y: -308.655}
   m_SizeDelta: {x: 906.45, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1757589925
@@ -19742,9 +19766,9 @@ MonoBehaviour:
   FadeOutStartEvent:
     m_PersistentCalls:
       m_Calls: []
-  duration: 0
+  duration: 0.5
   fadeInDelay: 0
-  fadeOutDelay: 0
+  fadeOutDelay: 0.5
 --- !u!114 &2036480651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20964,13 +20988,13 @@ SceneRoots:
   - {fileID: 1927818726}
   - {fileID: 477834050}
   - {fileID: 1677636301}
-  - {fileID: 1817923969}
-  - {fileID: 1879605129}
   - {fileID: 326969768}
   - {fileID: 158908436}
-  - {fileID: 1583930553}
-  - {fileID: 1527001980}
   - {fileID: 76621726}
   - {fileID: 1531939903}
+  - {fileID: 1817923969}
+  - {fileID: 1583930553}
+  - {fileID: 1527001980}
+  - {fileID: 1879605129}
   - {fileID: 2118654708}
   - {fileID: 1265260007}

@@ -23,6 +23,7 @@ public class CardEffector : MonoBehaviour
 		DOAnim();
 	}
 
+	[ContextMenu("Do Animation")]
 	private void DOAnim()
 	{
 		Vector3 endValue = new Vector3(0f, 0f, 0f);
