@@ -6,7 +6,8 @@ public class ReturnVFX : MonoBehaviour
     VisualChessPiece piece;
     void Start()
     {
-        piece = transform.parent.parent.GetComponent<VisualChessPiece>(); 
+        //세상에서 제일 ㅄ같은 코드
+        piece = transform.parent.parent.parent.GetComponent<VisualChessPiece>(); 
     }
 
     // Update is called once per frame

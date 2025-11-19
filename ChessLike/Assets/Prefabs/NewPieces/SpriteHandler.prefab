@@ -5332,6 +5332,7 @@ GameObject:
   - component: {fileID: 6407776366204567390}
   - component: {fileID: 894243965021880124}
   - component: {fileID: 5371878360532669992}
+  - component: {fileID: 544921087531957709}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -5396,6 +5397,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &544921087531957709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4499444909264524223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1945276161b73c4da3abc16fdaf2697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4711256797352699864
 GameObject:
   m_ObjectHideFlags: 0
@@ -6060,14 +6073,21 @@ MonoBehaviour:
   Renderer: {fileID: 0}
   locker: {fileID: 282802849675846149}
   shade: {fileID: 2451829768338392485}
+  Pin: {fileID: 11400000, guid: a1337b6eeca1e754d9ed0f599997eca6, type: 2}
   obj1: {fileID: 3457853331178743684}
+  Shield: {fileID: 11400000, guid: c8a8528820615aa47be934d36da656df, type: 2}
   Effect: {fileID: 8007713231069690125}
+  Revenge: {fileID: 11400000, guid: 6f080212ff9df0e448046eb5f99b0e4f, type: 2}
   pieceUI: {fileID: 4440984209909926416}
   obj2: {fileID: 4499444909264524223}
   iconUI: {fileID: 1821598523724373736}
+  Return: {fileID: 11400000, guid: ad4de92f8ebcb27468748d71ed8d1d8a, type: 2}
   obj3: {fileID: 4711256797352699864}
+  SideMove: {fileID: 11400000, guid: 7d19de26454949847a210b6f5a932357, type: 2}
   obj4: {fileID: 1979916831419255826}
+  TwoMove: {fileID: 11400000, guid: cfccfd322f5be174c995b444f555994b, type: 2}
   obj5: {fileID: 8327312180427254692}
+  KnightMove: {fileID: 11400000, guid: 8c3714a5d80c9fd4180a49043473c5b2, type: 2}
   ShieldOnSFX: {fileID: 8300000, guid: c5dfe83b8d5eb3f459804b76baab0230, type: 3}
   ShieldOffSFX: {fileID: 8300000, guid: e4875678683737e4585d50bf132c7def, type: 3}
   RevengeOnSFX: {fileID: 8300000, guid: 2b4da937e666a3c4e9bdae920c6eb2e3, type: 3}

@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class CardEffectSpawner : MonoBehaviour
 {
-	[SerializeField] private GameObject effector;
-	public void SpawnEffector(CardData data)
+	[SerializeField] private CardEffector effector;
+
+	public void SpawnEffector(CardData data, SpawnType spawnType = SpawnType.UseCard)
 	{
-		var obj = Instantiate(effector, transform);
-		obj.GetComponent<CardEffector>().CardAppear(data);
+		effector.CardAppear(data, spawnType);
 	}
+}
+
+public enum SpawnType
+{
+	UseCard,
+	BreakCard
 }

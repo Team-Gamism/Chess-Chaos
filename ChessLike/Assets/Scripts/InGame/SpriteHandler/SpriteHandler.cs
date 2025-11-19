@@ -1,5 +1,4 @@
 using DG.Tweening;
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class SpriteHandler : MonoBehaviour
@@ -8,21 +7,28 @@ public class SpriteHandler : MonoBehaviour
     [Header("고정 효과")]
     public SpriteRenderer locker;
     public SpriteRenderer shade;
+    public CardData Pin;
     [Header("방어막 효과")]
     public GameObject obj1;
+    public CardData Shield;
     [Header("복수 효과")]
     public GameObject Effect;
+    public CardData Revenge;
     [Header("고정 효과")]
     public PieceUI pieceUI;
     [Header("복귀 효과")]
     public GameObject obj2;
     public IconUI iconUI;
+    public CardData Return;
     [Header("사선 이동")]
     public GameObject obj3;
+    public CardData SideMove;
     [Header("두칸 이동")]
     public GameObject obj4;
+    public CardData TwoMove;
     [Header("암습의 폰")]
     public GameObject obj5;
+    public CardData KnightMove;
     [Header("효과음")]
     public AudioClip ShieldOnSFX;
     public AudioClip ShieldOffSFX;
@@ -33,9 +39,12 @@ public class SpriteHandler : MonoBehaviour
     public AudioClip PinSFX;
     public AudioClip ApplySFX;
 
+    private CardEffectSpawner spawner;
+
     private void Start()
     {
         shade.sprite = Renderer.sprite;
+        spawner = FindFirstObjectByType<CardEffectSpawner>();
     }
 
     public void ChainEffectOn()
@@ -48,7 +57,8 @@ public class SpriteHandler : MonoBehaviour
     public void ChainEffectOff()
     {
         SoundManager.Instance.SFXPlay("pinOff", PinSFX);
-        locker.DOFade(0f, 0.5f);
+		spawner.SpawnEffector(Pin, SpawnType.BreakCard);
+		locker.DOFade(0f, 0.5f);
         shade.DOFade(0f, 0.5f);
     }
 
@@ -60,17 +70,19 @@ public class SpriteHandler : MonoBehaviour
     public void ShieldEffectOff()
     {
         SoundManager.Instance.SFXPlay("shieldOff", ShieldOffSFX);
+        spawner.SpawnEffector(Shield, SpawnType.BreakCard);
         obj1.SetActive(false);
     }
     public void ReturnEffectOn()
     {
         SoundManager.Instance.SFXPlay("return", ReturnSFX);
-        obj2.SetActive(true);
+		obj2.SetActive(true);
     }
     public void ReturnEffectOff()
     {
         SoundManager.Instance.SFXPlay("re", ReturnOffSFX);
-        obj2.SetActive(false);
+		spawner.SpawnEffector(Return, SpawnType.BreakCard);
+		obj2.SetActive(false);
     }
     public void RevengeOn()
     {
