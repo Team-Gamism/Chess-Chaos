@@ -283,71 +283,105 @@ namespace ChessEngine.Game
                 {
                     pieceSelector = FindFirstObjectByType<PieceSelector>();
 
-                    if (GetVisualPiece() == null || GetVisualPiece().Piece.Color != pieceSelector.SelectColor) return;
+                    ChessPiece piece = GetVisualPiece()?.Piece;
 
+                    if (piece == null || piece.Color != pieceSelector.SelectColor) return;
+
+                    // 기존 VisualChessPiece의 변수에서 가져오던 bool 값을
+                    // 라이브러리에 저장되어 있는 변수의 bool 값을 참조
+
+                    // 보호막
                     if (pieceSelector.type == PieceSkillType.Shield)
                     {
-                        if (GetVisualPiece().Piece.IsShield) return;
+                        if (piece.IsShield) return;
                         AddPieceSelectorAttribute();
                     }
+
+                    // 초속 복귀
+                    else if (pieceSelector.type == PieceSkillType.FastReturn)
+                    {
+                        if (piece.IsEmerReturn || 
+                            piece.IsRevenge) return;
+                        AddPieceSelectorAttribute();
+                    }
+
+                    // 반격
                     else if (pieceSelector.type == PieceSkillType.Revenge)
                     {
-                        if (GetVisualPiece().isRevenge) return;
+                        if (piece.IsRevenge ||
+                            piece.IsEmerReturn) return;
                         AddPieceSelectorAttribute();
                     }
-                    //faseMove -> fastMove
+                    // faseMove -> fastMove
+                    // 2칸이동
                     else if (pieceSelector.type == PieceSkillType.FaseMove)
                     {
-                        if (GetVisualPiece().isTwoMove ||
-                            GetVisualPiece().isMoveSide) return;
+                        if (piece.IsTwoMove ||
+                            piece.IsMoveSide) return;
                         AddPieceSelectorAttribute();
                     }
+
+                    // 대각선 이동
                     else if (pieceSelector.type == PieceSkillType.IsMoveSide)
                     {
-                        if (GetVisualPiece().isMoveSide ||
-                            GetVisualPiece().isTwoMove) return;
+                        if (piece.IsMoveSide ||
+                            piece.IsTwoMove) return;
                         AddPieceSelectorAttribute();
                     }
+
+                    // 암습의폰
                     else if (pieceSelector.type == PieceSkillType.IsSnakePawn)
                     {
-                        if (GetVisualPiece().isSnakePawn ||
-                            GetVisualPiece().isMoveSide ||
-                            GetVisualPiece().isTwoMove) return;
+                        if (piece.IsSnakePawn ||
+                            piece.IsMoveSide ||
+                            piece.IsTwoMove) return;
                         AddPieceSelectorAttribute();
                     }
+
+                    // 고정
                     else if (pieceSelector.type == PieceSkillType.IsPin)
                     {
-                        if (GetVisualPiece().isPin) return;
+                        if (piece.IsPin) return;
                         AddPieceSelectorAttribute();
                     }
+
+                    // 퀸 변환
                     else if (pieceSelector.type == PieceSkillType.GodsOne)
                     {
-                        if (GetVisualPiece().isShield ||
-                            GetVisualPiece().isRevenge ||
-                            GetVisualPiece().isTwoMove ||
-                            GetVisualPiece().isMoveSide ||
-                            GetVisualPiece().isSnakePawn ||
-                            GetVisualPiece().isPin) return;
+                        if (piece.IsShield ||
+                            piece.IsRevenge ||
+                            piece.IsTwoMove ||
+                            piece.IsMoveSide ||
+                            piece.IsSnakePawn ||
+                            piece.IsPin) return;
                         AddPieceSelectorAttribute();
                     }
+
+                    // 2개 기물 랜덤 이동
                     else if (pieceSelector.type == PieceSkillType.DimensionBreak)
                     {
-                        if (GetVisualPiece().isPin) return;
+                        if (piece.IsPin) return;
                         AddPieceSelectorAttribute();
                     }
+
+                    // 모두 적용
                     else if (pieceSelector.type == PieceSkillType.Any)
                     {
-                        if (GetVisualPiece().isPin) return;
+                        if (piece.IsPin) return;
                         AddPieceSelectorAttribute();
                     }
+
+                    // 혼란 나이트
                     else if (pieceSelector.type == PieceSkillType.ChaosKnight)
                     {
-                        if (GetVisualPiece().isPin) return;
+                        if (piece.IsPin) return;
                         AddPieceSelectorAttribute();
                     }
+
+                    // 룩 이동
                     else if (pieceSelector.type == PieceSkillType.TopChange)
                     {
-                        if (GetVisualPiece().isPin)
+                        if (piece.IsPin)
                             return;
 
                         if (pieceSelector.IsMoveable(GetVisualPiece().Piece.Tile))
@@ -355,10 +389,7 @@ namespace ChessEngine.Game
                             AddPieceSelectorAttribute();
                         }
                     }
-                    else if (pieceSelector.type == PieceSkillType.FastReturn)
-                    {
-                        AddPieceSelectorAttribute();
-                    }
+
                 }
             }
         }
