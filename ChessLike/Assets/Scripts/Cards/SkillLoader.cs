@@ -8,6 +8,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// 스킬을 로드하고 실행시키는 클래스
+
 public class SkillLoader : MonoBehaviour
 {
 	[SerializeField] private Image cardImage;
@@ -152,7 +154,12 @@ public class SkillLoader : MonoBehaviour
 		else
 		{
 			if (currentSkillType == SkillType.Piece)
-				pieceSkill.LoadSelector(cardData.pieces, !cardData.isOwn, !FindFirstObjectByType<ChessAIGameManager>().IsBlackAIEnabled ? ChessColor.Black : ChessColor.White);
+			{
+				// 현재 턴 수가 짝수일 경우, 백의 기물을 관리
+				// 홀수일 경우, 흑의 기물을 관리
+				int color = FindFirstObjectByType<ChessAIGameManager>().TurnCount;
+				pieceSkill.LoadSelector(cardData.pieces, !cardData.isOwn, (color % 2 == 0) ? ChessColor.White : ChessColor.Black);
+			}
 			else
 				tableSkill.LoadSelector();
 		}

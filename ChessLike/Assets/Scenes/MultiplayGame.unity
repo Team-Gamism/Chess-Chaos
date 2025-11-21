@@ -1518,12 +1518,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.3
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -12398,8 +12398,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 154}
-  m_SizeDelta: {x: 1284, y: 524.55}
+  m_AnchoredPosition: {x: 0.0033216, y: 154}
+  m_SizeDelta: {x: 1291.2, y: 524.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &982493815
 MonoBehaviour:
@@ -13884,50 +13884,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberText: {fileID: 1636099206}
---- !u!1 &1265260006
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1265260007}
-  - component: {fileID: 1265260008}
-  m_Layer: 0
-  m_Name: EMSetter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1265260007
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265260006}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1265260008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265260006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e200fd909a1c9f4bacff2348a661e1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1276851304
 GameObject:
   m_ObjectHideFlags: 0
@@ -15743,63 +15699,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &1527001980
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2572344353611388991, guid: fd6c9f6790c16a54fb47e2ccf53882cd, type: 3}
-      propertyPath: m_Name
-      value: EM
-      objectReference: {fileID: 0}
-    - target: {fileID: 8057891257196806394, guid: fd6c9f6790c16a54fb47e2ccf53882cd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.69321275
-      objectReference: {fileID: 0}
-    - target: {fileID: 8057891257196806394, guid: fd6c9f6790c16a54fb47e2ccf53882cd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.1023066
-      objectReference: {fileID: 0}
-    - target: {fileID: 8057891257196806394, guid: fd6c9f6790c16a54fb47e2ccf53882cd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 676.60205
-      objectReference: {fileID: 0}
-    - target: {fileID: 8057891257196806394, guid: fd6c9f6790c16a54fb47e2ccf53882cd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8057891257196806394, guid: fd6c9f6790c16a54fb47e2ccf53882cd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8057891257196806394, guid: fd6c9f6790c16a54fb47e2ccf53882cd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8057891257196806394, guid: fd6c9f6790c16a54fb47e2ccf53882cd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8057891257196806394, guid: fd6c9f6790c16a54fb47e2ccf53882cd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8057891257196806394, guid: fd6c9f6790c16a54fb47e2ccf53882cd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8057891257196806394, guid: fd6c9f6790c16a54fb47e2ccf53882cd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fd6c9f6790c16a54fb47e2ccf53882cd, type: 3}
 --- !u!1 &1528544903
 GameObject:
   m_ObjectHideFlags: 0
@@ -17243,7 +17142,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1265260008}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EMSetter, Assembly-CSharp
         m_MethodName: DestroyManager
         m_Mode: 1
@@ -18321,7 +18220,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1265260008}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EMSetter, Assembly-CSharp
         m_MethodName: DestroyManager
         m_Mode: 1
@@ -18815,7 +18714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7676385023908134302, guid: 0887aab555952f443827edd75cf14bd4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9087542426777083725, guid: 0887aab555952f443827edd75cf14bd4, type: 3}
       propertyPath: m_Alpha
@@ -20968,8 +20867,6 @@ GameObject:
   - component: {fileID: 5396990769402972350}
   - component: {fileID: 5396990769402972349}
   - component: {fileID: 8952516743719737489}
-  - component: {fileID: 8952516743719737490}
-  - component: {fileID: 8952516743719737491}
   m_Layer: 0
   m_Name: Prefab_ChessAIGameManager
   m_TagString: Untagged
@@ -21142,13 +21039,13 @@ MonoBehaviour:
   TurnAdded:
     m_PersistentCalls:
       m_Calls: []
-  aiUseAllThinkTime: 1
+  aiUseAllThinkTime: 0
   enableWhiteAI: 0
   whiteChessAI:
     _classRef: ChessEngine.AI.Stockfish.StockfishChessAI, Assembly-CSharp
   whiteAIThinkTime: 1.5
   whiteAIThinkDepth: 25
-  enableBlackAI: 1
+  enableBlackAI: 0
   blackChessAI:
     _classRef: ChessEngine.AI.Stockfish.StockfishChessAI, Assembly-CSharp
   blackAIThinkTime: 1.5
@@ -21533,37 +21430,6 @@ MonoBehaviour:
   - {fileID: -2178016882823861664, guid: 36b2c1332dc730844a9d47aff856a731, type: 3}
   - {fileID: -8389456902234274603, guid: 36b2c1332dc730844a9d47aff856a731, type: 3}
   - {fileID: -2899916106760533970, guid: 36b2c1332dc730844a9d47aff856a731, type: 3}
---- !u!114 &8952516743719737490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5396990769402972338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53acfe75b71de7f418c7b8887aefee91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultEvalFilePath: nn-0000000000a0.nnue
-  defaultPathMode: 1
-  whiteELO: 1200
-  blackELO: 1200
-  PostUciInitialized:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &8952516743719737491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5396990769402972338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1909c70019181894c9bc4e79d4c0083a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &8976345912997469424
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21909,7 +21775,5 @@ SceneRoots:
   - {fileID: 1531939903}
   - {fileID: 1817923969}
   - {fileID: 1583930553}
-  - {fileID: 1527001980}
   - {fileID: 1879605129}
   - {fileID: 2118654708}
-  - {fileID: 1265260007}

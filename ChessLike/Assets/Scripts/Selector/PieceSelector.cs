@@ -70,7 +70,7 @@ public class PieceSelector : MonoBehaviour
 		aIGameManager.isPieceSelect = true;
 		aIGameManager.Deselect();
 		image = GetComponent<Image>();
-		cameraSize = FindObjectsOfType<Canvas>().Where(p => p.CompareTag("ScreenUI")).FirstOrDefault();
+		cameraSize = FindObjectsOfType<Canvas>().FirstOrDefault(p => p.CompareTag("ScreenUI"));
 
 		Vector2 scale = cameraSize.GetComponent<RectTransform>().sizeDelta;
 

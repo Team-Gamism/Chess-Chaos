@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using ChessEngine.Game.Events;
 using DG.Tweening;
-using NUnit.Framework;
 
 namespace ChessEngine.Game
 {

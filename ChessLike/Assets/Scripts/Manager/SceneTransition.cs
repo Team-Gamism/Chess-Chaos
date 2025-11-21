@@ -1,9 +1,9 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
+// 화면(씬 -> 씬, 캔버스 -> 캔버스 등)을 전환할 때 필요한 메서드들을 모아놓은 클래스입니다.
 public class SceneTransition : MonoBehaviour
 {
     private Animator animator;
@@ -16,7 +16,7 @@ public class SceneTransition : MonoBehaviour
         canvasGroup = GetComponent<CanvasGroup>();
         canvas.worldCamera = Camera.main;
         animator = GetComponent<Animator>();
-        canvasManager = FindObjectOfType<CanvasManager>();
+        canvasManager = FindFirstObjectByType<CanvasManager>();
     }
     public void LoadScene(string scene)
     {
