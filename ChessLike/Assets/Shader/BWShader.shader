@@ -9,15 +9,6 @@ Shader "UI/GrayscaleStencilMask"
     SubShader
     {
         Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" }
-        
-        Stencil
-        {
-            Ref [_StencilID]
-            Comp Equal
-            Pass Keep
-            ReadMask 255
-            WriteMask 0
-        }
 
         Pass
         {

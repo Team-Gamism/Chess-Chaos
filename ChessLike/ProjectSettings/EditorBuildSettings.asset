@@ -5,23 +5,23 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LogoScene.unity
     guid: 8797fe9a187ec9542b11748e8eb61d3f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StartScene.unity
     guid: 022745122207f25419af393aa7696562
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainScene.unity
     guid: cc0ef59171c72e14fbfc152abd8feaa6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/NormalGame.unity
     guid: e73f76baf7d153d4597de4a8e6481144
   - enabled: 0
-    path: Assets/Scenes/MainGame.unity
-    guid: 388919d68cf02ca40871b9dcb90fd0e7
-  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 0
+    path: Assets/Scenes/MultiplayTest.unity
+    guid: 6e7da3f0e25e9e74e9bb9e9da150b534
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -257,7 +257,7 @@ namespace ChessEngine.Game
             {
                 if (GameManager.isCardSelect)
                 {
-                    tableSelector = FindObjectOfType<TableSelector>();
+                    tableSelector = FindFirstObjectByType<TableSelector>();
                     if (GetVisualPiece() != null || isTileblock) return;
                     if (tableSelector.selectedTiles.Count < tableSelector.cardData.MaxZoneCnt)
                     {
