@@ -82,7 +82,7 @@ PlayerSettings:
   androidApplicationEntry: 1
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
-  runInBackground: 0
+  runInBackground: 1
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
   Force IOS Speakers When Recording: 0
@@ -684,23 +684,24 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   scriptingDefineSymbols:
-    Android: DOTWEEN;MIRROR;MIRROR_89_OR_NEWER;MIRROR_90_OR_NEWER;MIRROR_93_OR_NEWER;MIRROR_96_OR_NEWER;EDGEGAP_PLUGIN_SERVERS
-    EmbeddedLinux: DOTWEEN
-    GameCoreScarlett: DOTWEEN
-    GameCoreXboxOne: DOTWEEN
-    LinuxHeadlessSimulation: DOTWEEN
-    Nintendo Switch: DOTWEEN
-    PS4: DOTWEEN
-    PS5: DOTWEEN
-    QNX: DOTWEEN
+    Android: DOTWEEN;MIRROR;MIRROR_89_OR_NEWER;MIRROR_90_OR_NEWER;MIRROR_93_OR_NEWER;MIRROR_96_OR_NEWER;EDGEGAP_PLUGIN_SERVERS;FUSION_LOGLEVEL_INFO;FUSION_WEAVER;FUSION2;FUSION_2;FUSION_2_0;FUSION_2_0_8;FUSION_2_OR_NEWER;FUSION_2_0_OR_NEWER;QUANTUM_XY
+    EmbeddedLinux: DOTWEEN;QUANTUM_XY
+    GameCoreScarlett: DOTWEEN;QUANTUM_XY
+    GameCoreXboxOne: DOTWEEN;QUANTUM_XY
+    LinuxHeadlessSimulation: DOTWEEN;QUANTUM_XY
+    Nintendo Switch: DOTWEEN;QUANTUM_XY
+    PS4: DOTWEEN;QUANTUM_XY
+    PS5: DOTWEEN;QUANTUM_XY
+    QNX: DOTWEEN;QUANTUM_XY
+    ReservedCFE: QUANTUM_XY
     Stadia: DOTWEEN
-    Standalone: DOTWEEN
-    VisionOS: DOTWEEN
-    WebGL: DOTWEEN
-    Windows Store Apps: DOTWEEN
-    XboxOne: DOTWEEN
-    iPhone: DOTWEEN
-    tvOS: DOTWEEN
+    Standalone: DOTWEEN;QUANTUM_XY
+    VisionOS: DOTWEEN;QUANTUM_XY
+    WebGL: DOTWEEN;QUANTUM_XY
+    Windows Store Apps: DOTWEEN;QUANTUM_XY
+    XboxOne: DOTWEEN;QUANTUM_XY
+    iPhone: DOTWEEN;QUANTUM_XY
+    tvOS: DOTWEEN;QUANTUM_XY
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
@@ -726,7 +727,7 @@ PlayerSettings:
     tvOS: 1
   incrementalIl2cppBuild: {}
   suppressCommonWarnings: 1
-  allowUnsafeCode: 0
+  allowUnsafeCode: 1
   useDeterministicCompilation: 1
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
