@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowCompiledDllAfterBuild: 1
   ShowFolderAfterGeneration: 0
-  ProjectSettings: {fileID: 11400000, guid: 340b6ba3099ca324281899681e726362, type: 2}
+  ProjectSettings: {fileID: 11400000, guid: 1689dc8c8cf29fb488792dfe59f7bcd4, type: 2}
   SimulationProjectTemplate: {fileID: 4900000, guid: 2ebd97374a072da4ea30a957873ddbde, type: 3}
   RunnerProjectTemplate: {fileID: 4900000, guid: 969d2f143d1772d448bcae66829c1f5c, type: 3}
   ProjectBasePath: Quantum.Dotnet
